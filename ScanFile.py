@@ -21,11 +21,12 @@ try:
         filePath = Path(item)
         fileType = filePath.suffix.lower()
         COUNT+=1
-        #print(filePath)
-        #print(fileType)
+        print(filePath)
+        print(fileType)
 except:
     print("Done")
     COUNT_FAIL+=1
     
 print(COUNT)
 print(COUNT_FAIL)
+input()
