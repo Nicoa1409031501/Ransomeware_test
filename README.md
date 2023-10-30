@@ -1,5 +1,20 @@
 # Ransomeware_test
 I write this to support my project.
+All malicious fuctions are based on the framework,below are the twelve TTPs stages of malicious attack:
++ Reconnaissance
++ Resource Development
++ Initial Access
++ Execution
++ Persistence
++ Privilege Escalation
++ Defense Evasion
++ Credential Access
++ Discovery
++ Lateral Movement
++ Collection
++ Command and Control
++ Exfiltration
++ Impact
 ##### Detail
 ###### Lanfuage
 The Languages I use are below:
