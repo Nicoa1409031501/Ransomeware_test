@@ -1,5 +1,14 @@
-# Ransomeware_test
+Ransomeware_test
+----
 I write this to support my project.
+
+Guide
+----
+To use the resourse here,you'll need packages or others below:
++ radare2
++ os
++ pathlib
+
 All malicious fuctions are based on the framework,below are the twelve TTPs stages of malicious attack:
 + Reconnaissance
 + Resource Development
