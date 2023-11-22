@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MbXFx3WQGXpf6d01wH2RJ4LLq3sF",
+  "object":"chat.completion",
+  "created":1700398193,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python中的`subprocess`套件，可以實現Mitre&Attack中的T1053的功能，並模擬Adversaries濫用工作排程功能執行惡意程式碼。\n\n1. 使用`at`工具執行進程\n```python\nimport subprocess\n\ndef run_malicious_code_at(date, time, command):\n    subprocess.run(['at', time, date], input=bytes(command, encoding='utf-8'))\n\nrun_malicious_code_at('2022-01-01', '08:00', 'echo \"Hello World\"')\n```\n\n2. 使用`cron`工具執行進程\n```python\nimport subprocess\n\ndef schedule_malicious_code_cron(cron_expression, command):\n    subprocess.run(['echo', command, '|', 'crontab', '-'])\n\nschedule_malicious_code_cron('0 8 * * *', 'echo \"Hello World\"')\n```\n\n3. 使用`Windows Task Scheduler`工具執行進程\n```python\nimport subprocess\n\ndef schedule_malicious_code_task_scheduler(task_name, command):\n    subprocess.run(['schtasks', '/create', '/tn', task_name, '/tr', command, '/sc', 'DAILY'])\n\nschedule_malicious_code_task_scheduler('malicious_task', 'echo \"Hello World\"')\n```\n\n\n[套件使用]\n- subprocess套件：用於執行外部命令和程序\n\n[輸出檔案]\n- 無\n\n注意事項：\n- 上述程式碼僅示範功能實現的概念，實際執行上可能需要更多的驗證和安全性措施。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1092,
+    "completion_tokens":405,
+    "total_tokens":1497
+  }
+}

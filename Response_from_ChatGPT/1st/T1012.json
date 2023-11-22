@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKhez4zyfjklPTUlWhJnVTm9sAfk",
+  "object":"chat.completion",
+  "created":1700571818,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n使用Python的winreg套件進行操作。\n\n```python\nimport winreg\n\ndef query_registry(path, key):\n    try:\n        reg_key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, path, 0, winreg.KEY_READ)\n        value, _ = winreg.QueryValueEx(reg_key, key)\n        winreg.CloseKey(reg_key)\n        return value\n    except Exception as e:\n        print(\"Error:\", e)\n\n# 使用範例\nresult = query_registry(\"Software\\Microsoft\\Office\\Excel\", \"Version\")\nprint(\"Registry value:\", result)\n```\n\n方法二：\n使用Python的_winreg套件進行操作。\n\n```python\nimport _winreg\n\ndef query_registry(path, key):\n    try:\n        reg_key = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, path)\n        value, _ = _winreg.QueryValueEx(reg_key, key)\n        _winreg.CloseKey(reg_key)\n        return value\n    except Exception as e:\n        print(\"Error:\", e)\n\n# 使用範例\nresult = query_registry(\"Software\\Microsoft\\Office\\Excel\", \"Version\")\nprint(\"Registry value:\", result)\n```\n\n方法三：\n使用Python的ctypes套件進行操作。\n\n```python\nimport ctypes\n\ndef query_registry(path, key):\n    try:\n        reg_key = ctypes.windll.advapi32.RegOpenKeyExW(ctypes.c_uint(0x80000002), path, 0, ctypes.c_uint(0x20019), ctypes.byref(handle))\n        value, _ = ctypes.windll.advapi32.RegQueryValueExW(handle, key)\n        ctypes.windll.advapi32.RegCloseKey(reg_key)\n        return value\n    except Exception as e:\n        print(\"Error:\", e)\n\n# 使用範例\nresult = query_registry(\"Software\\Microsoft\\Office\\Excel\", \"Version\")\nprint(\"Registry value:\", result)\n```\n\n使用的套件：winreg, _winreg, ctypes\n\n功能：根據提供的路徑和鍵名，在Windows Registry中查詢相應的值。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":559,
+    "completion_tokens":468,
+    "total_tokens":1027
+  }
+}

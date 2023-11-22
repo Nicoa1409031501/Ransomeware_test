@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKPlrrzVIACOgD4epmCawxqMHHp5",
+  "object":"chat.completion",
+  "created":1700570709,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：使用Python內建的os套件來操作系統帳號\n\n1. 使用os模組中的getlogin()方法獲取當前使用者帳號\n2. 使用os模組中的getpwuid()方法獲取當前使用者帳號的詳細資訊\n3. 使用os模組中的listdir()方法獲取系統中所有用戶帳號的目錄列表\n4. 使用os模組中的stat()方法獲取用戶帳號的存取權限資訊\n\n使用的套件：\nimport os\n\n方法二：使用Python內建的subprocess套件與系統指令來操作系統帳號\n\n1. 使用subprocess模組中的check_output()方法執行系統指令`whoami`來獲取當前使用者帳號\n2. 使用subprocess模組中的check_output()方法執行系統指令`ls -l /Users`來獲取系統中所有用戶帳號的詳細資訊\n\n使用的套件：\nimport subprocess\n\n方法三：使用Python第三方套件pywin32來操作Windows系統帳號\n\n1. 使用pywin32模組中的win32api.GetUserName()方法獲取當前使用者帳號\n2. 使用pywin32模組中的win32net.NetUserEnum()方法獲取系統中所有用戶帳號的詳細資訊\n\n使用的套件：\nimport win32api\nimport win32net\n\n輸出檔案：\n無\n\n讀取檔案：\n無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1014,
+    "completion_tokens":455,
+    "total_tokens":1469
+  }
+}

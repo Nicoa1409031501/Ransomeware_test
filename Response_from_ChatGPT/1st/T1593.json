@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MZAqbSSTxnbfLR0nrftQsp4KEn6M",
+  "object":"chat.completion",
+  "created":1700389116,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用requests套件，透過GET請求獲取網頁內容，再使用正則表達式（re套件）擷取目標資訊。\n2. 使用BeautifulSoup套件解析HTML，並使用CSS選擇器擷取目標資訊。\n3. 使用selenium套件模擬瀏覽器行為，對目標網頁進行搜索。\n\n[套件使用]\n- requests\n- re\n- BeautifulSoup\n- selenium\n\n[功能]\n1. 使用requests套件和正則表達式擷取目標資訊：\n\n```python\nimport requests\nimport re\n\ndef search_websites(url):\n    response = requests.get(url)\n    if response.ok:\n        pattern = r\"(?<=<title>).+?(?=</title>)\"\n        matches = re.findall(pattern, response.text)\n        return matches\n    else:\n        return None\n```\n\n2. 使用BeautifulSoup套件擷取目標資訊：\n\n```python\nfrom bs4 import BeautifulSoup\nimport requests\n\ndef search_websites(url):\n    response = requests.get(url)\n    if response.ok:\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tags = soup.find_all('title')\n        titles = [tag.get_text() for tag in title_tags]\n        return titles\n    else:\n        return None\n```\n\n3. 使用selenium套件模擬瀏覽器行為搜索目標網頁：\n\n```python\nfrom selenium import webdriver\n\ndef search_websites(url):\n    options = webdriver.ChromeOptions()\n    options.add_argument('--headless')  # 在後台運行瀏覽器\n    driver = webdriver.Chrome(options=options)\n    driver.get(url)\n    titles = driver.find_elements_by_tag_name('title')\n    titles = [title.get_attribute('textContent') for title in titles]\n    driver.quit()\n    return titles\n```\n\n這些例子中，`search_websites`函數接受一個URL作為參數，然後執行相應的動作，最終返回網頁中的標題（可以根據需求更改），如果無法獲取響應或處理過程中出現錯誤，則返回`None`。你可以按照情況選擇使用其中的一個函數。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":779,
+    "completion_tokens":614,
+    "total_tokens":1393
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ma8m3yAYOnHqVcokCfzVG0N5ESV0",
+  "object":"chat.completion",
+  "created":1700392832,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用Python的subprocess模塊來執行命令和腳本\n```python\nimport subprocess\n\n# 使用subprocess.run執行命令\nresult = subprocess.run(['ls', '-l'], capture_output=True, text=True)\nprint(result.stdout)\n\n# 使用subprocess.call執行命令，並將輸出重定向到文件\nwith open('output.txt', 'w') as f:\n    subprocess.call(['ls', '-l'], stdout=f)\n```\n\n2. 使用Python的os模塊來執行命令和腳本\n```python\nimport os\n\n# 使用os.system執行命令\nos.system('ls -l')\n\n# 使用os.popen執行命令，並獲取輸出\noutput = os.popen('ls -l').read()\nprint(output)\n\n# 使用os.spawn系列方法執行命令\npid = os.spawnlp(os.P_NOWAIT, 'ls', 'ls', '-l')\n```\n\n3. 使用Python的sh模塊來執行命令和腳本\n```python\nimport sh\n\n# 直接執行命令\nsh.ls('-l')\n\n# 執行命令並獲取輸出\noutput = sh.ls('-l', _out=str)\nprint(output)\n\n# 執行腳本文件\nsh.python('script.py')\n```\n\n輸出檔案：\n- output.txt (第1個例子中使用subprocess.call重定向的輸出文件)\n\n引用的套件：\n- subprocess\n- os\n- sh"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1324,
+    "completion_tokens":388,
+    "total_tokens":1712
+  }
+}

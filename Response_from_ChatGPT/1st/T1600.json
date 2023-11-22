@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MdoCp8qD5V7QwGJegcGmaXxIqDxg",
+  "object":"chat.completion",
+  "created":1700406932,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方法一：\n使用Python中的cryptography套件，使用AES算法來加密和解密數據。在解密數據時，可以使用不同的密鑰長度來達到降低密碼強度的目的。\n\n```python\nfrom cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes\nfrom cryptography.hazmat.backends import default_backend\nfrom cryptography.hazmat.primitives import padding\n\ndef encrypt(data, key):\n    backend = default_backend()\n    cipher = Cipher(algorithms.AES(key), modes.ECB(), backend=backend)\n    encryptor = cipher.encryptor()\n    padder = padding.PKCS7(algorithms.AES.block_size).padder()\n    padded_data = padder.update(data) + padder.finalize()\n    return encryptor.update(padded_data) + encryptor.finalize()\n\ndef decrypt(encrypted_data, key):\n    backend = default_backend()\n    cipher = Cipher(algorithms.AES(key), modes.ECB(), backend=backend)\n    decryptor = cipher.decryptor()\n    unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()\n    decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()\n    return unpadder.update(decrypted_data) + unpadder.finalize()\n\n# Example usage\ndata = b\"This is a secret message\"\nkey = b\"supersecretpassword\"\n\nencrypted_data = encrypt(data, key)\nprint(f\"Encrypted data: {encrypted_data}\")\n\ndecrypted_data = decrypt(encrypted_data, key)\nprint(f\"Decrypted data: {decrypted_data}\")\n```\n\n方法二：\n使用Python中的pycryptodomex套件來加密和解密數據。同樣地，在解密數據時，可以使用不同的密鑰長度來達到降低密碼強度的目的。\n\n```python\nfrom Cryptodome.Cipher import AES\nfrom Cryptodome.Util.Padding import pad, unpad\n\ndef encrypt(data, key):\n    cipher = AES.new(key, AES.MODE_ECB)\n    padded_data = pad(data, AES.block_size)\n    return cipher.encrypt(padded_data)\n\ndef decrypt(encrypted_data, key):\n    cipher = AES.new(key, AES.MODE_ECB)\n    decrypted_data = cipher.decrypt(encrypted_data)\n    return unpad(decrypted_data, AES.block_size)\n\n# Example usage\ndata = b\"This is a secret message\"\nkey = b\"supersecretpassword\"\n\nencrypted_data = encrypt(data, key)\nprint(f\"Encrypted data: {encrypted_data}\")\n\ndecrypted_data = decrypt(encrypted_data, key)\nprint(f\"Decrypted data: {decrypted_data}\")\n```\n\n方法三：\n使用Python中的pycryptodome套件來加密和解密數據。同樣地，在解密數據時，可以使用不同的密鑰長度來達到降低密碼強度的目的。\n\n```python\nfrom Crypto.Cipher import AES\nfrom Crypto.Util.Padding import pad, unpad\n\ndef encrypt(data, key):\n    cipher = AES.new(key, AES.MODE_ECB)\n    padded_data = pad(data, AES.block_size)\n    return cipher.encrypt(padded_data)\n\ndef decrypt(encrypted_data, key):\n    cipher = AES.new(key, AES.MODE_ECB)\n    decrypted_data = cipher.decrypt(encrypted_data)\n    return unpad(decrypted_data, AES.block_size)\n\n# Example usage\ndata = b\"This is a secret message\"\nkey = b\"supersecretpassword\"\n\nencrypted_data = encrypt(data, key)\nprint(f\"Encrypted data: {encrypted_data}\")\n\ndecrypted_data = decrypt(encrypted_data, key)\nprint(f\"Decrypted data: {decrypted_data}\")\n```\n\n以上三種方法都使用AES算法來加密和解密數據，可以通過調整密鑰長度來達到降低密碼強度的目的。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":639,
+    "completion_tokens":901,
+    "total_tokens":1540
+  }
+}

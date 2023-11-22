@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MfBMvUDfWF221gJ21mCNeiYuME3e",
+  "object":"chat.completion",
+  "created":1700412212,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一:\n使用Python的os模組和正則表達式來查找Group Policy設定的路徑。\n\n```python\nimport os\nimport re\n\ndef find_group_policy():\n    group_policy_paths = []\n    domain_path = \"<DOMAIN>\\\\SYSVOL\\\\<DOMAIN>\\\\Policies\\\\\"\n\n    for root, dirs, files in os.walk(domain_path):\n        for file in files:\n            if re.match(r\"^[A-Fa-f0-9]{8}-([A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}$\", file):\n                group_policy_paths.append(os.path.join(root, file))\n\n    return group_policy_paths\n\n# 測試程式碼\ngroup_policy_paths = find_group_policy()\nfor path in group_policy_paths:\n    print(path)\n```\n\n方法二:\n使用Python的glob模組來查找Group Policy設定的路徑。\n\n```python\nimport glob\n\ndef find_group_policy():\n    group_policy_paths = []\n    domain_path = \"<DOMAIN>\\\\SYSVOL\\\\<DOMAIN>\\\\Policies\\\\\"\n    pattern = domain_path + \"**/*\"\n\n    for file in glob.glob(pattern, recursive=True):\n        if len(file.split('\\\\')) == 8:\n            group_policy_paths.append(file)\n\n    return group_policy_paths\n\n# 測試程式碼\ngroup_policy_paths = find_group_policy()\nfor path in group_policy_paths:\n    print(path)\n```\n\n方法三:\n使用Python的shutil模組來查找Group Policy設定的路徑。\n\n```python\nimport shutil\n\ndef find_group_policy():\n    group_policy_paths = []\n    domain_path = \"<DOMAIN>\\\\SYSVOL\\\\<DOMAIN>\\\\Policies\\\\\"\n    \n    for root, dirs, files in os.walk(domain_path):\n        for dir in dirs:\n            if len(dir.split('\\\\')) == 8:\n                group_policy_paths.append(os.path.join(root, dir))\n\n    return group_policy_paths\n\n# 測試程式碼\ngroup_policy_paths = find_group_policy()\nfor path in group_policy_paths:\n    print(path)\n```\n\n套件使用:\n- os模組: 用於操作路徑和檔案\n- re模組: 用於檢查檔案名稱是否符合GUID格式\n- glob模組: 用於查找符合指定檔案模式的路徑\n- shutil模組: 提供高層次的檔案操作功能"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":634,
+    "completion_tokens":567,
+    "total_tokens":1201
+  }
+}

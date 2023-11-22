@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIy3LMe9NObCIaGaaw9SsMX5S6En",
+  "object":"chat.completion",
+  "created":1700326819,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方式一：\nimport os\n\ndef search_files(directory, extensions):\n    files_of_interest = []\n    for root, dirs, files in os.walk(directory):\n        for file in files:\n            for extension in extensions:\n                if file.endswith(extension):\n                    files_of_interest.append(os.path.join(root, file))\n    return files_of_interest\n\n# Example usage\ndirectory = \"/path/to/search/directory\"\nextensions = [\".txt\", \".docx\", \".xlsx\"]\nresult = search_files(directory, extensions)\nprint(result)\n\n方式二：\nimport glob\n\ndef search_files(directory, extensions):\n    files_of_interest = []\n    for extension in extensions:\n        files_of_interest.extend(glob.glob(directory + \"/**/*\" + extension, recursive=True))\n    return files_of_interest\n\n# Example usage\ndirectory = \"/path/to/search/directory\"\nextensions = [\".txt\", \".docx\", \".xlsx\"]\nresult = search_files(directory, extensions)\nprint(result)\n\n方式三：\nimport fnmatch\n\ndef search_files(directory, pattern):\n    files_of_interest = []\n    for root, dirs, files in os.walk(directory):\n        for filename in fnmatch.filter(files, pattern):\n            files_of_interest.append(os.path.join(root, filename))\n    return files_of_interest\n\n# Example usage\ndirectory = \"/path/to/search/directory\"\npattern = \"*.txt\"  # You can use wildcard pattern here (e.g., \"*.txt\" for all text files)\nresult = search_files(directory, pattern)\nprint(result)\n\n輸出檔案：無\n\n* 請將\"/path/to/search/directory\"替換為實際的搜尋目錄\n* 請將extensions或pattern替換為實際的搜尋條件，可以是一個擴展名的列表（方式一和二），或一個符合Unix shell規則的pattern（方式三）"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":573,
+    "completion_tokens":419,
+    "total_tokens":992
+  }
+}

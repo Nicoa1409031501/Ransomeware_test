@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NUpeJjVw5io6XZkXczbEiHmC7TFe",
+  "object":"chat.completion",
+  "created":1700610754,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用的套件：\n1. psutil\n\n實現方式1：\n```python\nimport psutil\n\ndef check_cpu_usage():\n    cpu_usage = psutil.cpu_percent(interval=1)\n    \n    if cpu_usage > 80:  # 假設超過80%的 CPU 使用率視為資源被占用\n        return True\n    else:\n        return False\n\ndef resource_hijacking_detection():\n    if check_cpu_usage():\n        print(\"Resource hijacking detected!\")\n    else:\n        print(\"No resource hijacking detected.\")\n        \nresource_hijacking_detection()\n```\n\n實現方式2：\n```python\nimport psutil\n\ndef check_cpu_usage():\n    cpu_usage = psutil.cpu_percent(interval=1)\n    \n    if cpu_usage > 80:  # 假設超過80%的 CPU 使用率視為資源被占用\n        return True\n    else:\n        return False\n\ndef resource_hijacking_detection():\n    if check_cpu_usage():\n        with open('resource_hijacking_log.txt', 'a') as f:  # 將偵測結果輸出至檔案\n            f.write(\"Resource hijacking detected!\\n\")\n    else:\n        with open('resource_hijacking_log.txt', 'a') as f:  # 將偵測結果輸出至檔案\n            f.write(\"No resource hijacking detected.\\n\")\n        \nresource_hijacking_detection()\n```\n\n實現方式3：\n```python\nimport psutil\n\ndef check_cpu_usage():\n    cpu_usage = psutil.cpu_percent(interval=1)\n    \n    if cpu_usage > 80:  # 假設超過80%的 CPU 使用率視為資源被占用\n        return True\n    else:\n        return False\n\ndef resource_hijacking_detection():\n    if check_cpu_usage():\n        # 發送警報郵件\n        send_email('admin@example.com', 'Resource hijacking detected!')\n        \ndef send_email(receiver, content):\n    # 使用 email 模組來發送郵件\n    import smtplib\n    from email.mime.text import MIMEText\n    \n    msg = MIMEText(content)\n    msg['Subject'] = 'Resource hijacking alert'\n    msg['From'] = 'noreply@example.com'\n    msg['To'] = receiver\n    \n    with smtplib.SMTP('smtp.example.com', 25) as smtp:\n        smtp.send_message(msg)\n        \nresource_hijacking_detection()\n```\n\n以上可以檢查系統的 CPU 使用率，當超過一定閾值時偵測為資源被占用，並可以將偵測結果輸出至檔案或發送警報郵件。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":567,
+    "completion_tokens":649,
+    "total_tokens":1216
+  }
+}

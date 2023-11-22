@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MfElPmiEyu7p31vyASnaP2bbZKfx",
+  "object":"chat.completion",
+  "created":1700412423,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法1:\n\n```python\nimport socket\n\ndef network_service_discovery(target_ip):\n    open_ports = []\n    \n    # Scan common ports\n    for port in range(1, 1025):\n        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        sock.settimeout(1)\n        result = sock.connect_ex((target_ip, port))\n        if result == 0:\n            open_ports.append(port)\n        sock.close()\n    \n    return open_ports\n\ntarget_ip = '192.168.0.1'\nresult = network_service_discovery(target_ip)\nprint(result)\n```\n\n方法2:\n\n```python\nimport nmap\n\ndef network_service_discovery(target_ip):\n    nm = nmap.PortScanner()\n    nm.scan(target_ip, '1-1024')\n    \n    open_ports = []\n    for host in nm.all_hosts():\n        for port in nm[host].all_tcp():\n            if nm[host]['tcp'][port]['state'] == 'open':\n                open_ports.append(port)\n    \n    return open_ports\n\ntarget_ip = '192.168.0.1'\nresult = network_service_discovery(target_ip)\nprint(result)\n```\n\n方法3:\n\n```python\nimport subprocess\n\ndef network_service_discovery(target_ip):\n    command = f'nmap -p 1-1024 {target_ip}'\n    result = subprocess.run(command, shell=True, capture_output=True, text=True)\n    \n    open_ports = []\n    for line in result.stdout.splitlines():\n        if '/tcp' in line and 'open' in line:\n            port = line.split('/')[0]\n            open_ports.append(port)\n    \n    return open_ports\n\ntarget_ip = '192.168.0.1'\nresult = network_service_discovery(target_ip)\nprint(result)\n```\n\n這三種實現方式都可以透過掃描目標IP的開放端口來進行網路服務發現。第一種方法使用原生的socket模組，逐個掃描1到1024範圍內的端口；第二種方法使用nmap模組進行端口掃描；第三種方法使用subprocess模組執行nmap命令來進行掃描。\n```\n\n可能的輸出:\n```python\n[22, 80, 443]\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":593,
+    "completion_tokens":527,
+    "total_tokens":1120
+  }
+}

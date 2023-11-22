@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MZ6kB6mXEpsFV7mhycLN8g1rR1w1",
+  "object":"chat.completion",
+  "created":1700388862,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n使用Python撰寫Mitre&Attack中的T1597 \"Search Closed Sources\"。\n\n解決方案一：\nimport requests\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_url = \"https://example.com/threat_vendor_feed\"\n    response = requests.get(threat_vendor_feed_url)\n    result.append(response.json())  # 將資訊存入結果列表中\n    \n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_url = \"https://example.com/scan_database\"\n    response = requests.get(scan_database_url)\n    result.append(response.json())  # 將資訊存入結果列表中\n    \n    return result\n\n解決方案二：\nimport urllib.request\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_url = \"https://example.com/threat_vendor_feed\"\n    response = urllib.request.urlopen(threat_vendor_feed_url)\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n\n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_url = \"https://example.com/scan_database\"\n    response = urllib.request.urlopen(scan_database_url)\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n    \n    return result\n\n解決方案三：\nimport http.client\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_host = \"example.com\"\n    threat_vendor_feed_path = \"/threat_vendor_feed\"\n    connection = http.client.HTTPSConnection(threat_vendor_feed_host)\n    connection.request(\"GET\", threat_vendor_feed_path)\n    response = connection.getresponse()\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n\n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_host = \"example.com\"\n    scan_database_path = \"/scan_database\"\n    connection = http.client.HTTPSConnection(scan_database_host)\n    connection.request(\"GET\", scan_database_path)\n    response = connection.getresponse()\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n    \n    return result\n\n以上三種解決方案都使用了requests或urllib套件進行網路請求，取得相應的資料。資料存儲在result列表中，以供後續處理使用。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":769,
+    "completion_tokens":718,
+    "total_tokens":1487
+  }
+}

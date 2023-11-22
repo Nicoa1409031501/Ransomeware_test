@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MeK3S4EsxSZ0mhug9Ss24Yki8Lw3",
+  "object":"chat.completion",
+  "created":1700408907,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n1. 實現方法一：\n\n```python\nimport requests\n\ndef forge_web_credentials_cookies(url, cookies):\n    headers = {\n        'Cookie': cookies\n    }\n    response = requests.get(url, headers=headers)\n    # ... handle response\n\n# 調用範例\nforge_web_credentials_cookies('http://example.com', 'session=123456789')\n```\n\n2. 實現方法二：\n\n```python\nfrom http.cookiejar import CookieJar\nimport urllib.request\n\ndef forge_web_credentials_cookies(url, cookies):\n    cookiejar = CookieJar()\n    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookiejar))\n    opener.addheaders.append(('Cookie', cookies))\n    response = opener.open(url)\n    # ... handle response\n\n# 調用範例\nforge_web_credentials_cookies('http://example.com', 'session=123456789')\n```\n\n3. 實現方法三：\n\n```python\nimport http.cookiejar\nimport urllib.request\n\ndef forge_web_credentials_cookies(url, cookies):\n    cookiejar = http.cookiejar.CookieJar()\n    cookie = http.cookiejar.Cookie(version=0, name='session', value=cookies, port=None, port_specified=False,\n                                    domain='', domain_specified=False, domain_initial_dot=False, path='',\n                                    path_specified=False, secure=False, expires=None, discard=False, comment=None,\n                                    comment_url=None, rest={}, rfc2109=False)\n    cookiejar.set_cookie(cookie)\n    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookiejar))\n    response = opener.open(url)\n    # ... handle response\n\n# 調用範例\nforge_web_credentials_cookies('http://example.com', 'session=123456789')\n```\n\n[使用套件]：\n- requests\n- http.cookiejar\n- urllib.request\n\n[輸出檔案]：無\n\n[讀取檔案]：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":760,
+    "completion_tokens":416,
+    "total_tokens":1176
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NMErhQuCfjmIicWVm6GQJF4dtsTk",
+  "object":"chat.completion",
+  "created":1700577721,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] \n\n以下是使用Python實現T1482 - Domain Trust Discovery的三種寫法：\n\n寫法一：\n```\nimport subprocess\n\ndef enumerate_domain_trusts():\n    command = \"nltest /domain_trusts\"\n    output = subprocess.check_output(command, shell=True)\n    return output.decode('utf-8')\n\nresult = enumerate_domain_trusts()\nprint(result)\n```\n\n寫法二：\n```\nfrom ldap3 import Server, Connection\n\ndef enumerate_domain_trusts():\n    server = Server('ldap://<domain_controller_ip>')\n    conn = Connection(server)\n    conn.bind()\n    conn.search('CN=Partitions,CN=Configuration,<root_domain>', '(objectClass=trustedDomain)', attributes=['name'])\n    return conn.entries\n\nresult = enumerate_domain_trusts()\nfor entry in result:\n    print(entry.name)\n\n```\n\n寫法三：\n```\nimport win32net\n\ndef enumerate_domain_trusts():\n    domains, total, resume_handle = win32net.NetEnumerateTrustedDomains()\n    return domains\n\nresult = enumerate_domain_trusts()\nfor domain in result:\n    print(domain['name'])\n```\n\n以上三種寫法都是用不同的方法來列舉域信任。寫法一是使用nltest命令行工具來獲取域信任的資訊。寫法二是使用ldap3套件連接域控制器的LDAP服務，並搜索trustedDomain的objectClass。寫法三則是使用pywin32的win32net模組來調用NetEnumerateTrustedDomains()函數來獲取域信任。\n\n注意：在實際使用中，需要替換相應的參數，例如LDAP服務器的IP和根域名。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":673,
+    "completion_tokens":424,
+    "total_tokens":1097
+  }
+}

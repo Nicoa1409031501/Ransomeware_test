@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKeSr6gmW15bBsllhvb7oiH94iSK",
+  "object":"chat.completion",
+  "created":1700571620,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方式一:\n```python\nimport scapy.all as scapy\n\ndef sniff_network_traffic(interface):\n    scapy.sniff(iface=interface, prn=lambda x: x.summary())\n\n# 執行\nsniff_network_traffic(\"eth0\")\n```\n套件: scapy\n功能: 使用scapy套件進行網路封包擷取，顯示封包摘要。\n\n方式二:\n```python\nimport pyshark\n\ndef sniff_network_traffic(interface):\n    capture = pyshark.LiveCapture(interface=interface)\n    for packet in capture.sniff_continuously():\n        print(packet)\n\n# 執行\nsniff_network_traffic(\"eth0\")\n```\n套件: pyshark\n功能: 使用pyshark套件進行網路封包擷取，顯示封包內容。\n\n方式三:\n```python\nimport socket\n\ndef sniff_network_traffic():\n    sock = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(0x0003))\n    while True:\n        packet, addr = sock.recvfrom(65535)\n        print(packet)\n\n# 執行\nsniff_network_traffic()\n```\n套件: socket\n功能: 使用socket套件進行網路封包擷取，顯示封包內容。\n\n方式四:\n```python\nfrom scapy.all import *\nfrom scapy.layers.http import HTTPRequest\n\ndef sniff_network_traffic(interface):\n    sniff(iface=interface, filter=\"tcp port 80\", prn=lambda x: x.show())\n\n# 執行\nsniff_network_traffic(\"eth0\")\n```\n套件: scapy\n功能: 使用scapy套件進行網路封包擷取，顯示HTTP封包內容。\n\n方式五:\n```python\nimport subprocess\n\ndef sniff_network_traffic(interface):\n    command = f\"tcpdump -i {interface}\"\n    subprocess.call(command.split())\n\n# 執行\nsniff_network_traffic(\"eth0\")\n```\n功能: 使用subprocess模組呼叫系統指令tcpdump進行網路封包擷取。\n\n注意事項:\n- 執行方式一需要安裝scapy套件，可以使用`pip install scapy`進行安裝。\n- 執行方式二需要安裝pyshark套件，可以使用`pip install pyshark`進行安裝。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":621,
+    "completion_tokens":571,
+    "total_tokens":1192
+  }
+}

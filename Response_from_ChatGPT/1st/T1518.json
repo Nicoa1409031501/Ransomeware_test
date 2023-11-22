@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NMHtb5mhs1dgie76CvIIywRnvEMM",
+  "object":"chat.completion",
+  "created":1700577909,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n解法一：\n使用Python的subprocess模組，執行系統命令\"wmic product get name,version\"來取得已安裝軟體的列表及版本號。\n```python\nimport subprocess\n\ndef get_installed_software():\n    try:\n        result = subprocess.check_output('wmic product get name,version', shell=True)\n        software_list = result.decode('utf-8').split('\\n')[1:-1]\n        return software_list\n    except subprocess.CalledProcessError:\n        return None\n\ninstalled_software = get_installed_software()\nfor software in installed_software:\n    print(software)\n```\n\n解法二：\n使用Python的psutil套件，遍歷系統的進程列表，並檢查每個進程是否有可辨識的執行檔，以此來獲取已安裝軟體的列表。\n```python\nimport psutil\n\ndef get_installed_software():\n    software_list = []\n    for proc in psutil.process_iter(['name']):\n        try:\n            process_name = proc.info['name']\n            if process_name != \"\" and process_name not in software_list:\n                software_list.append(process_name)\n        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):\n            pass\n    return software_list\n\ninstalled_software = get_installed_software()\nfor software in installed_software:\n    print(software)\n```\n\n解法三：\n使用Python的pywin32套件，利用WMI（Windows Management Instrumentation）來獲取已安裝軟體的列表。\n```python\nimport win32com.client\n\ndef get_installed_software():\n    software_list = []\n    wmi = win32com.client.GetObject(\"winmgmts:\")\n    colItems = wmi.ExecQuery(\"SELECT * FROM Win32_Product\")\n    for item in colItems:\n        software_list.append(item.Name)\n    return software_list\n\ninstalled_software = get_installed_software()\nfor software in installed_software:\n    print(software)\n```\n\n以上解法皆可獲取到已安裝軟體的列表，但以方式一和方式三來說，還能夠獲取到軟體的版本號。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":686,
+    "completion_tokens":529,
+    "total_tokens":1215
+  }
+}

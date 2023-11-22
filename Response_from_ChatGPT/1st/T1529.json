@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NUqni7dltlRXpkXnw9mXt3U58bah",
+  "object":"chat.completion",
+  "created":1700610825,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可行實現]\n\n使用Python，我們可以使用`os`模塊中的`system`函數來實現System Shutdown/Reboot功能。以下是三種不同的實現方式：\n\n方法一：\n\n```python\nimport os\n\n# 1. 使用shutdown命令關閉系統\nos.system(\"shutdown /s /t 0\")\n```\n\n方法二：\n\n```python\nimport os\n\n# 2. 使用shutdown命令重新啟動系統\nos.system(\"shutdown /r /t 0\")\n```\n\n方法三：\n\n```python\nimport os\n\n# 3. 使用shutdown命令取消已計劃的關機或重新啟動\nos.system(\"shutdown /a\")\n```\n\n這些方法使用了`os.system`函數來呼叫操作系統命令行，並傳遞相應的參數來實現System Shutdown/Reboot功能。\n\n如果需要將程式碼封裝成可呼叫的函數，可以使用以下程式碼：\n\n```python\nimport os\n\ndef system_shutdown():\n    os.system(\"shutdown /s /t 0\")\n    \ndef system_reboot():\n    os.system(\"shutdown /r /t 0\")\n    \ndef cancel_shutdown():\n    os.system(\"shutdown /a\")\n```\n\n這樣你就可以直接呼叫`system_shutdown`、`system_reboot`和`cancel_shutdown`函數來執行相應的操作了。\n\n輸出檔案：無\n讀取檔案：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":614,
+    "completion_tokens":391,
+    "total_tokens":1005
+  }
+}

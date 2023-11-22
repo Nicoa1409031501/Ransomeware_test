@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKKvv8FCZhkWWBjMRv0fwXVa3k6k",
+  "object":"chat.completion",
+  "created":1700570409,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n\n```python\nimport subprocess\n\ndef run_command(command):\n    subprocess.call(command, shell=True)\n\n# 使用subprocess.call()執行指定的命令\nrun_command(\"notepad.exe\")\n```\n\n方法二：\n\n```python\nimport os\n\ndef run_command(command):\n    os.system(command)\n\n# 使用os.system()執行指定的命令\nrun_command(\"notepad.exe\")\n```\n\n方法三：\n\n```python\nimport ctypes\n\ndef run_command(command):\n    ctypes.windll.shell32.ShellExecuteW(None, \"open\", \"cmd.exe\", \"/c \" + command, None, 1)\n\n# 使用ctypes.windll.shell32.ShellExecuteW()執行指定的命令\nrun_command(\"notepad.exe\")\n```\n\n這些方法都使用了相應的系統函數，以執行指定的命令（此例中為執行notepad.exe）。根據指定的命令和參數，輸出可視為達成目標的方式之一。\n\n如果你有其他特定的命令需要執行，只需將指令以字串的形式傳遞給`run_command()`函數即可。\n\n請注意，這些方法可能需要權限或系統設定的適配性，並且用戶應小心使用這些方法，以確保不被濫用。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":637,
+    "completion_tokens":359,
+    "total_tokens":996
+  }
+}

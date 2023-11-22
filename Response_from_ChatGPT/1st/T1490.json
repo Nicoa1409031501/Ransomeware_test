@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NOme2816LKQ22o08EI7vnJpA1BwR",
+  "object":"chat.completion",
+  "created":1700587504,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方式一：\n使用Python的os模組，在Windows系統上執行命令來停用指定的服務。\n\n```python\nimport os\n\ndef inhibit_system_recovery(service_name):\n    os.system(f\"net stop {service_name}\")\n\n# 使用範例\ninhibit_system_recovery(\"BITS\")\n```\n\n方式二：\n使用Python的subprocess模組，在Windows系統上執行命令來停用指定的服務。\n\n```python\nimport subprocess\n\ndef inhibit_system_recovery(service_name):\n    subprocess.run([\"net\", \"stop\", service_name], shell=True)\n\n# 使用範例\ninhibit_system_recovery(\"BITS\")\n```\n\n方式三：\n使用Python的WMI模組，透過WMI服務來停用指定的服務。\n\n```python\nimport wmi\n\ndef inhibit_system_recovery(service_name):\n    c = wmi.WMI()\n    service = c.Win32_Service(Name=service_name)\n    for s in service:\n        s.StopService()\n\n# 使用範例\ninhibit_system_recovery(\"BITS\")\n```\n\n[參考套件]\n- os：用於執行系統命令\n- subprocess：用於執行系統命令\n- wmi：用於與WMI服務進行交互\n\n[達成目標的方式]\n- 停用指定的服務，這裡以停用 BITS 服務為例\n\n[輸出檔案]\n無\n\n[讀取檔案]\n無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":578,
+    "completion_tokens":370,
+    "total_tokens":948
+  }
+}

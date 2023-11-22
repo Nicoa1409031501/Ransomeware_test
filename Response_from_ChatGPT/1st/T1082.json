@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKuM5jRXwL6eRdOcAiXeO9NBujoN",
+  "object":"chat.completion",
+  "created":1700572606,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python的subprocess模組，執行wmic命令來獲取系統信息。\n\n第一種寫法：\n\n```python\nimport subprocess\n\ndef get_system_info():\n    result = subprocess.run(['wmic', 'os', 'get', 'Caption, Version, CSName, Architecture'], capture_output=True, text=True)\n    output = result.stdout\n    # 可以將output寫入檔案或進行其他處理\n    print(output)\n\nget_system_info()\n```\n\n第二種寫法：\n\n```python\nimport subprocess\n\ndef get_system_info():\n    cmd = 'wmic os get Caption, Version, CSName, Architecture'\n    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)\n    output, error = process.communicate()\n    # 可以將output寫入檔案或進行其他處理\n    print(output.decode())\n\nget_system_info()\n```\n\n第三種寫法：\n\n```python\nimport os\n\ndef get_system_info():\n    cmd = 'wmic os get Caption, Version, CSName, Architecture'\n    output = os.popen(cmd).read()\n    # 可以將output寫入檔案或進行其他處理\n    print(output)\n\nget_system_info()\n```\n\n以上三種寫法都使用了Python的subprocess模組來執行wmic命令，透過這個命令可以獲取系統的Caption、Version、CSName和Architecture等信息。你可以根據需要將這些信息寫入檔案或進行其他相關處理。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":605,
+    "completion_tokens":392,
+    "total_tokens":997
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MbkzyenhDsvsCj2I4psZV6JnLzMv",
+  "object":"chat.completion",
+  "created":1700399045,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n**方式一：使用Python內建的`subprocess`模組**\n\n```python\nimport subprocess\n\n# 使用BITSAdmin指令創建一個BITS job\nsubprocess.run([\"bitsadmin\", \"/create\", \"myjob\"])\n\n# 將指定檔案加入到BITS job中\nsubprocess.run([\"bitsadmin\", \"/addfile\", \"myjob\", \"C:\\\\path\\\\to\\\\file.txt\"])\n\n# 啟動或恢復BITS job\nsubprocess.run([\"bitsadmin\", \"/resume\", \"myjob\"])\n\n# 暫停BITS job\nsubprocess.run([\"bitsadmin\", \"/suspend\", \"myjob\"])\n\n# 刪除BITS job\nsubprocess.run([\"bitsadmin\", \"/cancel\", \"myjob\"])\n```\n\n**方式二：使用`pywin32`套件**\n\n```python\nimport win32com.client\n\n# 創建一個BITS job\nbits = win32com.client.Dispatch(\"Bits.Ibits\")\n\njob = bits.CreateJob()\n\n# 將指定檔案加入到BITS job中\njob.AddFile(\"C:\\\\path\\\\to\\\\file.txt\")\n\n# 啟動或恢復BITS job\njob.Resume()\n\n# 暫停BITS job\njob.Suspend()\n\n# 刪除BITS job\njob.Cancel()\n```\n\n**方式三：使用`win32net`套件**\n\n```python\nimport win32net\n\n# 使用NetScheduleJobAdd函式創建一個BITS job\nwin32net.NetScheduleJobAdd(None, {\n    \"ServerName\": None,\n    \"TriggerType\": 0,  # 立即觸發\n    \"Command\": \"C:\\\\path\\\\to\\\\file.bat\",  # 欲執行的檔案路徑\n    \"StartTime\": 0,  # 開始時間（立即）\n    \"MinutesDuration\": 0,  # 執行時間（無限）\n    \"Flags\": 1  # 隱藏視窗\n})\n\n# 使用NetScheduleJobDel函式刪除BITS job\nwin32net.NetScheduleJobDel(None, \"JobName\")\n```\n\n以上三種方式都可以使用Python來控制BITS job的創建、檔案加入、啟動/恢復、暫停和刪除等操作。具體使用哪種方式取決於你的需求和環境。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":636,
+    "completion_tokens":558,
+    "total_tokens":1194
+  }
+}

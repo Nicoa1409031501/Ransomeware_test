@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Mem9IwY1cnBxGsmwMYj0V8V0Blr2",
+  "object":"chat.completion",
+  "created":1700410649,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n使用Python撰寫Mitre&Attack中的T1087 - Account Discovery，我們可以使用以下幾種寫法。\n\n寫法一：\n套件：\n- subprocess\n\n程式碼：\n\nimport subprocess\n\ndef get_local_accounts():\n    result = subprocess.run(['net', 'user'], capture_output=True, text=True)\n    output = result.stdout.strip()\n    \n    accounts = []\n    \n    for line in output.split('\\n')[4:]:\n        account = line.split(' ')[0]\n        accounts.append(account)\n    \n    return accounts\n\ndef get_domain_accounts():\n    result = subprocess.run(['net', 'users', '/domain'], capture_output=True, text=True)\n    output = result.stdout.strip()\n    \n    accounts = []\n    \n    for line in output.split('\\n')[4:]:\n        account = line.split(' ')[0]\n        accounts.append(account)\n    \n    return accounts\n\ndef get_email_accounts():\n    # TODO: Implement method to retrieve email accounts\n    \n    return []\n\ndef get_cloud_accounts():\n    # TODO: Implement method to retrieve cloud accounts\n    \n    return []\n\nprint(\"Local Accounts:\")\nprint(get_local_accounts())\n\nprint(\"\\nDomain Accounts:\")\nprint(get_domain_accounts())\n\nprint(\"\\nEmail Accounts:\")\nprint(get_email_accounts())\n\nprint(\"\\nCloud Accounts:\")\nprint(get_cloud_accounts())\n\n寫法二：\n套件：\n- subprocess\n\n程式碼：\n\nimport subprocess\n\ndef execute_command(command):\n    result = subprocess.run(command, capture_output=True, text=True)\n    output = result.stdout.strip()\n    \n    return output\n\ndef parse_accounts(output):\n    accounts = []\n    \n    for line in output.split('\\n')[4:]:\n        account = line.split(' ')[0]\n        accounts.append(account)\n    \n    return accounts\n\ndef get_local_accounts():\n    output = execute_command(['net', 'user'])\n    accounts = parse_accounts(output)\n    \n    return accounts\n\ndef get_domain_accounts():\n    output = execute_command(['net', 'users', '/domain'])\n    accounts = parse_accounts(output)\n    \n    return accounts\n\ndef get_email_accounts():\n    # TODO: Implement method to retrieve email accounts\n    \n    return []\n\ndef get_cloud_accounts():\n    # TODO: Implement method to retrieve cloud accounts\n    \n    return []\n\nprint(\"Local Accounts:\")\nprint(get_local_accounts())\n\nprint(\"\\nDomain Accounts:\")\nprint(get_domain_accounts())\n\nprint(\"\\nEmail Accounts:\")\nprint(get_email_accounts())\n\nprint(\"\\nCloud Accounts:\")\nprint(get_cloud_accounts())\n\n寫法三：\n套件：\n- pywin32\n\n程式碼：\n\nimport win32com.client\n\ndef get_local_accounts():\n    obj = win32com.client.Dispatch(\"WScript.Network\")\n    accounts = obj.EnumLocalAccounts()\n    \n    return accounts\n\ndef get_domain_accounts():\n    obj = win32com.client.Dispatch(\"WScript.Network\")\n    accounts = obj.EnumDomainAccounts()\n    \n    return accounts\n\ndef get_email_accounts():\n    # TODO: Implement method to retrieve email accounts\n    \n    return []\n\ndef get_cloud_accounts():\n    # TODO: Implement method to retrieve cloud accounts\n    \n    return []\n\nprint(\"Local Accounts:\")\nprint(get_local_accounts())\n\nprint(\"\\nDomain Accounts:\")\nprint(get_domain_accounts())\n\nprint(\"\\nEmail Accounts:\")\nprint(get_email_accounts())\n\nprint(\"\\nCloud Accounts:\")\nprint(get_cloud_accounts())"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":779,
+    "completion_tokens":675,
+    "total_tokens":1454
+  }
+}

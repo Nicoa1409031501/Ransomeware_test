@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Mb8U5J4HHw0t4QbVAkWYoiHENB6S",
+  "object":"chat.completion",
+  "created":1700396658,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種使用Python實現Mitre ATT&CK中T1653 Power Settings的方式：\n\n方式一：\n\n使用os模組的system函數來執行命令，將電腦的hibernate選項關閉：\n\n```python\nimport os\n\ndef disable_hibernate():\n    os.system(\"powercfg /hibernate off\")\n\ndisable_hibernate()\n```\n\n方式二：\n\n使用subprocess模組的run函數來執行命令，將電腦的reboot選項關閉：\n\n```python\nimport subprocess\n\ndef disable_reboot():\n    subprocess.run([\"powercfg\", \"/hibernate\", \"off\"])\n\ndisable_reboot()\n```\n方式三：\n\n使用win32api模組對Windows API進行調用，將電腦的shut down選項關閉：\n\n```python\nimport win32api\n\ndef disable_shutdown():\n    win32api.SetSuspendState(0, 0, 0)\n    win32api.SetSystemPowerState(False, False)\n\ndisable_shutdown()\n```\n\n這些程式碼可以使用相應的套件來執行指定的功能，無需特別安裝其他套件。請注意，這些程式碼可能需要以系統管理員身份運行，以便成功執行命令。\n\n如果需要輸出檔案，以上程式碼並不需要輸出檔案。\n\n如果需要讀取檔案，你可以在使用前從檔案中讀取所需的設定或參數，然後將它們作為函數的輸入。你也可以調整程式碼，使其接受命令行參數或從其他外部來源獲取輸入。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":588,
+    "completion_tokens":474,
+    "total_tokens":1062
+  }
+}

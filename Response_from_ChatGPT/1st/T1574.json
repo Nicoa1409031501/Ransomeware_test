@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8McRKYEurRiFf7CbIuILO69qjcbtI",
+  "object":"chat.completion",
+  "created":1700401670,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n使用Python內建的os模組來執行系統命令，以實現Hijack Execution Flow的功能。以下為程式碼示例：\n\n```python\nimport os\n\ndef hijack_execution_flow(command):\n    os.system(command)\n\n# 使用方法\nhijack_execution_flow(\"calc.exe\")\n```\n\n方法二：\n使用Python的subprocess套件來執行系統命令，以實現Hijack Execution Flow的功能。以下為程式碼示例：\n\n```python\nimport subprocess\n\ndef hijack_execution_flow(cmd_args):\n    subprocess.run(cmd_args)\n\n# 使用方法\nhijack_execution_flow([\"calc.exe\"])\n```\n\n方法三：\n使用Python的ctypes套件來呼叫Windows API來執行系統命令，以實現Hijack Execution Flow的功能。以下為程式碼示例：\n\n```python\nimport ctypes\n\ndef hijack_execution_flow(command):\n    ctypes.windll.kernel32.WinExec(command, 1)\n\n# 使用方法\nhijack_execution_flow(\"calc.exe\")\n```\n\n以上示例程式碼中的\"calc.exe\"為示範用，你可以替換為其他想要執行的任意系統命令或可執行檔案路徑。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1780,
+    "completion_tokens":326,
+    "total_tokens":2106
+  }
+}

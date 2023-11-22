@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NMYggECy0GySYXoAbhwmNUcBOx2M",
+  "object":"chat.completion",
+  "created":1700578950,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n解法一：\n我們可以使用Python的cryptography套件來實現對稱加密和非對稱加密。\n\n對稱加密的程式碼如下：\n\n```python\nfrom cryptography.fernet import Fernet\n\ndef symmetric_encrypt(key, message):\n    cipher_suite = Fernet(key)\n    cipher_text = cipher_suite.encrypt(message)\n    return cipher_text\n\ndef symmetric_decrypt(key, cipher_text):\n    cipher_suite = Fernet(key)\n    plain_text = cipher_suite.decrypt(cipher_text)\n    return plain_text\n```\n\n非對稱加密的程式碼如下：\n\n```python\nfrom cryptography.hazmat.primitives.asymmetric import rsa\nfrom cryptography.hazmat.primitives import serialization\nfrom cryptography.hazmat.primitives.asymmetric import padding\n\ndef asymmetric_encrypt(public_key, message):\n    cipher_text = public_key.encrypt(\n        message,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )\n    return cipher_text\n\ndef asymmetric_decrypt(private_key, cipher_text):\n    plain_text = private_key.decrypt(\n        cipher_text,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )\n    return plain_text\n```\n\n解法二：\n我們也可以使用Python的pycryptodome套件來實現對稱加密和非對稱加密。\n\n對稱加密的程式碼如下：\n\n```python\nfrom Crypto.Cipher import AES\n\ndef symmetric_encrypt(key, message):\n    cipher = AES.new(key, AES.MODE_EAX)\n    nonce = cipher.nonce\n    cipher_text, tag = cipher.encrypt_and_digest(message)\n    return nonce + cipher_text + tag\n\ndef symmetric_decrypt(key, cipher_text):\n    nonce = cipher_text[:16]\n    cipher = AES.new(key, AES.MODE_EAX, nonce)\n    plain_text = cipher.decrypt_and_verify(cipher_text[16:-16], cipher_text[-16:])\n    return plain_text\n```\n\n非對稱加密的程式碼如下：\n\n```python\nfrom Crypto.PublicKey import RSA\nfrom Crypto.Cipher import PKCS1_OAEP\n\ndef asymmetric_encrypt(public_key, message):\n    cipher = PKCS1_OAEP.new(public_key)\n    cipher_text = cipher.encrypt(message)\n    return cipher_text\n\ndef asymmetric_decrypt(private_key, cipher_text):\n    cipher = PKCS1_OAEP.new(private_key)\n    plain_text = cipher.decrypt(cipher_text)\n    return plain_text\n```\n\n解法三：\n我們也可以使用Python的pycryptodomex套件來實現對稱加密和非對稱加密。\n\n對稱加密的程式碼如下：\n\n```python\nfrom Cryptodome.Cipher import AES\n\ndef symmetric_encrypt(key, message):\n    cipher = AES.new(key, AES.MODE_EAX)\n    nonce = cipher.nonce\n    cipher_text, tag = cipher.encrypt_and_digest(message)\n    return nonce + cipher_text + tag\n\ndef symmetric_decrypt(key, cipher_text):\n    nonce = cipher_text[:16]\n    cipher = AES.new(key, AES.MODE_EAX, nonce)\n    plain_text = cipher.decrypt_and_verify(cipher_text[16:-16], cipher_text[-16:])\n    return plain_text\n```\n\n非對稱加密的程式碼如下：\n\n```python\nfrom Cryptodome.PublicKey import RSA\nfrom Cryptodome.Cipher import PKCS1_OAEP\n\ndef asymmetric_encrypt(public_key, message):\n    cipher = PKCS1_OAEP.new(public_key)\n    cipher_text = cipher.encrypt(message)\n    return cipher_text\n\ndef asymmetric_decrypt(private_key, cipher_text):\n    cipher = PKCS1_OAEP.new(private_key)\n    plain_text = cipher.decrypt(cipher_text)\n    return plain_text\n```\n\n以上的程式碼示範了使用對稱加密和非對稱加密來將資料進行加密和解密的過程。具體使用時，需要根據自己的需求來生成或讀取公鑰和私鑰，並將相應的鍵傳遞給加密和解密函數。需要注意的是，對稱加密的密鑰需要安全儲存，以防止被破解，而非對稱加密的公鑰可以公開傳遞，而私鑰需要妥善保管，以防止被濫用。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":785,
+    "completion_tokens":1073,
+    "total_tokens":1858
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NOemQ5mM940ieMiPcVAdh9MzqaTe",
+  "object":"chat.completion",
+  "created":1700587016,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python實現T1561 Disk Wipe的功能，可以有以下幾種方式：\n\n方法一：使用shutil模塊的.rmtree()函數來刪除指定目錄下的所有文件和文件夾。\n\n```python\nimport shutil\n\ndef disk_wipe(path):\n    shutil.rmtree(path)\n```\n\n方法二：使用os模塊的remove()函數來刪除指定文件。\n\n```python\nimport os\n\ndef disk_wipe(file_path):\n    os.remove(file_path)\n```\n\n方法三：使用subprocess模塊來執行命令行指令，透過dd命令將指定磁盤或分區的數據覆蓋為零。\n\n```python\nimport subprocess\n\ndef disk_wipe(device_path):\n    subprocess.run([\"dd\", \"if=/dev/zero\", \"of=\" + device_path, \"bs=1M\"])\n```\n\n以上程式碼示範了三種不同的方法來實現Disk Wipe的功能，使用了shutil、os和subprocess模塊分別實現了刪除目錄、刪除文件和磁盤覆蓋的功能。\n\n輸入的參數為需要刪除的目錄或文件路徑，或是需要進行磁盤覆蓋的磁盤設備路徑。\n\nNote: 方法三中使用了dd命令，這個命令在不同的作業系統上可能存在差異，需要確保在執行之前適當地修改相應的命令。此外，磁盤覆蓋操作是非常危險的，請謹慎使用。\n\n以上是三種實現T1561 Disk Wipe功能的Python程式碼，分別使用了不同的模塊和方法。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":703,
+    "completion_tokens":494,
+    "total_tokens":1197
+  }
+}

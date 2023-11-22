@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Men2fBBVsh0yXpFK9kwrYocX6St9",
+  "object":"chat.completion",
+  "created":1700410704,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用pygetwindow套件來獲取開啟的應用程式視窗列表：\n```python\nimport pygetwindow\n\ndef get_open_windows():\n    windows = pygetwindow.getAllTitles()\n    return windows\n\n# 測試程式\nopen_windows = get_open_windows()\nfor window in open_windows:\n    print(window)\n```\n2. 使用ctypes套件配合Win32 API來獲取開啟的應用程式視窗列表：\n```python\nimport ctypes\n\ndef get_open_windows():\n    EnumWindows = ctypes.windll.user32.EnumWindows\n    EnumWindowsProc = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))\n    \n    def enum_window_callback(hwnd, window_list):\n        if ctypes.windll.user32.IsWindowVisible(hwnd):\n            length = ctypes.windll.user32.GetWindowTextLengthW(hwnd)\n            if length > 0:\n                title = ctypes.create_unicode_buffer(length + 1)\n                ctypes.windll.user32.GetWindowTextW(hwnd, title, length + 1)\n                window_list.append(title.value)\n        return True\n    \n    window_list = []\n    EnumWindows(EnumWindowsProc(enum_window_callback), ctypes.byref(window_list))\n    return window_list\n\n# 測試程式\nopen_windows = get_open_windows()\nfor window in open_windows:\n    print(window)\n```\n3. 使用psutil套件來獲取開啟的應用程式視窗列表：\n```python\nimport psutil\n\ndef get_open_windows():\n    pids = psutil.pids()\n    window_list = []\n    for pid in pids:\n        try:\n            process = psutil.Process(pid)\n            if process.name() == \"explorer.exe\":\n                window_handles = process.num_handles()\n                if window_handles != 0:\n                    window_list.append(process.name())\n        except (psutil.Error, psutil.NoSuchProcess):\n            continue\n    return window_list\n\n# 測試程式\nopen_windows = get_open_windows()\nfor window in open_windows:\n    print(window)\n```\n\n以上三種寫法均可獲取開啟的應用程式視窗列表，可以根據實際需求選擇適合的方法。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":594,
+    "completion_tokens":526,
+    "total_tokens":1120
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIrPX0LdIPZ5H5E1QEUmNTN79LGe",
+  "object":"chat.completion",
+  "created":1700326407,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n**方法1：使用pyaudio套件**\n\n使用pyaudio套件可以實現對音訊輸入設備的錄音功能。\n\n1. 安裝pyaudio套件：\n```\npip install pyaudio\n```\n\n2. 實現錄音功能：\n```python\nimport pyaudio\nimport wave\n\ndef capture_audio(filename, duration):\n    CHUNK = 1024\n    FORMAT = pyaudio.paInt16\n    CHANNELS = 1\n    RATE = 44100\n\n    p = pyaudio.PyAudio()\n\n    stream = p.open(format=FORMAT,\n                    channels=CHANNELS,\n                    rate=RATE,\n                    input=True,\n                    frames_per_buffer=CHUNK)\n\n    frames = []\n\n    for i in range(0, int(RATE / CHUNK * duration)):\n        data = stream.read(CHUNK)\n        frames.append(data)\n\n    stream.stop_stream()\n    stream.close()\n    p.terminate()\n\n    wave_file = wave.open(filename, 'wb')\n    wave_file.setnchannels(CHANNELS)\n    wave_file.setsampwidth(p.get_sample_size(FORMAT))\n    wave_file.setframerate(RATE)\n    wave_file.writeframes(b''.join(frames))\n    wave_file.close()\n\n# 使用範例\ncapture_audio(\"audio.wav\", 10)  # 錄製10秒音訊並存為audio.wav\n```\n\n**方法2：使用sounddevice套件**\n\n使用sounddevice套件也可以實現對音訊輸入設備的錄音功能。\n\n1. 安裝sounddevice套件：\n```\npip install sounddevice\n```\n\n2. 實現錄音功能：\n```python\nimport sounddevice as sd\nimport numpy as np\nimport scipy.io.wavfile as wav\n\ndef capture_audio(filename, duration):\n    fs = 44100  # 采樣率\n    duration = duration  # 輸入音訊時間長度(秒)\n\n    myrecording = sd.rec(int(duration * fs), samplerate=fs, channels=1)\n    sd.wait()\n\n    wav.write(filename, fs, myrecording)\n\n# 使用範例\ncapture_audio(\"audio.wav\", 10)  # 錄製10秒音訊並存為audio.wav\n```\n\n**方法3：使用pyaudio套件進行無聲錄音**\n\n這是一種特殊情況下的無聲錄音方式，即僅監聽並保存音訊數據，而不將音訊輸出到喇叭或耳機。\n\n1. 安裝pyaudio套件（如果已安裝過，可跳過此步驟）：\n```\npip install pyaudio\n```\n\n2. 實現無聲錄音功能：\n```python\nimport pyaudio\nimport wave\n\ndef capture_silent_audio(filename, duration):\n    CHUNK = 1024\n    FORMAT = pyaudio.paInt16\n    CHANNELS = 1\n    RATE = 44100\n\n    p = pyaudio.PyAudio()\n\n    stream = p.open(format=FORMAT,\n                    channels=CHANNELS,\n                    rate=RATE,\n                    input=True,\n                    output=False,\n                    frames_per_buffer=CHUNK)\n\n    frames = []\n\n    for i in range(0, int(RATE / CHUNK * duration)):\n        data = stream.read(CHUNK)\n        frames.append(data)\n\n    stream.stop_stream()\n    stream.close()\n    p.terminate()\n\n    wave_file = wave.open(filename, 'wb')\n    wave_file.setnchannels(CHANNELS)\n    wave_file.setsampwidth(p.get_sample_size(FORMAT))\n    wave_file.setframerate(RATE)\n    wave_file.writeframes(b''.join(frames))\n    wave_file.close()\n\n# 使用範例\ncapture_silent_audio(\"audio.wav\", 10)  # 錄製10秒音訊並存為audio.wav\n```\n\n以上實現的方式僅供參考，實際執行時需注意是否需要授權或取得使用者同意。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":584,
+    "completion_tokens":939,
+    "total_tokens":1523
+  }
+}

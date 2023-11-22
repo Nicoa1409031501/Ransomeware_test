@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ma7O0qvdd49JTbp1uL3E8o93oUur",
+  "object":"chat.completion",
+  "created":1700392746,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用AWS Systems Manager遠程在虛擬機上執行命令：\n\n```python\nimport boto3\n\ndef exec_command_aws(cmd, instance_id):\n    ssm = boto3.client('ssm')\n    response = ssm.send_command(\n        InstanceIds=[instance_id],\n        DocumentName='AWS-RunShellScript',\n        Parameters={'commands': [cmd]}\n    )\n    command_id = response['Command']['CommandId']\n    return command_id\n```\n使用的套件：boto3\n\n2. 使用Azure RunCommand在虛擬機上執行命令：\n\n```python\nfrom azure.identity import DefaultAzureCredential\nfrom azure.mgmt.resource import ResourceManagementClient\nfrom azure.mgmt.compute import ComputeManagementClient\n\ndef exec_command_azure(cmd, vm_resource_id):\n    credential = DefaultAzureCredential()\n    resource_client = ResourceManagementClient(credential)\n    compute_client = ComputeManagementClient(credential)\n    \n    vm_instance = compute_client.virtual_machines.get(vm_resource_id)\n    \n    extension = {\n        \"commandToExecute\": cmd\n    }\n    \n    compute_client.virtual_machine_extensions.begin_create_or_update(\n        vm_resource_id,\n        'RunCommandExtension',\n        {\n            \"location\": vm_instance.location,\n            \"publisher\": \"Microsoft.Azure.Extensions\",\n            \"type\": \"RunCommand\",\n            \"typeHandlerVersion\": \"2.0\",\n            \"autoUpgradeMinorVersion\": True,\n            \"settings\": extension,\n            \"protectedSettings\": {},\n        }\n    ).result()\n```\n使用的套件：azure-identity、azure-mgmt-resource、azure-mgmt-compute\n\n3. 使用Microsoft Endpoint Manager在Azure AD加入的本地設備上以SYSTEM身份執行命令：\n\n```python\nfrom azure.identity import DefaultAzureCredential\nfrom azure.mgmt.intune import IntuneResourceManagementClient\nfrom azure.mgmt.intune.models import BuiltinRoleIdentifier, GroupAssignment\n\ndef exec_command_intune(cmd, device_id):\n    credential = DefaultAzureCredential()\n    intune_client = IntuneResourceManagementClient(credential)\n    \n    role_assignment = intune_client.role_assignments.create(\n        builtin_role_identifier=BuiltinRoleIdentifier.SERVICE_CONFIGURATION_OPERATOR,\n        scope=device_id,\n    )\n    \n    group_assignment = GroupAssignment(\n        role_assignment_id=role_assignment.id,\n        source_type=\"microsoft.graph.device\",\n        assignment_target=device_id\n    )\n    \n    intune_client.group_assignments.create(group_assignment)\n    \n    result = intune_client.script.run(\n        group_assignment_id=group_assignment.id,\n        script_contents=cmd,\n        frequency=\"once\",\n        started_by=UserPrincipalName(),\n    )\n    \n    return result.id\n```\n使用的套件：azure-identity、azure-mgmt-intune\n\n輸出檔案：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":622,
+    "completion_tokens":610,
+    "total_tokens":1232
+  }
+}

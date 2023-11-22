@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Mbhvd57KJJHfMgulTIBLXpa4FIB6",
+  "object":"chat.completion",
+  "created":1700398855,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用Python所需套件：subprocess、os、ctypes\n\n方法一：\n```python\nimport subprocess\n\ndef abuse_elevation_control1():\n    subprocess.call(['sudo', 'command_to_execute'])\n\nabuse_elevation_control1()\n```\n\n方法二：\n```python\nimport os\n\ndef abuse_elevation_control2():\n    os.system('sudo command_to_execute')\n\nabuse_elevation_control2()\n```\n\n方法三：\n```python\nimport ctypes\n\ndef abuse_elevation_control3():\n    ctypes.windll.shell32.ShellExecuteW(None, \"runas\", \"command_to_execute\", None, None, 1)\n\nabuse_elevation_control3()\n```\n\n2. 使用Python所需套件：pywin32\n\n方法一：\n```python\nimport win32con\nimport win32com.shell.shell as shell\n\ndef abuse_elevation_control4():\n    ASADMIN = 'asadmin'\n    if sys.argv[-1] != ASADMIN:\n        script = os.path.abspath(sys.argv[0])\n        params = ' '.join([script] + sys.argv[1:] + [ASADMIN])\n        shell.ShellExecuteEx(lpVerb='runas', lpFile=sys.executable, lpParameters=params)\n        sys.exit(0)\n\nabuse_elevation_control4()\n```\n\n3. 使用Python所需套件：boto3\n\n方法一：\n```python\nimport boto3\n\ndef abuse_elevation_control5():\n    sts_client = boto3.client('sts')\n    response = sts_client.assume_role(\n        RoleArn='arn:aws:iam::123456789012:role/MyRole',\n        RoleSessionName='MySession'\n    )\n    print(response['Credentials'])\n\nabuse_elevation_control5()\n```\n\n方法二：\n```python\nimport boto3\n\ndef abuse_elevation_control6():\n    sts_client = boto3.client('sts')\n    response = sts_client.get_session_token()\n    print(response['Credentials'])\n\nabuse_elevation_control6()\n```\n\n方法三：\n```python\nimport boto3\n\ndef abuse_elevation_control7():\n    sts_client = boto3.client('sts')\n    response = sts_client.assume_role_with_saml(\n        RoleArn='arn:aws:iam::123456789012:role/MyRole',\n        PrincipalArn='arn:aws:iam::123456789012:saml-provider/MyProvider',\n        SAMLAssertion='base64_encoded_SAML_assertion'\n    )\n    print(response['Credentials'])\n\nabuse_elevation_control7()\n```\n\n4. 使用Python所需套件：paramiko\n\n方法一：\n```python\nimport paramiko\n\ndef abuse_elevation_control8():\n    private_key = paramiko.RSAKey.from_private_key_file('private_key_file')\n    ssh_client = paramiko.SSHClient()\n    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    ssh_client.connect('hostname', username='username', pkey=private_key)\n    stdin, stdout, stderr = ssh_client.exec_command('command_to_execute')\n    output = stdout.read().decode()\n\nabuse_elevation_control8()\n```\n\n方法二：\n```python\nimport paramiko\n\ndef abuse_elevation_control9():\n    ssh_client = paramiko.SSHClient()\n    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    ssh_client.connect('hostname', username='username', password='password', look_for_keys=False)\n    stdin, stdout, stderr = ssh_client.exec_command('command_to_execute')\n    output = stdout.read().decode()\n\nabuse_elevation_control9()\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1063,
+    "completion_tokens":747,
+    "total_tokens":1810
+  }
+}

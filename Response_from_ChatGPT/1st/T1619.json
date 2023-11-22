@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MevQcB7pmpZg1wJNwt0HHIFvYbRs",
+  "object":"chat.completion",
+  "created":1700411224,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n根據描述，我們可以實現 T1619 - Cloud Storage Object Discovery 的功能。實現此功能的方式有多種方法，以下提供三種不同的實現方式。\n\n方法一：使用Boto3套件連接Amazon S3服務，列舉存儲桶(bucket)中的物件(objects)。\n\n```python\nimport boto3\n\ndef cloud_storage_object_discovery():\n    s3 = boto3.client('s3')\n    response = s3.list_buckets()  # 列舉存儲桶\n    for bucket in response['Buckets']:\n        bucket_name = bucket['Name']\n        # 列舉存儲桶中的物件\n        objects = s3.list_objects(Bucket=bucket_name)\n        for obj in objects['Contents']:\n            object_name = obj['Key']\n            print(f\"Bucket: {bucket_name}, Object: {object_name}\")\n\ncloud_storage_object_discovery()\n```\n\n方法二：使用Google Cloud Storage套件連接Google Cloud Storage服務，列舉存儲桶(bucket)中的物件(objects)。\n\n```python\nfrom google.cloud import storage\n\ndef cloud_storage_object_discovery():\n    client = storage.Client()\n    buckets = client.list_buckets()  # 列舉存儲桶\n    for bucket in buckets:\n        bucket_name = bucket.name\n        # 列舉存儲桶中的物件\n        objects = client.list_blobs(bucket_name)\n        for obj in objects:\n            object_name = obj.name\n            print(f\"Bucket: {bucket_name}, Object: {object_name}\")\n\ncloud_storage_object_discovery()\n```\n\n方法三：使用Azure Storage Blob套件連接Azure Blob Storage服務，列舉容器(container)中的物件(objects)。\n\n```python\nfrom azure.storage.blob import BlobServiceClient\n\ndef cloud_storage_object_discovery():\n    connection_string = \"<your_connection_string>\"\n    blob_service_client = BlobServiceClient.from_connection_string(connection_string)\n    container_client_list = blob_service_client.list_containers()  # 列舉容器\n    for container_client in container_client_list:\n        container_name = container_client['name']\n        # 列舉容器中的物件\n        blob_list = blob_service_client.get_container_client(container_name).list_blobs()\n        for blob in blob_list:\n            blob_name = blob.name\n            print(f\"Container: {container_name}, Object: {blob_name}\")\n\ncloud_storage_object_discovery()\n```\n\n注意：以上示例中，需要替換相應的連接字符串(connection string)或授權資料以進行驗證。\n\n使用到的套件：\n- 方法一：Boto3\n- 方法二：google-cloud-storage\n- 方法三：azure-storage-blob\n\n輸出結果：\n- 格式：存儲桶/容器名稱、物件名稱\n- 例子：Bucket: example-bucket, Object: example-object.txt"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":613,
+    "completion_tokens":690,
+    "total_tokens":1303
+  }
+}

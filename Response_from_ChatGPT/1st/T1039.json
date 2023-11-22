@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIyfPAXQMtH0FxBftwVUwyjnXcbc",
+  "object":"chat.completion",
+  "created":1700326857,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一:\n使用Python的os模塊遍歷網絡共享目錄並找到感興趣的文件。\n```\nimport os\n\ndef search_shared_drive(path, file_extension):\n    files = []\n    for root, dirs, filenames in os.walk(path):\n        for filename in filenames:\n            if filename.endswith(file_extension):\n                files.append(os.path.join(root, filename))\n    return files\n\n# 使用範例\nshared_drive_path = r\"\\\\server\\share\"    # 輸入網絡共享目錄的路徑\nfile_extension = \".txt\"                  # 輸入感興趣的文件擴展名\nfound_files = search_shared_drive(shared_drive_path, file_extension)\nfor file in found_files:\n    print(file)\n```\n\n方法二:\n使用Python的glob模塊結合遞迴搜索(*)模式，尋找指定目錄中的所有文件。\n```\nimport glob\n\ndef search_shared_drive(path, file_extension):\n    files = glob.glob(path + '/**/*' + file_extension, recursive=True)\n    return files\n\n# 使用範例\nshared_drive_path = r\"\\\\server\\share\"    # 輸入網絡共享目錄的路徑\nfile_extension = \".txt\"                  # 輸入感興趣的文件擴展名\nfound_files = search_shared_drive(shared_drive_path, file_extension)\nfor file in found_files:\n    print(file)\n```\n\n方法三:\n使用Python的shutil模塊的copytree方法拷貝網絡共享目錄下的文件到本地目錄。\n```\nimport shutil\n\ndef search_shared_drive(path, local_dir):\n    # 將網絡共享目錄下的文件拷貝到本地目錄中\n    shutil.copytree(path, local_dir, dirs_exist_ok=True)\n\n# 使用範例\nshared_drive_path = r\"\\\\server\\share\"    # 輸入網絡共享目錄的路徑\nlocal_dir = r\"C:\\local\\directory\"        # 輸入本地目錄的路徑\nsearch_shared_drive(shared_drive_path, local_dir)\n```\n\n**套件使用：** os, shutil, glob"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":615,
+    "completion_tokens":531,
+    "total_tokens":1146
+  }
+}

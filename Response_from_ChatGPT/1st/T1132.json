@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NLXfWpoo0zhpMSGZ3TERxh3qXYzL",
+  "object":"chat.completion",
+  "created":1700575043,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n解法一：\n```python\n# 使用Python內建的base64模組進行資料編碼\nimport base64\n\n# 編碼\ndef encode_data(data):\n    encoded_data = base64.b64encode(data.encode('utf-8')).decode('utf-8')\n    return encoded_data\n\n# 解碼\ndef decode_data(encoded_data):\n    decoded_data = base64.b64decode(encoded_data.encode('utf-8')).decode('utf-8')\n    return decoded_data\n\n# 測試\ndata = \"Hello, World!\"\nencoded_data = encode_data(data)\ndecoded_data = decode_data(encoded_data)\n\nprint(\"Encoded data:\", encoded_data)\nprint(\"Decoded data:\", decoded_data)\n```\n\n解法二：\n```python\n# 使用Python內建的binascii模組進行資料編碼\nimport binascii\n\n# 編碼\ndef encode_data(data):\n    encoded_data = binascii.b2a_hex(data.encode('utf-8')).decode('utf-8')\n    return encoded_data\n\n# 解碼\ndef decode_data(encoded_data):\n    decoded_data = binascii.a2b_hex(encoded_data.encode('utf-8')).decode('utf-8')\n    return decoded_data\n\n# 測試\ndata = \"Hello, World!\"\nencoded_data = encode_data(data)\ndecoded_data = decode_data(encoded_data)\n\nprint(\"Encoded data:\", encoded_data)\nprint(\"Decoded data:\", decoded_data)\n```\n\n解法三：\n```python\n# 使用Python內建的codecs模組進行資料編碼\nimport codecs\n\n# 編碼\ndef encode_data(data):\n    encoded_data = codecs.encode(data.encode('utf-8'), 'hex').decode('utf-8')\n    return encoded_data\n\n# 解碼\ndef decode_data(encoded_data):\n    decoded_data = codecs.decode(encoded_data.encode('utf-8'), 'hex').decode('utf-8')\n    return decoded_data\n\n# 測試\ndata = \"Hello, World!\"\nencoded_data = encode_data(data)\ndecoded_data = decode_data(encoded_data)\n\nprint(\"Encoded data:\", encoded_data)\nprint(\"Decoded data:\", decoded_data)\n```\n\n以上三種解法都可以實現對資料的編碼和解碼，分別使用了Python內建的base64、binascii和codecs模組。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":804,
+    "completion_tokens":531,
+    "total_tokens":1335
+  }
+}

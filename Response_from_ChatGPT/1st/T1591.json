@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NJvfcDRyLMGsB67bqr75lR7i49s0",
+  "object":"chat.completion",
+  "created":1700568843,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：使用Python腳本進行網路資訊搜集\n\n```python\nimport urllib.request\n\ntarget_url = \"https://www.example.com\"  # 目標網站的URL\n\n# 擷取網頁內容\nresponse = urllib.request.urlopen(target_url)\nhtml = response.read().decode()\n\n# 從HTML中擷取組織資訊\n# 假設組織名稱位於<h1>標籤中\nstart_tag = \"<h1>\"\nend_tag = \"</h1>\"\nstart_index = html.find(start_tag) + len(start_tag)\nend_index = html.find(end_tag)\norganization_name = html[start_index:end_index]\n\nprint(\"組織名稱:\", organization_name)\n```\n\n方法二：使用Python的Requests和BeautifulSoup套件進行網路資訊搜集\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\ntarget_url = \"https://www.example.com\"  # 目標網站的URL\n\n# 發送GET請求取得網頁內容\nresponse = requests.get(target_url)\nhtml = response.text\n\n# 解析HTML\nsoup = BeautifulSoup(html, \"html.parser\")\n\n# 擷取組織名稱\norganization_name = soup.find(\"h1\").text\n\nprint(\"組織名稱:\", organization_name)\n```\n\n方法三：使用Python的Selenium套件模擬瀏覽器行為進行網路資訊搜集\n\n```python\nfrom selenium import webdriver\n\ntarget_url = \"https://www.example.com\"  # 目標網站的URL\n\n# 啟動瀏覽器\ndriver = webdriver.Chrome()\ndriver.get(target_url)\n\n# 擷取組織名稱\norganization_name = driver.find_element_by_tag_name(\"h1\").text\n\nprint(\"組織名稱:\", organization_name)\n\n# 關閉瀏覽器\ndriver.quit()\n```\n\n以上的程式碼示範了三種不同的方法來從網頁中擷取組織名稱，你可以根據具體情況選擇其中一種方法。請注意，需要安裝相應的套件（如requests、beautifulsoup4、selenium）才能執行這些程式碼。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":868,
+    "completion_tokens":609,
+    "total_tokens":1477
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NLNteXGYdeQ6Lr7DQjGGUQCoN5L0",
+  "object":"chat.completion",
+  "created":1700574437,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方法一：\n使用Python的IMAP模組來連接郵件伺服器，並下載郵件。\n使用的套件：imaplib、email、getpass\n\n1. 安裝套件：\n    import imaplib\n    import email\n    import getpass\n    \n2. 連接郵件伺服器：\n    def connect_to_server(username, password, server):\n        mail = imaplib.IMAP4_SSL(server)\n        mail.login(username, password)\n        mail.select(\"inbox\")\n        return mail\n    \n3. 下載郵件：\n    def download_emails(mail, num_emails):\n        result, data = mail.uid(\"search\", None, \"ALL\")  # 搜尋郵件\n        email_ids = data[0].split()[-num_emails:]  # 取得最新的郵件ID\n        for email_id in email_ids:\n            result, data = mail.uid(\"fetch\", email_id, \"(RFC822)\")  # 下載郵件\n            raw_email = data[0][1]\n            email_message = email.message_from_bytes(raw_email)\n            # 處理郵件內容，例如取得寄件者、主旨、內容等\n    \n4. 呼叫以上兩個函式：\n    num_emails = 10  # 要下載的郵件數量\n    username = input(\"Enter your email username: \")\n    password = getpass.getpass(\"Enter your email password: \")\n    server = \"imap.example.com\"  # 郵件伺服器的地址\n    email_client = connect_to_server(username, password, server)\n    download_emails(email_client, num_emails)\n\n方法二：\n使用Python的poplib模組來連接郵件伺服器，並下載郵件。\n使用的套件：poplib、email、getpass\n\n1. 安裝套件：\n    import poplib\n    import email\n    import getpass\n    \n2. 連接郵件伺服器：\n    def connect_to_server(username, password, server):\n        mail = poplib.POP3_SSL(server)\n        mail.user(username)\n        mail.pass_(password)\n        return mail\n    \n3. 下載郵件：\n    def download_emails(mail, num_emails):\n        num_messages = len(mail.list()[1])  # 取得郵件數量\n        for i in range(num_messages - num_emails + 1, num_messages + 1):\n            response, message_lines, octets = mail.retr(i)  # 下載郵件\n            raw_email = b\"\\n\".join(message_lines)\n            email_message = email.message_from_bytes(raw_email)\n            # 處理郵件內容，例如取得寄件者、主旨、內容等\n    \n4. 呼叫以上兩個函式：\n    num_emails = 10  # 要下載的郵件數量\n    username = input(\"Enter your email username: \")\n    password = getpass.getpass(\"Enter your email password: \")\n    server = \"pop.example.com\"  # 郵件伺服器的地址\n    email_client = connect_to_server(username, password, server)\n    download_emails(email_client, num_emails)\n\n方法三：\n使用Python的smtplib模組來透過SMTP發送電子郵件，然後進行回收。\n使用的套件：smtplib、email、getpass\n\n1. 安裝套件：\n    import smtplib\n    import email\n    import getpass\n    \n2. 連接郵件伺服器：\n    def connect_to_server(username, password, server):\n        mail = smtplib.SMTP(server)\n        mail.login(username, password)\n        return mail\n    \n3. 回收郵件：\n    def collect_emails(mail, recipient, num_emails):\n        mail.select(\"inbox\")\n        result, data = mail.search(None, \"ALL\")  # 搜尋郵件\n        mail_ids = data[0].split()[-num_emails:]  # 取得最新的郵件ID\n        for mail_id in mail_ids:\n            result, message_data = mail.fetch(mail_id, \"(RFC822)\")  # 下載郵件\n            raw_email = message_data[0][1]\n            email_message = email.message_from_bytes(raw_email)\n            # 執行回收郵件的動作，例如儲存郵件到檔案或取得郵件內容\n    \n4. 呼叫以上兩個函式：\n    num_emails = 10  # 要回收的郵件數量\n    username = input(\"Enter your email username: \")\n    password = getpass.getpass(\"Enter your email password: \")\n    server = \"smtp.example.com\"  # 郵件伺服器的地址\n    recipient = \"example@example.com\"  # 目標收件者\n    email_client = connect_to_server(username, password, server)\n    collect_emails(email_client, recipient, num_emails)"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":884,
+    "completion_tokens":1172,
+    "total_tokens":2056
+  }
+}

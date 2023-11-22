@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MeVQkuLHMb7qO5G5Gfam5wP4xN7S",
+  "object":"chat.completion",
+  "created":1700409612,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python可以透過以下方法來撰寫Mitre&Attack的T1528 - Steal Application Access Token:\n\n方法一: 使用requests套件來做POST請求\n\n```\nimport requests\n\ndef steal_access_token(url, payload):\n    response = requests.post(url, json=payload)\n    if response.status_code == 200:\n        access_token = response.json().get('access_token')\n        return access_token\n    else:\n        return None\n\n# 使用範例:\nurl = 'https://example.com/api/login'\npayload = {'username': 'admin', 'password': 'password'}\naccess_token = steal_access_token(url, payload)\nif access_token:\n    print(f\"Access Token: {access_token}\")\nelse:\n    print(\"Failed to steal access token\")\n```\n\n方法二: 使用http.client套件來做POST請求\n\n```\nimport http.client\nimport json\n\ndef steal_access_token(url, payload):\n    conn = http.client.HTTPSConnection(url)\n    headers = {'Content-type': 'application/json'}\n    conn.request(\"POST\", \"/api/login\", json.dumps(payload), headers=headers)\n    response = conn.getresponse()\n\n    if response.status == 200:\n        access_token = json.loads(response.read())['access_token']\n        return access_token\n    else:\n        return None\n\n# 使用範例:\nurl = 'example.com'\npayload = {'username': 'admin', 'password': 'password'}\naccess_token = steal_access_token(url, payload)\nif access_token:\n    print(f\"Access Token: {access_token}\")\nelse:\n    print(\"Failed to steal access token\")\n```\n\n方法三: 使用urllib套件來做POST請求\n\n```\nimport urllib.request\nimport json\n\ndef steal_access_token(url, payload):\n    req = urllib.request.Request(url, json.dumps(payload).encode('utf-8'), method='POST')\n    req.add_header('Content-Type', 'application/json')\n\n    try:\n        response = urllib.request.urlopen(req)\n        if response.getcode() == 200:\n            access_token = json.loads(response.read())['access_token']\n            return access_token\n    except urllib.error.HTTPError as e:\n        print(f\"Error: {e.reason}\")\n\n    return None\n\n# 使用範例:\nurl = 'https://example.com/api/login'\npayload = {'username': 'admin', 'password': 'password'}\naccess_token = steal_access_token(url, payload)\nif access_token:\n    print(f\"Access Token: {access_token}\")\nelse:\n    print(\"Failed to steal access token\")\n```\n\n以上三種方法都是透過發送POST請求，提供正確的身份驗證資訊，並從回應中取得存取權杖(access token)。\n在這些範例中，我們使用了requests套件、http.client套件和urllib套件來幫助我們進行HTTP請求。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":561,
+    "completion_tokens":664,
+    "total_tokens":1225
+  }
+}

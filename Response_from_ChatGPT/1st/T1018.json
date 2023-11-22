@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NMFzAaOrXqn77IG1cerc1RjxXQ9D",
+  "object":"chat.completion",
+  "created":1700577791,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n\nimport os\nimport socket\n\ndef remote_system_discovery():\n    # 方法一：使用socket模組進行IP掃描\n    target_ip = \"192.168.1.1\"  # 目標IP範例，可以自行更換\n    \n    # 使用socket模組建立TCP連線\n    socket_obj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    socket.setdefaulttimeout(1)  # 設定超時時間為1秒\n    \n    results = []\n    \n    try:\n        for i in range(1, 255):\n            ip = target_ip.rsplit(\".\", 1)[0] + \".\" + str(i)  # 生成IP\n            response = socket_obj.connect_ex((ip, 135))  # 使用135端口進行掃描\n            \n            if response == 0:  # 成功建立連線\n                results.append(ip)\n                \n        return results\n        \n    except Exception as e:\n        print(\"Error:\", str(e))\n        return []\n\n方法二：\n\nimport os\n\ndef remote_system_discovery():\n    # 方法二：使用os模組執行指令的方式進行掃描\n    target_ip = \"192.168.1.1\"  # 目標IP範例，可以自行更換\n    \n    results = []\n    \n    try:\n        for i in range(1, 255):\n            ip = target_ip.rsplit(\".\", 1)[0] + \".\" + str(i)  # 生成IP\n            \n            # 使用ping命令來判斷是否能夠與目標建立連線\n            response = os.system(\"ping -n 1 \" + ip)\n            \n            if response == 0:\n                results.append(ip)\n                \n        return results\n        \n    except Exception as e:\n        print(\"Error:\", str(e))\n        return []\n\n方法三：\n\nimport subprocess\n\ndef remote_system_discovery():\n    # 方法三：使用subprocess模組執行指令的方式進行掃描\n    target_ip = \"192.168.1.1\"  # 目標IP範例，可以自行更換\n    \n    results = []\n    \n    try:\n        for i in range(1, 255):\n            ip = target_ip.rsplit(\".\", 1)[0] + \".\" + str(i)  # 生成IP\n            \n            # 使用ping命令來判斷是否能夠與目標建立連線\n            response = subprocess.call(\"ping -n 1 \" + ip, shell=True)\n            \n            if response == 0:\n                results.append(ip)\n                \n        return results\n        \n    except Exception as e:\n        print(\"Error:\", str(e))\n        return []\n\n# 使用方法\nresult = remote_system_discovery()\nprint(result)\n\n# 寫入檔案\nwith open(\"result.txt\", \"w\") as f:\n    for ip in result:\n        f.write(ip + \"\\n\")"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":609,
+    "completion_tokens":681,
+    "total_tokens":1290
+  }
+}

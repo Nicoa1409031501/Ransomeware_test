@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MYyDC7tdGsNVxInqJPTTSldpo80a",
+  "object":"chat.completion",
+  "created":1700388333,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種實現 T1590 功能的方式：\n\n1. 使用 requests 套件和 Google 的 LookUP API\n使用 requests 套件向 LookUP API 發送 HTTP GET 請求，獲取相關網路資訊。\n\n```python\nimport requests\n\n# Gathering victim network information using LookUP API\ndef gather_network_info():\n    url = \"https://api.lookup.ipify.org\"\n    response = requests.get(url)\n    return response.json()\n\nnetwork_info = gather_network_info()\nprint(network_info)\n```\n\n2. 使用 socket 套件進行網路掃描\n使用 socket 套件進行網路掃描，獲取目標網路中的主機和服務器資訊。\n\n```python\nimport socket\n\n# Gathering victim network information using socket\ndef gather_network_info():\n    target_ip = \"192.168.0.0\"  # Replace with target IP or subnet\n    for port in range(1, 65536):\n        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        client_socket.settimeout(0.5)\n        result = client_socket.connect_ex((target_ip, port))\n        if result == 0:\n            print(f\"Port {port} is open\")\n        client_socket.close()\n\ngather_network_info()\n```\n\n3. 使用 python-nmap 套件進行網路掃描\n使用 python-nmap 套件進行網路掃描，獲取目標網路中的主機和服務器資訊。\n\n```python\nimport nmap\n\n# Gathering victim network information using python-nmap\ndef gather_network_info():\n    target_ip = \"192.168.0.0/24\"  # Replace with target IP or subnet\n    nm = nmap.PortScanner()\n    nm.scan(hosts=target_ip, arguments='-p 1-65535 -sS -O')\n    for host in nm.all_hosts():\n        if nm[host].state() == 'up':\n            for proto in nm[host].all_protocols():\n                lport = nm[host][proto].keys()\n                for port in lport:\n                    print(f\"Host: {host}, Port: {port}, State: {nm[host][proto][port]['state']}\")\n\ngather_network_info()\n```\n\n這些程式碼示例使用了 requests、socket 和 python-nmap 套件來實現 T1590 的功能。第一個例子使用了 LookUP API 獲取網路資訊，而第二個和第三個例子則是使用 socket 和 python-nmap 套件進行網路掃描，並列出開放的端口和主機資訊。請注意，這僅僅是演示如何實現此功能的示例，實際使用中可能需要更多的程式碼和配置。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1093,
+    "completion_tokens":708,
+    "total_tokens":1801
+  }
+}

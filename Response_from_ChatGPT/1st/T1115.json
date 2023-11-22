@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIuR0UUBe6lJuYVznDqforj55DjM",
+  "object":"chat.completion",
+  "created":1700326595,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方法一：\n使用pyperclip套件來讀取剪貼簿的內容。\n使用pyperclip.paste()函數來獲取剪貼簿的內容。\n```\nimport pyperclip\n\nclipboard_data = pyperclip.paste()\nprint(clipboard_data)\n```\n\n方法二：\n使用ctypes套件，透過對Windows API的調用，來獲取剪貼簿的內容。\n```\nimport ctypes\n\nclipboard_data = ctypes.windll.user32.GetClipboardData()\nprint(clipboard_data)\n```\n\n方法三：\n使用subprocess套件和xclip命令（僅限Linux環境）來獲取剪貼簿的內容。\n```\nimport subprocess\n\nclipboard_data = subprocess.check_output(['xclip', '-selection', 'clipboard', '-o']).decode('utf-8')\nprint(clipboard_data)\n```\n\n使用套件：\n1. pyperclip\n2. ctypes (僅Windows環境)\n3. subprocess (僅Linux環境)\n\n會輸出剪貼簿的內容。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":557,
+    "completion_tokens":287,
+    "total_tokens":844
+  }
+}

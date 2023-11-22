@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIurCN4bfnvepc4NBDCny7SgXvf9",
+  "object":"chat.completion",
+  "created":1700326621,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n1. 使用 Google Cloud Storage API 實現\n\n```python\nimport os\nfrom google.cloud import storage\n\ndef get_data_from_cloud(bucket_name, file_name):\n    # 設定認證憑證\n    os.environ[\"GOOGLE_APPLICATION_CREDENTIALS\"] = \"/path/to/credentials.json\"\n\n    # 連接到 Google Cloud Storage\n    client = storage.Client()\n\n    # 取得 bucket 物件\n    bucket = client.get_bucket(bucket_name)\n\n    # 取得檔案物件\n    blob = bucket.blob(file_name)\n\n    # 讀取檔案內容\n    data = blob.download_as_text()\n\n    return data\n```\n\n2. 使用 AWS SDK for Python (Boto3) 實現\n\n```python\nimport boto3\n\ndef get_data_from_cloud(bucket_name, file_name):\n    # 連接到 AWS S3\n    s3 = boto3.client('s3')\n\n    # 讀取檔案內容\n    response = s3.get_object(Bucket=bucket_name, Key=file_name)\n    data = response['Body'].read().decode('utf-8')\n\n    return data\n```\n\n3. 使用 Microsoft Azure Storage SDK 實現\n\n```python\nfrom azure.storage.blob import BlobServiceClient\n\ndef get_data_from_cloud(connection_string, container_name, blob_name):\n    # 連接到 Azure Storage\n    blob_service_client = BlobServiceClient.from_connection_string(connection_string)\n\n    # 取得 Blob Container 物件\n    container_client = blob_service_client.get_container_client(container_name)\n\n    # 取得 Blob 物件\n    blob_client = container_client.get_blob_client(blob_name)\n\n    # 讀取 Blob 內容\n    data = blob_client.download_blob().readall().decode('utf-8')\n\n    return data\n```\n\n使用套件:\n- Google Cloud Storage API: google-cloud-storage\n- AWS SDK for Python (Boto3): boto3\n- Microsoft Azure Storage SDK: azure-storage-blob\n\n輸入: bucket_name, file_name (Google Cloud Storage)\n       bucket_name, file_name (AWS S3)\n       connection_string, container_name, blob_name (Azure Storage)\n\n輸出: 從雲端儲存取得的資料"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":549,
+    "completion_tokens":504,
+    "total_tokens":1053
+  }
+}

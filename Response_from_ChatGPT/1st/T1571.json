@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NUgm0KaTWaxUvvqa2C4us9zGacDl",
+  "object":"chat.completion",
+  "created":1700610204,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"1. 偵測非標準通訊埠：監聽網路流量，偵測是否有使用非標準通訊埠的通訊。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":605,
+    "completion_tokens":53,
+    "total_tokens":658
+  }
+}

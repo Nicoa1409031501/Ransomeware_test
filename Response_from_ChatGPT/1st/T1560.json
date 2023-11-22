@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIpeNw9IIrky58pEaClEwGE1H4zy",
+  "object":"chat.completion",
+  "created":1700326298,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n1. 使用Python的zipfile套件來壓縮檔案，並使用pycrypto套件來加密檔案。\n\n```python\nimport zipfile\nfrom Crypto.Cipher import AES\nfrom Crypto.Random import get_random_bytes\n\ndef compress_and_encrypt_files(file_paths, output_path, password):\n    # 壓縮檔案\n    with zipfile.ZipFile(output_path, 'w') as zip_file:\n        for file_path in file_paths:\n            zip_file.write(file_path)\n\n    # 加密壓縮後的檔案\n    encrypt_file(output_path, password)\n\n\ndef encrypt_file(file_path, password):\n    chunk_size = 64 * 1024\n    cipher = AES.new(get_random_bytes(16), AES.MODE_CBC)\n    iv = cipher.iv\n\n    with open(file_path, 'rb') as file:\n        with open(file_path + '.enc', 'wb') as encrypted_file:\n            encrypted_file.write(iv)\n\n            while True:\n                chunk = file.read(chunk_size)\n                if len(chunk) == 0:\n                    break\n                elif len(chunk) % 16 != 0:\n                    chunk += b' ' * (16 - len(chunk) % 16)\n                encrypted_file.write(cipher.encrypt(chunk))\n\n    # 刪除未加密的壓縮檔案\n    os.remove(file_path)\n\n\n# 使用範例\ncompress_and_encrypt_files(['file1.txt', 'file2.txt'], 'archive.zip', 'password123')\n```\n\n2. 使用Python的py7zr套件來壓縮檔案，並使用cryptography套件來加密檔案。\n\n```python\nimport py7zr\nfrom cryptography.fernet import Fernet\n\ndef compress_and_encrypt_files(file_paths, output_path, password):\n    # 壓縮檔案\n    with py7zr.SevenZipFile(output_path, 'w', password=password) as archive:\n        for file_path in file_paths:\n            archive.write(file_path)\n\n    # 加密壓縮後的檔案\n    encrypt_file(output_path, password)\n\n\ndef encrypt_file(file_path, password):\n    key = Fernet.generate_key()\n    cipher_suite = Fernet(key)\n\n    with open(file_path, 'rb') as file:\n        encrypted_data = cipher_suite.encrypt(file.read())\n\n    with open(file_path + '.enc', 'wb') as encrypted_file:\n        encrypted_file.write(encrypted_data)\n\n    # 刪除未加密的壓縮檔案\n    os.remove(file_path)\n\n\n# 使用範例\ncompress_and_encrypt_files(['file1.txt', 'file2.txt'], 'archive.7z', b'password123')\n```\n\n3. 使用Python的shutil套件來壓縮檔案，並使用cryptography.fernet套件來加密檔案。\n\n```python\nimport shutil\nimport os\nfrom cryptography.fernet import Fernet\n\ndef compress_and_encrypt_files(file_paths, output_path, password):\n    # 新建資料夾\n    temp_folder = 'temp_folder'\n    os.makedirs(temp_folder)\n    \n    # 複製檔案到暫存資料夾\n    for file_path in file_paths:\n        shutil.copy2(file_path, temp_folder)\n        \n    # 壓縮暫存資料夾\n    shutil.make_archive(output_path, 'zip', temp_folder)\n    \n    # 加密壓縮後的檔案\n    encrypt_file(output_path + '.zip', password)\n    \n    # 刪除暫存資料夾\n    shutil.rmtree(temp_folder)\n    \n\ndef encrypt_file(file_path, password):\n    key = Fernet.generate_key()\n    cipher_suite = Fernet(key)\n\n    with open(file_path, 'rb') as file:\n        encrypted_data = cipher_suite.encrypt(file.read())\n\n    with open(file_path + '.enc', 'wb') as encrypted_file:\n        encrypted_file.write(encrypted_data)\n\n    # 刪除未加密的壓縮檔案\n    os.remove(file_path)\n\n\n# 使用範例\ncompress_and_encrypt_files(['file1.txt', 'file2.txt'], 'archive', b'password123')\n```\n\n以上三種實現方式都使用到了以下套件：\n- zipfile\n- shutil\n- os\n- cryptography (加密)\n- py7zr (7z壓縮)\n\n輸出的檔案為壓縮後的檔案，使用AES或Fernet算法進行加密的壓縮檔案。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":781,
+    "completion_tokens":1048,
+    "total_tokens":1829
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKPAMuzaonqQXp8bfRZ9eUaFjsqo",
+  "object":"chat.completion",
+  "created":1700570672,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n方法一：\n```python\nimport subprocess\n\ndef execute_script(script_path):\n    subprocess.call([\"cscript\", script_path])\n\n# 使用方法\nexecute_script(\"pubprn.vbs\")\n```\n方法二：\n```python\nimport os\n\ndef execute_script(script_path):\n    os.system(\"cscript \" + script_path)\n\n# 使用方法\nexecute_script(\"pubprn.vbs\")\n```\n方法三：\n```python\nimport ctypes\n\ndef execute_script(script_path):\n    ctypes.windll.WScript.Shell.Run(\"cmd /c cscript \" + script_path)\n\n# 使用方法\nexecute_script(\"pubprn.vbs\")\n```\n\n錄入檔案的方法：\n使用 `write_file` function 將指定的程式碼寫入檔案。\n\n```python\ndef write_file(file_path, content):\n    with open(file_path, \"w\") as f:\n        f.write(content)\n\n# 使用方法\nwrite_file(\"pubprn.vbs\", \"Your VBScript code here\")\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":707,
+    "completion_tokens":220,
+    "total_tokens":927
+  }
+}

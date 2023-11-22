@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MaCucjNO4TZjMGMblPKgLOhkXQKD",
+  "object":"chat.completion",
+  "created":1700393088,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：使用Docker SDK套件（docker-py）來執行指令\n\n```python\nimport docker\n\ndef execute_command_in_container(container_id, command):\n    client = docker.from_env()\n    container = client.containers.get(container_id)\n    exec_result = container.exec_run(command)\n    return exec_result.output.decode('utf-8')\n\n# 使用範例\ncontainer_id = \"<container_id>\"\ncommand = \"<command>\"\nresult = execute_command_in_container(container_id, command)\nprint(result)\n```\n\n方法二：使用subprocess套件來執行指令\n\n```python\nimport subprocess\n\ndef execute_command_in_container(container_id, command):\n    full_command = f\"docker exec {container_id} {command}\"\n    result = subprocess.run(full_command, shell=True, capture_output=True, text=True)\n    return result.stdout\n\n# 使用範例\ncontainer_id = \"<container_id>\"\ncommand = \"<command>\"\nresult = execute_command_in_container(container_id, command)\nprint(result)\n```\n\n方法三：使用paramiko套件連接至遠端伺服器並執行指令\n```python\nimport paramiko\n\ndef execute_command_in_container(container_hostname, container_username, container_password, command):\n    ssh_client = paramiko.SSHClient()\n    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    ssh_client.connect(container_hostname, username=container_username, password=container_password)\n  \n    stdin, stdout, stderr = ssh_client.exec_command(f\"docker exec {container_id} {command}\")\n    result = stdout.read().decode(\"utf-8\")\n  \n    ssh_client.close()\n    return result\n\n# 使用範例\ncontainer_hostname = \"<container_hostname>\"\ncontainer_username = \"<container_username>\"\ncontainer_password = \"<container_password>\"\ncommand = \"<command>\"\nresult = execute_command_in_container(container_hostname, container_username, container_password, command)\nprint(result)\n```\n\n附註: 請把 `<container_id>`, `<container_hostname>`, `<container_username>`, `<container_password>`, `<command>` 換成實際的值。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":583,
+    "completion_tokens":458,
+    "total_tokens":1041
+  }
+}

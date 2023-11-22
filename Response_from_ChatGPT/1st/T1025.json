@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIzYX6FZTVv5yHiOfKP6QNiwuCtd",
+  "object":"chat.completion",
+  "created":1700326912,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n實現方式1: 使用os模組的功能\n```python\nimport os\n\n# 從指定的路徑中搜尋指定的檔案\ndef search_files(path, target_files):\n    found_files = []\n    for root, dirs, files in os.walk(path):\n        for file in files:\n            if file in target_files:\n                found_files.append(os.path.join(root, file))\n    return found_files\n\n# 指定要搜尋的路徑\nsearch_path = \"C:\\\\\"\n# 指定要搜尋的檔案\ntarget_files = [\"*.doc\", \"*.xls\", \"*.pdf\"]\n\n# 搜尋檔案\nresult = search_files(search_path, target_files)\n\n# 印出搜尋結果\nfor file in result:\n    print(file)\n```\n\n實現方式2: 使用glob模組的功能\n```python\nimport glob\n\n# 從指定的路徑中搜尋指定的檔案\ndef search_files(path, target_files):\n    found_files = []\n    for file_pattern in target_files:\n        found_files.extend(glob.glob(path + file_pattern))\n    return found_files\n\n# 指定要搜尋的路徑\nsearch_path = \"C:\\\\\"\n# 指定要搜尋的檔案\ntarget_files = [\"*.doc\", \"*.xls\", \"*.pdf\"]\n\n# 搜尋檔案\nresult = search_files(search_path, target_files)\n\n# 印出搜尋結果\nfor file in result:\n    print(file)\n```\n\n實現方式3: 使用fnmatch模組的功能\n```python\nimport os\nimport fnmatch\n\n# 從指定的路徑中搜尋指定的檔案\ndef search_files(path, target_files):\n    found_files = []\n    for root, dirs, files in os.walk(path):\n        for file in files:\n            for pattern in target_files:\n                if fnmatch.fnmatch(file, pattern):\n                    found_files.append(os.path.join(root, file))\n                    break\n    return found_files\n\n# 指定要搜尋的路徑\nsearch_path = \"C:\\\\\"\n# 指定要搜尋的檔案\ntarget_files = [\"*.doc\", \"*.xls\", \"*.pdf\"]\n\n# 搜尋檔案\nresult = search_files(search_path, target_files)\n\n# 印出搜尋結果\nfor file in result:\n    print(file)\n```\n\n使用到的套件：os、glob、fnmatch\n\n這些程式碼會從指定的路徑中搜索指定的檔案，並返回找到的檔案的路徑。在這個例子中，我們指定要搜尋的路徑為\"C:\\\\\"，並指定要搜尋的檔案為\"*.doc\"、\"*.xls\"和\"*.pdf\"。程式碼會遞迴地搜索指定路徑下所有的子目錄，並對每個檔案檢查是否與目標檔案格式匹配。如果匹配則將其加入到結果列表中。最後，程式碼會列印出所有找到的檔案的路徑。搜尋的檔案格式可以根據需求進行修改。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":612,
+    "completion_tokens":823,
+    "total_tokens":1435
+  }
+}

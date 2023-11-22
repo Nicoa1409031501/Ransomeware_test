@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MfSCVbM4UccEFQwmbVnjbYLw4DFP",
+  "object":"chat.completion",
+  "created":1700413256,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n```\nimport subprocess\n\ndef peripheral_device_discovery():\n    result = subprocess.check_output(\"wmic path Win32_PnPEntity get caption\", shell=True)\n    devices = result.decode().split('\\n')[1:-1]\n    return devices\n\ndevices = peripheral_device_discovery()\nfor device in devices:\n    print(device)\n```\n\n方法二：\n```\nimport wmi\n\ndef peripheral_device_discovery():\n    c = wmi.WMI()\n    devices = c.Win32_PnPEntity()\n    device_names = []\n    for device in devices:\n        device_names.append(device.Caption)\n    return device_names\n\ndevices = peripheral_device_discovery()\nfor device in devices:\n    print(device)\n```\n\n方法三：\n```\nimport infi.devicemanager\n\ndef peripheral_device_discovery():\n    devices = infi.devicemanager.DeviceManager().disk_drives\n    device_names = []\n    for device in devices:\n        device_names.append(device.description)\n    return device_names\n\ndevices = peripheral_device_discovery()\nfor device in devices:\n    print(device)\n```\n\n這三種方法都可以使用不同的套件來實現 Peripheral Device Discovery，分別是 subprocess、wmi 和 infi.devicemanager。程式碼會列出連接到電腦系統的周邊設備的名稱。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":609,
+    "completion_tokens":304,
+    "total_tokens":913
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MItRapaZxKUwZAKxMGNUxq0K0j4E",
+  "object":"chat.completion",
+  "created":1700326533,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n1. 使用selenium套件，透過WebDriver實現自動化瀏覽器操作\n2. 使用cookie注入技術，篡改瀏覽器的session\n3. 使用代理伺服器攔截網路流量，進行session劫持\n\n以下是第一種實現方式的程式碼：\n\n```python\n# 使用selenium套件\nfrom selenium import webdriver\n\n# 啟動瀏覽器\ndriver = webdriver.Chrome()\n\n# 篡改瀏覽器的session\ndriver.execute_cdp_cmd('Network.addInterception', {\n    'patterns': [{'urlPattern': '*', 'resourceType': 'Document', 'interceptionStage': 'HeadersReceived'}]\n})\ndriver.execute_cdp_cmd('Network.setInterceptionEnabled', {'enabled': True})\n\n# 關閉瀏覽器\ndriver.quit()\n```\n\n以下是第二種實現方式的程式碼：\n\n```python\n# 使用requests套件\nimport requests\n\n# 取得瀏覽器的session cookie\ncookies = {\n    'sessionid': 'your_session_id',\n    'csrftoken': 'your_csrf_token',\n    # 其他必要的session cookies\n}\n\n# 篡改session cookie的值\ncookies['sessionid'] = 'modified_session_id'\n\n# 建立一個具有修改後session的requests session\nsession = requests.Session()\nsession.cookies = requests.cookies.cookiejar_from_dict(cookies)\n\n# 發送請求\nresponse = session.get('https://www.example.com')\n\n# 輸出回應內容\nprint(response.text)\n```\n\n以下是第三種實現方式的程式碼：\n\n```python\n# 使用mitmproxy套件\nfrom mitmproxy import io, http\n\n# 繼承mitmproxy的AddOn類別\nclass InterceptAddOn:\n    def __init__(self):\n        self.flow_count = 0\n    \n    # 偵測每個HTTP請求\n    def request(self, flow: http.HTTPFlow) -> None:\n        # 篡改session cookie的值\n        flow.request.cookies['sessionid'] = 'modified_session_id'\n        \n        # 增加流量計數\n        self.flow_count += 1\n        \n        # 印出請求資訊\n        print(f\"Flow #{self.flow_count}: {flow.request.url}\")\n    \n    # 偵測每個HTTP回應\n    def response(self, flow: http.HTTPFlow) -> None:\n        # 印出回應資訊\n        print(f\"Flow #{self.flow_count}: {flow.response.status_code}\")\n    \n\n# 啟動mitmproxy\naddons = [InterceptAddOn()]\nio.run(io.FlowReader(open(\"flows.txt\", \"rb\")), addons=addons)\n```\n\n注意事項：\n- 第一種實現方式需要安裝selenium套件和瀏覽器驅動程式，例如Chrome的驅動程式chromedriver。\n- 第二種實現方式需要先使用瀏覽器的開發者工具查看session cookie的名稱和值。\n- 第三種實現方式需要安裝mitmproxy套件。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":577,
+    "completion_tokens":781,
+    "total_tokens":1358
+  }
+}

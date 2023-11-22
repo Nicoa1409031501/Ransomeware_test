@@ -25,9 +25,8 @@ All malicious fuctions are based on the framework,below are the twelve TTPs stag
 + Exfiltration
 + Impact
 ##### Detail
-###### Lanfuage
+###### Language
 The Languages I use are below:
 + python
-+ C++
 ###### Convert into Excutable
 Some functions require the program itself to be a single file,such as privilige escalting.Converting .py files is accomplished by auto-py-to-exe.

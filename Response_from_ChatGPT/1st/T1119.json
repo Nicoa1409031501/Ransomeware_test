@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIsNPyRqr35x7PjJQdHJ7trkSkXn",
+  "object":"chat.completion",
+  "created":1700326467,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n實現方式1: 使用os和shutil套件進行檔案搜尋和複製\n\n```\nimport os\nimport shutil\n\ndef automated_collection(target_directory, criteria, destination_directory):\n    collected_files = []\n    for root, dirs, files in os.walk(target_directory):\n        for file in files:\n            if criteria in file:\n                source_path = os.path.join(root, file)\n                destination_path = os.path.join(destination_directory, file)\n                shutil.copy2(source_path, destination_path)\n                collected_files.append(destination_path)\n    return collected_files\n\n# 使用範例\ntarget_directory = '/path/to/target/directory'\ncriteria = '.txt'\ndestination_directory = '/path/to/destination/directory'\ncollected_files = automated_collection(target_directory, criteria, destination_directory)\nprint(collected_files)\n```\n\n實現方式2: 使用glob套件進行檔案搜尋和複製\n\n```\nimport glob\nimport shutil\n\ndef automated_collection(target_directory, criteria, destination_directory):\n    collected_files = []\n    file_paths = glob.glob(os.path.join(target_directory, f\"*{criteria}*\"))\n    for file_path in file_paths:\n        destination_path = os.path.join(destination_directory, os.path.basename(file_path))\n        shutil.copy2(file_path, destination_path)\n        collected_files.append(destination_path)\n    return collected_files\n\n# 使用範例\ntarget_directory = '/path/to/target/directory'\ncriteria = '.txt'\ndestination_directory = '/path/to/destination/directory'\ncollected_files = automated_collection(target_directory, criteria, destination_directory)\nprint(collected_files)\n```\n\n實現方式3: 使用subprocess套件來執行命令查詢並進行檔案複製\n\n```\nimport subprocess\nimport shutil\n\ndef automated_collection(target_directory, criteria, destination_directory):\n    collected_files = []\n    command = f\"find {target_directory} -name '*{criteria}*' -type f -exec cp {{}} {destination_directory} \\;\"\n    subprocess.run(command, shell=True)\n    for root, dirs, files in os.walk(destination_directory):\n        for file in files:\n            collected_files.append(os.path.join(root, file))\n    return collected_files\n\n# 使用範例\ntarget_directory = '/path/to/target/directory'\ncriteria = '.txt'\ndestination_directory = '/path/to/destination/directory'\ncollected_files = automated_collection(target_directory, criteria, destination_directory)\nprint(collected_files)\n```\n\n範例使用搜尋「.txt」檔案作為criteria，可根據需求修改為其他條件。複製後的檔案會儲存在destination_directory中。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":639,
+    "completion_tokens":609,
+    "total_tokens":1248
+  }
+}

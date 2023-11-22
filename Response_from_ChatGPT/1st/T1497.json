@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MdmedvbZbTyKnqkzF4Wi8okklyoO",
+  "object":"chat.completion",
+  "created":1700406836,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n解決方案一：\n```python\n# 使用 wmi套件 偵測系統資訊\nimport wmi\n\ndef check_virtualization_wmi():\n    try:\n        c = wmi.WMI()\n        # 判斷系統使用的虛擬化技術是否存在\n        for os in c.Win32_OperatingSystem():\n            if os.Name.lower().find(\"virtualbox\") != -1:\n                return True\n        return False\n    except Exception as e:\n        print(f\"Error: {str(e)}\")\n        return False\n\nresult = check_virtualization_wmi()\nprint(f\"虛擬化檢測結果: {result}\")\n```\n\n解決方案二：\n```python\n# 使用 sys.platform 偵測系統資訊\nimport sys\n\ndef check_virtualization_sys_platform():\n    platforms = ['win32', 'linux2', 'darwin']\n    if sys.platform in platforms:\n        return False\n    else:\n        return True\n\nresult = check_virtualization_sys_platform()\nprint(f\"虛擬化檢測結果: {result}\")\n```\n\n解決方案三：\n```python\n# 使用 psutil 套件 偵測系統資訊\nimport psutil\n\ndef check_virtualization_psutil():\n    try:\n        for proc in psutil.process_iter():\n            if 'qemu-ga' in proc.name() or 'VBoxService' in proc.name():\n                return True\n        return False\n    except Exception as e:\n        print(f\"Error: {str(e)}\")\n        return False\n\nresult = check_virtualization_psutil()\nprint(f\"虛擬化檢測結果: {result}\")\n```\n\n以上三個解決方案都可以用來偵測系統是否虛擬化。第一個方案使用了wmi套件，檢測是否使用VirtualBox虛擬化技術；第二個方案使用了sys.platform，判斷系統是否為Windows、Linux或macOS；第三個方案使用了psutil套件，檢測是否有qemu-ga或VBoxService進程運行。\n\n檔案輸出: 無\n\n檔案讀取: 無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":972,
+    "completion_tokens":556,
+    "total_tokens":1528
+  }
+}

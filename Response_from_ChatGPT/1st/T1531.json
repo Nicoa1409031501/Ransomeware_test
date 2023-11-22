@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NOFuH3ASfaaMIQxPbNKvzGbNh4i2",
+  "object":"chat.completion",
+  "created":1700585474,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種用Python實現T1531的方式：\n\n方法一：\n```\nimport os\nimport getpass\n\ndef remove_account_access():\n    username = getpass.getuser()\n    # 1. 讓使用者輸入要刪除或鎖定的帳號名稱\n    target_account = input(\"請輸入要刪除或鎖定的帳號名稱：\")\n    \n    # 2. 刪除或鎖定帳號\n    os.system(f\"net user {target_account} /active:no\")\n    print(f\"已成功鎖定帳號：{target_account}\")\n    \n    # 3. 登出系統\n    os.system(\"shutdown /l\")\n\nremove_account_access()\n```\n\n方法二：\n```\nimport subprocess\n\ndef remove_account_access():\n    # 1. 讓使用者輸入要刪除或鎖定的帳號名稱\n    target_account = input(\"請輸入要刪除或鎖定的帳號名稱：\")\n    \n    # 2. 刪除或鎖定帳號\n    subprocess.run([\"net\", \"user\", target_account, \"/active:no\"])\n    print(f\"已成功鎖定帳號：{target_account}\")\n    \n    # 3. 登出系統\n    subprocess.run([\"shutdown\", \"/l\"])\n\nremove_account_access()\n```\n\n方法三：\n```\nimport ctypes\n\ndef remove_account_access():\n    # 1. 讓使用者輸入要刪除或鎖定的帳號名稱\n    target_account = input(\"請輸入要刪除或鎖定的帳號名稱：\")\n    \n    # 2. 刪除或鎖定帳號\n    ctypes.windll.advapi32.NetUserSetInfo(None, target_account, 0, {'usri1_flags': 0x02})  \n    print(f\"已成功鎖定帳號：{target_account}\")\n    \n    # 3. 登出系統\n    ctypes.windll.user32.ExitWindowsEx(0x08, 0)  \n\nremove_account_access()\n```\n\n使用套件：\n- os：方法一使用\n- getpass：方法一使用\n- subprocess：方法二使用\n- ctypes：方法三使用\n\n功能：\n- 讓使用者輸入要刪除或鎖定的帳號名稱\n- 刪除或鎖定帳號\n- 登出系統\n\n輸出：\n無輸出檔案。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":605,
+    "completion_tokens":627,
+    "total_tokens":1232
+  }
+}

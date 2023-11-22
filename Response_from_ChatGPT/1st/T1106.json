@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MaHYZYcUnvxRzO3IZ6oAof68VY61",
+  "object":"chat.completion",
+  "created":1700393376,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n實現Native API的方式有很多種，以下提供三種範例：\n\n範例一：\n```python\nimport ctypes\n\nkernel32 = ctypes.WinDLL('kernel32')\nuser32 = ctypes.WinDLL('user32')\n\n# 使用Native API中的MessageBoxA函數顯示彈出對話框\nuser32.MessageBoxA(None, 'Hello, World!', 'Message', 0)\n```\n\n範例二：\n```python\nimport ctypes\n\nntdll = ctypes.WinDLL('ntdll')\n\n# 使用Native API中的NtDeleteFile函數刪除指定文件\nntdll.NtDeleteFile(ctypes.c_wchar_p('C:\\\\path\\\\to\\\\file.txt'))\n```\n\n範例三：\n```python\nimport ctypes\n\nkernel32 = ctypes.WinDLL('kernel32')\n\n# 使用Native API中的GetTickCount函數獲取系統運行時間\ntick_count = kernel32.GetTickCount()\nprint(f'System has been running for {tick_count} milliseconds')\n```\n\n這些範例都是利用ctypes套件來調用Windows的Native API。範例一調用了user32.dll中的MessageBoxA函數，範例二調用了ntdll.dll中的NtDeleteFile函數，範例三調用了kernel32.dll中的GetTickCount函數。\n\n注意：因為這些函數是Windows特定的，所以這些程式碼只適用於Windows環境執行。\n\n如果需要進一步的Native API功能，可以在ctypes模塊中查詢Windows所提供的函數。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":618,
+    "completion_tokens":404,
+    "total_tokens":1022
+  }
+}

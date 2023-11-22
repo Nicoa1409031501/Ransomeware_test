@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NOPMDaW8O3XBcNZCzP217s9tBqab",
+  "object":"chat.completion",
+  "created":1700586060,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方式一：使用shutil模塊的`os.remove()`函數\n```python\nimport os\n\ndef data_destruction(file_path):\n    os.remove(file_path)\n```\n\n方式二：使用標準庫的`open()`函數與`os.unlink()`函數\n```python\nimport os\n\ndef data_destruction(file_path):\n    with open(file_path, 'w') as f:\n        pass\n    os.unlink(file_path)\n```\n\n方式三：使用`send2trash`套件\n```python\nfrom send2trash import send2trash\n\ndef data_destruction(file_path):\n    send2trash(file_path)\n```\n\n這些方式都可以刪除指定路徑的檔案，達到數據銷毀的目的。\n\n附加說明：\n- 使用到的套件：os、shutil或send2trash\n- 使用到的功能：`os.remove()`、`os.unlink()`、`send2trash()`\n- 沒有輸出檔案或讀取檔案的需求"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":662,
+    "completion_tokens":261,
+    "total_tokens":923
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKR49gRsg5t0eawXMT635uhNT7Eb",
+  "object":"chat.completion",
+  "created":1700570790,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n我們可以使用Python來實現T1212 - Exploitation for Credential Access。以下是三種可能的寫法：\n\n寫法一：\n```python\nimport subprocess\n\ndef exploit_vulnerability():\n    # Exploit the software vulnerability to execute adversary-controlled code\n    subprocess.call([\"exploit_code\"])\n\nexploit_vulnerability()\n```\n\n寫法二：\n```python\nfrom os import system\n\ndef exploit_vulnerability():\n    # Exploit the software vulnerability to execute adversary-controlled code\n    system(\"exploit_code\")\n\nexploit_vulnerability()\n```\n\n寫法三：\n```python\nimport os\n\ndef exploit_vulnerability():\n    # Exploit the software vulnerability to execute adversary-controlled code\n    os.system(\"exploit_code\")\n\nexploit_vulnerability()\n```\n\n這些寫法都是使用subprocess或os模塊來執行外部命令，並透過這些命令來執行程式碼的攻擊碼。請將\"exploit_code\"替換為具體的攻擊碼。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":594,
+    "completion_tokens":267,
+    "total_tokens":861
+  }
+}

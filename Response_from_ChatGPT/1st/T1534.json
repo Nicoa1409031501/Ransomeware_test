@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NNHUALBtSlEA17EZojuMz6vmv8Yw",
+  "object":"chat.completion",
+  "created":1700581728,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"請問目前的問題是需要我們撰寫一個模擬內部社工的程式嗎？還是只需要一個函數來清楚地說明內部社工攻擊的手法？"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":640,
+    "completion_tokens":73,
+    "total_tokens":713
+  }
+}

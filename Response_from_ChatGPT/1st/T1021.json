@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NLKlvuOeG3wASiV4OcO1UgB78nE5",
+  "object":"chat.completion",
+  "created":1700574243,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python的paramiko套件來實現SSH連線和執行遠端命令。\n\n以下是一種實現方式：\n\n1. 安裝paramiko套件：\n```\npip install paramiko\n```\n\n2. 寫一個可以執行SSH遠端命令的函式：\n```python\nimport paramiko\n\ndef run_ssh_command(hostname, username, password, command):\n    client = paramiko.SSHClient()\n    client.load_system_host_keys()\n    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    client.connect(hostname, username=username, password=password)\n    stdin, stdout, stderr = client.exec_command(command)\n    output = stdout.read().decode('utf-8')\n    client.close()\n    return output\n```\n\n3. 使用上述函式來連線至遠端主機並執行命令：\n```python\nhostname = '遠端主機的IP地址或主機名稱'\nusername = '遠端帳號'\npassword = '遠端帳號的密碼'\ncommand = '要執行的遠端命令'\n\noutput = run_ssh_command(hostname, username, password, command)\nprint(output)\n```\n\n另外，如果要連線到遠端主機時使用私鑰認證，而不使用密碼，可以透過paramiko中的密鑰對象來實現。這需要使用者提供與遠端帳號相對應的私鑰檔案。\n\n```python\nimport paramiko\n\ndef run_ssh_command_with_key(hostname, username, private_key_path, command):\n    private_key = paramiko.RSAKey.from_private_key_file(private_key_path)\n    client = paramiko.SSHClient()\n    client.load_system_host_keys()\n    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    client.connect(hostname, username=username, pkey=private_key)\n    stdin, stdout, stderr = client.exec_command(command)\n    output = stdout.read().decode('utf-8')\n    client.close()\n    return output\n```\n\n使用時可以將`run_ssh_command_with_key`函式替換掉前面示範的函式。\n\n請注意，使用SSH連線時需要遠端主機開啟對應的服務（如sshd）並允許遠端帳號登錄。此外，為了安全起見，建議使用SSH密鑰認證而不是密碼登錄。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":952,
+    "completion_tokens":628,
+    "total_tokens":1580
+  }
+}

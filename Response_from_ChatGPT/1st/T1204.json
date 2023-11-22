@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MacEzLu0Kn8n3shxG0oxrcHpdaBd",
+  "object":"chat.completion",
+  "created":1700394658,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n使用Python，可以實現T1204 - User Execution的三種方式：\n\n**方式一：使用webbrowser套件開啟連結**\n```python\nimport webbrowser\n\ndef user_click_link(link):\n    webbrowser.open(link)\n\n# 使用方式\nuser_click_link(\"http://malicious-website.com\")\n```\n\n**方式二：使用os套件執行可執行文件**\n```python\nimport os\n\ndef user_open_file(file_path):\n    os.startfile(file_path)\n\n# 使用方式\nuser_open_file(\"C:/path/to/malicious_file.exe\")\n```\n\n**方式三：使用subprocess套件執行指定的命令**\n```python\nimport subprocess\n\ndef user_run_command(command):\n    subprocess.run(command, shell=True)\n\n# 使用方式\nuser_run_command(\"malicious_command.exe\")\n```\n\n以上方法可以根據需要進一步新增參數或功能，例如：\n- 當使用方式二時，可加入驗證機制來確保用戶只能開啟特定的檔案類型。\n- 當使用方式三時，可以獲取命令的輸出結果或捕捉錯誤訊息。\n\n如果需要將程式碼寫入到檔案中，可以使用以下方法：\n```python\n# 範例寫入檔案\nwith open(\"user_execution.py\", \"w\") as f:\n    f.write(\"\"\"\nimport webbrowser\n\ndef user_click_link(link):\n    webbrowser.open(link)\n\nuser_click_link(\"http://malicious-website.com\")\n\"\"\")\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":946,
+    "completion_tokens":385,
+    "total_tokens":1331
+  }
+}

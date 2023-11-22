@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MfGQxLNO7imlNC73hSXIr07Nd3qt",
+  "object":"chat.completion",
+  "created":1700412526,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法1：使用os模組和socket模組\n```python\nimport os\nimport socket\n\ndef network_share_discovery():\n    # 列出網絡上所有的電腦名稱（hostname）\n    computer_names = []\n    for ip in range(1, 256):\n        ip_address = f'192.168.1.{ip}' # 修改成目標網段\n        try:\n            hostname = socket.gethostbyaddr(ip_address)[0]\n            computer_names.append(hostname)\n        except socket.herror or socket.timeout:\n            pass\n            \n    # 列出所有共享資料夾\n    shared_folders = []\n    for computer_name in computer_names:\n        shared_folder_cmd = f'net view \\\\\\\\{computer_name}'\n        try:\n            result = os.popen(shared_folder_cmd).read()\n            lines = result.split('\\n')\n            for line in lines:\n                if line.startswith('\\\\'):\n                    shared_folders.append(line.strip())\n        except:\n            pass\n    \n    return shared_folders\n\nresult = network_share_discovery()\nprint(result)\n```\n\n方法2：使用WMI模組\n```python\nimport wmi\n\ndef network_share_discovery():\n    c = wmi.WMI()\n\n    shared_folders = []\n    for share in c.Win32_Share():\n        shared_folders.append(share.Name)\n\n    return shared_folders\n\nresult = network_share_discovery()\nprint(result)\n```\n\n方法3：使用Subprocess模組呼叫Net命令\n```python\nimport subprocess\n\ndef network_share_discovery():\n    result = subprocess.run(['net', 'share'], capture_output=True)\n    output = result.stdout.decode().split('\\n')[4:-2]\n\n    shared_folders = []\n    for line in output:\n        shares = line.strip().split()\n        shared_folders.append(shares[0])\n\n    return shared_folders\n\nresult = network_share_discovery()\nprint(result)\n```\n\n這些方法都是針對Windows系統實現的，可以列出網絡上所有的共享資料夾。輸出結果是一個包含所有共享資料夾名稱的列表。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":601,
+    "completion_tokens":485,
+    "total_tokens":1086
+  }
+}

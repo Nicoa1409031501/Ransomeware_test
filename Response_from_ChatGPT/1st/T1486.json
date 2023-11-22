@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NOQFkVuyxa2xuxTl9K0Caq2S8YeP",
+  "object":"chat.completion",
+  "created":1700586115,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：\n使用Python的cryptography套件來進行 T1486 的資料加密。以下是實現的步驟：\n\n1. 安裝cryptography套件：可以使用以下指令安裝\n   ```python\n   pip install cryptography\n   ```\n\n2. 實作加密功能，可以使用AES加密算法\n   ```python\n   from cryptography.fernet import Fernet\n\n   def encrypt_data(data, key):\n       cipher_suite = Fernet(key)\n       encrypted_data = cipher_suite.encrypt(data)\n       return encrypted_data\n   ```\n\n3. 使用上述函數進行資料加密\n   ```python\n   key = Fernet.generate_key()  # 生成加密金鑰\n   data = \"This is the data to be encrypted\".encode()  # 要加密的原始資料\n   encrypted_data = encrypt_data(data, key)  # 加密後的資料\n   print(encrypted_data)\n   ```\n\n方法二：\n使用Python的pycryptodome套件來進行 T1486 的資料加密。以下是實現的步驟：\n\n1. 安裝pycryptodome套件：可以使用以下指令安裝\n   ```python\n   pip install pycryptodome\n   ```\n\n2. 實作加密功能，可以使用AES加密算法\n   ```python\n   from Cryptodome.Cipher import AES\n   from Cryptodome.Random import get_random_bytes\n\n   def pad(data):\n       return data + b\"\\0\" * (AES.block_size - len(data) % AES.block_size)\n\n   def encrypt_data(data, key):\n       data = pad(data)\n       cipher = AES.new(key, AES.MODE_ECB)\n       encrypted_data = cipher.encrypt(data)\n       return encrypted_data\n   ```\n\n3. 使用上述函數進行資料加密\n   ```python\n   key = get_random_bytes(16)  # 生成加密金鑰\n   data = \"This is the data to be encrypted\".encode()  # 要加密的原始資料\n   encrypted_data = encrypt_data(data, key)  # 加密後的資料\n   print(encrypted_data)\n   ```\n\n方法三：\n使用Python的cryptography.fernet套件來進行 T1486 的資料加密。以下是實現的步驟：\n\n1. 安裝cryptography套件：可以使用以下指令安裝\n   ```python\n   pip install cryptography\n   ```\n\n2. 實作加密功能\n   ```python\n   from cryptography.fernet import Fernet\n\n   def encrypt_data(data, key):\n       cipher_suite = Fernet(key)\n       encrypted_data = cipher_suite.encrypt(data.encode())\n       return encrypted_data\n   ```\n\n3. 使用上述函數進行資料加密\n   ```python\n   key = Fernet.generate_key()  # 生成加密金鑰\n   data = \"This is the data to be encrypted\"  # 要加密的原始資料\n   encrypted_data = encrypt_data(data, key)  # 加密後的資料\n   print(encrypted_data)\n   ```\n\n以上三種方法都能實現 T1486 的資料加密功能。具體使用哪種方法可以根據需求和環境選擇適合的方式。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":637,
+    "completion_tokens":813,
+    "total_tokens":1450
+  }
+}

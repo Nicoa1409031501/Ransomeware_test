@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Mbxd18QUDdWcmsTbb3Sse4qZSV7V",
+  "object":"chat.completion",
+  "created":1700399829,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n使用Python的Docker API來撰寫Deploy Container功能。\n\n實現方式一：\n```\nimport docker\n\ndef deploy_container(image_name):\n    client = docker.from_env()\n    container = client.containers.run(image_name, detach=True)\n    return container.id\n\n# 使用範例\ncontainer_id = deploy_container('ubuntu:latest')\nprint('Deployed container ID:', container_id)\n```\n\n實現方式二：\n```\nimport docker\n\ndef deploy_container(image_name):\n    client = docker.from_env()\n    container = client.containers.create(image_name)\n    container.start()\n    return container.id\n\n# 使用範例\ncontainer_id = deploy_container('ubuntu:latest')\nprint('Deployed container ID:', container_id)\n```\n\n實現方式三：\n```\nimport docker\n\ndef deploy_container(image_name):\n    client = docker.from_env()\n    container = client.containers.create(image_name)\n    client.containers.start(container.id)\n    return container.id\n\n# 使用範例\ncontainer_id = deploy_container('ubuntu:latest')\nprint('Deployed container ID:', container_id)\n```\n\n使用到的套件：docker\n\n範例中使用了三種不同的方式來部署容器，你可以根據需求選擇其中一種方式。它們的效果是相同的，都會部署一個指定的Docker映像（image）。在範例中，我們使用了\"ubuntu:latest\"作為映像名稱，你可以根據需要更換成其他映像。回傳的結果是容器的ID。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":612,
+    "completion_tokens":382,
+    "total_tokens":994
+  }
+}

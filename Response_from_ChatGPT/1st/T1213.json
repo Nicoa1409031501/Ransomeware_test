@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MIwuaLi4wAJ0AxW3izOvdNGE9Y4Q",
+  "object":"chat.completion",
+  "created":1700326748,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n方法一：使用Python requests和BeautifulSoup套件來從Confluence網頁中擷取有價值的資訊\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef extract_confluence_info(url):\n    # 發送HTTP請求並將回應解析為HTML\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, 'html.parser')\n\n    # 使用CSS選擇器選取有價值的資訊元素\n    valuable_info_elements = soup.select('.valuable-info-class')\n\n    # 提取有價值的資訊內容\n    valuable_info = []\n    for element in valuable_info_elements:\n        valuable_info.append(element.text)\n\n    return valuable_info\n\n# 使用範例：提取Confluence網頁中的有價值資訊\nconfluence_url = 'https://example.com/confluence'\ninfo_list = extract_confluence_info(confluence_url)\nprint(info_list)\n```\n\n方法二：使用Python requests和pandas套件直接從SharePoint網站中下載和解析文件\n\n```python\nimport requests\nimport pandas as pd\n\ndef download_sharepoint_files(url, save_directory):\n    response = requests.get(url)\n    with open(save_directory, 'wb') as file:\n        file.write(response.content)\n\ndef parse_sharepoint_files(file_path):\n    df = pd.read_excel(file_path)  # 根據實際檔案格式進行解析\n    valuable_info = df['valuable_info_column'].tolist()  # 根據實際欄位名稱篩選有價值的資訊\n    return valuable_info\n\n# 使用範例：下載SharePoint文件並進行解析\nsharepoint_url = 'https://example.com/sharepoint'\nsave_path = './sharepoint_file.xlsx'\ndownload_sharepoint_files(sharepoint_url, save_path)\ninfo_list = parse_sharepoint_files(save_path)\nprint(info_list)\n```\n\n方法三：使用Python requests和GitPython套件來從程式碼存儲庫中下載程式碼\n\n```python\nimport git\n\ndef clone_code_repository(repo_url, save_directory):\n    git.Repo.clone_from(repo_url, save_directory)\n\ndef extract_code_info(repo_directory):\n    # 根據實際需求使用解析程式碼的方法，例如使用AST來分析語法結構或使用正則表達式匹配特定模式的字串\n    code_info = parse_code(repo_directory)\n\n    return code_info\n\n# 使用範例：下載程式碼並提取有價值資訊\ncode_repo_url = 'https://example.com/code_repo'\nsave_directory = './code_repo'\nclone_code_repository(code_repo_url, save_directory)\ninfo = extract_code_info(save_directory)\nprint(info)\n```\n\n以上是三種常見的方式來從不同的資訊儲存庫中擷取有價值的資訊。請根據你的需求和實際情況選擇適合的方法。這些方法都需要相應的套件，請確保已經安裝這些套件。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":819,
+    "completion_tokens":797,
+    "total_tokens":1616
+  }
+}

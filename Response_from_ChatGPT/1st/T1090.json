@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NUgvKSsylcfoNFMDWhhYHxuR9ZcI",
+  "object":"chat.completion",
+  "created":1700610213,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. 使用requests套件，將HTTP請求透過Proxy發送出去，可以使用以下方法：\n```python\nimport requests\n\ndef send_request_with_proxy(url, proxy):\n    session = requests.Session()\n    session.proxies = {'http': proxy, 'https': proxy}\n    response = session.get(url)\n    return response.text\n\n# 使用代理發送請求\nurl = 'https://www.example.com'\nproxy = 'http://127.0.0.1:8080'  # 代理伺服器的IP和埠號\nresponse = send_request_with_proxy(url, proxy)\nprint(response)\n```\n2. 使用selenium套件，透過webdriver連接到Proxy並模擬瀏覽器行為，可以使用以下方法：\n```python\nfrom selenium import webdriver\n\ndef browse_with_proxy(url, proxy):\n    options = webdriver.ChromeOptions()\n    options.add_argument('--proxy-server=' + proxy)\n    driver = webdriver.Chrome(options=options)\n    driver.get(url)\n    page_source = driver.page_source\n    driver.quit()\n    return page_source\n\n# 使用代理瀏覽網頁\nurl = 'https://www.example.com'\nproxy = 'http://127.0.0.1:8080'  # 代理伺服器的IP和埠號\npage_source = browse_with_proxy(url, proxy)\nprint(page_source)\n```\n3. 使用socks套件，透過SOCKS代理建立TCP連接並發送請求，可以使用以下方法：\n```python\nimport socks\nimport socket\nimport urllib.request\n\ndef send_request_with_socks_proxy(url, proxy):\n    proxy_type, proxy_host, proxy_port = proxy.split(':')\n\n    # 設定全域默認代理\n    socks.set_default_proxy(socks.SOCKS5, proxy_host, int(proxy_port))\n    socket.socket = socks.socksocket\n\n    response = urllib.request.urlopen(url)\n    return response.read().decode('utf-8')\n\n# 使用SOCKS代理發送請求\nurl = 'https://www.example.com'\nproxy = 'socks5://127.0.0.1:1080'  # SOCKS代理伺服器的IP和埠號\nresponse = send_request_with_socks_proxy(url, proxy)\nprint(response)\n```\n\n這些程式碼示例演示了如何使用Python和相關套件來發送經由Proxy的網路請求，以實現T1090: Proxy的功能。注意，這些示例僅為參考，實際的實現方式可能因系統配置和環境不同而有所差異。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1176,
+    "completion_tokens":651,
+    "total_tokens":1827
+  }
+}

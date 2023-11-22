@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8NKGUBwprdosLCADTeBLBwTbpKqF3",
+  "object":"chat.completion",
+  "created":1700570134,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n可以使用Python的Docker SDK來實現T1612 - Build Image on Host。下面是三種不同的實現方式：\n\n1. 使用Docker SDK的build_from_remote()方法透過遠端建置自訂映像：\n```python\nimport docker\n\ndef build_image_from_remote(dockerfile_path):\n    client = docker.from_env()\n    build_result = client.images.build(path=dockerfile_path)\n    return build_result\n```\n\n2. 使用Docker SDK的build()方法透過本地建置自訂映像：\n```python\nimport docker\n\ndef build_image_from_local(dockerfile_path):\n    client = docker.from_env()\n    with open(dockerfile_path, 'r') as dockerfile:\n        build_result = client.images.build(fileobj=dockerfile)\n    return build_result\n```\n\n3. 直接使用Docker命令透過本地建置自訂映像：\n```python\nimport subprocess\n\ndef build_image_from_local_command(dockerfile_path):\n    command = f'docker build -t custom_image -f {dockerfile_path} .'\n    subprocess.run(command, shell=True)\n```\n\n請注意，以上程式碼需要安裝Docker SDK (`pip install docker`)。\n\n接下來是執行以上程式碼的步驟：\n\n1. 將Dockerfile存儲在適當的路徑，並將路徑傳遞給上述函數。\n2. 執行函數將建置自訂映像。\n3. 根據需要處理和使用建置後的自訂映像。\n\n另外，如果需要寫入Dockerfile或讀取其內容，請在第2步中將Dockerfile文件的內容傳遞給函數。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":610,
+    "completion_tokens":450,
+    "total_tokens":1060
+  }
+}

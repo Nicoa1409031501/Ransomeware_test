@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8MYqxHd9WV9JbTGHfdkQXiLGzmgfc",
+  "object":"chat.completion",
+  "created":1700387883,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種使用Python實現Mitre&Attack中的T1595 - Active Scanning的方式：\n\n方法一：\n套件：socket\n功能：使用套接字進行主動的IP掃描\n程式碼：\n\n```python\nimport socket\n\ndef active_ip_scan(ip_range):\n    open_ports = []\n    \n    for ip in ip_range:\n        try:\n            # 建立套接字並設定超時時間為1秒\n            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n            s.settimeout(1)\n            \n            # 嘗試連接目標IP的80端口\n            result = s.connect_ex((ip, 80))\n            \n            # 如果連接成功，則將該IP記錄為開放的端口\n            if result == 0:\n                open_ports.append(ip)\n            \n            s.close()\n        except:\n            pass\n    \n    return open_ports\n\n# 範例IP範圍\nip_range = ['192.168.0.1', '192.168.0.2', '192.168.0.3']\nopen_ports = active_ip_scan(ip_range)\nprint(\"開放的IP端口：\", open_ports)\n```\n\n方法二：\n套件：nmap\n功能：使用nmap套件進行主動的漏洞掃描\n程式碼：\n\n```python\nimport nmap\n\ndef active_vulnerability_scan(target):\n    open_ports = []\n    \n    # 建立nmap掃描器\n    nm = nmap.PortScanner()\n    \n    # 使用預設參數掃描指定目標的所有端口\n    result = nm.scan(target, arguments='-p-')\n    \n    # 遍歷每個掃描結果\n    for port in nm[target]['tcp']:\n        if nm[target]['tcp'][port]['state'] == 'open':\n            open_ports.append(port)\n    \n    return open_ports\n\ntarget = '192.168.0.1'\nopen_ports = active_vulnerability_scan(target)\nprint(\"開放的漏洞端口：\", open_ports)\n```\n\n方法三：\n套件：requests, BeautifulSoup\n功能：使用requests和BeautifulSoup進行線上資源的探測和解析\n程式碼：\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef active_crawling_scan(url):\n    links = []\n    \n    # 發送GET請求並獲取響應內容\n    response = requests.get(url)\n    \n    # 使用BeautifulSoup解析HTML內容\n    soup = BeautifulSoup(response.text, 'html.parser')\n    \n    # 遍歷頁面中的所有連結\n    for link in soup.find_all('a'):\n        links.append(link.get('href'))\n    \n    return links\n\nurl = 'http://example.com'\nlinks = active_crawling_scan(url)\nprint(\"頁面中的連結：\", links)\n```\n\n輸出檔案：\n無\n\n讀取檔案：\n無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":789,
+    "completion_tokens":725,
+    "total_tokens":1514
+  }
+}
