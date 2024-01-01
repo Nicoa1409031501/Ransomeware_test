@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPpJ6t2EfcanNItxYjQepUkqLkoq",
+  "object":"chat.completion",
+  "created":1702259809,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：subprocess\n優缺點：\n1. 可以直接使用Python內建的subprocess模組來執行指令，方便且不需安裝額外套件。\n2. 指令的執行結果可以直接取得，方便進行錯誤處理。\n3. 缺點是需要手動拼接指令和參數，可能較為繁瑣。\n\n[方案二]\n[分數]：6\n使用套件：pywin32\n優缺點：\n1. 使用win32com.client套件，可以方便地操作Windows的COM對象，適用於Windows環境。\n2. 不需要手動拼接指令和參數，操作較為方便。\n3. 需要額外安裝pywin32套件。\n\n[方案三]\n[分數]：7\n使用套件：win32net\n優缺點：\n1. 使用win32net套件，可以方便地操作Windows的網絡服務，適用於Windows環境。\n2. 不需要手動拼接指令和參數，操作較為方便。\n3. 需要額外安裝pywin32套件。\n\n由於方案一的分數最高，接下來針對方案一進行功能測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1783,
+    "completion_tokens":433,
+    "total_tokens":2216
+  },
+  "system_fingerprint":null
+}

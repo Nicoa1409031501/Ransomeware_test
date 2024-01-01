@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPygCw1saq8Y5zp5YGi8m4G39nz4",
+  "object":"chat.completion",
+  "created":1702260390,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]: 9\n使用套件: requests\n輸入檔案: 無\n輸出檔案: 無\n語法及邏輯正確性: 正確\n優缺點:\n1. 簡單易懂的程式碼\n2. 支援多種HTTP請求方法\n3. 可以使用proxies、headers等進行更進階設定\n\n[方案二]\n[分數]: 8\n使用套件: http.client\n輸入檔案: 無\n輸出檔案: 無\n語法及邏輯正確性: 正確\n優缺點:\n1. 原生Python模組，無需額外安裝\n2. 可以更細緻地處理HTTP請求，例如設定特定的headers或使用HTTP身份驗證\n\n[方案三]\n[分數]: 7\n使用套件: urllib\n輸入檔案: 無\n輸出檔案: 無\n語法及邏輯正確性: 正確\n優缺點:\n1. 原生Python模組，無需額外安裝\n2. 較低階，使用起來較為繁瑣\n3. 不支援像requests和http.client那麼多的功能和設定選項\n\n由於方案一獲得了最高的分數，因此我們將進行單元測試程式碼的撰寫。\n\n[TTPs Name]\n[方案一單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1889,
+    "completion_tokens":478,
+    "total_tokens":2367
+  },
+  "system_fingerprint":null
+}

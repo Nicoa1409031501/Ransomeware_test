@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UUcRemen0vjMAS7stXWv7oj53lOA",
+  "object":"chat.completion",
+  "created":1702278231,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1657 - Financial Theft]\n\n[方案一]\n[分數]：7\n使用套件：random, string\n優缺點：\n1. 優點：概念清晰，整體流程明確\n2. 缺點：可能需要進一步定義銀行交易的相關程式碼\n\n[方案二]\n[分數]：6\n使用套件：random, string\n優缺點：\n1. 優點：概念清晰，實現起來相對簡單\n2. 缺點：僅模擬了詐騙郵件的內容，缺乏發送郵件的相關程式碼\n\n[方案三]\n[分數]：8\n使用套件：requests\n優缺點：\n1. 優點：直接攻擊目標網站，模擬了金融資源的竊取\n2. 缺點：程式碼僅模擬了攻擊的相關部分，未包含攻擊後續處理的程式碼\n\n[TTPs Name]\n[T1657 - Financial Theft]\n\n[方案一單元測試]\n內容...\n\n[方案二單元測試]\n內容...\n\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1957,
+    "completion_tokens":379,
+    "total_tokens":2336
+  },
+  "system_fingerprint":null
+}

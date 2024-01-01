@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPsfIwWsrOnk5x5zppSvkSsyriuo",
+  "object":"chat.completion",
+  "created":1702260017,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：7\n使用套件：subprocess\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：正確\n優缺點：\n優點：\n1. 使用subprocess模組可以執行VBScript腳本\n缺點：\n1. 需要外部的VBScript腳本檔案\n\n[方案二]\n[分數]：6\n使用套件：os\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：正確\n優缺點：\n優點：\n1. 使用os模組可以執行VBScript腳本\n缺點：\n1. 需要外部的VBScript腳本檔案\n\n[方案三]\n[分數]：4\n使用套件：ctypes\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：正確\n優缺點：\n優點：\n1. 使用ctypes可以執行VBScript腳本\n缺點：\n1. 需要外部的VBScript腳本檔案\n\n[方案一單元測試]\n內容...\n待補充\n\n[方案二單元測試]\n內容...\n待補充"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1445,
+    "completion_tokens":400,
+    "total_tokens":1845
+  },
+  "system_fingerprint":null
+}

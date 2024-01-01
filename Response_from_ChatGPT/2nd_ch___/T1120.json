@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdnLzyeI46w4xXec25UBLZotFPfk",
+  "object":"chat.completion",
+  "created":1700883535,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Peripheral Device Discovery\n方案數量：3\n\n[方案一]\n優點：使用 subprocess 套件，簡單易懂，只需要一行指令即可取得設備名稱。\n缺點：相對較慢，需要等待命令執行完成才能繼續程式的執行。\n\n[方案一評分]: 80\n\n[方案二]\n優點：使用 wmi 套件，可以更方便地存取 Windows 系統的資訊，包括設備名稱等。\n缺點：需要額外安裝 wmi 套件。\n\n[方案二評分]: 90\n\n[方案三]\n優點：使用 infi.devicemanager 套件，可以更方便地存取 Windows 系統的資訊，包括設備名稱等。\n缺點：需要額外安裝 infi.devicemanager 套件。\n\n[方案三評分]: 85\n\n綜合來看，方案二的效能較佳，且使用的套件也較常見，因此獲得最高評分。\n\n綜合分數：88"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1549,
+    "completion_tokens":348,
+    "total_tokens":1897
+  }
+}

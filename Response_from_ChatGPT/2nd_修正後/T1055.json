@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPbJZq7GU7tzNmD7IYDWCfBStmYB",
+  "object":"chat.completion",
+  "created":1702258941,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：ctypes\n優缺點：\n1. 優點：使用LoadLibrary函數載入DLL檔案，簡單易實現。\n2. 缺點：需要指定目標進程的ID和相應的DLL檔案。\n3. 使用方便性：10/10\n\n[方案二]\n[分數]：8\n使用套件：ctypes\n優缺點：\n1. 優點：使用CreateRemoteThread函數在目標進程中執行指定函數，具有彈性。\n2. 缺點：需要指定目標進程的ID和shellcode。\n3. 使用方便性：8/10\n\n[方案三]\n[分數]：7\n使用套件：ctypes\n優缺點：\n1. 優點：使用NtQueueApcThread函數將APC注入到目標進程的執行緒中，較難被偵測。\n2. 缺點：需要指定目標進程的ID和shellcode。\n3. 使用方便性：6/10"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2440,
+    "completion_tokens":335,
+    "total_tokens":2775
+  },
+  "system_fingerprint":null
+}

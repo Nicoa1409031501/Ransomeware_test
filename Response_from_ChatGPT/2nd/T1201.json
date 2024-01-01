@@ -1,8 +1,22 @@
 {
-  "error":{
-    "code":502,
-    "message":"Bad gateway.",
-    "param":null,
-    "type":"cf_bad_gateway"
-  }
+  "id":"chatcmpl-8Uy7utUv2oLbKJZXIvkR1dEkfH8yV",
+  "object":"chat.completion",
+  "created":1702391658,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n[分數]：8\n使用套件：requests\n優缺點：\n1. 優點：使用簡單，只需透過POST請求和回應的處理即可獲取相關信息。\n2. 缺點：可能無法攔截到完整的回應內容，需要額外處理解析HTML或使用正則表達式來提取相關信息。\n\n[方案二]\n[分數]：7\n使用套件：selenium\n優缺點：\n1. 優點：可模擬真實的使用者行為，進行完整的網頁操作，獲取準確的相關信息。\n2. 缺點：需要下載對應瀏覽器的驅動程式，且需要初始化瀏覽器，運行速度較慢。\n\n[方案三]\n[分數]：6\n使用套件：paramiko\n優缺點：\n1. 優點：可遠程連接到目標主機，執行命令獲取相關信息。\n2. 缺點：需要主機具有SSH服務，需要提供正確的主機名、用戶名和密碼，與主機的連接速度有關。\n\n根據分數評估，方案一得分最高，為8分，可以繼續進行功能測試。\n\n[可實現]\n[TTPs Name]\n[方案一單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1832,
+    "completion_tokens":455,
+    "total_tokens":2287
+  },
+  "system_fingerprint":null
 }

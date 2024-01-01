@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbUnvxaHkqWOzc3cvxz6j0EFvyFT",
+  "object":"chat.completion",
+  "created":1702781321,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] TTPs Name (Acquire Infrastructure)\n\n[方案一總結]\n優點：\n1. 使用簡單，只需使用requests套件即可實現。\n2. 可以快速獲取Mire & Attack資料庫中的相關資訊。\n3. 資料輸出方便，可以自由選擇輸出格式。\n\n缺點：\n1. 依賴於Mire & Attack資料庫的正確性和更新頻率。\n2. 無法對資料進行進一步的加工和分析。\n\n[方案二總結]\n優點：\n1. 可以模擬瀏覽器行為，進一步模擬該TTPs的具體操作過程。\n2. 可以獲取詳細且完整的資料，包括基礎設施的詳細資訊。\n3. 可以對獲取到的資料進行進一步的加工和分析。\n\n缺點：\n1. 需要使用selenium等模擬工具，較為複雜，對於新手來說學習成本較高。\n2. 耗時較長，需要等待網頁載入和解析。\n\n[方案三總結]\n優點：\n1. 可以實現高效的資料爬取，對於大量資料的處理效果較好。\n2. 可以將獲取到的資料存儲到MongoDB中，方便進一步查詢和分析。\n\n缺點：\n1. 構建爬蟲專案和設定規則較為複雜，對於新手來說學習成本較高。\n2. 在遇到反爬機制時，需要花費額外的時間和精力去處理。\n\n'''  \n#方案一 TTPs程式碼  \nimport requests  \n\ndef acquire_infrastructure():  \n    # 使用requests套件向API或網頁發送請求，獲取T1583的相關資訊\n    response = requests.get(\"https://api.mitre.org/T1583\")\n    data = response.json()\n\n    # 解析資料，找出與 \"Acquire Infrastructure\" 相關的子技術描述\n    sub_techniques = []\n    for technique in data[\"techniques\"]:\n        if technique[\"name\"] == \"Acquire Infrastructure\":\n            sub_techniques = technique[\"sub-techniques\"]\n            break\n\n    # 輸出子技術描述\n    for sub_technique in sub_techniques:\n        print(sub_technique[\"description\"])\n\n# 方案一功能測試\ndef test_acquire_infrastructure():\n    acquire_infrastructure()\n\n'''  \n#方案二 TTPs程式碼  \nfrom selenium import webdriver  \nfrom bs4 import BeautifulSoup  \nimport pandas as pd  \n\ndef acquire_infrastructure():  \n    # 使用selenium模擬瀏覽器行為，進入Mire & Attack官方網站\n    driver = webdriver.Chrome(\"chromedriver.exe\")\n    driver.get(\"https://attack.mitre.org/tactics/TA0001/\")\n\n    # 使用BeautifulSoup解析網頁內容，找出與 \"Acquire Infrastructure\" 相關的子技術描述\n    soup = BeautifulSoup(driver.page_source, \"html.parser\")\n    sub_techniques = soup.find_all(\"div\", class_=\"subtechniques\")\n    for sub_technique in sub_techniques:\n        if \"Acquire Infrastructure\" in sub_technique.text:\n            print(sub_technique.text)\n\n    # 關閉瀏覽器\n    driver.quit()\n\n# 方案二功能測試\ndef test_acquire_infrastructure():\n    acquire_infrastructure()\n\n'''  \n#方案三 TTPs程式碼  \nimport scrapy  \nfrom bs4 import BeautifulSoup  \nimport pymongo  \n\nclass TtpSpider(scrapy.Spider):\n    name = \"ttp\"\n    start_urls = [\n        \"https://attack.mitre.org/tactics/TA0001/\"\n    ]\n\n    def parse(self, response):\n        # 使用BeautifulSoup解析網頁內容，找出與 \"Acquire Infrastructure\" 相關的子技術描述\n        soup = BeautifulSoup(response.body, \"html.parser\")\n        sub_techniques = soup.find_all(\"div\", class_=\"subtechniques\")\n        for sub_technique in sub_techniques:\n            if \"Acquire Infrastructure\" in sub_technique.text:\n                print(sub_technique.text)\n\n        # 將獲取到的資料存儲到MongoDB中\n        client = pymongo.MongoClient(\"mongodb://localhost:27017/\")\n        db = client[\"MitreDB\"]\n        collection = db[\"T1583\"]\n        collection.insert_one({\"sub_techniques\": [sub_technique.text for sub_technique in sub_techniques]})\n\n# 方案三功能測試\ndef test_acquire_infrastructure():\n    import scrapy\n    from scrapy.crawler import CrawlerProcess\n\n    # 開始運行爬蟲\n    process = CrawlerProcess(settings={\n        'FEED_FORMAT': 'json',\n        'FEED_URI': 'result.json'\n    })\n    process.crawl(TtpSpider)\n    process.start()\n\n    # 讀取爬蟲結果\n    with open(\"result.json\", \"r\") as f:\n        result = f.read()\n        print(result)\n    \n    # 清除爬蟲結果檔案\n    os.remove(\"result.json\")\n\n'''"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2034,
+    "completion_tokens":1428,
+    "total_tokens":3462
+  },
+  "system_fingerprint":null
+}

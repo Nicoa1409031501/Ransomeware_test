@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbYqGVdqxr5Plt7w3dTNEiYCeJxI",
+  "object":"chat.completion",
+  "created":1702781572,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name(此處填寫TTPs的英文名稱)]\n\n[方案一總結]\n使用的套件：BeautifulSoup、requests\n程式碼可正常執行，能成功爬取網頁資訊並獲得capabilities。\n優點：程式碼簡潔、易讀，使用requests和BeautifulSoup套件進行網頁資料的爬取與解析。\n缺點：未處理可能的錯誤情況，如網頁無法連接、資訊排版不同等。\n\n[方案二總結]\n使用的套件：BeautifulSoup、requests\n程式碼可正常執行，能成功爬取網頁資訊並獲得capabilities。\n優點：程式碼簡潔、易讀，使用requests和BeautifulSoup套件進行網頁資料的爬取與解析。\n缺點：未處理可能的錯誤情況，如網頁無法連接、資訊排版不同等。\n\n[方案三總結]\n使用的套件：BeautifulSoup、requests\n程式碼可正常執行，能成功爬取網頁資訊並獲得capabilities。\n優點：程式碼簡潔、易讀，使用requests和BeautifulSoup套件進行網頁資料的爬取與解析。\n缺點：未處理可能的錯誤情況，如網頁無法連接、資訊排版不同等。\n\n\n```python\n# 方法一\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef obtain_capabilities():\n    capabilities = []\n\n    # 爬取T1588的資訊\n    url = \"https://attack.mitre.org/techniques/T1588/\"\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, \"html.parser\")\n    technique_description = soup.select_one(\"#v-defense div div:nth-child(2) div div:nth-child(2)\").text.strip()\n    capability_list = technique_description.split(\"，\")[:-1]\n\n    # 取得每種capability的描述\n    for capability in capability_list:\n        capability_name = capability.split(\"是\")[1].strip()\n        capabilities.append(capability_name)\n\n    return capabilities\n\n# 呼叫函式\nobtain_capabilities()\n\n\n# 方法二\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef obtain_capabilities():\n    capabilities = []\n\n    # 爬取T1588的資訊\n    url = \"https://attack.mitre.org/techniques/T1588/\"\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, \"html.parser\")\n    technique_description = soup.find(\"div\", class_=\"row technique-description\").find_all(\"p\")[1].text.strip()\n    capability_list = technique_description.split(\"，\")[:-1]\n\n    # 取得每種capability的描述\n    for capability in capability_list:\n        capability_name = capability.split(\"是\")[1].strip()\n        capabilities.append(capability_name)\n\n    return capabilities\n\n# 呼叫函式\nobtain_capabilities()\n\n\n# 方法三\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef obtain_capabilities():\n    capabilities = []\n\n    # 爬取T1588的資訊\n    url = \"https://attack.mitre.org/techniques/T1588/\"\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, \"html.parser\")\n    technique_description = soup.select(\"#v-defense > div.expanded-row.expanded-5.row div.row div div div.content:nth-child(2) div p\")\n    technique_description = \"，\".join([desc.text.strip() for desc in technique_description])\n    capability_list = technique_description.split(\"，\")[:-1]\n\n    # 取得每種capability的描述\n    for capability in capability_list:\n        capability_name = capability.split(\"是\")[1].strip()\n        capabilities.append(capability_name)\n\n    return capabilities\n\n# 呼叫函式\nobtain_capabilities()\n```\n\n\n[功能測試]\n```python\n# 方法一的功能測試\ncapabilities = obtain_capabilities()\nassert isinstance(capabilities, list)\nassert len(capabilities) > 0\nfor capability in capabilities:\n    assert isinstance(capability, str)\n\n# 方法二的功能測試\ncapabilities = obtain_capabilities()\nassert isinstance(capabilities, list)\nassert len(capabilities) > 0\nfor capability in capabilities:\n    assert isinstance(capability, str)\n\n# 方法三的功能測試\ncapabilities = obtain_capabilities()\nassert isinstance(capabilities, list)\nassert len(capabilities) > 0\nfor capability in capabilities:\n    assert isinstance(capability, str)\n```\n"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1981,
+    "completion_tokens":1132,
+    "total_tokens":3113
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UB1OiQgJmQoQvnhHV9e06HgnBYoG",
+  "object":"chat.completion",
+  "created":1702202898,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1218-System Binary Proxy Execution\n\nMethod 1:\nPackages used: None\nFunctionalities used: subprocess\n\n```python\nimport subprocess\n\ndef system_binary_proxy_execution():\n    subprocess.run([\"control.exe\"])\n    subprocess.run([\"CMSTP.exe\"])\n    subprocess.run([\"C:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\v\\\\InstallUtil.exe\"])\n    subprocess.run([\"mshta.exe\"])\n    subprocess.run([\"msiexec.exe\"])\n    subprocess.run([\"odbcconf.exe\"])\n    subprocess.run([\"Regsvcs\"])\n    subprocess.run([\"Regasm\"])\n    subprocess.run([\"regsvr32.exe\"])\n    subprocess.run([\"rundll32.exe\"])\n    subprocess.run([\"verclsid.exe\"])\n    subprocess.run([\"mavinject.exe\"])\n    subprocess.run([\"mmc.exe\"])\n```\n\nMethod 2:\nPackages used: os\n\n```python\nimport os\n\ndef system_binary_proxy_execution():\n    os.system(\"control.exe\")\n    os.system(\"CMSTP.exe\")\n    os.system(\"C:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\v\\\\InstallUtil.exe\")\n    os.system(\"mshta.exe\")\n    os.system(\"msiexec.exe\")\n    os.system(\"odbcconf.exe\")\n    os.system(\"Regsvcs\")\n    os.system(\"Regasm\")\n    os.system(\"regsvr32.exe\")\n    os.system(\"rundll32.exe\")\n    os.system(\"verclsid.exe\")\n    os.system(\"mavinject.exe\")\n    os.system(\"mmc.exe\")\n```\n\nMethod 3:\nPackages used: subprocess\n\n```python\nimport subprocess\n\ndef system_binary_proxy_execution():\n    binaries = [\"control.exe\", \"CMSTP.exe\", \"C:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\v\\\\InstallUtil.exe\",\n                \"mshta.exe\", \"msiexec.exe\", \"odbcconf.exe\", \"Regsvcs\", \"Regasm\", \"regsvr32.exe\", \"rundll32.exe\",\n                \"verclsid.exe\", \"mavinject.exe\", \"mmc.exe\"]\n\n    for binary in binaries:\n        subprocess.run([binary])\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1347,
+    "completion_tokens":429,
+    "total_tokens":1776
+  },
+  "system_fingerprint":null
+}

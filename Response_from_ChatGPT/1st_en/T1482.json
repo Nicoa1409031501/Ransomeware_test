@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UBBvVvS9G4c4XRh8Qno7aWI9YqJa",
+  "object":"chat.completion",
+  "created":1702203551,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1482-Domain Trust Discovery means gathering information on domain trust relationships in order to identify lateral movement opportunities in Windows multi-domain/forest environments.\n\nTo implement this functionality in Python, we can use the following methods:\n\nMethod 1: Using the pywin32 package and the DSEnumerateDomainTrusts() Win32 API call\n\n```python\nimport win32net\nimport win32security\n\ndef domain_trust_discovery():\n    trusts, _, _ = win32net.NetEnumerateTrustedDomains(None)\n    for trust in trusts:\n        trust_name = trust['name']\n        print(f\"Trust name: {trust_name}\")\n        attrs = win32security.DsGetDomainTrustInformation(None, trust_name, 2)\n        trust_type = attrs['TrustType']\n        print(f\"Trust type: {trust_type}\")\n        # Add additional actions here, such as extracting SID-History or performing other enumeration techniques\n```\n\nMethod 2: Using the ldap3 package to perform LDAP queries to enumerate domain trusts\n\n```python\nfrom ldap3 import Server, Connection, ALL\n\ndef domain_trust_discovery():\n    server = Server('ldap://<domain_controller_ip>')\n    connection = Connection(server, user='CN=Administrator,CN=Users,DC=example,DC=com', password='password')\n    \n    if not connection.bind():\n        print(f\"Failed to connect to LDAP server: {connection.last_error}\")\n        return\n    \n    connection.search('DC=example,DC=com', '(objectClass=trustedDomain)', attributes=['cn', 'trustType'])\n    for entry in connection.entries:\n        trust_name = str(entry['cn'])\n        print(f\"Trust name: {trust_name}\")\n        trust_type = str(entry['trustType'])\n        print(f\"Trust type: {trust_type}\")\n        # Add additional actions here, such as extracting SID-History or performing other enumeration techniques\n```\n\nMethod 3: Using the python-ldap package to perform LDAP queries to enumerate domain trusts\n\n```python\nimport ldap\n\ndef domain_trust_discovery():\n    ldap_conn = ldap.initialize('ldap://<domain_controller_ip>')\n    ldap_conn.simple_bind_s('CN=Administrator,CN=Users,DC=example,DC=com', 'password')\n    \n    result = ldap_conn.search_s('DC=example,DC=com', ldap.SCOPE_SUBTREE, '(objectClass=trustedDomain)')\n    for dn, attrs in result:\n        trust_name = attrs['cn'][0].decode('utf-8')\n        print(f\"Trust name: {trust_name}\")\n        trust_type = attrs['trustType'][0].decode('utf-8')\n        print(f\"Trust type: {trust_type}\")\n        # Add additional actions here, such as extracting SID-History or performing other enumeration techniques\n```\n\nPlease note that you will need to replace '<domain_controller_ip>', 'DC=example,DC=com', 'CN=Administrator,CN=Users,DC=example,DC=com', and 'password' with the actual values specific to your environment.\n\nThese implementations demonstrate how to gather information on domain trust relationships using different packages and methods, including the pywin32, ldap3, and python-ldap packages. The code lists the trust name and trust type for each discovered domain trust. You can add additional actions in the loops for further enumeration techniques or analysis based on your specific requirements."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":444,
+    "completion_tokens":695,
+    "total_tokens":1139
+  },
+  "system_fingerprint":null
+}

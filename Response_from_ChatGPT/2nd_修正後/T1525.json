@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPy4BKitj0RsciArwJCPkb343kMx",
+  "object":"chat.completion",
+  "created":1702260352,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n- 使用套件：docker\n- 輸入檔案：image_name (容器映像名稱), malicious_code (惡意程式碼)\n- 輸出檔案：infected_image.tags[0] (被感染的映像標籤)\n\n優點：\n1. 使用Docker SDK很容易理解和實現\n2. 可以使用docker command為容器設定參數，彈性較高\n\n缺點：\n1. 使用Docker SDK需要安裝docker套件\n\n[方案二]\n[分數]：9\n- 使用套件：docker, tempfile\n- 輸入檔案：image_name (容器映像名稱), malicious_code (惡意程式碼)\n- 輸出檔案：infected_image.tags[0] (被感染的映像標籤)\n\n優點：\n1. 使用Dockerfile是常見的建置映像方式，易於理解和維護\n2. 可以利用tempfile創建臨時Dockerfile，不會在硬碟上留下垃圾檔案\n\n缺點：\n1. 需要使用tempfile套件來創建臨時Dockerfile\n\n[方案三]\n[分數]：7\n- 使用套件：docker\n- 輸入檔案：image_name (容器映像名稱), malicious_code (惡意程式碼)\n- 輸出檔案：f\"{image_name}:infected\" (被感染的映像標籤)\n\n優點：\n1. 使用Docker API可以更細緻地控制映像的建立和操作\n\n缺點：\n1. 使用Docker API相對複雜，不易理解和維護\n\n我們對這三個方案進行評分，並根據結果選擇繼續進行測試：\n\n- 方案一：8分\n- 方案二：9分\n- 方案三：7分\n\n由於方案二獲得了最高分，我們將繼續對方案二進行功能測試和單元測試。接下來，我們將繼續進行方案二的測試。\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2106,
+    "completion_tokens":675,
+    "total_tokens":2781
+  },
+  "system_fingerprint":null
+}

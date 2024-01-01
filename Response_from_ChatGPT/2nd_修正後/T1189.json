@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPod9uti2qHQGEEA3PIiDvL07riH",
+  "object":"chat.completion",
+  "created":1702259767,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：requests\n優缺點：\n1. 可以模擬瀏覽器發送GET請求，方便使用。\n2. 使用了高階套件requests，簡化了操作步驟。\n3. 可以進一步分析回應內容，做更多的處理。\n\n[方案二]\n[分數]：8\n使用套件：urllib.request\n優缺點：\n1. 可以模擬瀏覽器發送GET請求，適合基本的使用需求。\n2. 使用了內建的urllib.request套件，無需額外安裝。\n\n[方案三]\n[分數]：7\n使用套件：socket\n優缺點：\n1. 直接使用socket套件，可以更靈活地控制請求的內容。\n2. 需要手動構造HTTP請求，較為繁瑣。\n3. 相較於使用高階套件requests或urllib.request，程式碼較為複雜。\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n\n[方案二單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2047,
+    "completion_tokens":363,
+    "total_tokens":2410
+  },
+  "system_fingerprint":null
+}

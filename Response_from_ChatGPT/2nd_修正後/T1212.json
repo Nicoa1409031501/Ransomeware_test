@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPs9IsJ4FPdrgr8BYcadptRgfCBU",
+  "object":"chat.completion",
+  "created":1702259985,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1212 - Exploitation for Credential Access]\n   [方案一]\n   分數：9\n\n   使用套件：subprocess\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：正確\n   優缺點：\n   1. 優點：使用subprocess模組可以方便地執行外部命令，進行攻擊碼的執行。\n   2. 缺點：無\n\n   [方案二]\n   分數：8\n\n   使用套件：os\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：正確\n   優缺點：\n   1. 優點：使用os模組可以執行外部命令，進行攻擊碼的執行。\n   2. 缺點：無\n\n   [方案三]\n   分數：8\n\n   使用套件：os\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：正確\n   優缺點：\n   1. 優點：使用os模組可以執行外部命令，進行攻擊碼的執行。\n   2. 缺點：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1492,
+    "completion_tokens":391,
+    "total_tokens":1883
+  },
+  "system_fingerprint":null
+}

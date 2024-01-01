@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Oe4AlQwAlaLpJVcwJoMc8Hfgxncr",
+  "object":"chat.completion",
+  "created":1700884578,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Trusted Relationship\n方案數量：3\n\n[方案一]\n優點：使用requests套件進行HTTP請求，具有簡潔的語法和豐富的功能，能夠處理不同類型的HTTP請求。\n缺點：相對於其他兩種方法，需要額外安裝requests套件。\n評分：90\n\n[方案二]\n優點：使用urllib套件進行HTTP請求，無需額外安裝套件，內建於Python中。\n缺點：語法比較繁瑣，不能處理較複雜的HTTP請求。\n評分：80\n\n[方案三]\n優點：使用socket套件進行TCP連線，可以自由控制連線的細節，適合處理較特殊或複雜的情況。\n缺點：需要手動處理HTTP協議細節，語法較為複雜。\n評分：85\n\n整體評分：85.0"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1574,
+    "completion_tokens":328,
+    "total_tokens":1902
+  }
+}

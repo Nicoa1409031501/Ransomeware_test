@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3PZsB3P5v5wgJLh1qbBtgMyIOkC",
+  "object":"chat.completion",
+  "created":1701458661,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1221 - Template Injection\n\n1. Method 1:\n   - Packages used: python-docx\n   - Functionality used: modify document properties\n   \n   ```python\n   from docx import Document\n   \n   def template_injection_1(file_path, property_name, property_value):\n       # Load the document\n       doc = Document(file_path)\n   \n       # Modify document properties\n       doc.core_properties.author = property_value\n   \n       # Save the modified document\n       doc.save(file_path)\n   ```\n\n2. Method 2:\n   - Packages used: lxml, zipfile\n   - Functionality used: modify XML parts\n   \n   ```python\n   from lxml import etree\n   import zipfile\n   \n   def template_injection_2(file_path, part_name, xml_content):\n       # Open theOOXML file as a ZIP archive\n       with zipfile.ZipFile(file_path, \"a\") as docx_file:\n           # Extract the XML part from the ZIP archive\n           with docx_file.open(part_name, \"r\") as part_file:\n               # Modify the content of the XML part\n               tree = etree.parse(part_file)\n               root = tree.getroot()\n   \n               # Modify the XML content (e.g., add malicious code)\n               # ...\n   \n               # Save the modified XML content\n               part_file.seek(0)\n               part_file.truncate()\n               tree.write(part_file)\n   \n           # Update the ZIP archive with the modified XML part\n           docx_file.close()\n   ```\n\n3. Method 3:\n   - Packages used: python-pptx\n   - Functionality used: modify presentation slides\n   \n   ```python\n   from pptx import Presentation\n   \n   def template_injection_3(file_path, slide_num, shape_id, text):\n       # Load the presentation\n       presentation = Presentation(file_path)\n   \n       # Access the specific slide and shape\n       slide = presentation.slides[slide_num]\n       shape = slide.shapes[shape_id]\n   \n       # Modify the text in the shape\n       shape.text = text\n   \n       # Save the modified presentation\n       presentation.save(file_path)\n   ```\n   \nNote: In these methods, the specific method of injecting malicious code or forcing authentication attempts will depend on the adversary's intentions and the specific properties, XML parts, or slide contents they choose to modify."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":404,
+    "completion_tokens":480,
+    "total_tokens":884
+  },
+  "system_fingerprint":null
+}

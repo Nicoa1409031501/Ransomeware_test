@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Uy8GGtxltUZphlWacHhjgIyq7BDw",
+  "object":"chat.completion",
+  "created":1702391680,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n\n[評分]：10\n\n使用套件：subprocess\n\n優點：\n1. 使用subprocess可以方便地執行命令行指令。\n2. 程式碼簡潔，只需要一行就可以達到目的。\n\n缺點：\n1. 使用subprocess可能需要另外安裝套件。\n\n[方案二]\n\n[評分]：9\n\n使用套件：os\n\n優點：\n1. 使用os可以直接執行系統命令。\n2. 不需要額外的套件。\n\n缺點：\n1. 需要使用shell=True參數才能執行一些特殊的命令。\n\n[方案三]\n\n[評分]：8\n\n使用套件：ctypes\n\n優點：\n1. 使用ctypes可以執行Windows API函式。\n2. 不需要額外的套件。\n\n缺點：\n1. 需要特定的系統函式庫。\n2. 需要使用較多的程式碼來完成執行命令的功能。\n\n[可實現]\n[TTPs Name]\n[方案一單元測試]\n\n```python\nimport subprocess\n\ndef test_run_command():\n    command = \"notepad.exe\"\n    subprocess.call(command, shell=True)\n\ntest_run_command()\n```\n\n[方案二單元測試]\n\n```python\nimport os\n\ndef test_run_command():\n    command = \"notepad.exe\"\n    os.system(command)\n\ntest_run_command()\n```\n\n[方案三]\n\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1656,
+    "completion_tokens":398,
+    "total_tokens":2054
+  },
+  "system_fingerprint":null
+}

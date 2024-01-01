@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rrtnf9BTCZUL6Bux5yYPFWxq88Y1",
+  "object":"chat.completion",
+  "created":1701652735,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種實現 T1052 功能的方式：\n\n方式一：\n使用Python內建的os套件來實現。\n\n```python\nimport os\n\ndef exfiltration_over_physical_medium(file_path, destination):\n    os.system(f\"cp {file_path} {destination}\")\n```\n\n方式二：\n使用shutil套件來實現。\n\n```python\nimport shutil\n\ndef exfiltration_over_physical_medium(file_path, destination):\n    shutil.copy(file_path, destination)\n```\n\n方式三：\n使用subprocess套件來實現。\n\n```python\nimport subprocess\n\ndef exfiltration_over_physical_medium(file_path, destination):\n    subprocess.run([\"cp\", file_path, destination])\n```\n\n這些程式碼會將指定的檔案(file_path)複製到指定的目的地(destination)。請注意，這些程式碼僅適用於Linux或Mac作業系統，如果您使用的是Windows作業系統，請將\"cp\"指令替換為\"copy\"指令。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":720,
+    "completion_tokens":271,
+    "total_tokens":991
+  },
+  "system_fingerprint":null
+}

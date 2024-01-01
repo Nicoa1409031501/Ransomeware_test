@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rh9Q5591BgQfu28qp5aRYzE76edN",
+  "object":"chat.completion",
+  "created":1701611420,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"References:\n- shutil: https://docs.python.org/3/library/shutil.html\n- paramiko: https://www.paramiko.org/\n- winrm: https://pypi.org/project/pywinrm/"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1288,
+    "completion_tokens":42,
+    "total_tokens":1330
+  },
+  "system_fingerprint":null
+}

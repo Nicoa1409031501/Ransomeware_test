@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8SE7aKuidmNkO7xp51UyrHCMT4gQR",
+  "object":"chat.completion",
+  "created":1701738158,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Unit Test for system_info_discovery():\n\n```python\nimport unittest\nfrom unittest.mock import patch\nimport sys\nimport io\n\n# Import the function to be tested\nfrom system_info_discovery import system_info_discovery\n\nclass TestSystemInfoDiscovery(unittest.TestCase):\n\n    def test_system_info_discovery(self):\n        expected_output = \"Operating System: Windows\\nVersion: 10.0.19042\\nArchitecture: AMD64\\n\\nAdditional Windows System Information:\\n\"\n        \n        # Redirect stdout to capture the output\n        captured_output = io.StringIO()\n        sys.stdout = captured_output\n        \n        # Execute the function\n        system_info_discovery()\n        \n        # Get the printed output\n        printed_output = captured_output.getvalue()\n\n        # Restore stdout\n        sys.stdout = sys.__stdout__\n\n        # Compare the output\n        self.assertEqual(printed_output.strip(), expected_output.strip())\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nCode Review:\n\n1. The unit test creates a test case class `TestSystemInfoDiscovery` that subclasses `unittest.TestCase`.\n2. `test_system_info_discovery()` is a test method that checks if the output of the `system_info_discovery()` function matches the expected output.\n3. The `io.StringIO()` object is used to capture the output that is printed to the console.\n4. The `sys.stdout` is redirected to `captured_output` so that the printed output can be captured.\n5. After executing the function, the `sys.stdout` is restored to its original state.\n6. The `captured_output.getvalue()` retrieves the captured printed output as a string.\n7. The `self.assertEqual()` compares the actual output with the expected output to check if they match.\n8. Finally, `unittest.main()` runs the test case.\n\nThe code review ensures that the unit test properly captures the output of the `system_info_discovery()` function and verifies if it matches the expected output."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":767,
+    "completion_tokens":397,
+    "total_tokens":1164
+  },
+  "system_fingerprint":null
+}

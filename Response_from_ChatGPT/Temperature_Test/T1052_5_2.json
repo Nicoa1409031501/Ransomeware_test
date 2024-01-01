@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rryo8OErLgGl60yROtcnrwwjoBIH",
+  "object":"chat.completion",
+  "created":1701653046,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種使用Python實現T1052的方法：\n\n方法一：使用os套件來列出所有的USB裝置\n\n```python\nimport os\n\ndef exfiltration_over_physical_medium():\n    usb_devices = []\n    for device in os.listdir('/dev'):\n        if 'usb' in device.lower():\n            usb_devices.append(device)\n    return usb_devices\n\n# 執行函式\nprint(exfiltration_over_physical_medium())\n```\n\n方法二：使用pyudev套件來檢測USB裝置\n\n```python\nimport pyudev\n\ndef exfiltration_over_physical_medium():\n    usb_devices = []\n    context = pyudev.Context()\n    for device in context.list_devices(subsystem='usb'):\n        usb_devices.append(device.device_node)\n    return usb_devices\n\n# 執行函式\nprint(exfiltration_over_physical_medium())\n```\n\n方法三：使用wmi套件來檢測USB裝置\n\n```python\nimport wmi\n\ndef exfiltration_over_physical_medium():\n    usb_devices = []\n    c = wmi.WMI()\n    for device in c.Win32_USBControllerDevice():\n        usb_devices.append(device.Dependent.DeviceID)\n    return usb_devices\n\n# 執行函式\nprint(exfiltration_over_physical_medium())\n```\n\n以上三種方法都是用來檢測系統中的USB裝置，並將其列出。請注意，這些方法只能檢測到已經插入並被系統識別的USB裝置，無法檢測到未插入的USB裝置。如果需要進一步的操作，可以根據檢測到的USB裝置進行相應的處理，例如複製、移動或刪除文件等。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":720,
+    "completion_tokens":443,
+    "total_tokens":1163
+  },
+  "system_fingerprint":null
+}

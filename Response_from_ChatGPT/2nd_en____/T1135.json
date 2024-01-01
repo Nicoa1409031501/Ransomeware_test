@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8SEPimBtHKE5vLS9eIppErnSP982q",
+  "object":"chat.completion",
+  "created":1701739282,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Review for network_share_discovery_1():\n\nThe code implementation looks correct and seems to meet the functionality requirements. It uses the subprocess module's run() function to execute the 'net view' command and captures the output to parse the shares. \n\nUnit test for network_share_discovery_1():\n\n```python\nimport unittest\nfrom unittest.mock import patch\nfrom main import network_share_discovery_1\n\nclass TestNetworkShareDiscovery1(unittest.TestCase):\n    @patch('subprocess.run')\n    def test_network_share_discovery_1(self, mock_run):\n        shares = ['ShareA', 'ShareB']\n        mock_run.return_value.stdout = '\\n'.join(shares)\n        \n        result = network_share_discovery_1()\n        \n        self.assertEqual(result, shares)\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nReview for network_share_discovery_2():\n\nThe code implementation also appears to be correct. It uses the advapi32.NetShareEnum() function from the ctypes module to enumerate network shares. \n\nUnit test for network_share_discovery_2():\n\n```python\nimport unittest\nfrom unittest.mock import patch\nfrom main import network_share_discovery_2\n\nclass TestNetworkShareDiscovery2(unittest.TestCase):\n    @patch('ctypes.windll.advapi32.NetShareEnum')\n    def test_network_share_discovery_2(self, mock_NetShareEnum):\n        shares = ['ShareA', 'ShareB']\n        mock_NetShareEnum.return_value = (len(shares), shares)\n        \n        result = network_share_discovery_2()\n        \n        self.assertEqual(result, shares)\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nReview for network_share_discovery_3():\n\nThe code implementation is also correct. It uses the win32net.NetShareEnum() function from the pywin32 module to enumerate network shares.\n\nUnit test for network_share_discovery_3():\n\n```python\nimport unittest\nfrom unittest.mock import patch\nfrom main import network_share_discovery_3\n\nclass TestNetworkShareDiscovery3(unittest.TestCase):\n    @patch('win32net.NetShareEnum')\n    def test_network_share_discovery_3(self, mock_NetShareEnum):\n        shares = [{'netname': 'ShareA'}, {'netname': 'ShareB'}]\n        mock_NetShareEnum.return_value = (shares, None)\n        \n        result = network_share_discovery_3()\n        \n        self.assertEqual(result, [share['netname'] for share in shares])\n\nif __name__ == '__main__':\n    unittest.main()\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":813,
+    "completion_tokens":524,
+    "total_tokens":1337
+  },
+  "system_fingerprint":null
+}

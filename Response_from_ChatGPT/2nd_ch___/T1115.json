@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Odliy95pRbtYIGuVAw64CktA13rH",
+  "object":"chat.completion",
+  "created":1700883434,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：剪貼簿內容讀取\n方案數量：3\n\n[方案一]\n優點：使用pyperclip套件可以跨平台讀取剪貼簿內容，易於使用。\n缺點：需要額外安裝pyperclip套件。\n評分：80\n\n[方案二]\n優點：使用ctypes套件調用Windows API，不需要額外安裝套件。\n缺點：僅限Windows環境使用。\n評分：90\n\n[方案三]\n優點：使用subprocess套件和xclip命令可以在Linux環境中讀取剪貼簿內容。\n缺點：僅限Linux環境使用。\n評分：85\n\n整體評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1532,
+    "completion_tokens":235,
+    "total_tokens":1767
+  }
+}

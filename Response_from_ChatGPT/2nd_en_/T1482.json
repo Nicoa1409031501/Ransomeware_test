@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RgvMXcjDf5kE7dePY0WZfO0aCz92",
+  "object":"chat.completion",
+  "created":1701610548,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"To implement the functionality of domain trust discovery in Python, we can use the following methods:\n\nMethod 1: Using the pyad module\nFirst, we need to install the pyad module using the following command:\n\n```\npip install pyad\n```\n\nNext, we can write the code to enumerate domain trusts:\n\n```python\nimport pyad.adquery\n\ndef enumerate_domain_trusts():\n    query = pyad.adquery.ADQuery()\n\n    # Set the domain controller if needed\n    query.execute_query(\n        attributes=[\"trustPartner\"],\n        where_clause=\"objectClass='trusteddomain'\"\n    )\n\n    for item in query.get_results():\n        trust_partner = item[\"trustPartner\"]\n\n        # Process each trust object (e.g., print trust information)\n\nenumerate_domain_trusts()\n```\n\nMethod 2: Using LDAP search\nWe need to import the necessary packages:\n\n```python\nimport ldap\n\ndef enumerate_domain_trusts():\n    ldap_server = \"ldap.example.com\"  # Replace with the LDAP server address\n    base_dn = \"DC=example,DC=com\"  # Replace with the base DN of the domain\n    username = \"username\"  # Replace with a valid username\n    password = \"password\"  # Replace with a valid password\n    \n    # Establish an LDAP connection\n    conn = ldap.initialize(f\"ldap://{ldap_server}\")\n    conn.set_option(ldap.OPT_REFERRALS, 0)\n    conn.simple_bind_s(username, password)\n    \n    # Perform the LDAP query\n    result = conn.search_s(\n        base_dn,\n        ldap.SCOPE_SUBTREE,\n        \"(objectCategory=trustedDomain)\",\n        ['name']\n    )\n    \n    # Process the query results\n    for dn, attrs in result:\n        trust_name = attrs['name'][0]\n\n        # Process each trust object (e.g., print trust information)\n\n    conn.unbind()\n\nenumerate_domain_trusts()\n```\n\nMethod 3: Using the python-ldap module\nFirst, we need to install the python-ldap module using the following command:\n\n```\npip install python-ldap\n```\n\nNext, we can write the code to enumerate domain trusts:\n\n```python\nimport ldap\n\ndef enumerate_domain_trusts():\n    ldap_server = \"ldap.example.com\"  # Replace with the LDAP server address\n    base_dn = \"DC=example,DC=com\"  # Replace with the base DN of the domain\n    username = \"username\"  # Replace with a valid username\n    password = \"password\"  # Replace with a valid password\n    \n    # Establish an LDAP connection\n    conn = ldap.initialize(f\"ldap://{ldap_server}\")\n    conn.set_option(ldap.OPT_REFERRALS, 0)\n    conn.simple_bind_s(username, password)\n    \n    # Perform the LDAP query\n    result = conn.search_s(\n        base_dn,\n        ldap.SCOPE_SUBTREE,\n        \"(objectCategory=trustedDomain)\",\n        ['name']\n    )\n    \n    # Process the query results\n    for dn, attrs in result:\n        trust_name = attrs['name'][0]\n\n        # Process each trust object (e.g., print trust information)\n\n    conn.unbind()\n\nenumerate_domain_trusts()\n```\n\nThese methods demonstrate different approaches to achieving domain trust discovery in Python. Choose the method that suits your requirements and environment.\n\nRemember to replace any placeholder values or modify the code as per your specific needs."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1188,
+    "completion_tokens":699,
+    "total_tokens":1887
+  },
+  "system_fingerprint":null
+}

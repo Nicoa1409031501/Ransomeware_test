@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPvun13IXXlUt6xssos45hcEWUwn",
+  "object":"chat.completion",
+  "created":1702260218,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n- 使用套件：os\n- 優缺點：\n  - 優點：\n    1. 簡單方便，不需要額外安裝任何套件。\n    2. 能夠直接執行系統命令，具有強大的彈性。\n  - 缺點：\n    1. 執行命令時，可能會受限於系統的權限限制。\n    2. 容易造成安全風險，需要注意確保執行的命令安全可靠。\n\n[方案二]\n[分數]：8\n- 使用套件：subprocess\n- 優缺點：\n  - 優點：\n    1. 能夠執行外部程序，具有更強大的功能。\n    2. 可以指定執行程序的環境，提供更好的彈性。\n  - 缺點：\n    1. 需要額外安裝subprocess模組。\n    2. 需要注意執行的命令安全性。\n\n[方案三]\n[分數]：7\n- 使用套件：wmi\n- 優缺點：\n  - 優點：\n    1. 可以透過WMI服務進行溝通，提供更多系統資訊。\n    2. 可以對各種Windows服務進行操作，擴展性較強。\n  - 缺點：\n    1. 需要額外安裝wmi模組。\n    2. 需要理解WMI服務的使用方法。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1595,
+    "completion_tokens":506,
+    "total_tokens":2101
+  },
+  "system_fingerprint":null
+}

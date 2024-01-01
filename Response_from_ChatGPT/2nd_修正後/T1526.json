@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPyP8DV4P1FvK7G9lSZ1ZQrsQsun",
+  "object":"chat.completion",
+  "created":1702260373,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：requests\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：10\n優缺點：\n1. 使用簡單，只需要一個套件就能發送 HTTP 請求和解析回傳資料。\n2. 回傳的資料格式預設是 JSON 格式，易於解析。\n3. 程式碼相對短小。\n\n[方案二]\n[分數]：7\n使用套件：urllib、json\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9\n優缺點：\n1. 不需要額外安裝套件，使用 Python 內建的 urllib 和 json 套件即可完成。\n2. 程式碼量比較多，尤其是處理回傳資料的部分。\n\n[方案三]\n[分數]：6\n使用套件：http.client、json\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：8\n優缺點：\n1. 不需要額外安裝套件，使用 Python 內建的 http.client 和 json 套件即可完成。\n2. 程式碼量比較多，且相對較複雜，不夠簡潔易讀。\n\n由於方案一在使用上較為簡單、程式碼也較為短小，因此得分較高。接下來我們將進行功能測試，將方案一改為方案一單元測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1846,
+    "completion_tokens":512,
+    "total_tokens":2358
+  },
+  "system_fingerprint":null
+}

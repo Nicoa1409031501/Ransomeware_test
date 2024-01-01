@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDkhaIqs7F5dVAplBcPSrGTR4vBN",
+  "object":"chat.completion",
+  "created":1702213395,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1132-Data Encoding\n\n1. First Method - Using the base64 package:\n   - Import the base64 package.\n   - Encode the data using base64.b64encode().\n   - Print the encoded data.\n\n```python\nimport base64\n\ndef data_encoding(input_data):\n    encoded_data = base64.b64encode(input_data.encode(\"utf-8\"))\n    print(encoded_data.decode(\"utf-8\"))\n```\n\n2. Second Method - Using the codecs package:\n   - Import the codecs package.\n   - Encode the data using codecs.encode().\n   - Print the encoded data.\n\n```python\nimport codecs\n\ndef data_encoding(input_data):\n    encoded_data = codecs.encode(input_data, \"base64\")\n    print(encoded_data.decode(\"utf-8\"))\n```\n\n3. Third Method - Using the binascii package:\n   - Import the binascii package.\n   - Encode the data using binascii.b2a_base64().\n   - Print the encoded data.\n\n```python\nimport binascii\n\ndef data_encoding(input_data):\n    encoded_data = binascii.b2a_base64(input_data.encode(\"utf-8\"))\n    print(encoded_data.decode(\"utf-8\"))\n```\n\nNote: The above code snippets assume that the input_data is a string that needs to be encoded.\n\nTo test the function, you can call it with a sample input:\n\n```python\ndata_encoding(\"Hello, World!\")\n```\n\nOutput:\n```\nSGVsbG8sIFdvcmxkIQ==\n```\n\nPlease let me know if I can assist you further."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":575,
+    "completion_tokens":322,
+    "total_tokens":897
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPTWa2TdJkwyoPeMwFRq4BOhJ9YT",
+  "object":"chat.completion",
+  "created":1702258458,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：subprocess、os\n\n優缺點：\n1. 優點：使用subprocess套件可以直接執行指令並等待sudo輸入密碼，使用os套件可輸出結果到檔案\n2. 缺點：程式中需要手動輸入sudo密碼，無法自動化\n\n[方案二]\n[分數]：9\n使用套件：credentials、os、pwd\n\n優缺點：\n1. 優點：使用credentials套件可以直接讀取LSASS凭据，使用os套件可讀取檔案並輸出結果到檔案，使用pwd套件可以讀取/etc/passwd和/etc/shadow\n2. 缺點：程式碼需要手動指定檔案路徑，無法自動探索系統中的檔案路徑\n\n[方案三]\n[分數]：7\n使用套件：impacket、os、subprocess\n\n優缺點：\n1. 優點：使用impacket套件可以直接讀取LSASS凭据，使用os套件可讀取檔案並輸出結果到檔案，使用subprocess套件可執行sudo指令\n2. 缺點：程式中需要手動指定檔案路徑，無法自動探索系統中的檔案路徑\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n[方案二單元測試]\n內容...\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2426,
+    "completion_tokens":457,
+    "total_tokens":2883
+  },
+  "system_fingerprint":null
+}

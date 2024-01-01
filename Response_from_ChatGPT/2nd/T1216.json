@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyBpBHwJMgy3UF1J5vm5OL3PDGmg",
+  "object":"chat.completion",
+  "created":1702391901,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[分數]: 8\n使用套件：subprocess, os, ctypes\n輸入檔案：VBScript code (pubprn.vbs)\n輸出檔案：無\n語法及邏輯正確性：正確\n優點：\n1. 可以使用三種不同的方法來執行 VBScript\n2. 程式碼簡潔、易於理解和修改\n3. 沒有使用相對較複雜的套件，容易維護和適用於各種作業系統\n缺點：\n1. 需要事先將 VBScript 內容寫入檔案中才能執行\n\n[可實現]\n方法一單元測試：\n```python\nimport subprocess\nimport unittest\n\ndef execute_script(script_path):\n    subprocess.call([\"cscript\", script_path])\n\nclass TestExecuteScript(unittest.TestCase):\n    def test_execute_script(self):\n        execute_script(\"test.vbs\") # Insert the path of your test VBScript file here\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n方法二單元測試：\n```python\nimport os\nimport unittest\n\ndef execute_script(script_path):\n    os.system(\"cscript \" + script_path)\n\nclass TestExecuteScript(unittest.TestCase):\n    def test_execute_script(self):\n        execute_script(\"test.vbs\") # Insert the path of your test VBScript file here\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n方法三單元測試：\n```python\nimport ctypes\nimport unittest\n\ndef execute_script(script_path):\n    ctypes.windll.WScript.Shell.Run(\"cmd /c cscript \" + script_path)\n\nclass TestExecuteScript(unittest.TestCase):\n    def test_execute_script(self):\n        execute_script(\"test.vbs\") # Insert the path of your test VBScript file here\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n測試時，請將 `test.vbs` 替換為你的測試 VBScript 檔案的路徑。\n\n[分數]: 8\n使用套件：subprocess, os, ctypes\n輸入檔案：VBScript code (test.vbs)\n輸出檔案：無\n語法及邏輯正確性：正確\n優點：\n1. 提供了單元測試程式碼，可驗證 VBScript 的正確性\n2. 測試程式碼易於理解和修改\n缺點：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1517,
+    "completion_tokens":632,
+    "total_tokens":2149
+  },
+  "system_fingerprint":null
+}

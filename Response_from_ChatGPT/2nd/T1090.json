@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Uxp2cl0xmMxaj1i9jNez4u8ocfnX",
+  "object":"chat.completion",
+  "created":1702390488,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1090-可實現] Proxy\r\n- 方案一:\r\n  使用requests套件來實現，具體程式碼如下：\r\n  ```python\r\n  import requests\r\n\r\n  def send_request_with_proxy(url, proxy):\r\n      session = requests.Session()\r\n      session.proxies = {'http': proxy, 'https': proxy}\r\n      response = session.get(url)\r\n      return response.text\r\n  ```\r\n- 方案二:\r\n  使用selenium套件來實現，具體程式碼如下：\r\n  ```python\r\n  from selenium import webdriver\r\n\r\n  def browse_with_proxy(url, proxy):\r\n      options = webdriver.ChromeOptions()\r\n      options.add_argument('--proxy-server=' + proxy)\r\n      driver = webdriver.Chrome(options=options)\r\n      driver.get(url)\r\n      page_source = driver.page_source\r\n      driver.quit()\r\n      return page_source\r\n  ```\r\n- 方案三:\r\n  使用socks套件來實現，具體程式碼如下：\r\n  ```python\r\n  import socks\r\n  import socket\r\n  import urllib.request\r\n\r\n  def send_request_with_socks_proxy(url, proxy):\r\n      proxy_type, proxy_host, proxy_port = proxy.split(':')\r\n\r\n      # 設定全域默認代理\r\n      socks.set_default_proxy(socks.SOCKS5, proxy_host, int(proxy_port))\r\n      socket.socket = socks.socksocket\r\n\r\n      response = urllib.request.urlopen(url)\r\n      return response.read().decode('utf-8')\r\n  ```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1948,
+    "completion_tokens":334,
+    "total_tokens":2282
+  },
+  "system_fingerprint":null
+}

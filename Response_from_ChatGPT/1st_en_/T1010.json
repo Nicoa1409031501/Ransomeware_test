@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3gNcBofGMPbWuMjvapw7gr7daWg",
+  "object":"chat.completion",
+  "created":1701459703,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1010-Application Window Discovery\n\nMethod 1:\nPackages Used: win32gui, win32process\n\n1. Import the required packages:\nimport win32gui\nimport win32process\n\n2. Define a function to get the window titles:\ndef get_window_titles():\n    window_titles = []\n    win32gui.EnumWindows(lambda hwnd, param: param.append(win32gui.GetWindowText(hwnd)), window_titles)\n    return window_titles\n\n3. Call the function to retrieve the window titles:\nwindow_titles = get_window_titles()\nfor title in window_titles:\n    print(title)\n\nMethod 2:\nPackages Used: ctypes\n\n1. Import the required packages:\nimport ctypes\n\n2. Define a function to get the window titles:\ndef get_window_titles():\n    EnumWindows = ctypes.windll.user32.EnumWindows\n    GetWindowText = ctypes.windll.user32.GetWindowTextW\n    GetWindowTextLength = ctypes.windll.user32.GetWindowTextLengthW\n    titles = []\n\n    def callback(hwnd, param):\n        length = GetWindowTextLength(hwnd)\n        buff = ctypes.create_unicode_buffer(length + 1)\n        GetWindowText(hwnd, buff, length + 1)\n        titles.append(buff.value)\n\n    EnumWindows(callback, 0)\n    return titles\n\n3. Call the function to retrieve the window titles:\nwindow_titles = get_window_titles()\nfor title in window_titles:\n    print(title)\n\nMethod 3:\nPackages Used: psutil, tkinter\n\n1. Import the required packages:\nimport psutil\nimport tkinter as tk\n\n2. Define a function to get the window titles:\ndef get_window_titles():\n    root = tk.Tk()\n    window_titles = []\n    for p in psutil.process_iter(attrs=['pid', 'name']):\n        try:\n            hwnd = p.info['pid']\n            window = root.nametowidget(hwnd)\n            window_titles.append(window.title())\n        except (tk.TclError, KeyError):\n            pass\n    return window_titles\n\n3. Call the function to retrieve the window titles:\nwindow_titles = get_window_titles()\nfor title in window_titles:\n    print(title)\n\nNote: Method 1 and Method 2 retrieve window titles, while Method 3 retrieves application window titles using the Tkinter library, based on the assumption that each window corresponds to a Tkinter widget. Method 3 might not capture all open application windows if they are not based on Tkinter. You can choose the method that suits your specific requirements."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":364,
+    "completion_tokens":503,
+    "total_tokens":867
+  },
+  "system_fingerprint":null
+}

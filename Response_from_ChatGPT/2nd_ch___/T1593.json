@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OgSiZQheFTuBht1Gy7x5aicU3tGb",
+  "object":"chat.completion",
+  "created":1700893788,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：網頁搜尋功能\n方案數量：3\n\n[方案一]\n- 改善報告：\n    - 程式碼運行正常且無語法錯誤。\n    - 驗證過程中發現正則表達式有可能無法完全擷取標題，需要進一步優化。\n- 補充：使用requests和正則表達式擷取目標資訊。\n- [方案一評分]: 80\n\n[方案二]\n- 改善報告：\n    - 程式碼運行正常且無語法錯誤。\n    - 僅限於解析HTML的部分，如果需要擷取動態生成的內容，則無法達到需求。\n- 補充：使用BeautifulSoup套件解析HTML，並使用CSS選擇器擷取目標資訊。\n- [方案二評分]: 90\n\n[方案三]\n- 改善報告：\n    - 程式碼運行正常且無語法錯誤。\n    - 需要檢查瀏覽器驅動程式的版本和兼容性。\n- 補充：使用selenium套件模擬瀏覽器行為，對目標網頁進行搜索。\n- [方案三評分]: 95\n\n總評分: (80 + 90 + 95) / 3 = 88.33分"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1859,
+    "completion_tokens":435,
+    "total_tokens":2294
+  }
+}

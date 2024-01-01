@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbSFS3stuHUuNvKEbBUMYogc02nb",
+  "object":"chat.completion",
+  "created":1702781163,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]\n[方案一總結]\n方案一使用了requests套件進行網路請求，可以輕鬆取得資訊。其中一種方式是從可信的威脅情報供應商購買情報，另一種方式是購買結果掃描資料庫或其他資料彙集服務的訂閱。方案的優點是使用方便，可以取得多樣化的資訊，缺點是需要依賴外部供應商和服務提供資訊。\n\nimport requests\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_url = \"https://example.com/threat_vendor_feed\"\n    response = requests.get(threat_vendor_feed_url)\n    result.append(response.json())  # 將資訊存入結果列表中\n    \n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_url = \"https://example.com/scan_database\"\n    response = requests.get(scan_database_url)\n    result.append(response.json())  # 將資訊存入結果列表中\n    \n    return result\n\n[方案二總結]\n方案二使用了urllib套件進行網路請求，同樣可以取得資訊。方式一是從可信的威脅情報供應商購買情報，方式二是購買結果掃描資料庫或其他資料彙集服務的訂閱。方案的優點是使用Python標準庫中的套件，不需額外安裝，缺點是需要依賴外部供應商和服務提供資訊。\n\nimport urllib.request\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_url = \"https://example.com/threat_vendor_feed\"\n    response = urllib.request.urlopen(threat_vendor_feed_url)\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n\n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_url = \"https://example.com/scan_database\"\n    response = urllib.request.urlopen(scan_database_url)\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n    \n    return result\n\n[方案三總結]\n方案三使用了http.client套件進行網路請求，同樣可以取得資訊。方式一是從可信的威脅情報供應商購買情報，方式二是購買結果掃描資料庫或其他資料彙集服務的訂閱。方案的優點是使用Python標準庫中的套件，不需額外安裝，缺點是較為繁瑣的寫法，需要手動建立連線，同時需要依賴外部供應商和服務提供資訊。\n\nimport http.client\n\ndef search_closed_sources():\n    result = []\n    \n    # 方式一：從可信的威脅情報供應商購買情報\n    threat_vendor_feed_host = \"example.com\"\n    threat_vendor_feed_path = \"/threat_vendor_feed\"\n    connection = http.client.HTTPSConnection(threat_vendor_feed_host)\n    connection.request(\"GET\", threat_vendor_feed_path)\n    response = connection.getresponse()\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n\n    # 方式二：購買結果掃描資料庫或其他資料彙集服務的訂閱\n    scan_database_host = \"example.com\"\n    scan_database_path = \"/scan_database\"\n    connection = http.client.HTTPSConnection(scan_database_host)\n    connection.request(\"GET\", scan_database_path)\n    response = connection.getresponse()\n    result.append(response.read().decode())  # 將資訊存入結果列表中\n    \n    return result\n\n[功能測試]\n# 方案一的功能測試\nresult = search_closed_sources()\nprint(result)\n\n# 方案二的功能測試\nresult = search_closed_sources()\nprint(result)\n\n# 方案三的功能測試\nresult = search_closed_sources()\nprint(result)"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2044,
+    "completion_tokens":1223,
+    "total_tokens":3267
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDaWuP7TYXWhWFfXa7TLqYQRHg7b",
+  "object":"chat.completion",
+  "created":1702212764,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1518-Software Discovery\n\n1. First method:\n\nimport subprocess\n\ndef software_discovery():\n    process = subprocess.Popen(['wmic', 'product', 'get', 'name,version'], stdout=subprocess.PIPE)\n    output = process.communicate()[0].decode('utf-8')\n\n    return output\n\noutput = software_discovery()\nprint(output)\n\n2. Second method:\n\nimport winreg\n\ndef software_discovery():\n    output = \"\"\n    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r\"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\") as key:\n        for i in range(winreg.QueryInfoKey(key)[0]):\n            subkey_name = winreg.EnumKey(key, i)\n            with winreg.OpenKey(key, subkey_name) as subkey:\n                try:\n                    display_name = winreg.QueryValueEx(subkey, \"DisplayName\")[0]\n                    display_version = winreg.QueryValueEx(subkey, \"DisplayVersion\")[0]\n                    output += f\"{display_name} {display_version}\\n\"\n                except WindowsError:\n                    pass\n    return output\n\noutput = software_discovery()\nprint(output)\n\n3. Third method:\n\nimport os\n\ndef software_discovery():\n    output = \"\"\n    for root, dirs, files in os.walk(\"C:\\\\Program Files\"):\n        for file_name in files:\n            if 'uninstall' in file_name.lower():\n                file_path = os.path.join(root, file_name)\n                try:\n                    with open(file_path, 'r') as uninstall_file:\n                        uninstall_content = uninstall_file.read()\n                        display_name = uninstall_content.split('DisplayName=')[1].split('\\n')[0]\n                        display_version = uninstall_content.split('DisplayVersion=')[1].split('\\n')[0]\n                        output += f\"{display_name} {display_version}\\n\"\n                except:\n                    pass\n    return output\n\noutput = software_discovery()\nprint(output)\n\nNote: All three methods above retrieve software and software versions installed on a Windows system. The first method uses the 'wmic' command-line tool, the second method uses the Windows registry, and the third method searches for uninstall files in the 'C:\\Program Files' directory."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":457,
+    "completion_tokens":456,
+    "total_tokens":913
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHhtjYqm6ESHewbdMB0ubhU1c9eN",
+  "object":"chat.completion",
+  "created":1702466925,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Cannot be Implemented in the Current Environment]\nT1562- Impair Defenses\n\nExplanation:\nUnfortunately, it is not feasible to implement this particular TTP in the current environment for security reasons. Impairing defenses involves manipulating or disabling security controls and would not be responsible or ethical to carry out in a production environment. It is important to prioritize the security and integrity of systems and data."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1952,
+    "completion_tokens":79,
+    "total_tokens":2031
+  },
+  "system_fingerprint":null
+}

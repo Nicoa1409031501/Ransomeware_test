@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPtWZzUfIqAP8J98HjiNItMrINHH",
+  "object":"chat.completion",
+  "created":1702260070,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1220 - XSL Script Processing]\n\n[方案一]\n[分數]：9\n使用套件：xml.etree.ElementTree\n輸入檔案：XSL檔案路徑\n輸出檔案：修改後的XSL檔案路徑\n語法及邏輯正確性：10/10\n優缺點：\n1. 優點：使用簡單，只需使用Python內建的xml.etree.ElementTree套件來解析XSL檔案並替換script標籤的內容。\n2. 缺點：只適用於XSL檔案中的script標籤具有單一內容的情況。\n\n[方案二]\n[分數]：8\n使用套件：re\n輸入檔案：XSL檔案路徑\n輸出檔案：修改後的XSL檔案路徑\n語法及邏輯正確性：8/10\n優缺點：\n1. 優點：可以處理XSL檔案中script標籤具有多個內容的情況。\n2. 缺點：使用正則表達式可能較難應對XSL檔案中較複雜的結構，容易出現語法錯誤或錯誤的替換。\n\n[方案三]\n[分數]：7\n使用套件：BeautifulSoup\n輸入檔案：XSL檔案路徑\n輸出檔案：修改後的XSL檔案路徑\n語法及邏輯正確性：9/10\n優缺點：\n1. 優點：可以處理XSL檔案中script標籤具有多個屬性或子標籤的情況。\n2. 缺點：需要使用第三方套件BeautifulSoup，增加了套件依賴性。\n\n由於方案一的分數最高，達到9分，超過門檻值，我們將對方案一進行功能測試和單元測試。\n\n[TTPs Name]\n[T1220 - XSL Script Processing]\n\n[方案一單元測試]\n內容...\n\n[方案二]\n內容...\n\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2086,
+    "completion_tokens":666,
+    "total_tokens":2752
+  },
+  "system_fingerprint":null
+}

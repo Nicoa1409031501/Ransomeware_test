@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPtrzHPINWZ7pQCVhlcw1kLJ87dU",
+  "object":"chat.completion",
+  "created":1702260091,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：python-docx\n輸入檔案：template.docx\n輸出檔案：output.docx\n優點：\n1. 使用python-docx套件簡單方便，可以直接讀取和修改.docx檔案。\n2. 使用模板的文字搜尋和替換功能，容易實現惡意程式碼的插入。\n缺點：\n1. 只適用於.docx檔案，無法用於其他格式。\n2. 只能修改存在於段落中的文字，無法修改其他元素。\n評分：9\n\n[方案二]\n[分數]：8\n使用套件：lxml\n輸入檔案：template.docx\n輸出檔案：output.docx\n優點：\n1. 使用lxml套件可以方便解析和修改XML檔案，適用於各種Office Open XML格式。\n2. 可以修改所有標籤中的文字，擁有更大的彈性。\n缺點：\n1. 需要對XML結構有一定了解，操作較為複雜。\n2. 無法保留原有的樣式和格式。\n評分：8\n\n[方案三]\n[分數]：6\n使用套件：python-pptx\n輸入檔案：template.pptx\n輸出檔案：output.pptx\n優點：\n1. 使用python-pptx套件簡單方便，可以直接讀取和修改.pptx檔案。\n2. 提供了直觀的API來操作幻燈片和形狀。\n缺點：\n1. 只適用於.pptx檔案，無法用於其他格式。\n2. 需要特別指定要修改的幻燈片和形狀，操作較為麻煩。\n評分：6"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2050,
+    "completion_tokens":557,
+    "total_tokens":2607
+  },
+  "system_fingerprint":null
+}

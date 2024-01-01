@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UUc799bJFkpq4QkWSWvNUpv9P71h",
+  "object":"chat.completion",
+  "created":1702278211,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：smtplib, email\n優缺點：\n優點：\n1. 使用Python內建套件，無需額外安裝。\n2. 可以發送具有自訂內容的偽造郵件。\n缺點：\n1. 需要設定SMTP伺服器和登入帳號密碼，可能需要額外的配置。\n\n[方案二]\n[分數]：9\n使用套件：faker\n優缺點：\n優點：\n1. 使用faker套件生成偽造的個人資訊簡單且方便。\n2. 可以根據需要隨機生成各種不同的資料。\n缺點：\n1. 偽造的個人資訊可能不符合真實情況。\n\n[方案三]\n[分數]：7\n使用套件：selenium\n優缺點：\n優點：\n1. 可以模擬真實環境進行偽造網頁的相關操作。\n2. 可以用來偽造登入頁面來進行釣魚攻擊等試驗。\n缺點：\n1. 需要設定瀏覽器驅動程式，可能需要額外的配置。\n2. 需要額外安裝selenium套件。\n\n由於[方案二]取得最高分數，故接下來進行該方案的功能測試。\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1978,
+    "completion_tokens":462,
+    "total_tokens":2440
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfjEB4MrzvOthRe1OehiVISjEbnA",
+  "object":"chat.completion",
+  "created":1700890968,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：T1498- Network Denial of Service\n方案數量：2\n\n[方案一]\n改善報告：\n- 優點：使用scapy套件來實現攻擊，能夠輕鬆地建立和發送封包。\n- 缺點：這些攻擊程式碼只供教學和測試使用，不應在未經授權的系統上執行任何形式的網路攻擊。\n- 評分：80\n\n[方案二]\n改善報告：\n- 優點：使用其他工具（如Scapy、hping、slowloris）能夠實現更多複雜的攻擊技術和攻擊方式。\n- 缺點：需要額外安裝和熟悉其他工具的使用。\n- 評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1773,
+    "completion_tokens":259,
+    "total_tokens":2032
+  }
+}

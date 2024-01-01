@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UycyGgaX7lgd97mrNqmBQptKv57Z",
+  "object":"chat.completion",
+  "created":1702393584,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]: T1571 - Non-Standard Port\n\n[方案一]\n[分數]: 8\n使用套件: socket\n優缺點:\n優點:\n1. 使用Python標準套件，無需安裝額外套件。\n2. 可以精準地掃描非標準埠口的開啟狀態。\n\n缺點:\n1. 只能檢查TCP埠口的開啟狀態，無法檢查其他協定的埠口。\n2. 使用原生socket套件，寫法相對較冗長。\n\n[方案二]\n[分數]: 9\n使用套件: requests\n優缺點:\n優點:\n1. 使用Python常用套件，易於安裝和使用。\n2. 可以透過HTTP請求快速檢查非標準埠口的開啟狀態。\n\n缺點:\n1. 僅限於HTTP協定，無法檢查其他協定的埠口開啟狀態。\n\n[方案三]\n[分數]: 7\n使用套件: nmap\n優缺點:\n優點:\n1. 使用nmap套件可以檢查各種協定的埠口開啟狀態。\n2. 可以透過詳細掃描報告瞭解更多關於主機的資訊。\n\n缺點:\n1. 需要安裝nmap套件，而且在某些作業系統上可能需要額外的配置。\n2. 執行掃描可能需要較長時間，特別是對於大型網路。\n\n由於方案二得分最高，超過了8分，所以我們將繼續對方案二進行功能測試和單元測試。\n\n[可實現]\n[TTPs Name]: T1571 - Non-Standard Port\n\n[方案二單元測試]\n內容...\n\n程式碼如下：\n```python\nimport requests\n\ndef check_non_standard_port(hostname, port):\n    try:\n        url = f\"http://{hostname}:{port}/\"\n        response = requests.get(url)\n        if response.status_code >= 200 and response.status_code < 300:\n            return True\n        else:\n            return False\n    except requests.exceptions.RequestException as err:\n        return False\n\n# 單元測試\ndef test_check_non_standard_port():\n    assert check_non_standard_port(\"example.com\", 8088) == True\n    assert check_non_standard_port(\"example.com\", 1234) == False\n\ntest_check_non_standard_port()\n```\n\n我們將方案二的功能寫成一個獨立的函式`check_non_standard_port`，並撰寫了一個單元測試`test_check_non_standard_port`來驗證功能是否正確。您可以根據自己的需求進行修改和擴展。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2153,
+    "completion_tokens":816,
+    "total_tokens":2969
+  },
+  "system_fingerprint":null
+}

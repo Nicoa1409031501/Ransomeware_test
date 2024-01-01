@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ofow9zkQ8lkFbGh8Yokp8IYfnJI0",
+  "object":"chat.completion",
+  "created":1700891322,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：內部偽造郵件發送\n方案數量：3\n\n[方案一]\n優點：\n- 使用smtplib套件可以在不需要模擬操作系統的情況下直接發送郵件\n- 套件常見且易於使用\n\n缺點：\n- 需要提供SMTP伺服器的資訊\n- 不能模擬控制用戶裝置\n\n[方案一評分]: 85\n\n[方案二]\n優點：\n- 使用pywin32套件能夠模擬控制用戶裝置並發送郵件\n- 可以使用Outlook應用程式來發送郵件\n\n缺點：\n- 需要安裝pywin32套件\n- 僅適用於Windows作業系統\n\n[方案二評分]: 90\n\n[方案三]\n優點：\n- 使用selenium套件能夠模擬瀏覽器操作並發送郵件\n- 可以適用於不同的郵件服務提供商\n\n缺點：\n- 需要瀏覽器驅動程式和相應的依賴\n- 執行速度較慢\n\n[方案三評分]: 80\n\n總評分: (85 + 90 + 80) / 3 = 85.0 分"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2001,
+    "completion_tokens":402,
+    "total_tokens":2403
+  }
+}

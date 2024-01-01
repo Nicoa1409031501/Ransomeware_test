@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfpO0z0hnmmdMDLXecv0PRCVnw8A",
+  "object":"chat.completion",
+  "created":1700891350,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Unused/Unsupported Cloud Regions\n方案數量：3\n\n[方案一]\n優點：\n- 使用 AWS SDK，方便與 AWS 環境進行整合\n- 可以快速建立未使用的地理服務區域的雲實例\n\n缺點：\n- 依賴於 AWS SDK，需要安裝相關的套件\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用 Azure SDK，方便與 Azure 環境進行整合\n- 可以快速建立未使用的地理服務區域的雲實例\n\n缺點：\n- 依賴於 Azure SDK，需要安裝相關的套件\n\n[方案二評分]: 88\n\n[方案三]\n優點：\n- 使用 Google Cloud SDK，方便與 Google Cloud 環境進行整合\n- 可以快速建立未使用的地理服務區域的雲實例\n\n缺點：\n- 依賴於 Google Cloud SDK，需要安裝相關的套件\n\n[方案三評分]: 85\n\n總結評分: 87"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2005,
+    "completion_tokens":340,
+    "total_tokens":2345
+  }
+}

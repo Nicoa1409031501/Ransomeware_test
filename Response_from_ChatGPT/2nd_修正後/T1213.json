@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPsKnxvVHQ0SRsmNv3Ffn6GwDCUK",
+  "object":"chat.completion",
+  "created":1702259996,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：requests, BeautifulSoup\n優缺點：\n1. 優點：使用簡單的CSS選擇器即可將有價值資訊從Confluence網頁中提取出來。\n2. 優點：requests套件提供了簡便的HTTP請求功能，BeautifulSoup套件提供了方便的HTML解析功能。\n3. 優點：容易理解和使用。\n4. 缺點：可能受到網頁結構變化的影響，需要根據實際環境做適應性調整。\n\n[方案二]\n[分數]：7\n使用套件：requests, pandas\n優缺點：\n1. 優點：直接從SharePoint網站中下載和解析文件，方便快捷。\n2. 優點：pandas套件提供了強大的數據處理功能，能夠輕鬆解析Excel等格式的文件。\n3. 缺點：解析的準確性可能受到文件格式變化的影響，需要根據實際檔案格式做適應性調整。\n\n[方案三]\n[分數]：9\n使用套件：git, 其他相關解析程式碼的套件\n優缺點：\n1. 優點：通過GitPython套件能夠從程式碼存儲庫中輕鬆地下載程式碼。\n2. 優點：提供了靈活解析程式碼的方法，能夠根據具體情況進行定制化的資訊提取。\n3. 優點：使用git作為版本控制，方便管理程式碼的更新和變更。\n4. 缺點：需要對程式碼進行進一步的解析和分析，可能複雜一些。\n\n根據評分，方案一和方案三的得分較高，建議進一步針對這兩個方案進行功能測試和單元測試。  \n\n[TTPs Name]\n[方案一單元測試]\n對extract_confluence_info進行功能測試和單元測試。\n\n[TTPs Name]\n[方案三單元測試]\n對clone_code_repository和extract_code_info進行功能測試和單元測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2022,
+    "completion_tokens":732,
+    "total_tokens":2754
+  },
+  "system_fingerprint":null
+}

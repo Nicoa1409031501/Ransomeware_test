@@ -1,21 +1,22 @@
 {
-  "id":"chatcmpl-8N5JuQClSP6VciFm4P4fjTAdpv8Pt",
+  "id":"chatcmpl-8UyMbbK2BWwa1AKJ77tP926sHWLOO",
   "object":"chat.completion",
-  "created":1700512686,
+  "created":1702392569,
   "model":"gpt-3.5-turbo-0613",
   "choices":[
     {
       "index":0,
       "message":{
         "role":"assistant",
-        "content":"以上三種方法的優點如下：\n\n1. 使用requests套件: \n   - 抽象程度高，使用起來簡單直觀。\n   - 具有很好的錯誤處理機制，可以輕鬆處理不同的HTTP錯誤。\n   - 提供了各種實用的功能，例如Cookies管理、Session管理等。\n\n2. 使用http.client套件: \n   - 原生Python模塊，不需要額外安裝。\n   - 提供了更多底層的控制，可以更加細粒度地處理HTTP請求。\n\n3. 使用urllib套件: \n   - 原生Python模塊，不需要額外安裝。\n   - 結合了較高層次的抽象以及更底層控制的功能，可以在簡潔性和彈性之間取得平衡。\n\n缺點和改善建議：\n\n1. 使用requests套件: 需要額外安裝第三方套件，可能會對應用程序的大小和效能造成一定的影響。若想減少依賴，可以考慮使用更原生的Python方式。\n\n2. 使用http.client套件: 對於較複雜的HTTP操作，需要手動處理大量的細節。可以考慮使用更高抽象層次的套件，以提高開發效率和代碼可讀性。\n\n3. 使用urllib套件: 在一些複雜的情境中，可能需要更多的自定義代碼和處理邏輯。可以考慮使用更高級的HTTP請求套件，例如requests或httpx，可以提供更多便利的功能和易於使用的API。\n\n根據具體的需求和程式性能、規模需求，可以選擇適合的方法來實現T1528 - Steal Application Access Token。"
+        "content":"[T1528 - Steal Application Access Token]\n \n[方案一]\n[分數]：8\n使用套件：requests\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：10分\n優缺點：\n優點：\n1. 使用簡單且直觀的requests套件可以快速完成POST請求。\n2. 可以透過判斷response的status_code來確認請求是否成功。\n3. 可以從response中取得access_token。\n\n缺點：\n1. 需要安裝requests套件。\n\n[方案二]\n[分數]：7\n使用套件：http.client, json\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：8分\n優缺點：\n優點：\n1. 不需要額外安裝套件，使用Python內建的http.client套件即可完成POST請求。\n2. 可以透過判斷response的status_code來確認請求是否成功。\n3. 可以從response中取得access_token。\n\n缺點：\n1. 寫法稍微複雜，需要控制header和body的內容。\n2. 需要額外import json套件。\n\n[方案三]\n[分數]：6\n使用套件：urllib.request, json\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：6分\n優缺點：\n優點：\n1. 不需要額外安裝套件，使用Python內建的urllib.request套件即可完成POST請求。\n2. 可以透過判斷response的status code來確認請求是否成功。\n3. 可以從response中取得access_token。\n\n缺點：\n1. 寫法較為繁瑣，需要額外處理字串編碼及header的添加。\n2. 需要額外import json套件。"
       },
       "finish_reason":"stop"
     }
   ],
   "usage":{
-    "prompt_tokens":1627,
-    "completion_tokens":555,
-    "total_tokens":2182
-  }
+    "prompt_tokens":1961,
+    "completion_tokens":587,
+    "total_tokens":2548
+  },
+  "system_fingerprint":null
 }

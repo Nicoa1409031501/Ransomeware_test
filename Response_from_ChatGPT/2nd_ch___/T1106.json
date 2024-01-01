@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Odh6oloyr5uemu7tPMK827YEHwv6",
+  "object":"chat.completion",
+  "created":1700883148,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：實現Native API\n方案數量：3\n\n[方案一]\n優點：\n- 使用ctypes套件可以方便地調用Windows的Native API\n- 可以透過調用Native API的方式實現一些Windows特定的功能\n\n缺點：\n- 限制於Windows環境，無法在其他作業系統上執行\n\n[方案一評分]: 85\n\n[方案二]\n優點：\n- 使用ctypes套件可以方便地調用Windows的Native API\n\n缺點：\n- 限制於Windows環境，無法在其他作業系統上執行\n- 需要深入了解Windows的Native API才能正確使用\n\n[方案二評分]: 80\n\n[方案三]\n優點：\n- 使用ctypes套件可以方便地調用Windows的Native API\n\n缺點：\n- 限制於Windows環境，無法在其他作業系統上執行\n- 需要深入了解Windows的Native API才能正確使用\n\n[方案三評分]: 80\n\n總評分: 81.67"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1649,
+    "completion_tokens":334,
+    "total_tokens":1983
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UxYh50zkZIaiO7VZ4U6DtHBiWMkj",
+  "object":"chat.completion",
+  "created":1702389475,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可行]\n\n[TTPs Name: File Hash]\n\n[方案一]\n[分數]：8\n使用套件：hashlib\n輸入檔案：要計算雜湊值的文件路徑\n輸出檔案：無\n語法和邏輯正確性：9\n優缺點：\n優點：\n1. 可以計算檔案的MD5、SHA-1和SHA-256等常用雜湊值\n2. 簡單易用，標準函式庫中的模塊\n缺點：\n1. 較慢，特別是對於大型檔案\n\n[方案二]\n[分數]：7\n使用套件：pyexiftool、hashlib\n輸入檔案：要計算雜湊值的文件路徑\n輸出檔案：無\n語法和邏輯正確性：8\n優缺點：\n優點：\n1. 可以根據EXIF資訊計算雜湊值，預設使用MD5\n2. 支援各種檔案類型的雜湊值計算\n缺點：\n1. 需要額外安裝pyexiftool套件\n\n[方案三]\n[分數]：6\n使用套件：hachoir\n輸入檔案：要計算雜湊值的文件路徑\n輸出檔案：無\n語法和邏輯正確性：6\n優缺點：\n優點：\n1. 可以計算各種檔案類型的雜湊值\n缺點：\n1. 需要額外安裝hachoir套件\n2. 文件格式支援有限，可能無法計算某些特殊類型的檔案的雜湊值\n\n[Feasible]\n[TTPs Name: File Hash]\n\n[方案一單元測試]\n內容...\n\n[方案二單元測試]\n內容...\n\n[方案三單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1499,
+    "completion_tokens":588,
+    "total_tokens":2087
+  },
+  "system_fingerprint":null
+}

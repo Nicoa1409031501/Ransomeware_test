@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wbq6UZiNN1gF8fTJUqx0utONi8DM",
+  "object":"chat.completion",
+  "created":1702782642,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[T1543-Create or Modify System Process]\n\n[方案一總結]\n在第一個方案中，使用了plistlib套件來讀取和寫入plist檔案。程式碼簡單易懂，不需要引入其他套件，但是若檔案過大可能會有效能上的問題。\n\n[方案二總結]\n在第二個方案中，使用了plistlib和os套件來操作檔案的讀寫，相對麻煩一些。但是可以直接操作檔案，不需要關心文件大小。\n\n[方案三總結]\n在第三個方案中，也使用了plistlib套件，並且直接操作檔案的讀寫。寫回檔案時需要先關閉原檔案，再重新開啟並寫入，相對麻煩一些。\n\n以下是方案一、二、三中的完整程式碼及功能測試：\n\n'''python\nimport plistlib\nimport os\n\ndef create_modify_system_process_plan1(file_path, label, program, run_at_load):\n    plist_data = plistlib.readPlist(file_path)\n    plist_data['Label'] = label\n    plist_data['Program'] = program\n    plist_data['RunAtLoad'] = run_at_load\n    plistlib.writePlist(plist_data, file_path)\n\ndef create_modify_system_process_plan2(file_path, label, program, run_at_load):\n    with open(file_path, 'rb') as f:\n        plist_data = plistlib.load(f)\n    plist_data['Label'] = label\n    plist_data['Program'] = program\n    plist_data['RunAtLoad'] = run_at_load\n    with open(file_path, 'wb') as f:\n        plistlib.dump(plist_data, f)\n\ndef create_modify_system_process_plan3(file_path, label, program, run_at_load):\n    with open(file_path, 'rb') as f:\n        plist_data = plistlib.load(f)\n    plist_data['Label'] = label\n    plist_data['Program'] = program\n    plist_data['RunAtLoad'] = run_at_load\n    plistlib.dump(plist_data, open(file_path, 'wb'))\n\n# 測試方案一\ncreate_modify_system_process_plan1('/System/Library/LaunchDaemons/com.apple.periodic-monthly.plist', 'custom-label', '/usr/local/bin/custom-program', True)\n\n# 測試方案二\ncreate_modify_system_process_plan2('/System/Library/LaunchDaemons/com.apple.periodic-monthly.plist', 'custom-label', '/usr/local/bin/custom-program', True)\n\n# 測試方案三\ncreate_modify_system_process_plan3('/System/Library/LaunchDaemons/com.apple.periodic-monthly.plist', 'custom-label', '/usr/local/bin/custom-program', True)\n'''\n以上是將com.apple.periodic-monthly.plist中的Label、Program、RunAtLoad參數修改為'custom-label'、'/usr/local/bin/custom-program'、True的程式碼及測試。\n\n請注意事項：\n1. 請確認檔案路徑存在且有讀寫權限。\n2. 請修改檔案路徑、label、program、run_at_load等參數來適應實際場景。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1868,
+    "completion_tokens":808,
+    "total_tokens":2676
+  },
+  "system_fingerprint":null
+}

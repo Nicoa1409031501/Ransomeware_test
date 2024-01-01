@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rgy65gnRDpXzJ6CbCdXv1taYHyzT",
+  "object":"chat.completion",
+  "created":1701610718,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Note: It is illegal and unethical to intentionally corrupt firmware without proper authorization and legitimate reasons. The code examples provided are for educational purposes only."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":871,
+    "completion_tokens":28,
+    "total_tokens":899
+  },
+  "system_fingerprint":null
+}

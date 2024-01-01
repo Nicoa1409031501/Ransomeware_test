@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHvJgBFNqYoucPdbooSegLtMBzBn",
+  "object":"chat.completion",
+  "created":1702467757,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n[T1597-Search Closed Sources]\n\n[Solution 1]\nPackages used: requests, BeautifulSoup\n\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef search_closed_sources():\n    url = \"https://example.com/threat_intelligence\"\n    response = requests.get(url)\n    soup = BeautifulSoup(response.text, \"html.parser\")\n    data = soup.find_all(\"div\", class_=\"data\")\n\n    with open(\"closed_sources_data.txt\", \"w\") as f:\n        for item in data:\n            f.write(item.text + \"\\n\")\n\nsearch_closed_sources()\n```\n\n[Solution 2]\nPackages used: selenium, webdriver_manager\n\n```python\nfrom selenium import webdriver\nfrom webdriver_manager.chrome import ChromeDriverManager\n\ndef search_closed_sources():\n    search_term = \"threat intelligence vendor\"\n    driver = webdriver.Chrome(ChromeDriverManager().install())\n    driver.get(\"https://www.google.com/search?q=\" + search_term)\n    data = driver.find_elements_by_css_selector(\"div.result\")\n\n    with open(\"closed_sources_data.txt\", \"w\") as f:\n        for item in data:\n            f.write(item.text + \"\\n\")\n\n    driver.quit()\n\nsearch_closed_sources()\n```\n\n[Solution 3]\nPackages used: pandas, openpyxl\n\n```python\nimport pandas as pd\n\ndef search_closed_sources():\n    data = pd.read_excel(\"vendors.xlsx\")\n\n    with open(\"closed_sources_data.txt\", \"w\") as f:\n        for index, row in data.iterrows():\n            f.write(row[\"vendor_name\"] + \" - \" + row[\"additional_info\"] + \"\\n\")\n\nsearch_closed_sources()\n```\n\nNote: All three solutions store the extracted data in a file named \"closed_sources_data.txt\"."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1329,
+    "completion_tokens":357,
+    "total_tokens":1686
+  },
+  "system_fingerprint":null
+}

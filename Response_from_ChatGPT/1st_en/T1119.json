@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDfMKWtKw30cUxuJ5pp7bX4vNriR",
+  "object":"chat.completion",
+  "created":1702213064,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1119-Automated Collection\n\nTo implement the T1119 Automated Collection technique in Python, we can use the following methods:\n\nMethod 1:\n- Packages used: os, shutil\n- Functionality used: os.walk, shutil.copy\n- This method will recursively search for files in the specified directory that match the given criteria and copy them to a destination directory.\n\n```python\nimport os\nimport shutil\n\ndef automated_collection(directory, destination, criteria):\n    for root, dirs, files in os.walk(directory):\n        for file in files:\n            file_path = os.path.join(root, file)\n            if criteria in file:  # Example criteria: file type, location, or name\n                shutil.copy(file_path, destination)\n\n# Example usage\nautomated_collection('/path/to/source', '/path/to/destination', '.docx')\n```\n\nMethod 2:\n- Packages used: glob, shutil\n- Functionality used: glob.glob, shutil.copy\n- This method will use wildcard patterns to search for files in the specified directory that match the given criteria and copy them to a destination directory.\n\n```python\nimport glob\nimport shutil\n\ndef automated_collection(directory, destination, criteria):\n    file_paths = glob.glob(directory + '/**/*' + criteria, recursive=True)\n    for file_path in file_paths:\n        shutil.copy(file_path, destination)\n\n# Example usage\nautomated_collection('/path/to/source', '/path/to/destination', '.docx')\n```\n\nMethod 3:\n- Packages used: pathlib, shutil\n- Functionality used: pathlib.Path.glob, shutil.copy\n- This method will use the pathlib module to search for files in the specified directory that match the given criteria and copy them to a destination directory.\n\n```python\nimport pathlib\nimport shutil\n\ndef automated_collection(directory, destination, criteria):\n    file_paths = pathlib.Path(directory).rglob('*' + criteria)\n    for file_path in file_paths:\n        shutil.copy(file_path, destination)\n\n# Example usage\nautomated_collection('/path/to/source', '/path/to/destination', '.docx')\n```\n\nPlease note that in all three methods, the source files matching the criteria will be copied to the destination directory.\n\nEnd of the solution."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":410,
+    "completion_tokens":458,
+    "total_tokens":868
+  },
+  "system_fingerprint":null
+}

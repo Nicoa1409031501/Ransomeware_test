@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyJWG8DF7qCw8NOys3Cdqhehh2Td",
+  "object":"chat.completion",
+  "created":1702392378,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案1]\n[分數]: 8\n使用套件：psutil\n輸入：無\n輸出：無\n語法及邏輯正確性：9\n優點：\n1. 簡單易懂，容易實現。\n2. 使用 psutil 套件可以直接獲取系統資源使用情況。\n缺點：\n1. 只檢查 CPU 使用率，可能無法完全偵測到其他資源的被占用情況。\n\n[方案2]\n[分數]: 9\n使用套件：psutil\n輸入：無\n輸出：resource_hijacking_log.txt (偵測結果輸出至檔案)\n語法及邏輯正確性：9\n優點：\n1. 可以將偵測結果輸出至檔案進行紀錄。\n2. 使用 psutil 套件可以直接獲取系統資源使用情況。\n缺點：\n1. 只檢查 CPU 使用率，可能無法完全偵測到其他資源的被占用情況。\n\n[方案3]\n[分數]: 7\n使用套件：psutil, smtplib, email.mime.text\n輸入：無\n輸出：無\n語法及邏輯正確性：8\n優點：\n1. 可以透過發送郵件的方式即時通知管理員。\n2. 使用 psutil 套件可以直接獲取系統資源使用情況。\n缺點：\n1. 需要透過郵件伺服器發送郵件，配置較為複雜。\n2. 只檢查 CPU 使用率，可能無法完全偵測到其他資源的被占用情況。\n\n由於方案1的實現較為簡單且效果已經足夠，評分較高，因此進行功能測試。      "
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1946,
+    "completion_tokens":571,
+    "total_tokens":2517
+  },
+  "system_fingerprint":null
+}

@@ -1,8 +1,22 @@
 {
-  "error":{
-    "code":502,
-    "message":"Bad gateway.",
-    "param":null,
-    "type":"cf_bad_gateway"
-  }
+  "id":"chatcmpl-8UxgZGhrW156zYH5nOVuc1YShR17Q",
+  "object":"chat.completion",
+  "created":1702389963,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案1]\n[分數]：8\n使用套件：socket\n輸入檔案：無\n輸出檔案：無\n語法和邏輯正確性：正確\n優缺點：\n優點：\n1. 使用原生的socket模組，不需要額外安裝第三方套件。\n2. 可以自由設定掃描範圍，更靈活。\n\n缺點：\n1. 需要逐個掃描端口，耗時較長。\n\n[方案2]\n[分數]：9\n使用套件：nmap\n輸入檔案：無\n輸出檔案：無\n語法和邏輯正確性：正確\n優缺點：\n優點：\n1. 使用nmap套件，可以快速進行端口掃描。\n2. 可以同時掃描多個目標IP。\n\n缺點：\n1. 需要額外安裝nmap套件。\n\n[方案3]\n[分數]：7\n使用套件：subprocess\n輸入檔案：無\n輸出檔案：無\n語法和邏輯正確性：正確\n優缺點：\n優點：\n1. 使用subprocess模組執行nmap命令，方便快捷。\n2. 可以使用nmap命令的所有功能。\n\n缺點：\n1. 需要安裝nmap工具。\n2. 執行命令可能較慢。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1824,
+    "completion_tokens":447,
+    "total_tokens":2271
+  },
+  "system_fingerprint":null
 }

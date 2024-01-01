@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPx87eZK4FL63zkBc4MarZFLVzvr",
+  "object":"chat.completion",
+  "created":1702260294,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\nT1498- Network Denial of Service\n\n[方案一]\n[分數]：9\n使用套件：scapy\n優缺點：\n1. 優點：使用scapy套件可以輕鬆地建立和發送封包，具有廣泛的攻擊方式。\n2. 缺點：需要額外安裝scapy套件。\n\n[方案二]\n[分數]：8\n使用套件：-\n優缺點：\n1. 優點：不需要安裝額外的套件，僅使用標準的Python庫。\n2. 缺點：需要自行建立和發送封包，需要處理封包的細節。\n\n[方案三]\n[分數]：7\n使用套件：-\n優缺點：\n1. 優點：不需要任何套件依賴，僅使用Python的socket庫。\n2. 缺點：需要自行處理網路連接、封包建立和發送等細節，較為繁複。\n\n[方案一單元測試]\n[方案二單元測試]\n[方案三單元測試]"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1753,
+    "completion_tokens":344,
+    "total_tokens":2097
+  },
+  "system_fingerprint":null
+}

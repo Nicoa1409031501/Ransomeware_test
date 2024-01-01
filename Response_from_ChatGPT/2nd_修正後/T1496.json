@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPweOw1ycvPWrE1qtsMbF8sS3EJB",
+  "object":"chat.completion",
+  "created":1702260264,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n         [方案一]\n         [分數]：9\n         使用套件：psutil\n         優點：\n         1. 可以即時檢查系統的 CPU 使用率\n         2. 可以依據設定的閾值判斷資源是否被占用\n         3. 可以根據偵測結果執行不同的動作，如輸出至檔案或發送警報郵件\n         \n[方案二]\n         [分數]：8\n         使用套件：psutil\n         優點：\n         1. 與方案一相同，可以檢查系統的 CPU 使用率\n         2. 可以將偵測結果輸出至檔案，方便查閱\n         缺點：\n         1. 沒有進一步執行動作來通知管理者資源被占用的情況\n         \n[方案三]\n         [分數]：7\n         使用套件：psutil\n         優點：\n         1. 與方案一相同，可以檢查系統的 CPU 使用率\n         缺點：\n         1. 沒有將偵測結果輸出至檔案或其他方式通知管理者資源被占用的情況\n\n由於方案一的功能完善且穩定性高，評分較高，符合進行單元測試的條件。接下來進行方案一的單元測試：\n\n[TTPs Name]\n         [方案一單元測試]\n         內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1874,
+    "completion_tokens":467,
+    "total_tokens":2341
+  },
+  "system_fingerprint":null
+}

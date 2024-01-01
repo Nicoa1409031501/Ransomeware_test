@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPmK1kp0r5wZ1523vYuXhcw1vsSh",
+  "object":"chat.completion",
+  "created":1702259624,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：7\n使用套件：pywin32、ctypes\n優缺點：\n1. 以TTPs的角度來看，使用DuplicateTokenEx和ImpersonateLoggedOnUser是一個有效的方法，可以實現Token Elevation的功能。\n2. 由於使用了win32security和ctypes這兩個套件，需要在執行程式前確保這兩個套件已安裝。\n\n[方案二]\n[分數]：8\n使用套件：ctypes\n優缺點：\n1. 使用CreateProcessWithTokenW可以創建具有特權的新進程，有效實現了Token Elevation的目的。\n2. 僅使用了ctypes套件，簡化了依賴套件的需求。\n\n[方案三]\n[分數]：9\n使用套件：pywin32\n優缺點：\n1. 使用LogonUser和SetThreadToken可以創建新的access token並以此權限運行線程，實現了Token Elevation的功能。\n2. 使用pywin32套件，使用較為方便的函數來達到目的。\n\n由於方案三的評分最高，接下來進行方案三的功能測試和單元測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1968,
+    "completion_tokens":370,
+    "total_tokens":2338
+  },
+  "system_fingerprint":null
+}

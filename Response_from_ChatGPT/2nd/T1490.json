@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyHsu0UWuBjuX4mpY85xd4dWHTHW",
+  "object":"chat.completion",
+  "created":1702392276,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案評估]\n[可實現]\n[TTPs Name：Inhibit System Recovery]\n[方案一]\n[分數]：8\n使用套件：os\n優缺點：\n1. 使用簡單方便\n2. 可以直接執行系統命令\n3. 可以輕易地停用指定的服務\n4. 依賴於命令提示字元，可能不適用於跨平台的應用\n\n[方案二]\n[分數]：9\n使用套件：subprocess\n優缺點：\n1. 使用簡單方便\n2. 可以直接執行系統命令\n3. 支援跨平台，適用於不同的操作系統\n4. 可以輕易地停用指定的服務\n5. 透過shell=True，可以使用shell的特性，更靈活\n\n[方案三]\n[分數]：7\n使用套件：wmi\n優缺點：\n1. 使用WMI服務進行操作，支援Windows系統\n2. 可以輕易地停用指定的服務\n3. 需要安裝wmi套件，可能增加使用複雜度\n4. 不支援跨平台，只適用於Windows系統\n\n[方案評估結果]\n方案二的評分最高，獲得9分，因為它不僅具有使用簡單方便、可以直接執行系統命令的優點，還支援跨平台，適用於不同的操作系統。\n\n[方案測試]\n由於方案二獲得了最高分，我們將繼續針對方案二撰寫功能測試程式碼。\n\n[方案一單元測試]\n\n```python\nimport os\nimport unittest\n\ndef inhibit_system_recovery(service_name):\n    os.system(f\"net stop {service_name}\")\n\nclass TestInhibitSystemRecovery(unittest.TestCase):\n    def test_inhibit_system_recovery(self):\n        # Arrange\n        expected_output = 0\n        \n        # Act\n        inhibit_system_recovery(\"BITS\")\n        actual_output = os.system(\"sc query BITS | findstr STATE\")\n        \n        # Assert\n        self.assertEqual(expected_output, actual_output)\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n[方案二單元測試]\n\n```python\nimport subprocess\nimport unittest\n\ndef inhibit_system_recovery(service_name):\n    subprocess.run([\"net\", \"stop\", service_name], shell=True)\n\nclass TestInhibitSystemRecovery(unittest.TestCase):\n    def test_inhibit_system_recovery(self):\n        # Arrange\n        expected_output = 0\n        \n        # Act\n        inhibit_system_recovery(\"BITS\")\n        actual_output = subprocess.run([\"sc\", \"query\", \"BITS\", \"|\", \"findstr\", \"STATE\"], capture_output=True, shell=True)\n        \n        # Assert\n        self.assertEqual(expected_output, actual_output.returncode)\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1667,
+    "completion_tokens":795,
+    "total_tokens":2462
+  },
+  "system_fingerprint":null
+}

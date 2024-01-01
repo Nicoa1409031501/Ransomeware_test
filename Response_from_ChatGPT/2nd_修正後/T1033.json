@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPY46XIah2Hce2jdsz2DqwLVR4N3",
+  "object":"chat.completion",
+  "created":1702258740,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"方案一評分：\n[分數]：8\n\n使用套件：os、subprocess\n\n優缺點：\n1. 優點：使用了內建的os和subprocess模塊，無需安裝額外的套件。\n2. 缺點：需要使用shell=True，可能存在安全風險。\n3. 缺點：無法獲取正在運行的進程的所有者。\n\n方案二評分：\n[分數]：9\n\n使用套件：psutil\n\n優缺點：\n1. 優點：使用了psutil模塊，簡潔而有效的獲取了登入的使用者和正在運行的進程的所有者。\n2. 缺點：需要安裝psutil套件。\n\n方案三評分：\n[分數]：7\n\n使用套件：win32api、win32evtlog\n\n優缺點：\n1. 優點：可以獲取登錄和登出事件，查看登入紀錄。\n2. 缺點：僅適用於Windows系統；需要安裝pywin32套件；需要較複雜的程式碼來獲取登錄事件記錄。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1882,
+    "completion_tokens":334,
+    "total_tokens":2216
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R2ecreLL5sUBTbT8aFeNsh9joHio",
+  "object":"chat.completion",
+  "created":1701455750,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1137-Office Application Startup\n\nMethod 1:\nPackages used: winreg\n\nFunctionalities used:\n- Reading and writing registry keys and values\n\nCode:\n```python\nimport winreg\n\ndef check_registry_value(key, value):\n    try:\n        registry_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key, 0, winreg.KEY_READ)\n        registry_value, _ = winreg.QueryValueEx(registry_key, value)\n        winreg.CloseKey(registry_key)\n        return True\n    except FileNotFoundError:\n        return False\n\n# Checking if the \"Office Test\" registry key exists\nkey_path = r\"Software\\Microsoft\\Office\\Test\"\nvalue_name = \"DLL\"\nif check_registry_value(key_path, value_name):\n    print(\"Office Test registry key exists\")\nelse:\n    print(\"Office Test registry key does not exist\")\n```\n\nMethod 2:\nPackages used: pywin32\n\nFunctionalities used:\n- Enumerating registry subkeys and values\n- Checking if a registry key exists\n\nCode:\n```python\nimport win32api\nimport win32con\n\ndef check_registry_key(key):\n    try:\n        win32api.RegOpenKeyEx(win32con.HKEY_CURRENT_USER, key, 0, win32con.KEY_READ)\n        return True\n    except:\n        return False\n\n# Checking if the \"Office Test\" registry key exists\nkey_path = r\"Software\\Microsoft\\Office\\Test\"\nif check_registry_key(key_path):\n    print(\"Office Test registry key exists\")\nelse:\n    print(\"Office Test registry key does not exist\")\n```\n\nMethod 3:\nPackages used: _winreg\n\nFunctionalities used:\n- Reading and writing registry keys and values\n\nCode:\n```python\nimport _winreg\n\ndef check_registry_value(key, value):\n    try:\n        registry_key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, key, 0, _winreg.KEY_READ)\n        registry_value, _ = _winreg.QueryValueEx(registry_key, value)\n        _winreg.CloseKey(registry_key)\n        return True\n    except WindowsError:\n        return False\n\n# Checking if the \"Office Test\" registry key exists\nkey_path = r\"Software\\Microsoft\\Office\\Test\"\nvalue_name = \"DLL\"\nif check_registry_value(key_path, value_name):\n    print(\"Office Test registry key exists\")\nelse:\n    print(\"Office Test registry key does not exist\")\n```\n\nNote: These code snippets check if the \"Office Test\" registry key exists. To implement the other methods mentioned in T1137, you would need to modify the code to target the specific registry keys or manipulate the required files accordingly."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":855,
+    "completion_tokens":558,
+    "total_tokens":1413
+  },
+  "system_fingerprint":null
+}

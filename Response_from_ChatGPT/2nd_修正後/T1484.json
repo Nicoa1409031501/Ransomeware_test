@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPv2XAAvVmbdl6DSBjuziwpag4j3",
+  "object":"chat.completion",
+  "created":1702260164,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n   [方案一]\n   [分數]：8\n   使用套件：pyad\n   優缺點：\n   1. 使用pyad套件可以方便地操作Active Directory中的GPOs，具有較高的可讀性和易用性。\n   2. 可以直接使用GPOs的路徑進行操作，節省操作的步驟與時間。\n\n   [方案二]\n   [分數]：6\n   使用套件：ldap3\n   優缺點：\n   1. 使用ldap3套件可以與LDAP伺服器進行連接，具有許多操作Active Directory的功能。\n   2. 雖然相對於pyad套件，使用ldap3套件需要更多的程式碼來進行操作，但可以更靈活地控制細節。\n\n   [方案三]\n   [分數]：9\n   使用套件：pywinrm、winrm\n   優缺點：\n   1. 使用pywinrm與winrm套件可以通過遠端執行PowerShell指令，可以處理更複雜的操作需求。\n   2. 需要與遠端伺服器建立連接，相對於直接操作本地的GPOs，可能需要更多的設置與溝通。\n\n[TTPs Name]\n   [方案一單元測試]\n   內容...\n\n[TTPs Name]\n   [方案二單元測試]\n   內容...\n\n[TTPs Name]\n   內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2346,
+    "completion_tokens":425,
+    "total_tokens":2771
+  },
+  "system_fingerprint":null
+}

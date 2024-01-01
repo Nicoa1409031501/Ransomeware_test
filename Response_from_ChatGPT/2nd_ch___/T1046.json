@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdCWKRUxg2Ydzgzxsg7ALiLHbAQb",
+  "object":"chat.completion",
+  "created":1700881252,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Network Service Discovery\n方案數量：3\n\n[方案1]\n優點:\n- 使用socket模組，無需額外安裝套件\n- 可以自定義掃描的範圍\n缺點:\n- 執行時間可能較長，特別是在大量端口的情況下\n- 無法對UDP端口進行掃描\n改善方案:\n- 可以將掃描操作放入多個子執行緒或多個進程中，以提高效率\n- 可以使用非阻塞的socket進行掃描，加快掃描速度\n\n[方案1評分]: 80\n\n[方案2]\n優點:\n- 使用nmap模組，可以方便地進行端口掃描\n- 支援對UDP端口的掃描\n缺點:\n- 需要額外安裝nmap模組\n- 可能會受到目標主機上的防火牆限制\n改善方案:\n- 可以使用IP分段的方式進行多個子網段的掃描，提高效率\n- 考慮使用其他端口掃描工具，如Masscan\n\n[方案2評分]: 90\n\n[方案3]\n優點:\n- 使用subprocess模組執行nmap命令，簡單易用\n- 可以利用nmap命令的各種選項進行高度自定義的掃描\n缺點:\n- 需要額外安裝nmap工具\n- 執行效率較低，因為需要執行子進程\n改善方案:\n- 可以使用非阻塞的方式執行子進程，提高效率\n- 可以使用Python內建的subprocess模組中的其他函數，如Popen，達到更好的控制和效能\n\n[方案3評分]: 85\n\n整體評分: (80 + 90 + 85) / 3 = 85 分"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1772,
+    "completion_tokens":601,
+    "total_tokens":2373
+  }
+}

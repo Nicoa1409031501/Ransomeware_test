@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ofd8XeAVPUBHHUrIjDqbq1a01guM",
+  "object":"chat.completion",
+  "created":1700890590,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：T1486 - 資料加密\n方案數量：3\n\n[方案一]\n優點：\n- 使用cryptography套件，方便安裝和使用\n- 可以使用Fernet加密金鑰來加密資料\n\n缺點：\n- 加密算法有一定的限制，無法自定義加密算法\n\n評分：90/100\n\n[方案二]\n優點：\n- 使用pycryptodome套件，提供了多種加密算法的支援\n- 可以使用AES加密算法來加密資料\n\n缺點：\n- 加密算法的實作複雜一些，需要自行處理填充(padding)\n\n評分：85/100\n\n[方案三]\n優點：\n- 使用cryptography.fernet套件，方便安裝和使用\n- 可以使用Fernet加密金鑰來加密資料\n\n缺點：\n- 加密過程中需要將原始資料轉換成字串格式\n\n評分：88/100\n\n綜合評分：87.67/100"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2058,
+    "completion_tokens":313,
+    "total_tokens":2371
+  }
+}

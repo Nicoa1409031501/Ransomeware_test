@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPssbTBoREcvuzkRpZG7qzmZTv2O",
+  "object":"chat.completion",
+  "created":1702260030,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：selenium\n優缺點：\n1. 可以模擬瀏覽器行為，具有較高的可靠性和準確性。\n2. 使用ChromeDriver需要注意版本兼容性問題。\n\n[方案二]\n[分數]：6\n使用套件：requests\n優缺點：\n1. 簡單輕量，使用方便。\n2. 不能模擬真實的瀏覽器行為，可能會有一些限制。\n\n[方案三]\n[分數]：7\n使用套件：pywebview\n優缺點：\n1. 可以展示瀏覽器視窗，更加直觀。\n2. 功能相對有限，不適合進行複雜的操作。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1681,
+    "completion_tokens":290,
+    "total_tokens":1971
+  },
+  "system_fingerprint":null
+}

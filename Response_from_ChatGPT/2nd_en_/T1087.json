@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RgdZLT7kht0yp3EQa4XdHrssQz0x",
+  "object":"chat.completion",
+  "created":1701609445,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1033-System Owner/User Discovery:\n\nMethod 1:\nPackages used: getpass, pwd\nFunctionalities used: getpass.getuser, pwd.getpwnam\n\n```python\nimport getpass\nimport pwd\n\ndef get_current_user():\n    return getpass.getuser()\n\ndef get_users():\n    users = []\n    try:\n        for p in pwd.getpwall():\n            user = p.pw_name\n            if user and user.strip():\n                users.append(user.strip())\n\n    except Exception as e:\n        print(\"Error:\", str(e))\n\n    return users\n\ncurrent_user = get_current_user()\nprint(\"Current User:\", current_user)\nusers = get_users()\nprint(\"All Users:\", users)\n```\n\nMethod 2:\nPackages used: psutil\nFunctionalities used: psutil.users\n\n```python\nimport psutil\n\ndef get_current_user():\n    return psutil.users()[0].name\n\ndef get_users():\n    users = []\n    try:\n        for user in psutil.users():\n            username = user.name\n            if username and username.strip() not in users:\n                users.append(username.strip())\n\n    except Exception as e:\n        print(\"Error:\", str(e))\n\n    return users\n\ncurrent_user = get_current_user()\nprint(\"Current User:\", current_user)\nusers = get_users()\nprint(\"All Users:\", users)\n```\n\nMethod 3:\nPackages used: wmi (Windows only)\nFunctionalities used: wmi.WMI, Win32_UserAccount\n\n```python\nimport wmi\n\ndef get_current_user():\n    wmi_obj = wmi.WMI()\n    return wmi_obj.Win32_ComputerSystem()[0].UserName.split(\"\\\\\")[1]\n\ndef get_users():\n    users = []\n    try:\n        wmi_obj = wmi.WMI()\n        for user in wmi_obj.Win32_UserAccount():\n            username = user.Name\n            if username and username.strip():\n                users.append(username.strip())\n\n    except Exception as e:\n        print(\"Error:\", str(e))\n\n    return users\n\ncurrent_user = get_current_user()\nprint(\"Current User:\", current_user)\nusers = get_users()\nprint(\"All Users:\", users)\n```\n\nNote: Method 3 only works on Windows systems."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1380,
+    "completion_tokens":458,
+    "total_tokens":1838
+  },
+  "system_fingerprint":null
+}

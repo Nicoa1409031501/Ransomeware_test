@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbaumRcVEzu4Run4hBYXsEHRN6il",
+  "object":"chat.completion",
+  "created":1702781700,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] [Drive-by Compromise]\n\n[方案一總結]\n可以使用requests套件模擬瀏覽器發送GET請求，並檢查網頁回應是否包含惡意腳本，進行相應的操作。\n\n[方案二總結]\n可以使用urllib套件模擬瀏覽器發送GET請求，並檢查網頁回應是否包含惡意腳本，進行相應的操作。\n\n[方案三總結]\n可以使用socket模組建立TCP連接，手動構造HTTP GET請求，並檢查網頁回應是否包含惡意腳本，進行相應的操作。\n\n以下是完整程式碼和功能測試：\n\n[方案一總結]\n```python\nimport requests\n\ndef drive_by_compromise(url):\n    # 模擬瀏覽器發送 GET 請求\n    headers = {\n        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'\n    }\n    response = requests.get(url, headers=headers)\n    \n    # 檢查網頁回應，判斷是否包含惡意腳本\n    if 'evil-script' in response.text:\n        # 執行相應的操作\n        print(\"Drive-by Compromise攻擊發生\")\n        # ...執行相應的操作\n    \n    # 如果需要，還可以對回應進行進一步的分析和處理\n\n# 執行Drive-by Compromise攻擊\ndrive_by_compromise('https://example.com')\n```\n\n功能測試：\n```python\ndef test_drive_by_compromise():\n    drive_by_compromise('https://example.com')\n\n# 執行功能測試\ntest_drive_by_compromise()\n```\n\n[方案二總結]\n```python\nimport urllib.request\n\ndef drive_by_compromise(url):\n    # 模擬瀏覽器發送 GET 請求\n    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\n    with urllib.request.urlopen(req) as response:\n        # 讀取網頁內容\n        html = response.read().decode('utf-8')\n\n        # 檢查網頁回應，判斷是否包含惡意腳本\n        if 'evil-script' in html:\n            # 執行相應的操作\n            print(\"Drive-by Compromise攻擊發生\")\n            # ...執行相應的操作\n\n# 執行Drive-by Compromise攻擊\ndrive_by_compromise('https://example.com')\n```\n\n功能測試：\n```python\ndef test_drive_by_compromise():\n    drive_by_compromise('https://example.com')\n\n# 執行功能測試\ntest_drive_by_compromise()\n```\n\n[方案三總結]\n```python\nimport socket\n\ndef drive_by_compromise(url):\n    # 解析網址\n    domain = url.split('/')[2]\n    path = '/' + '/'.join(url.split('/')[3:])\n    port = 80\n\n    # 建立TCP連接\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.connect((domain, port))\n\n    # 構造HTTP GET請求\n    request = f\"GET {path} HTTP/1.1\\r\\nHost: {domain}\\r\\nUser-Agent: Mozilla/5.0\\r\\n\\r\\n\"\n\n    # 發送請求\n    s.sendall(request.encode())\n\n    # 接收回應\n    response = s.recv(4096).decode()\n\n    # 檢查網頁回應，判斷是否包含惡意腳本\n    if 'evil-script' in response:\n        # 執行相應的操作\n        print(\"Drive-by Compromise攻擊發生\")\n        # ...執行相應的操作\n\n    # 關閉連接\n    s.close()\n\n# 執行Drive-by Compromise攻擊\ndrive_by_compromise('https://example.com')\n```\n\n功能測試：\n```python\ndef test_drive_by_compromise():\n    drive_by_compromise('https://example.com')\n\n# 執行功能測試\ntest_drive_by_compromise()\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2228,
+    "completion_tokens":1143,
+    "total_tokens":3371
+  },
+  "system_fingerprint":null
+}

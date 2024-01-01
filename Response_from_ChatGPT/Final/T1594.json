@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbTm78KpgswlVrbRe4xSQiJE5MjG",
+  "object":"chat.completion",
+  "created":1702781258,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] [TTPs Name: T1594 - Web Session Cookie]\n\n[方案一總結]\n使用套件：requests, http.cookiejar\n\n優點：\n- 簡單易用，只需使用 requests 和 http.cookiejar 兩個常用的套件。\n- 可以保存網站的 Session Cookie，方便後續使用。\n\n缺點：\n- 需要事先知道網站的 URL。\n\n[方案二總結]\n使用套件：Selenium\n\n優點：\n- 可以模擬瀏覽器操作，獲取更完整的網站資訊。\n- 可以保存網站的 Session Cookie，方便後續使用。\n- 可以應對需要動態加載的網站。\n\n缺點：\n- 需要安裝 Chrome 驅動程式。\n\n[方案三總結]\n使用套件：requests, re\n\n優點：\n- 可以使用常用的 requests 套件發送 GET 請求。\n- 可以使用正則表達式尋找響應訊息中的 Session Cookie。\n\n缺點：\n- 相比於方案一和方案二，獲取的網站資訊較少。\n\n以下是方案一、方案二和方案三的完整程式碼及功能測試：\n\n```python\nimport requests\nimport http.cookiejar\n\n# 方案一：使用 requests 和 http.cookiejar\ndef get_session_cookie(url):\n    cookie_jar = http.cookiejar.CookieJar()\n    cookie_processor = requests.cookies.HTTPCookieProcessor(cookie_jar)\n    session = requests.Session()\n    session.mount(url, cookie_processor)\n    session.get(url)\n    for cookie in cookie_jar:\n        print(\"Name: \", cookie.name)\n        print(\"Value: \", cookie.value)\n    session.close()\n\n# 方案二：使用 Selenium\nfrom selenium import webdriver\n\ndef get_session_cookie(url):\n    driver = webdriver.Chrome()\n    driver.get(url)\n    cookies = driver.get_cookies()\n    for cookie in cookies:\n        print(\"Name: \", cookie['name'])\n        print(\"Value: \", cookie['value'])\n    driver.quit()\n\n# 方案三：使用 requests 和正則表達式\nimport re\n\ndef get_session_cookie(url):\n    response = requests.get(url)\n    session_cookie_pattern = re.compile(r'(?<=Set-Cookie: ).*?(?=;)')\n    session_cookie_match = re.search(session_cookie_pattern, response.text)\n    session_cookie = session_cookie_match.group(0)\n    print(\"Session Cookie: \", session_cookie)\n\n# 功能測試\ndef test_get_session_cookie():\n    url = \"https://www.example.com\"\n\n    print(\"方案一的功能測試：\")\n    get_session_cookie(url)\n\n    print(\"方案二的功能測試：\")\n    get_session_cookie(url)\n\n    print(\"方案三的功能測試：\")\n    get_session_cookie(url)\n\n# 執行功能測試\ntest_get_session_cookie()\n```\n以上是使用 requests 和 http.cookiejar、Selenium，以及 requests 和正則表達式三種方法來獲取網站的 Session Cookie。每個方案簡要說明了他們的優點和缺點，並在最後進行功能測試以驗證程式的正確性和可行性。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2747,
+    "completion_tokens":839,
+    "total_tokens":3586
+  },
+  "system_fingerprint":null
+}

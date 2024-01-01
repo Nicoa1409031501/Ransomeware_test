@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UxjbAFnzvt5qxyZI1KzrhqcM6TF6",
+  "object":"chat.completion",
+  "created":1702390151,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n[分數]：8\n使用套件：psutil\n優點：\n1. 使用psutil套件方便且易於使用。\n2. 獲取進程的pid和名稱。\n\n缺點：\n1. 需要安裝psutil套件。\n\n[方案二]\n[分數]：7\n使用套件：subprocess\n優點：\n1. 使用內建套件，不需要額外安裝。\n2. 可以執行系統命令獲取進程信息。\n\n缺點：\n1. 輸出的進程名稱可能需要進一步處理。\n2. 只能在支援subprocess的作業系統上運行。\n\n[方案三]\n[分數]：6\n使用套件：wmi\n優點：\n1. 使用wmi內建套件可以直接獲取進程信息。\n\n缺點：\n1. 只能在Windows作業系統上運行。\n2. 需要安裝wmi套件。\n\n[可實現]\n\n接下來對分數高於8的方案進行功能測試：\n\n[方案一單元測試]\n```python\nimport psutil\n\ndef test_get_running_processes():\n    processes = get_running_processes()\n    assert isinstance(processes, list)\n    assert isinstance(processes[0], dict)\n    assert 'pid' in processes[0]\n    assert 'name' in processes[0]\n\ntest_get_running_processes()\n```\n\n[方案二單元測試]\n```python\nimport subprocess\n\ndef test_get_running_processes():\n    processes = get_running_processes()\n    assert isinstance(processes, list)\n    assert isinstance(processes[0], dict)\n    assert 'pid' in processes[0]\n    assert 'name' in processes[0]\n\ntest_get_running_processes()\n```\n\n以上是對於get_running_processes函式的測試，確保函式返回的結果符合預期。可以根據需要加入更多的測試項目。\n\n輸出檔案：無\n讀取檔案：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1720,
+    "completion_tokens":549,
+    "total_tokens":2269
+  },
+  "system_fingerprint":null
+}

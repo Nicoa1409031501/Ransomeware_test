@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UUaqi2asYHJfckbowWMf34q4SGkp",
+  "object":"chat.completion",
+  "created":1702278132,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：boto3\n優缺點：\n1. 使用AWS Systems Manager進行遠程命令執行\n2. 不需要對虛擬機進行特殊配置就可以執行命令\n3. 使用AWS的服務，需要有AWS帳戶和相應的權限\n\n[方案二]\n[分數]：9\n使用套件：azure-identity、azure-mgmt-resource、azure-mgmt-compute\n優缺點：\n1. 使用Azure RunCommand在虛擬機上執行命令\n2. 不需要對虛擬機進行特殊配置就可以執行命令\n3. 使用Azure的服務，需要有Azure帳戶和相應的權限\n\n[方案三]\n[分數]：7\n使用套件：azure-identity、azure-mgmt-intune\n優缺點：\n1. 使用Microsoft Endpoint Manager在Azure AD加入的本地設備上執行命令\n2. 需要將設備加入Azure AD並配置Microsoft Endpoint Manager\n3. 使用Azure的服務，需要有Azure帳戶和相應的權限\n\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1835,
+    "completion_tokens":384,
+    "total_tokens":2219
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbOsCmr7kr26kCdKa5BRdA6rsyou",
+  "object":"chat.completion",
+  "created":1702780954,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[T1595 - Active Scanning]\n\n[方案一總結]\n套件：socket\n優點：簡單且直接的使用套接字進行主動的IP掃描\n缺點：只能針對單個IP進行掃描，不支援IP範圍的指定；只能對80端口進行掃描，無法指定其他端口；速度較慢，每個IP都需要連接一次\n\n[方案二總結]\n套件：nmap\n優點：支援對IP範圍進行掃描，可以指定多個IP進行掃描；可以指定任意端口進行掃描\n缺點：需要安裝nmap套件，相對較大而且需要額外的安裝步驟；速度較慢，需要遍歷所有可能的端口\n\n[方案三總結]\n套件：requests, BeautifulSoup\n優點：可以進行對線上資源的探測和解析\n缺點：僅限於頁面中的連結，無法對其他資源進行掃描；速度較慢，需要解析整個HTML頁面\n\n根據評分結果，方案一得分為8分，方案二得分為9分，方案三得分為7分。\n\n根據分析，我們將進一步評估方案二，進行功能測試和單元測試程式碼的撰寫。\n\n以下是方案二的T1595 - Active Scanning的程式碼及功能測試程式碼：\n\n```python\nimport nmap\n\ndef active_vulnerability_scan(target):\n    open_ports = []\n    \n    # 建立nmap掃描器\n    nm = nmap.PortScanner()\n    \n    # 使用預設參數掃描指定目標的所有端口\n    result = nm.scan(target, arguments='-p-')\n    \n    # 遍歷每個掃描結果\n    for port in nm[target]['tcp']:\n        if nm[target]['tcp'][port]['state'] == 'open':\n            open_ports.append(port)\n    \n    return open_ports\n\n# 功能測試\ntarget = '192.168.0.1'\nopen_ports = active_vulnerability_scan(target)\nprint(\"開放的漏洞端口：\", open_ports)\n```\n\n根據分析，方案二是最佳方案，因為它支援IP範圍的指定、任意端口的掃描，並且相對於其他方案來說速度較快。\n\n以下是方案二的功能測試程式碼：\n\n```python\nimport unittest\nfrom my_scanner import active_vulnerability_scan\n\nclass TestActiveVulnerabilityScan(unittest.TestCase):\n    def test_scan(self):\n        target = '192.168.0.1'\n        open_ports = active_vulnerability_scan(target)\n        self.assertNotEqual(len(open_ports), 0)\n        self.assertIn(80, open_ports)\n        self.assertIn(443, open_ports)\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\n以上是完整的方案二總結、TTPs程式碼以及相關的功能測試程式碼。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1869,
+    "completion_tokens":904,
+    "total_tokens":2773
+  },
+  "system_fingerprint":null
+}

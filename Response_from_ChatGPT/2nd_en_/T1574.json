@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rh9tO9dA3f2mSyLuNAWnsYPzWoWZ",
+  "object":"chat.completion",
+  "created":1701611449,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"2.\tT1650-Network Sniffing\nMethod 1: Use Scapy package for network sniffing\nPackages Used: scapy\n\n```python\nfrom scapy.all import sniff\n\ndef network_sniff(interface, filter):\n    packets = sniff(iface=interface, filter=filter, count=10)\n    for packet in packets:\n        print(packet.summary())\n\nnetwork_sniff(\"eth0\", \"tcp\")\n```\n\nMethod 2: Use dpkt package for network sniffing\nPackages Used: dpkt, socket\n\n```python\nimport dpkt\nimport socket\n\ndef network_sniff(interface):\n    sock = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.ntohs(0x0003))\n    sock.bind((interface, 0))\n\n    for _ in range(10):\n        packet, _ = sock.recvfrom(65535)\n        eth = dpkt.ethernet.Ethernet(packet)\n        \n        if eth.type != dpkt.ethernet.ETH_TYPE_IP:\n            continue\n\n        ip = eth.data\n        print(f\"Source IP: {socket.inet_ntoa(ip.src)} - Destination IP: {socket.inet_ntoa(ip.dst)}\")\n\nnetwork_sniff(\"eth0\")\n```\n\nMethod 3: Use pyshark package for network sniffing\nPackages Used: pyshark\n\n```python\nimport pyshark\n\ndef network_sniff(interface, display_filter):\n    capture = pyshark.LiveCapture(interface=interface, display_filter=display_filter, only_summaries=True)\n\n    for packet in capture.sniff_continuously(packet_count=10):\n        print(packet)\n\nnetwork_sniff(\"eth0\", \"ip\")\n```\n\nNote: Replace \"eth0\" with the appropriate network interface and adjust the filter according to the desired network traffic you want to sniff.\n\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":937,
+    "completion_tokens":370,
+    "total_tokens":1307
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OKq1hdJBrfkWK0UJqwqaGNa48WjB",
+  "object":"chat.completion",
+  "created":1700810665,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【改善報告】\n名稱：Input Capture (T1056)\n方案數量：3\n\n[方案一]\n優點：\n- 使用pyHook套件簡單易用\n- 能夠監聽鍵盤輸入並將結果輸出到檔案中\n- 不需要額外安裝其他套件\n\n缺點：\n- 需要一直執行`pythoncom.PumpMessages()`來等待鍵盤事件，佔用系統資源\n\n改善方案：\n- 將`pythoncom.PumpMessages()`替換為非阻塞的方式，例如使用`threading`模組來開啟一個新的執行緒來執行`pythoncom.PumpMessages()`，以避免主執行緒被阻塞。\n\n[方案二]\n優點：\n- 使用pynput套件能夠監聽鍵盤輸入\n- 將結果輸出到檔案中\n\n缺點：\n- 需要安裝pynput套件\n\n改善方案：\n- 增加錯誤處理機制，例如當寫入檔案失敗時，可以進行重試或是記錄錯誤訊息。\n\n[方案三]\n優點：\n- 使用win32api套件能夠進行API hooking並擷取特定參數\n\n缺點：\n- 需要安裝`pywin32`模組\n- 需要使用Windows API，不具平台移植性\n\n改善方案：\n- 增加錯誤處理機制，例如在呼叫API時檢查返回值，以確保hooking成功。\n- 透過使用跨平台的hooking套件，例如`pyhooked`，來實現平台移植性。\n\n以上是對三種Input Capture方案的改善報告，希望能提高程式的準確性、效率和穩健性。如果你需要進一步的協助，請隨時提問。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1807,
+    "completion_tokens":597,
+    "total_tokens":2404
+  }
+}

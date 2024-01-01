@@ -1,21 +1,8 @@
 {
-  "id":"chatcmpl-8NVGKeScLE7UB8FtBit85WipwLiN1",
-  "object":"chat.completion",
-  "created":1700612408,
-  "model":"gpt-3.5-turbo-0613",
-  "choices":[
-    {
-      "index":0,
-      "message":{
-        "role":"assistant",
-        "content":"改善報告：\n\n1. 在方法一中，使用了socket模組進行IP掃描。這個方法效率較高，可以達到快速掃描的目的。但需要注意的是，這僅能檢測目標系統上是否有開啟TCP 135端口，無法確定該系統是否為遠端系統。改進這個問題的方法是檢測更多相關的端口或使用其他工具進行更詳細的掃描。\n\n2. 方法二和方法三使用了os模組和subprocess模組執行指令的方式進行掃描。這兩種方法可以更全面地檢測目標系統是否能夠回應ping命令，但需要注意的是，有些系統可能禁用了ping功能，因此無法確定這個方法在所有情況下都是有效的。可以考慮使用其他方式來檢測遠端系統，例如使用nmap工具進行更全面的掃描。\n\n3. 在所有方法中，應該添加日誌功能或其他錯誤處理機制，以提高程式的穩健性。例如，可以使用logging模組來記錄程式運行中的錯誤或其他重要信息。\n\n4. 在程式碼中，可以使用多線程或非阻塞I/O等技術來提高掃描的效率。這樣可以同時進行多個掃描任务，提高效率。\n\n綜上所述，我們可以繼續使用方法一、方法二和方法三來進行遠端系統探測，並根據需求和情況來選擇最適合的方法。同時，我們應該改進程式碼並添加日誌功能，提高程式的穩健性和效率。"
-      },
-      "finish_reason":"stop"
-    }
-  ],
-  "usage":{
-    "prompt_tokens":1644,
-    "completion_tokens":556,
-    "total_tokens":2200
+  "error":{
+    "message":"Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.",
+    "type":"invalid_request_error",
+    "param":null,
+    "code":"invalid_api_key"
   }
 }

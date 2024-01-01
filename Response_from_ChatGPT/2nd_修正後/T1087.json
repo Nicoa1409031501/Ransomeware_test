@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPeqjRacKefuUr1OgN4bVZnKvAPl",
+  "object":"chat.completion",
+  "created":1702259160,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1087 - Account Discovery]\n[方案一]\n[分數]：8\n使用套件：subprocess\n優缺點：\n1. 可以使用標準的net user命令來獲取本機和域帳戶。\n2. 程式碼簡潔，容易理解。\n3. 可以輕鬆擴展以獲取電子郵件和雲帳戶。\n4. 需要執行子進程。\n\n[方案二]\n[分數]：7\n使用套件：subprocess\n優缺點：\n1. 可以使用標準的net user命令來獲取本機和域帳戶。\n2. 使用了helper函數來執行命令和解析輸出，使程式碼更容易重用。\n3. 可以輕鬆擴展以獲取電子郵件和雲帳戶。\n4. 需要執行子進程。\n\n[方案三]\n[分數]：6\n使用套件：pywin32\n優缺點：\n1. 使用了pywin32套件來進行本機和域帳戶的列舉。\n2. 不需要執行子進程。\n3. 需要安裝pywin32套件。\n4. 需要對COM物件進行操作。\n5. 需要進行額外設定才能執行所需的操作。\n\n[TTPs Name]\n[T1087 - Account Discovery]\n[方案一單元測試]\n內容...\n\n[TTPs Name]\n[T1087 - Account Discovery]\n[方案二單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1900,
+    "completion_tokens":478,
+    "total_tokens":2378
+  },
+  "system_fingerprint":null
+}

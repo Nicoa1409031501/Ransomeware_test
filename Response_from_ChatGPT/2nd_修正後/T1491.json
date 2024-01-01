@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPwA0tDfaa6dUWfeG1gFlcNvNw0U",
+  "object":"chat.completion",
+  "created":1702260234,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：Flask\n輸入檔案：壁紙檔案\n輸出檔案：無\n評分：\n1. 語法和邏輯正確性：9/10\n2. 優點：\n   - 簡單易懂的程式碼\n   - 使用Flask快速建立網站\n3. 缺點：\n   - 可能需要使用者提供壁紙檔案的位置\n   - 沒有對壁紙檔案的格式進行檢查\n\n[方案二]\n[分數]：7\n使用套件：Flask, os\n輸入檔案：壁紙檔案\n輸出檔案：無\n評分：\n1. 語法和邏輯正確性：8/10\n2. 優點：\n   - 使用Flask快速建立網站\n   - 使用os套件讀取桌面路徑\n   - 可以進行壁紙檔案的檢查\n3. 缺點：\n   - 需要使用者提供壁紙檔案的位置\n\n[方案三]\n[分數]：9\n使用套件：Flask, ctypes\n輸入檔案：壁紙檔案\n輸出檔案：無\n評分：\n1. 語法和邏輯正確性：9/10\n2. 優點：\n   - 使用Flask快速建立網站\n   - 使用ctypes呼叫操作系統函式\n   - 不需要使用者提供壁紙檔案的位置\n   - 可以直接設定桌面壁紙\n3. 缺點：\n   - 需要操作系統相關知識\n   - 可能會有操作系統相容性問題"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1961,
+    "completion_tokens":537,
+    "total_tokens":2498
+  },
+  "system_fingerprint":null
+}

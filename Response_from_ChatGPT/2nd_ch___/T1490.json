@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfejvKYLkUJHMsbi3bZ1KjCuZOdv",
+  "object":"chat.completion",
+  "created":1700890689,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：停用系統恢復方案\n方案數量：3\n\n[方案一]\n- 優點：使用簡單，直接使用os模組來執行系統命令停用服務。\n- 缺點：無錯誤處理機制以及日誌功能。\n- 評分：85\n\n[方案二]\n- 優點：使用subprocess模組可以更靈活地執行命令，shell參數可用於執行複雜命令。\n- 缺點：無錯誤處理機制以及日誌功能。\n- 評分：86\n\n[方案三]\n- 優點：使用WMI模組透過WMI服務進行操作，更加穩定且可靠。\n- 缺點：需安裝wmi套件，且程式碼稍微複雜一些。\n- 評分：90\n\n總評分：87"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1615,
+    "completion_tokens":284,
+    "total_tokens":1899
+  }
+}

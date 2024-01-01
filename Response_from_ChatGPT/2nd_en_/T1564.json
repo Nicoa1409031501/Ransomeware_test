@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rh7JM5WLv4vnXXYhrHXQ4wVxBlLq",
+  "object":"chat.completion",
+  "created":1701611289,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1564.005-Executable Installer File Permissions Weaknesses\n\nMethod 1:\nPackages used: os, stat\nFunctionality used: manipulating file permissions\n\nCode:\nimport os\nimport stat\n\n# Method 1\ndef restrict_executable_permissions(filepath):\n    # Restrict executable permissions for a file\n    os.chmod(filepath, stat.S_IRUSR | stat.S_IWUSR)\n\nMethod 2:\nPackages used: subprocess\nFunctionality used: executing system command\n\nCode:\nimport subprocess\n\n# Method 2\ndef restrict_executable_permissions(filepath):\n    # Restrict executable permissions for a file\n    subprocess.call([\"chmod\", \"-x\", filepath])\n\nPlease note that in both methods, \"filepath\" should be replaced with the actual path of the executable file for which you want to restrict permissions."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":708,
+    "completion_tokens":168,
+    "total_tokens":876
+  },
+  "system_fingerprint":null
+}

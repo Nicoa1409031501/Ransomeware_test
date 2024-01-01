@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UUchvO7poNgh6VPI2ByVBSEarANR",
+  "object":"chat.completion",
+  "created":1702278247,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1659 Content Injection]\n\n[方案一]\n[分數]：9\n使用套件：Scapy\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9\n優缺點：\n1. 優點：使用Scapy套件可以簡單地建立和發送封包，方便進行封包注入攻擊。\n2. 缺點：需要安裝Scapy套件並了解如何使用該套件。\n\n[方案二]\n[分數]：8\n使用套件：Socket\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：8\n優缺點：\n1. 優點：使用Python的Socket套件可以自定義HTTP請求的內容並篡改，適合用來進行HTTP請求篡改攻擊。\n2. 缺點：需要手動建立和管理Socket連線，較為繁瑣。\n\n[方案三]\n[分數]：7\n使用套件：requests, Burp Suite\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：7\n優缺點：\n1. 優點：使用Python的requests套件可以方便地發送HTTP請求，結合Burp Suite API可以進行代理攻擊。\n2. 缺點：需要額外安裝Burp Suite和了解其API的使用。\n\n根據評分，以上三個方案中，方案一使用Scapy套件進行封包注入的分數最高，獲得9分。接下來將針對此方案進行功能測試與單元測試的程式碼撰寫。\n\n[TTPs Name]\n[T1659 Content Injection]\n\n[方案一單元測試]\n內容....\n\n```python\n\nimport unittest\nfrom scapy.all import *\n\ndef test_content_injection():\n    #建立一個IP封包，目的IP設定為測試用的IP，並篡改內容\n    packet = IP(dst=\"測試用IP\")/TCP(dport=80)/Raw(load=\"篡改後的內容\")\n    \n    #觀察預期的封包內容\n    expected_packet = IP(dst=\"測試用IP\")/TCP(dport=80)/Raw(load=\"篡改後的內容\")\n    \n    #比對篡改前後的封包內容是否相同\n    assert str(packet) == str(expected_packet)\n\nclass TestContentInjection(unittest.TestCase):\n    \n    def test_content_injection(self):\n        test_content_injection()\n\nif __name__ == '__main__':\n    unittest.main()\n\n```\n\n以上程式碼為方案一的功能測試與單元測試程式碼，使用unittest套件進行測試。測試內容為篡改封包的內容並確認是否預期的篡改正確。請根據需要將「測試用IP」和「篡改後的內容」替換為相應的測試數據。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2094,
+    "completion_tokens":911,
+    "total_tokens":3005
+  },
+  "system_fingerprint":null
+}

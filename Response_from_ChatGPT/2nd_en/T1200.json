@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHFvTyYCGfiOlxXdDoKMOxNozepo",
+  "object":"chat.completion",
+  "created":1702465191,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n[T1200-Hardware Additions]\n\n[Solution 1]\nPackages Used: subprocess\n\nimport subprocess\n\ndef get_hardware_additions():\n    # Command to list hardware additions\n    command = \"lshw -short\"\n\n    # Executing command and capturing output\n    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)\n    output, error = process.communicate()\n\n    # Parsing and extracting hardware additions\n    hardware_additions = []\n    lines = output.decode().split('\\n')\n    for line in lines:\n        if line.strip() != \"\":\n            columns = line.split()\n            if len(columns) > 2 and \"system\" not in columns[2].lower():\n                hardware_additions.append(columns[2])\n\n    return hardware_additions\n\n# Usage\nhardware_additions = get_hardware_additions()\nfor addition in hardware_additions:\n    print(addition)\n\n[Solution 2]\nPackages Used: wmi\n\nimport wmi\n\ndef get_hardware_additions():\n    # Initialize the WMI object\n    c = wmi.WMI()\n\n    # Get all Win32_PnPEntity instances\n    pnp_entities = c.Win32_PnPEntity()\n\n    # Filter and extract hardware additions\n    hardware_additions = []\n    for pnp_entity in pnp_entities:\n        if \"addin\" in pnp_entity.Description.lower():\n            hardware_additions.append(pnp_entity.Description)\n\n    return hardware_additions\n\n# Usage\nhardware_additions = get_hardware_additions()\nfor addition in hardware_additions:\n    print(addition)\n\n[Solution 3]\nPackages Used: pyudev\n\nimport pyudev\n\ndef get_hardware_additions():\n    # Create a context to monitor hardware additions\n    context = pyudev.Context()\n\n    # Monitor for hardware additions\n    monitor = pyudev.Monitor.from_netlink(context)\n    monitor.filter_by(subsystem='usb')\n\n    # Extract hardware additions\n    hardware_additions = []\n    for device in iter(monitor.poll, None):\n        hardware_additions.append(device.device_node)\n\n    return hardware_additions\n\n# Usage\nhardware_additions = get_hardware_additions()\nfor addition in hardware_additions:\n    print(addition)"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1406,
+    "completion_tokens":456,
+    "total_tokens":1862
+  },
+  "system_fingerprint":null
+}

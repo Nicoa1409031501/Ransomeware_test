@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbvpFeJfZ9pRHFPDdIzxj94MkFpB",
+  "object":"chat.completion",
+  "created":1702782997,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]: T1484-Group Policy Modification\n\n[方案一總結]\n方案一使用pyad套件操作AD中的物件，修改GPOs的過程簡單方便。通過修改gpo.gpoptions屬性，可以輕鬆地修改GPO的設定。使用pyad套件操作AD需要事先安裝pyad套件。\n\n方案一功能測試：\n```python\n# 安裝套件：pip install pytest\n\nimport pytest\nfrom pyad import adquery\nfrom pyad import aduser\n\ndef test_modify_gpo_settings():\n    # 修改GPO設定\n    modify_gpo_settings()\n    \n    # 驗證GPO設定是否被修改\n    gpo = adobject.ADObject.from_dn(self.gpo_path)\n    assert gpo.gpoptions == 1\n```\n\n[TTPs Name]: T1484-Group Policy Modification\n\n[方案二總結]\n方案二使用ldap3套件操作AD中的物件，修改GPOs的過程可以通過操作對應的屬性值完成。ldap3套件提供了強大的LDAP操作API。\n\n方案二功能測試：\n```python\n# 安裝套件：pip install pytest\n\nimport pytest\nfrom ldap3 import Server, Connection, ALL_ATTRIBUTES\n\ndef test_modify_gpo_settings():\n    # 修改GPO設定\n    modify_gpo_settings()\n    \n    # 執行測試前需要確認修改的GPO設定已生效\n    with Connection(server, auto_bind=True) as conn:\n        conn.search(base_dn, '(objectClass=groupPolicyContainer)', attributes=ALL_ATTRIBUTES)\n        gpo_entries = conn.entries\n        # 取得GPO的dn，這裡隨機選擇一個GPO\n        gpo_dn = gpo_entries[0].entry_dn\n        # 確認GPO設定是否已修改\n        conn.search(gpo_dn, '(gPCMachineExtensionNames={35378EAC-683F-11D2-A89A-00C04FBBCFA2})')\n        assert conn.entries != []\n```\n\n[TTPs Name]: T1484-Group Policy Modification\n\n[方案三總結]\n方案三使用pywinrm套件結合winrm在遠端伺服器上執行PowerShell指令，可以靈活地修改GPOs。操作PowerShell指令可以更精確地控制GPOs的修改。\n\n方案三功能測試：\n```python\n# 安裝套件：pip install pytest\n\nimport pytest\nfrom winrm.protocol import Protocol\n\ndef test_modify_gpo_settings():\n    # 修改GPO設定\n    modify_gpo_settings()\n    \n    # 建立與遠端伺服器的連線\n    p = Protocol(endpoint=f\"http://{target_ip}:5985/wsman\", transport='ntlm', username=username, password=password)\n    shell_id = p.open_shell()\n    # 定義要執行的PowerShell指令\n    script = '''\n    # 確認GPO設定是否已修改\n    $gpo = Get-GPO -Name \"GPO_Name\"\n    if ($gpo.gpcmachineextensionnames -contains \"{35378EAC-683F-11D2-A89A-00C04FBBCFA2}\") {\n        Write-Output \"GPO設定已修改\"\n    } else {\n        Write-Output \"GPO設定未修改\"\n    }\n    '''\n    # 執行PowerShell指令\n    stdout, stderr, return_code = p.run_command(shell_id, script)\n    p.cleanup_command(shell_id)\n    \n    # 驗證GPO設定是否已修改\n    assert \"GPO設定已修改\" in stdout\n```\n\n請注意，上述程式碼僅為範例，請根據實際情況進行適當修改，以確保測試的準確性。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2538,
+    "completion_tokens":981,
+    "total_tokens":3519
+  },
+  "system_fingerprint":null
+}

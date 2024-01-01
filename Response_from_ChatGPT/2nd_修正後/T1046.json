@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPZdEwflelhCTFGwsSO0pR9FysEr",
+  "object":"chat.completion",
+  "created":1702258837,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案1]\n[分數]：8\n使用套件：socket\n優缺點：\n1. 優點：原生模組，不需額外安裝套件\n2. 缺點：掃描速度可能較慢\n3. 缺點：需要自行處理異常\n\n[方案2]\n[分數]：9\n使用套件：nmap\n優缺點：\n1. 優點：使用nmap進行掃描，速度較快\n2. 優點：提供更多的掃描功能和選項\n3. 缺點：需安裝並瞭解nmap工具\n\n[方案3]\n[分數]：7\n使用套件：subprocess\n優缺點：\n1. 優點：使用nmap命令進行掃描\n2. 缺點：需要依賴系統環境中的nmap工具\n3. 缺點：需解析命令行輸出的結果\n\n由於方案2使用了nmap進行掃描，速度較快且具有更多功能和選項，因此繼續對方案2進行功能測試，評估是否達到8分以上。在進行功能測試之前，請將原程式碼備份一次。\r\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1752,
+    "completion_tokens":400,
+    "total_tokens":2152
+  },
+  "system_fingerprint":null
+}

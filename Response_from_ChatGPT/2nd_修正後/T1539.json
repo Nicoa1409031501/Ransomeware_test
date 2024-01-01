@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UQ0fppPeRVnXQlPU3Y9HQPBhcFLg",
+  "object":"chat.completion",
+  "created":1702260513,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：requests\n輸入檔案：無\n輸出檔案：無\n評分：\n優點：\n1. 使用requests套件簡單方便，只需要設定Cookie欄位即可。\n2. 程式碼簡潔易懂。\n缺點：\n1. 需要手動提供session cookie。\n2. 無法處理需要驗證的網站。\n\n[方案二]\n[分數]：8\n使用套件：selenium\n輸入檔案：無\n輸出檔案：無\n評分：\n優點：\n1. 使用selenium套件模擬瀏覽器操作，可以處理需要驗證的網站。\n2. 可以獲取瀏覽器中的所有cookie。\n缺點：\n1. 需要下載ChromeDriver並設定環境變數。\n2. 執行速度較慢，耗費更多資源。\n\n[方案三]\n[分數]：7\n使用套件：requests\n輸入檔案：無\n輸出檔案：無\n評分：\n優點：\n1. 可以使用Burp Suite等代理工具方便地截取網路請求。\n2. 可以處理需要SSL證書驗證的網站。\n缺點：\n1. 需要設定代理工具來監聽網路流量。\n2. 可能會造成網路請求的延遲。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2018,
+    "completion_tokens":503,
+    "total_tokens":2521
+  },
+  "system_fingerprint":null
+}

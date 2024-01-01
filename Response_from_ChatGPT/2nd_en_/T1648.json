@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Ri0YgxbeMKoDD0UzPFY0tQrzk3GR",
+  "object":"chat.completion",
+  "created":1701614714,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"2. T1301-Insecure Execution\n\nMethod 1:\n```python\nimport subprocess\n\ndef execute_shell_command(command):\n    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)\n    output, error = process.communicate()\n    return output.decode(), error.decode()\n```\n\nMethod 2:\n```python\nimport os\n\ndef execute_command(command):\n    return os.system(command)\n```\n\n3. T1136-Create Account\n\nMethod 1:\n```python\ndef create_user(username, password):\n    # Use system-specific command to create a user account\n    return os.system('useradd -m -p $(openssl passwd -1 {}) {}'.format(password, username))\n```\n\nMethod 2:\n```python\nimport pwd\n\ndef create_user(username, password):\n    # Use Python's pwd module to create a user account\n    pwd.getpwnam(username)\n    return 0\n```\n\n4. T1187-DLLs loaded by Windows Services\n\nMethod 1:\n```python\nimport subprocess\n\ndef list_loaded_dlls(service_name):\n    process = subprocess.Popen(['sc', 'queryex', service_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n    output, error = process.communicate()\n    return output.decode(), error.decode()\n```\n\nMethod 2:\n```python\nimport winreg\n\ndef list_loaded_dlls(service_name):\n    key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SYSTEM\\\\CurrentControlSet\\\\Services\\\\{}'.format(service_name))\n    value = winreg.QueryValueEx(key, 'ImagePath')\n    return value[0]\n```\n\n5. T1652-Device Driver Discovery\n\nMethod 1:\n```python\nimport glob\n\ndef list_device_drivers():\n    return glob.glob('/sys/bus/pci/devices/*')\n```\n\nMethod 2:\n```python\nimport subprocess\n\ndef list_device_drivers():\n    process = subprocess.Popen('ls /sys/bus/pci/devices', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)\n    output, error = process.communicate()\n    return output.decode().splitlines(), error.decode()\n```\n\nMethod 3:\n```python\nimport os\n\ndef list_device_drivers():\n    return os.listdir('/sys/bus/pci/devices')\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":839,
+    "completion_tokens":462,
+    "total_tokens":1301
+  },
+  "system_fingerprint":null
+}

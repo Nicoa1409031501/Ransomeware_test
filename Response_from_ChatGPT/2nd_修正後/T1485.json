@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPvF5SwGFrlsaVBVc7K99UgcRYja",
+  "object":"chat.completion",
+  "created":1702260177,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[分數]：使用套件：os、shutil/send2trash\n優缺點：\n1. 方式一使用了標準庫的os模塊，程式碼簡單明瞭。\n2. 方式二使用了標準庫的open和os模塊，需要再創建一個空文件以後才能刪除，多了一步操作。\n3. 方式三使用了send2trash套件，可以將檔案移動到垃圾桶而非直接刪除，適合需要一些保留時間的場景。\n\n方式一分數：8\n方式二分數：7\n方式三分數：9"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1486,
+    "completion_tokens":184,
+    "total_tokens":1670
+  },
+  "system_fingerprint":null
+}

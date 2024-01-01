@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3qkyTVYso1PUFgB2qIjQT1Jyf7G",
+  "object":"chat.completion",
+  "created":1701460346,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1135-Network Share Discovery\n\nMethod 1:\nPackages used: subprocess\nFunctionality used: subprocess.run()\n\nCode:\n```python\nimport subprocess\n\ndef network_share_discovery_1():\n    try:\n        result = subprocess.run(['net', 'view'], capture_output=True, text=True)\n        shares = [share.split()[0] for share in result.stdout.splitlines()[5:]]\n        return shares\n    except Exception as e:\n        print(f\"Error: {e}\")\n\nnetwork_share_discovery_1()\n```\n\nMethod 2:\nPackages used: ctypes, wintypes\nFunctionality used: advapi32.NetShareEnum(), wintypes.LPBYTE\n\nCode:\n```python\nimport ctypes\nfrom ctypes import wintypes\n\ndef network_share_discovery_2():\n    try:\n        shares = []\n        MAX_PREFERRED_LENGTH = -1\n        NULL = None\n        buf = ctypes.pointer(wintypes.LPBYTE())\n        entries_read = wintypes.DWORD()\n        total_entries = wintypes.DWORD()\n        res = ctypes.windll.advapi32.NetShareEnum(NULL, 2, ctypes.byref(buf), MAX_PREFERRED_LENGTH, ctypes.byref(entries_read), ctypes.byref(total_entries), NULL)\n        if res == 0:\n            for i in range(entries_read.value):\n                share_info = ctypes.cast(buf, wintypes.LPVOID).contents[i]\n                share_name = share_info[0]\n                shares.append(share_name)\n        return shares\n    except Exception as e:\n        print(f\"Error: {e}\")\n\nnetwork_share_discovery_2()\n```\n\nMethod 3:\nPackages used: pywin32\nFunctionality used: win32net.NetShareEnum()\n\nCode:\n```python\nimport win32net\n\ndef network_share_discovery_3():\n    try:\n        shares = []\n        resume_handle = 0\n        level = 2\n        while True:\n            data, total, resume_handle = win32net.NetShareEnum(None, level, resume_handle)\n            shares.extend([share['netname'] for share in data])\n            if not resume_handle:\n                break\n        return shares\n    except Exception as e:\n        print(f\"Error: {e}\")\n\nnetwork_share_discovery_3()\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":371,
+    "completion_tokens":475,
+    "total_tokens":846
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPZ3ycpoPMWwWlJUBbAgWMftbCFL",
+  "object":"chat.completion",
+  "created":1702258801,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：scapy\n優缺點：\n1. 可以使用scapy套件進行網路封包擷取，並顯示封包摘要。\n2. 不需要安裝其他套件。\n3. 直接使用lambda函式快速顯示封包摘要。\n\n[方案二]\n[分數]：7\n使用套件：pyshark\n優缺點：\n1. 可以使用pyshark套件進行網路封包擷取，並顯示封包內容。\n2. 需要安裝pyshark套件。\n3. 需要使用for迴圈遍歷每個封包。\n\n[方案三]\n[分數]：9\n使用套件：socket\n優缺點：\n1. 使用socket套件進行網路封包擷取，可以更細緻控制。\n2. 不需要額外安裝套件。\n3. 需要更深入了解socket操作。\n\n[方案四]\n[分數]：6\n使用套件：scapy\n優缺點：\n1. 可以使用scapy套件進行網路封包擷取，並顯示HTTP封包內容。\n2. 需要安裝scapy套件。\n3. 需要設定過濾器來捕獲特定封包。\n\n[方案五]\n[分數]：5\n使用套件：subprocess\n優缺點：\n1. 使用subprocess模組呼叫系統指令tcpdump進行網路封包擷取。\n2. 不需要安裝額外套件。\n3. 需要在系統上安裝tcpdump工具。\n\n注意事項:\n- 方案一和方案四需要安裝scapy套件，可以使用`pip install scapy`進行安裝。\n- 方案二需要安裝pyshark套件，可以使用`pip install pyshark`進行安裝。\n- 方案五需要在系統上安裝tcpdump工具。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1796,
+    "completion_tokens":599,
+    "total_tokens":2395
+  },
+  "system_fingerprint":null
+}

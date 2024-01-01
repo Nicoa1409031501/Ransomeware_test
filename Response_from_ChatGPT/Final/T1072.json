@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbkWauNDAlVdCFtbv4GQc95SuqDe",
+  "object":"chat.completion",
+  "created":1702782296,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n[T1072 單元測試]\n\n1. 使用Python的unittest套件，對deploy_software函式進行功能測試。\n\n```python\nimport unittest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\nclass DeploySoftwareTestCase(unittest.TestCase):\n    def test_deploy_software(self):\n        # 測試部署MSI檔案的指令\n        deploy_software(\"msiexec /i setup.msi /qn\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"setup.msi\"))\n\n        # 測試部署PowerShell腳本的指令\n        deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"deploy.ps1\"))\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n2. 使用Python的pytest套件，對deploy_software函式進行功能測試。\n\n```python\nimport pytest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\ndef test_deploy_software():\n    # 測試部署MSI檔案的指令\n    deploy_software(\"msiexec /i setup.msi /qn\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"setup.msi\")\n\n    # 測試部署PowerShell腳本的指令\n    deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"deploy.ps1\")\n```\n\n#### [T1072 軟體部署工具：MSIEXEC]\n\n[可實現]\n[方案一總結]\n使用os模組的system函式呼叫msiexec命令來部署MSI檔案。\n\n[T1072 軟體部署工具：Powershell]\n[可實現]\n[方案一總結]\n使用os模組的system函式呼叫powershell.exe命令來執行PowerShell腳本。\n\n[T1072 軟體部署工具：MSIEXEC]\n[可實現]\n[方案一總結]\n使用subprocess模組的call函式呼叫msiexec命令來部署MSI檔案。\n\n[T1072 軟體部署工具：Powershell]\n[可實現]\n[方案一總結]\n使用subprocess模組的call函式呼叫powershell.exe命令來執行PowerShell腳本。\n\n[T1072 軟體部署工具：MSIEXEC]\n[可實現]\n[方案一總結]\n使用sh模組的Command類別呼叫msiexec命令來部署MSI檔案。\n\n[T1072 軟體部署工具：Powershell]\n[可實現]\n[方案一總結]\n使用sh模組的Command類別呼叫powershell.exe命令來執行PowerShell腳本。\n\n#### [T1072 軟體部署工具：MSIEXEC 單元測試]\n\n[T1072 軟體部署工具：Powershell 單元測試]\n\n1. 使用Python的unittest套件，對deploy_software函式進行功能測試。\n\n```python\nimport unittest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\nclass DeploySoftwareTestCase(unittest.TestCase):\n    def test_deploy_software(self):\n        # 測試部署MSI檔案的指令\n        deploy_software(\"msiexec /i setup.msi /qn\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"setup.msi\"))\n\n        # 測試部署PowerShell腳本的指令\n        deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"deploy.ps1\"))\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n2. 使用Python的pytest套件，對deploy_software函式進行功能測試。\n\n```python\nimport pytest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\ndef test_deploy_software():\n    # 測試部署MSI檔案的指令\n    deploy_software(\"msiexec /i setup.msi /qn\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"setup.msi\")\n\n    # 測試部署PowerShell腳本的指令\n    deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"deploy.ps1\")\n```\n\n#### [T1072 軟體部署工具：MSIEXEC+Powershell]\n\n[T1072 軟體部署工具：MSIEXEC+Powershell 單元測試]\n\n1. 使用Python的unittest套件，對deploy_software函式進行功能測試。\n\n```python\nimport unittest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\nclass DeploySoftwareTestCase(unittest.TestCase):\n    def test_deploy_software(self):\n        # 測試部署MSI檔案的指令\n        deploy_software(\"msiexec /i setup.msi /qn\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"setup.msi\"))\n\n        # 測試部署PowerShell腳本的指令\n        deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n        # 斷言檔案是否存在於系統中\n        self.assertTrue(os.path.exists(\"deploy.ps1\"))\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n2. 使用Python的pytest套件，對deploy_software函式進行功能測試。\n\n```python\nimport pytest\nimport subprocess\n\ndef deploy_software(command):\n    subprocess.call(command, shell=True)\n\ndef test_deploy_software():\n    # 測試部署MSI檔案的指令\n    deploy_software(\"msiexec /i setup.msi /qn\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"setup.msi\")\n\n    # 測試部署PowerShell腳本的指令\n    deploy_software(\"powershell.exe -ExecutionPolicy Bypass -File deploy.ps1\")\n    # 斷言檔案是否存在於系統中\n    assert os.path.exists(\"deploy.ps1\")\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1498,
+    "completion_tokens":1747,
+    "total_tokens":3245
+  },
+  "system_fingerprint":null
+}

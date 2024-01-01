@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8SDdNsYocydYROT7B3XIV5vhXHWws",
+  "object":"chat.completion",
+  "created":1701736285,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Code Review:\n\nUnit Test 1: LSASS Memory Dump\n```python\nimport unittest\nfrom lsass_utils import lsass_memory_dump\n\nclass TestLSASSMemoryDump(unittest.TestCase):\n\n    def test_lsass_memory_dump(self):\n        result = lsass_memory_dump()\n        self.assertIsNotNone(result)\n        self.assertEqual(result[-4:], \".bin\")\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nUnit Test 2: SAM Database Extraction\n```python\nimport unittest\nfrom lsass_utils import extract_sam_database\n\nclass TestExtractSAMDatabase(unittest.TestCase):\n\n    def test_extract_sam_database(self):\n        result = extract_sam_database()\n        self.assertIsNotNone(result)\n        self.assertEqual(result[-4:], \".reg\")\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nUnit Test 3: Dump Cached Credentials\n```python\nimport unittest\nfrom lsass_utils import dump_cached_credentials\n\nclass TestDumpCachedCredentials(unittest.TestCase):\n\n    def test_dump_cached_credentials(self):\n        result = dump_cached_credentials()\n        self.assertIsNotNone(result)\n        self.assertEqual(result[-4:], \".txt\")\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nPlease ensure that the \"lsass_utils.py\" file contains the corresponding implementation of the methods."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":738,
+    "completion_tokens":261,
+    "total_tokens":999
+  },
+  "system_fingerprint":null
+}

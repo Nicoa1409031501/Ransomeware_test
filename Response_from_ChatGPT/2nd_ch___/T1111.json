@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdieUZkT8WDrBdEO5k1COAHyTkcm",
+  "object":"chat.completion",
+  "created":1700883244,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：多重身份驗證(MFA)攔截\n方案數量：3\n\n[方案一]\n優點：\n- 使用requests套件實現，輕量且不需要模擬瀏覽器操作\n- 可以直接使用網路請求進行MFA攔截\n缺點：\n- 無法處理使用JavaScript動態生成的表單\n\n[方案一評分]: 80\n\n[方案二]\n優點：\n- 使用selenium套件模擬瀏覽器操作，可以處理JavaScript動態生成的表單\n- 較容易理解和調試\n缺點：\n- 需要安裝瀏覽器驅動程式，增加部署和執行成本\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用pyppeteer套件模擬瀏覽器操作，與Chrome的開發者工具鏈接更緊密\n- 可以處理JavaScript動態生成的表單\n- 支援異步操作，提高程式的效能\n缺點：\n- 需要安裝Chrome瀏覽器和相應的驅動程式\n- 學習曲線較陡\n\n[方案三評分]: 90\n\n總結：分數較高的方案是「方案三」，它使用pyppeteer套件模擬瀏覽器操作，可以更好地處理JavaScript動態生成的表單，並且支援異步操作。但需要注意的是，對於每個具體的網站或應用，仍然需要根據實際情況進行相應的修改和調整，才能確保攔截的準確性和穩健性。\n\n總評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2204,
+    "completion_tokens":558,
+    "total_tokens":2762
+  }
+}

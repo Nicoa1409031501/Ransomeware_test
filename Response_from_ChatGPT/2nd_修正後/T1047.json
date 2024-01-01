@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPZsDJxtcezgCfWlOYMdHQ3n2Y3e",
+  "object":"chat.completion",
+  "created":1702258852,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：wmi\n優缺點：\n1. 可以使用較簡潔的程式碼來執行WMI命令\n2. 需要安裝`wmi`套件\n3. 只能在Windows環境下執行\n\n[方案二]\n[分數]：8\n使用套件：pywin32\n優缺點：\n1. 可以使用較簡潔的程式碼來執行WMI命令\n2. 需要安裝`pywin32`套件\n3. 只能在Windows環境下執行\n\n[方案三]\n[分數]：8\n使用套件：comtypes\n優缺點：\n1. 可以使用較簡潔的程式碼來執行WMI命令\n2. 需要安裝`comtypes`套件\n3. 只能在Windows環境下執行\n\n接下來，針對分數超過8分的方案進行單元測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n\n[TTPs Name]\n[方案二單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1745,
+    "completion_tokens":359,
+    "total_tokens":2104
+  },
+  "system_fingerprint":null
+}

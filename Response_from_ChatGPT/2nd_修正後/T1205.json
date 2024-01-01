@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPrEv0IkOLEAk8OV9JmpW6ia7MZA",
+  "object":"chat.completion",
+  "created":1702259928,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n   [方案一]\n   [分數]：8\n\n   使用套件：scapy, socket\n\n   優缺點：\n   1. 優點：使用scapy的send和sniff功能可以進行封包的傳送和捕獲，效果較為直觀\n   2. 缺點：需要先安裝scapy和socket套件，可能會有相容性問題\n   \n   [方案二]\n   [分數]：9\n\n   使用套件：scapy, iptcinfo\n\n   優缺點：\n   1. 優點：使用scapy的send功能進行封包傳送，使用iptcinfo套件進行防火牆規則的讀取和修改，功能較為完整\n   2. 缺點：需要先安裝scapy和iptcinfo套件，可能會有相容性問題\n   \n   [方案三]\n   [分數]：7\n\n   使用套件：socket, subprocess\n\n   優缺點：\n   1. 優點：使用socket套件進行封包傳送和捕獲，使用subprocess套件執行系統命令進行防火牆規則的控制，較為靈活自由\n   2. 缺點：需要額外編寫判斷端口開關狀態的功能，可能會增加程式碼的複雜度"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2386,
+    "completion_tokens":419,
+    "total_tokens":2805
+  },
+  "system_fingerprint":null
+}

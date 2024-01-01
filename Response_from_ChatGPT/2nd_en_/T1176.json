@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RgmNWe0uIlmAEGLN2l7xzdDV7UCo",
+  "object":"chat.completion",
+  "created":1701609991,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"References:\r\n\r\n[Selenium WebDriver Python documentation](https://selenium-python.readthedocs.io/)\r\n\r\n[Puppeteer documentation](https://pptr.dev/)\r\n\r\n[Pyppeteer documentation](https://pyppeteer.github.io/pyppeteer/)\r\n\r\n[Pyppeteer browser extensions documentation](https://github.com/pyppeteer/pyppeteer-browser-extensions)"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1321,
+    "completion_tokens":77,
+    "total_tokens":1398
+  },
+  "system_fingerprint":null
+}

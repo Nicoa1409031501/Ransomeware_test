@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPmVUXG5Xje2COdIBb7zqDozzl9u",
+  "object":"chat.completion",
+  "created":1702259635,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：os、socket\n優缺點：\n1. 優點：使用了os模組和socket模組，可以方便地列出網絡上所有的共享資料夾。\n2. 缺點：需要逐個掃描IP地址，可能需要較長的執行時間。\n\n[方案二]\n[分數]：9\n使用套件：wmi\n優缺點：\n1. 優點：使用了wmi模組，可以直接通過WMI查詢共享資料夾。\n2. 缺點：僅限於Windows系統，不支援其他作業系統。\n\n[方案三]\n[分數]：7\n使用套件：subprocess\n優缺點：\n1. 優點：使用了subprocess模組呼叫Net命令，可以方便地列出共享資料夾。\n2. 缺點：需要依賴Net命令，可能無法在某些系統上運行。\n\n由於方案二的分數最高，超過了8分，因此我們將繼續對該方案進行功能測試。\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1710,
+    "completion_tokens":371,
+    "total_tokens":2081
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdIZmdYFJAfNPcE5kpqeeYQ0l2aU",
+  "object":"chat.completion",
+  "created":1700881627,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：進程列表\n方案數量：3\n\n[方案一]\n優點：\n- 使用psutil套件可以直接獲取進程的pid和名稱，簡單快捷。\n- 程式碼清晰易懂，容易維護。\n\n缺點：\n- 需要先安裝psutil套件。\n\nCode Review結果：\n- 程式碼沒有錯誤，可以正常執行。\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用subprocess套件可以通過執行系統命令來獲取進程信息。\n- 不需要額外套件依賴，兼容性較好。\n\n缺點：\n- 需要依賴操作系統的tasklist命令，僅限於Windows系統。\n\nCode Review結果：\n- 程式碼沒有錯誤，可以正常執行。\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用wmi套件可以跨平台獲取進程信息。\n\n缺點：\n- 需要先安裝wmi套件。\n\nCode Review結果：\n- 程式碼沒有錯誤，可以正常執行。\n\n[方案三評分]: 90\n\n根據以上評分，方案一的得分最高，根據具體需求和環境，可選擇相應的方案實現進程列表功能。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1668,
+    "completion_tokens":442,
+    "total_tokens":2110
+  }
+}

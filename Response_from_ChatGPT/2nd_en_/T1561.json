@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rh6TIghbZ44g4kCnOayf828rbe8f",
+  "object":"chat.completion",
+  "created":1701611237,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Packages Used: psutil, os, shutil\n\nFunctionalities: \n1. get_available_disks() - Retrieves the list of available disks or volumes on the system.\n2. wipe_disk_dd(disk_path) - Wipes the contents of a disk using the dd command-line tool.\n3. wipe_disk_shutil(disk_path) - Overwrites the contents of a disk with random data using the shutil package.\n4. wipe_mbr_dd(disk_path) - Wipes the Master Boot Record (MBR) of a disk using the dd command-line tool.\n\nPlease note that the disk wipe operations can potentially cause data loss. Proper caution and authorization are required before performing these operations."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1022,
+    "completion_tokens":139,
+    "total_tokens":1161
+  },
+  "system_fingerprint":null
+}

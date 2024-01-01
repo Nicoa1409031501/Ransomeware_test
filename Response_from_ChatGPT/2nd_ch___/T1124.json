@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdouENY7rW4cAAmleLXyPgRpzUXi",
+  "object":"chat.completion",
+  "created":1700883632,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：System Time Discovery\n方案數量：3\n\n[方案一]\n優點：使用time套件，簡潔易讀\n缺點：無法遠端獲取系統時間\n評分：80\n\n[方案二]\n優點：使用datetime套件，可以獲取當前時間並格式化\n缺點：無法遠端獲取系統時間\n評分：85\n\n[方案三]\n優點：使用subprocess套件，可以執行Windows的date命令獲取系統時間\n缺點：需要使用外部命令，可能會有一些限制\n評分：75"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1773,
+    "completion_tokens":195,
+    "total_tokens":1968
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8SEPOesLWD9sOkQroV9JyfDUhyJkf",
+  "object":"chat.completion",
+  "created":1701739262,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Review of Method 1:\nThe code provided seems to be missing the actual implementation of the access_token_manipulation() function. Please ensure that the code contains the necessary logic to perform access token manipulation based on the requirements of the T1134-Access Token Manipulation technique.\n\nReview of Method 2:\nThe code provided seems to be missing the actual implementation of the access_token_manipulation() function. Please ensure that the code contains the necessary logic to perform access token manipulation based on the requirements of the T1134-Access Token Manipulation technique.\n\nReview of Method 3:\nThe code provided seems to be missing the actual implementation of the access_token_manipulation() function. Please ensure that the code contains the necessary logic to perform access token manipulation based on the requirements of the T1134-Access Token Manipulation technique. Additionally, consider using the `psutil.Popen` functionality to execute processes with an existing token."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":670,
+    "completion_tokens":187,
+    "total_tokens":857
+  },
+  "system_fingerprint":null
+}

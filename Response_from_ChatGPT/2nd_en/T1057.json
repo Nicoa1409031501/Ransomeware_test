@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VGdNDOlT1q5q81YtulEiPdf6zf5y",
+  "object":"chat.completion",
+  "created":1702462801,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1057-Process Discovery\n\n1. First method:\n   - Packages used: psutil\n   - Functionality used: psutil.process_iter()\n\n```python\nimport psutil\n\ndef process_discovery():\n    processes = psutil.process_iter()\n    for process in processes:\n        print(f\"Process ID: {process.pid}\")\n        print(f\"Process Name: {process.name()}\")\n        print(f\"Command Line: {process.cmdline()}\")\n        print(\"--------------------------------\")\n\nprocess_discovery()\n```\n\n2. Second method:\n   - Packages used: subprocess\n   - Functionality used: subprocess.run()\n\n```python\nimport subprocess\n\ndef process_discovery():\n    result = subprocess.run(['tasklist', '/v'], capture_output=True, text=True)\n    output = result.stdout\n    processes = output.split('\\n')[3:-1]\n    \n    for process in processes:\n        process_details = process.split()\n        pid = process_details[1]\n        name = process_details[0]\n        command_line = ' '.join(process_details[1:])\n        print(f\"Process ID: {pid}\")\n        print(f\"Process Name: {name}\")\n        print(f\"Command Line: {command_line}\")\n        print(\"--------------------------------\")\n\nprocess_discovery()\n```\n\n3. Third method:\n   - Packages used: wmi\n   - Functionality used: wmi.WMI().Win32_Process()\n\n```python\nimport wmi\n\ndef process_discovery():\n    wmi_conn = wmi.WMI()\n    processes = wmi_conn.Win32_Process()\n    \n    for process in processes:\n        print(f\"Process ID: {process.ProcessId}\")\n        print(f\"Process Name: {process.Name}\")\n        print(f\"Command Line: {process.CommandLine}\")\n        print(\"--------------------------------\")\n\nprocess_discovery()\n```\n\nScore:\n- Solution One: 8 out of 10\n- Solution Two: 7 out of 10\n- Solution Three: 9 out of 10\n\nSolution Three has the highest score and will be selected for functional and unit testing.\n\n[Functional Test]\n```python\nimport wmi\n\ndef test_process_discovery():\n    wmi_conn = wmi.WMI()\n    processes = wmi_conn.Win32_Process()\n    \n    assert len(processes) > 0\n    \ntest_process_discovery()\n```\n\n[Unit Test]\n```python\nimport wmi\n\ndef test_process_discovery():\n    wmi_conn = wmi.WMI()\n    processes = wmi_conn.Win32_Process()\n    \n    assert len(processes) > 0\n\ntest_process_discovery()\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1127,
+    "completion_tokens":531,
+    "total_tokens":1658
+  },
+  "system_fingerprint":null
+}

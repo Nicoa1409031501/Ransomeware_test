@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPVyCrQzLBs3kds6ATikQIq4luBc",
+  "object":"chat.completion",
+  "created":1702258610,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n   [方案一]\n   [分數]：8\n   使用套件：subprocess\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：9\n   優缺點：\n   1. 使用subprocess套件來執行系統命令，非常方便快捷。\n   2. 可以獲取到系統的IP、MAC地址，以及Wi-Fi資訊。\n   3. 無需安裝額外的套件。\n   \n   [方案二]\n   [分數]：7\n   使用套件：socket, os\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：8\n   優缺點：\n   1. 使用socket套件檢查網際網路連線狀態，並使用os套件獲取系統網絡配置資訊。\n   2. 可以檢查網際網路連線狀態以及獲取系統的IP、MAC地址。\n   3. 無需安裝額外的套件。\n   4. 可能會有防火牆阻止網際網路連線檢查，造成誤報。\n   \n   [方案三]\n   [分數]：9\n   使用套件：requests\n   輸入檔案：無\n   輸出檔案：無\n   語法及邏輯正確性：9\n   優缺點：\n   1. 使用requests套件進行GET請求，能獲取網絡配置資訊。\n   2. 可以檢查網際網路連線狀態以及獲取系統的IP、MAC地址。\n   3. 需要額外安裝requests套件。\n  \n  [TTPs Name]\n   [方案一單元測試]\n   內容....         [方案二單元測試]\n   內容....         [方案三]\n   內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1880,
+    "completion_tokens":630,
+    "total_tokens":2510
+  },
+  "system_fingerprint":null
+}

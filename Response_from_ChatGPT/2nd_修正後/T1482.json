@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPunEgHvlGOGcHpfNlx8GR2qW4TF",
+  "object":"chat.completion",
+  "created":1702260149,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n   [方案一]\n   [分數]：8\n   使用套件：pywin32\n   優缺點：\n   - 優點：\n     1. 可以直接使用Windows API來列舉網域信任關係。\n     2. 在Windows環境中穩定運作。\n   - 缺點：\n     1. 需要安裝pywin32套件。\n     2. 只能在Windows環境下運行。\n\n   [方案二]\n   [分數]：9\n   使用套件：ldap3\n   優缺點：\n   - 優點：\n     1. 可以使用LDAP協議來查詢網域信任關係。\n     2. 在多個平台上都能運行，不限於Windows。\n   - 缺點：\n     1. 需要在程式中提供LDAP伺服器的詳細資訊。\n     2. 需要安裝ldap3套件。\n\n   [方案三]\n   [分數]：9.5\n   使用套件：impacket\n   優缺點：\n   - 優點：\n     1. 可以使用impacket庫提供的SAMR介面來列舉網域信任關係。\n     2. 支援多種協議，包括TCP、SMB等。\n   - 缺點：\n     1. 需要在程式中提供目標網域控制器的詳細資訊。\n     2. 需要安裝impacket套件。\n\n[TTPs Name]\n   [方案一單元測試]\n   內容....\n\n[TTPs Name]\n   [方案二單元測試]\n   內容....\n\n[TTPs Name]\n   [方案三]\n   內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2008,
+    "completion_tokens":513,
+    "total_tokens":2521
+  },
+  "system_fingerprint":null
+}

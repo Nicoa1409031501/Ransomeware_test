@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OL4UXdgKcTfJ0vcbCuSvolam83Vs",
+  "object":"chat.completion",
+  "created":1700811562,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【改善報告】\n名稱：Proxy\n\n方案數量：3\n\n[方案一]\n優點：\n- 使用requests套件，程式碼簡單易懂。\n- 可以透過設定Session的proxies屬性，將所有請求都透過指定的Proxy伺服器發送。\n\n缺點：\n- 使用Session對象，需要保持和服務器的連接，效能可能較差。\n- 不支援一些特殊的代理，如socks代理。\n\n改善方案：\n- 將對proxies的設定改為每次發送請求時都指定，而不使用Session對象，可以提高效能。\n\n[方案二]\n優點：\n- 使用selenium套件，可以模擬瀏覽器行為，支援更多的代理類型。\n- 可以使用ChromeDriver等瀏覽器驅動程序，具備更高的自動化程度。\n\n缺點：\n- 需要安裝瀏覽器驅動程序，比較複雜。\n- 由於使用瀏覽器模擬，可能會導致性能較差。\n\n改善方案：\n- 可以嘗試使用無頭瀏覽器，如Chrome的--headless模式，減少對圖形界面的依賴。\n- 優化瀏覽器的設置，如禁用圖片、Javascript等，提高載入速度。\n\n[方案三]\n優點：\n- 使用socks套件，支援SOCKS代理，具備更大的彈性。\n- 可以使用urllib.request.urlopen方法發送請求。\n\n缺點：\n- 需要額外的套件支援，可能需要進行安裝。\n- 需要全域默認代理的設置，可能對其他網絡請求產生影響。\n\n改善方案：\n- 可以使用其它套件，如PySocks，提供更多的選項和選擇。\n- 建立專用的Proxy類別，封裝不同類型代理的設定和發送請求的邏輯。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1799,
+    "completion_tokens":642,
+    "total_tokens":2441
+  }
+}

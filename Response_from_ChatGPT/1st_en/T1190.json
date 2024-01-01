@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDThdh7g5aSCBttRZqSL5xk6vzTJ",
+  "object":"chat.completion",
+  "created":1702212341,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1190-Exploit Public-Facing Application\n\n1. First Method:\n\nPackages Used:\n- requests\n\nFunctionality:\n- Sending a GET request to a specific URL to check if the web application is vulnerable to any known exploits.\n\nCode:\n```python\nimport requests\n\ndef check_vulnerabilities(url):\n    try:\n        response = requests.get(url)\n        if response.status_code == 200:\n            print(\"Application is vulnerable!\")\n        else:\n            print(\"Application is not vulnerable.\")\n    except Exception as e:\n        print(\"An error occurred:\", str(e))\n```\n\n2. Second Method:\n\nPackages Used:\n- selenium\n- webdriver_manager.chrome (to manage the Chrome WebDriver)\n\nFunctionality:\n- Using a headless Chrome WebDriver to navigate to a specific URL and check if any known exploits can be triggered.\n\nCode:\n```python\nfrom selenium import webdriver\nfrom webdriver_manager.chrome import ChromeDriverManager\n\ndef check_vulnerabilities(url):\n    try:\n        options = webdriver.ChromeOptions()\n        options.add_argument('--headless')\n        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)\n        driver.get(url)\n        if \"Exploit detected\" in driver.page_source:\n            print(\"Application is vulnerable!\")\n        else:\n            print(\"Application is not vulnerable.\")\n        driver.quit()\n    except Exception as e:\n        print(\"An error occurred:\", str(e))\n```\n\n3. Third Method:\n\nPackages Used:\n- socket\n\nFunctionality:\n- Trying to establish a connection to a specific IP address and port to check if any known exploits can be triggered.\n\nCode:\n```python\nimport socket\n\ndef check_vulnerabilities(ip, port):\n    try:\n        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        result = sock.connect_ex((ip, port))\n        if result == 0:\n            print(\"Application is vulnerable!\")\n        else:\n            print(\"Application is not vulnerable.\")\n        sock.close()\n    except Exception as e:\n        print(\"An error occurred:\", str(e))\n```\n\nNote: Please replace \"url\" with the actual URL or IP address and port in the respective methods."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":354,
+    "completion_tokens":435,
+    "total_tokens":789
+  },
+  "system_fingerprint":null
+}

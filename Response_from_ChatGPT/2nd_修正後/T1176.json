@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPneBnJmt6KQAkhTyxrWBbbppuFj",
+  "object":"chat.completion",
+  "created":1702259706,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1176 - Browser Extensions]\n\n[方案一]\n[分數]：8.5\n- 使用套件：Selenium\n- 輸入檔案：無\n- 輸出檔案：無\n- 語法和邏輯正確性：8.5分，功能實現正確，但可能需要自行實作更多的邏輯來判斷擴展是否可疑\n- 優缺點：\n  - 優點：使用成熟的Selenium套件可以控制瀏覽器進行操作，功能實現方便\n  - 缺點：需要安裝和設定Chrome WebDriver，可能需要自行實作更多的邏輯來判斷擴展是否可疑\n\n[方案二]\n[分數]：9\n- 使用套件：Selenium、Chrome Extension\n- 輸入檔案：無\n- 輸出檔案：無\n- 語法和邏輯正確性：9分，功能實現正確，但可能需要自行實作更多的邏輯來判斷擴展是否可疑\n- 優缺點：\n  - 優點：使用Selenium操作瀏覽器，同時使用Chrome Extension套件來操作擴展，功能更加完整\n  - 缺點：需要事先安裝Chrome擴展並指定路徑，可能需要自行實作更多的邏輯來判斷擴展是否可疑\n\n[方案三]\n[分數]：9.5\n- 使用套件：Selenium、Chrome Extension、Chrome API\n- 輸入檔案：無\n- 輸出檔案：無\n- 語法和邏輯正確性：9.5分，功能實現正確，使用了Chrome API來取得擴展列表和操作擴展\n- 優缺點：\n  - 優點：使用了Selenium和Chrome Extension套件，同時使用Chrome API來操作擴展，功能更加完整\n  - 缺點：需要事先安裝Chrome擴展並指定路徑，可能需要自行實作更多的邏輯來判斷擴展是否可疑\n\n由於三種方案都可以正確實現T1176 - Browser Extensions的功能，且都具有一定的優點和缺點，因此給予了相對高的評分。如果需要進一步測試和優化，可以選擇評分超過8分的方案進行單元測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":3087,
+    "completion_tokens":752,
+    "total_tokens":3839
+  },
+  "system_fingerprint":null
+}

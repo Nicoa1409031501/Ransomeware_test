@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rhuwk9Essm1LAuEN8fL03bC11OlI",
+  "object":"chat.completion",
+  "created":1701614366,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"References:\n- BeautifulSoup: https://www.crummy.com/software/BeautifulSoup/bs4/doc/\n- Selenium: https://selenium-python.readthedocs.io/\n- Scrapy: https://docs.scrapy.org/"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1122,
+    "completion_tokens":44,
+    "total_tokens":1166
+  },
+  "system_fingerprint":null
+}

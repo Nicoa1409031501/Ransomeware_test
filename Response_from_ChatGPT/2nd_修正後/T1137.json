@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPmzToYnjXWyrtqpqjwiKpbHhNCW",
+  "object":"chat.completion",
+  "created":1702259665,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1137 - Office Application Startup]\n\n[方案一]\n[分數]:\n使用套件：winreg\n優缺點：\n1. 優點：可以直接編輯Windows註冊表，修改Office的設定。\n2. 缺點：需要擁有管理員權限。\n\n[方案二]\n[分數]:\n使用套件：pywinauto\n優缺點：\n1. 優點：可以模擬使用者操作，直接修改Office應用程式的設定。\n2. 缺點：需要確定程式的UI元件名稱，且可能因Office版本不同而有所差異。\n\n[方案三]\n[分數]:\n使用套件：olefile\n優缺點：\n1. 優點：可以編輯Microsoft Office文件，輕鬆注入惡意代碼。\n2. 缺點：需要檢測或創建VBA macros，對文件的結構有所了解。\n\n根據評分，三個方案的分數如下：\n[方案一]：8分\n[方案二]：9分\n[方案三]：7分\n\n根據評分結果，我們將繼續進行方案二的功能測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2032,
+    "completion_tokens":362,
+    "total_tokens":2394
+  },
+  "system_fingerprint":null
+}

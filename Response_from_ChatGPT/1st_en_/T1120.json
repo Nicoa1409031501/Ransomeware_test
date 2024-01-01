@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3taB5T2nVqe6h3wCBkLIDLRxo3v",
+  "object":"chat.completion",
+  "created":1701460522,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1120-Peripheral Device Discovery\n\n1. Method 1: Using Python's psutil package.\n   - Install the psutil package using pip: `pip install psutil`\n   - Implement the functionality:\n\n```python\nimport psutil\n\ndef peripheral_device_discovery_psutil():\n    devices = psutil.disk_partitions(all=True)  # Get information about disk partitions\n    for device in devices:\n        print(f\"Device: {device.device}\")\n        print(f\"Mountpoint: {device.mountpoint}\")\n        print(f\"Filesystem Type: {device.fstype}\")\n        print(f\"Options: {device.opts}\\n\")\n```\n\n2. Method 2: Using Python's platform module.\n   - No additional package installation is required.\n   - Implement the functionality:\n\n```python\nimport platform\n\ndef peripheral_device_discovery_platform():\n    devices = platform.disk_partitions(all=True)  # Get information about disk partitions\n    for device in devices:\n        print(f\"Device: {device.device}\")\n        print(f\"Mountpoint: {device.mountpoint}\")\n        print(f\"Filesystem Type: {device.fstype}\")\n        print(f\"Options: {device.opts}\\n\")\n```\n\n3. Method 3: Using Python's ctypes module to call a native Windows API function.\n   - No additional package installation is required.\n   - Implement the functionality:\n\n```python\nimport ctypes\n\ndef peripheral_device_discovery_ctypes():\n    kernel32 = ctypes.windll.kernel32\n    drives = ctypes.create_unicode_buffer(1024)\n    kernel32.GetLogicalDriveStringsW(ctypes.sizeof(drives), drives)\n    drive_list = drives.value.split(\"\\x00\")[:-1]\n\n    for drive in drive_list:\n        print(f\"Drive: {drive}\")\n```\n\nNote: The above methods provide information about disk partitions. Depending on the specific requirements, you may need to modify the code to gather information about other peripheral devices such as cameras, printers, etc.\n\nRemember to adapt the code according to your specific needs and capture the output or perform any desired actions with the gathered information appropriately."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":379,
+    "completion_tokens":430,
+    "total_tokens":809
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UydcRa9j3x7u1GSid0Y21m7Mv4bl",
+  "object":"chat.completion",
+  "created":1702393624,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"可實現\n[TTPs Name]: Protocol Tunneling\n\n[方案一]\n[分數]：9\n\n使用套件：socket\n\n優缺點：\n1. 優點：使用Python的socket套件，能夠直接實現基本的TCP連線功能，相對簡單且高效。\n2. 缺點：需要手動設定目標IP和端口，不支援其他協定。\n\n[方案二]\n[分數]：7\n\n使用套件：random\n\n優缺點：\n1. 優點：能夠通過隨機數字生成器來產生隨機的通訊協定，增加了安全性。\n2. 缺點：僅能隨機選擇預先定義好的通訊協定，不具有延展性。\n\n[方案三]\n[分數]：8\n\n使用套件：http.client\n\n優缺點：\n1. 優點：能夠使用http.client套件來實現常見的協定隧道化方式，如HTTP隧道、DNS隧道、ICMP隧道等。\n2. 缺點：僅支援特定的協定隧道化方式，無法應用於其他協定。\n\n\n[可實現]\n[TTPs Name]: Protocol Tunneling\n\n[方案一單元測試]\n內容.... \n\n[方案二單元測試]\n內容.... \n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1803,
+    "completion_tokens":421,
+    "total_tokens":2224
+  },
+  "system_fingerprint":null
+}

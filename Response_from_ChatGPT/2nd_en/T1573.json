@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHmZwBH5eGsMy5QjVXMIzKv2ts68",
+  "object":"chat.completion",
+  "created":1702467215,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1053-Scheduled Task/Job\n\nMethod 1:\nPackages used: subprocess\n\n```python\nimport subprocess\n\ndef create_scheduled_task(cmd, trigger):\n    subprocess.run(['schtasks', '/Create', '/TN', 'MyTask', '/TR', cmd, '/SC', 'ONCE', '/ST', trigger])\n\ndef delete_scheduled_task():\n    subprocess.run(['schtasks', '/Delete', '/TN', 'MyTask', '/F'])\n\n# Example usage\ncreate_scheduled_task('C:\\\\path\\\\to\\\\mycmd.exe', '08:00')\ndelete_scheduled_task()\n```\n\nMethod 2:\nPackages used: os\n\n```python\nimport os\n\ndef create_scheduled_task(cmd, trigger):\n    os.system(f'schtasks /Create /TN MyTask /TR \"{cmd}\" /SC ONCE /ST {trigger}')\n\ndef delete_scheduled_task():\n    os.system('schtasks /Delete /TN MyTask /F')\n\n# Example usage\ncreate_scheduled_task('C:\\\\path\\\\to\\\\mycmd.exe', '08:00')\ndelete_scheduled_task()\n```\n\nNote: The above methods demonstrate how to create and delete a scheduled task using the Windows `schtasks` command line utility. The task is created to run a specified command at a given time trigger. However, note that the available functionality and options may vary depending on the operating system and user privileges. Also, please ensure that the command being executed in the scheduled task is valid and does not pose any security risks."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1229,
+    "completion_tokens":319,
+    "total_tokens":1548
+  },
+  "system_fingerprint":null
+}

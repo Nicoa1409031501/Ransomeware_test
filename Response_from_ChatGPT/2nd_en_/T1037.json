@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RjyyqE5TZP9LeRt29AssYGtsKfYJ",
+  "object":"chat.completion",
+  "created":1701622304,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1168-Local Job Scheduling\n\nIn Windows, you can use the Task Scheduler to create and manage local tasks. Here are three different methods to create a task using different packages:\n\nMethod 1: Using the `win32com.client` package\nPackages used: `pywin32`\n\n```python\nimport win32com.client as win32\n\ndef create_task(task_name, script_path, start_time):\n    scheduler = win32.Dispatch('Schedule.Service')\n    scheduler.Connect()\n    root_folder = scheduler.GetFolder('\\\\')\n    task_def = scheduler.NewTask(0)\n    task_def.Settings.Enabled = True\n    task_def.Settings.StartWhenAvailable = True\n    trigger = task_def.Triggers.Create(win32.constants.TASK_TRIGGER_DAILY)\n    trigger.StartBoundary = start_time\n    action = task_def.Actions.Create(win32.constants.TASK_ACTION_EXEC)\n    action.Path = script_path\n    task_def.RegistrationInfo.Description = task_name\n    root_folder.RegisterTaskDefinition(task_name, task_def)\n\ndef delete_task(task_name):\n    scheduler = win32.Dispatch('Schedule.Service')\n    scheduler.Connect()\n    root_folder = scheduler.GetFolder('\\\\')\n    root_folder.DeleteTask(task_name, 0)\n\n# Create a task that runs the script daily at 10:00 AM\ncreate_task('My Task', 'C:\\\\Path\\\\to\\\\script.py', '20220101T100000')\n# Delete the task\ndelete_task('My Task')\n```\n\nMethod 2: Using the `subprocess` package\nPackages used: `subprocess`\n\n```python\nimport subprocess\n\ndef create_task(task_name, script_path, start_time):\n    command = f'schtasks /create /tn \"{task_name}\" /tr \"{script_path}\" /sc daily /st {start_time} /rl highest /f'\n    subprocess.run(command, shell=True)\n\ndef delete_task(task_name):\n    subprocess.run(f'schtasks /delete /tn \"{task_name}\" /f', shell=True)\n\n# Create a task that runs the script daily at 10:00 AM\ncreate_task('My Task', 'C:\\\\Path\\\\to\\\\script.py', '10:00')\n# Delete the task\ndelete_task('My Task')\n```\n\nMethod 3: Using the `schedule` package\nPackages used: `schedule`\n\n```python\nimport schedule\nimport time\nimport subprocess\n\ndef job():\n    subprocess.run(['python', 'C:\\\\Path\\\\to\\\\script.py'])\n\ndef create_task(task_name, start_time):\n    schedule.every().day.at(start_time).do(job)\n\ndef delete_task(task_name):\n    schedule.clear()\n\n# Create a task that runs the script daily at 10:00 AM\ncreate_task('My Task', '10:00')\n# Run the task\nwhile True:\n    schedule.run_pending()\n    time.sleep(1)\n# Delete the task (remove the `while True` loop and clear the schedule)\ndelete_task('My Task')\n```\n\nPlease note that the examples above assume that the necessary script files already exist and are ready to be executed. You may need to adjust the file paths and script names according to your specific scenario."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1426,
+    "completion_tokens":649,
+    "total_tokens":2075
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPTxIKAwdJlFjGnPpF8vWESDF4dY",
+  "object":"chat.completion",
+  "created":1702258485,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：ctypes\n優缺點：\n1. 可以使用Windows API來進行Direct Volume Access\n2. 需要了解Windows API的使用方式\n3. 語法和邏輯正確\n4. 可以存取指定的邏輯磁碟機\n\n[方案二]\n[分數]：9\n使用套件：pywin32\n優缺點：\n1. 可以使用pywin32模組來進行Direct Volume Access\n2. 不需要了解Windows API，直接使用pywin32函式\n3. 語法和邏輯正確\n4. 可以存取指定的邏輯磁碟機\n\n[方案三]\n[分數]：7\n使用套件：wmi\n優缺點：\n1. 可以使用wmi模組來進行Direct Volume Access\n2. 不需要了解Windows API，直接使用wmi類別\n3. 語法和邏輯正確\n4. 需要使用WMI服務來查詢邏輯磁碟機\n5. 適用於批量查詢或管理多個邏輯磁碟機\n\n對於方案一的評分為8分，方案二的評分為9分，方案三的評分為7分。由於方案一和二的分數都超過8分，我們將對這兩個方案進行功能測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1919,
+    "completion_tokens":491,
+    "total_tokens":2410
+  },
+  "system_fingerprint":null
+}

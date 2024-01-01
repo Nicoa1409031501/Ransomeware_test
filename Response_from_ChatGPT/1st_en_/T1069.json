@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3uJ7Rl5EVcKdnkyI0sBbTAyuHJZ",
+  "object":"chat.completion",
+  "created":1701460567,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1069- Permission Groups Discovery\n\nMethod 1:\n- Packages used: subprocess\n- Functionality used: subprocess.run()\n- The implementation will execute the 'net localgroup' command in the command prompt to discover local system groups and permission settings.\n\n```python\nimport subprocess\n\ndef discover_local_groups():\n    result = subprocess.run(['net', 'localgroup'], capture_output=True, text=True)\n    output = result.stdout.strip()\n    return output\n\n# Example usage:\nlocal_groups = discover_local_groups()\nprint(local_groups)\n```\n\nMethod 2:\n- Packages used: pywin32\n- Functionality used: win32net.NetLocalGroupEnum()\n- The implementation will use the 'NetLocalGroupEnum' function from the pywin32 package to list all the local groups and their members.\n\n```python\nimport win32net\n\ndef discover_local_groups():\n    groups = []\n    resume = 0\n    while True:\n        result, total, resume = win32net.NetLocalGroupEnum(None, 1, resume)\n        groups.extend(result)\n        if resume == 0:\n            break\n    return groups\n\n# Example usage:\nlocal_groups = discover_local_groups()\nfor group in local_groups:\n    print(group['name'])\n    print(group['comment'])\n```\n\nMethod 3:\n- Packages used: pyad\n- Functionality used: pyad.adcomputer.ADComputer.from_cn().memberOf\n- The implementation will use the pyad package to connect to the Active Directory and retrieve the domain-level groups and permission settings.\n\n```python\nimport pyad\n\ndef discover_domain_groups():\n    domain_controller = \"domain_controller_address\"\n    computer_cn = \"computer_common_name\"\n\n    computer = pyad.adcomputer.ADComputer.from_cn(computer_cn, domain_controller)\n    domain_groups = computer.memberOf\n    return domain_groups\n\n# Example usage:\ndomain_groups = discover_domain_groups()\nfor group in domain_groups:\n    print(group)\n```\n\nNote: The pyad package needs to be installed before using the code above. You can install it using pip:\n\n```\npip install pyad\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":532,
+    "completion_tokens":433,
+    "total_tokens":965
+  },
+  "system_fingerprint":null
+}

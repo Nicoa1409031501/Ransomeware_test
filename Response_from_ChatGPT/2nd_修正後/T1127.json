@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPlMwgF4IH5BCnd2Bkr5teWwVozf",
+  "object":"chat.completion",
+  "created":1702259564,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n   [方案一]\n   [分數]：8\n   使用套件：subprocess\n   優缺點：\n   1. 使用subprocess套件的方式可以靈活控制和處理子進程，提供較多的功能和選項。\n   2. 可以輕鬆獲取指令的輸出或錯誤訊息，進行後續處理。\n   \n   [方案二]\n   [分數]：7\n   使用套件：os\n   優缺點：\n   1. 使用os套件的方式簡單直接，不需要額外安裝其他套件。\n   2. 不能直接獲取指令的輸出或錯誤訊息，對於後續處理較不方便。\n   \n   [方案三]\n   [分數]：7\n   使用套件：os\n   優缺點：\n   1. 使用os套件的方式簡單直接，不需要額外安裝其他套件。\n   2. 不能直接獲取指令的輸出或錯誤訊息，對於後續處理較不方便。\n\n[TTPs Name]\n   [方案一單元測試]\n   內容....\n\n[TTPs Name]\n   [方案二單元測試]\n   內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1660,
+    "completion_tokens":394,
+    "total_tokens":2054
+  },
+  "system_fingerprint":null
+}

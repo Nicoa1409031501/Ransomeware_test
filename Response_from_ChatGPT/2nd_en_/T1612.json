@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RhyDDrTvIu9pApeU7s2yiZxWcZPG",
+  "object":"chat.completion",
+  "created":1701614569,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Please use Python to write code that validates an email address format."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":968,
+    "completion_tokens":13,
+    "total_tokens":981
+  },
+  "system_fingerprint":null
+}

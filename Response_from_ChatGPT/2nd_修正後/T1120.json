@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPk6YP0hrN6OcO0PX0wUseX2jUdH",
+  "object":"chat.completion",
+  "created":1702259486,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：subprocess\n優缺點：\n1. 使用方便，只需要執行一行指令即可\n2. 可以獲得設備的詳細資訊\n\n[方案二]\n[分數]：9\n使用套件：wmi\n優缺點：\n1. 提供了更多的屬性和方法來獲取和管理設備\n2. 可以獲得更豐富的設備資訊\n3. 使用上較方便\n\n[方案三]\n[分數]：7\n使用套件：infi.devicemanager\n優缺點：\n1. 專注於設備管理，提供了一些高級功能\n2. 可以獲得較詳細的設備資訊\n3. 使用上稍微複雜一些\n\n由於方案二的分數最高，我們將繼續針對該方案進行功能測試。\n\n[TTPs Name]\n[方案二單元測試]\n內容...\n\n接下來，我們將進行方案二的功能測試及單元測試。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1529,
+    "completion_tokens":360,
+    "total_tokens":1889
+  },
+  "system_fingerprint":null
+}

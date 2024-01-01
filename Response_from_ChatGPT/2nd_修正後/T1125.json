@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPl3qiztvLSlfmtwTAq1xRLkAHNX",
+  "object":"chat.completion",
+  "created":1702259545,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：OpenCV\n輸入：攝像頭的視訊\n輸出：視窗中播放攝像頭的視訊\n評分：\n優點：\n1. 使用OpenCV套件非常方便且穩定。\n2. 可以靈活地設定視訊的解析度。\n3. 可以直接顯示攝像頭的視訊在視窗上。\n\n缺點：\n1. 需要安裝OpenCV套件。\n2. 只能在支援OpenCV的環境下運行。\n3. 影像的呈現方式有限，無法進行進一步的處理。\n\n[方案二]\n[分數]：7\n使用套件：Pygame\n輸入：攝像頭的視訊\n輸出：視窗中播放攝像頭的視訊\n評分：\n優點：\n1. Pygame套件對於視訊擷取和顯示提供了簡單的API。\n2. 可以在不支援OpenCV的環境下使用。\n\n缺點：\n1. 需要安裝Pygame套件。\n2. 顯示攝像頭的視訊在Pygame視窗上的效果與OpenCV有所差異。\n3. 功能較為有限，對於影像的進一步處理需要額外的程式碼。\n\n[方案三]\n[分數]：9\n使用套件：OpenCV、FFmpeg\n輸入：攝像頭的視訊\n輸出：錄製成影片檔案\n評分：\n優點：\n1. 可以將攝像頭的視訊直接錄製成影片檔案。\n2. 影片檔案的格式可以靈活設定。\n3. 在影片檔案上可以進一步進行處理或者分享。\n\n缺點：\n1. 需要安裝OpenCV和FFmpeg套件。\n2. 影片檔案的輸出需要一些額外的處理。\n3. 影片檔案的大小可能會比較大，佔用儲存空間。\n\n[TTPs Name]\n[方案一單元測試]\n待補充\n\n[方案二單元測試]\n待補充"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2506,
+    "completion_tokens":692,
+    "total_tokens":3198
+  },
+  "system_fingerprint":null
+}

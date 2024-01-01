@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UQ21HXefOOtQPcKVXHzc8vPucdLS",
+  "object":"chat.completion",
+  "created":1702260597,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1547 Boot or Logon Autostart Execution]\n\n[方案一]\n[分數]：8\n使用套件：os\n優缺點：\n1. 優點：簡單易懂，使用內建的 os 套件就能完成任務。\n2. 缺點：僅適用於 Windows 作業系統。\n\n[方案二]\n[分數]：9\n使用套件：winreg\n優缺點：\n1. 優點：支援 Windows 的註冊表操作，較容易管理啟動項目。\n2. 缺點：僅適用於 Windows 作業系統。\n\n[方案三]\n[分數]：6\n使用套件：subprocess\n優缺點：\n1. 優點：基於命令行的方式操作註冊表，可跨平台使用。\n2. 缺點：需要使用命令行工具，不如前兩種方案直觀。\n\n[T1547 Boot or Logon Autostart Execution 單元測試]\n在進行單元測試時，請先複製原程式碼再進行功能測試。\n\n[方案一單元測試]\nimport os\n\ndef test_add_to_startup():\n    program_path = \"C:\\\\path\\\\to\\\\my_program.exe\"\n    add_to_startup(program_path)\n    \n    # 檢查是否成功加入啟動項目\n    startup_path = os.path.join(os.getenv(\"APPDATA\"), \"Microsoft\", \"Windows\", \"Start Menu\", \"Programs\", \"Startup\")\n    assert os.path.islink(os.path.join(startup_path, os.path.basename(program_path)))\n\n[方案二單元測試]\nimport winreg\n\ndef test_add_to_startup():\n    program_path = \"C:\\\\path\\\\to\\\\my_program.exe\"\n    add_to_startup(program_path)\n    \n    # 檢查是否成功加入啟動項目\n    startup_key = winreg.HKEY_CURRENT_USER\n    with winreg.OpenKey(startup_key, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\") as key:\n        startup_value = winreg.QueryValueEx(key, \"MyProgram\")\n        assert startup_value[0] == program_path\n\n[方案三單元測試]\nimport subprocess\n\ndef test_add_to_startup():\n    program_path = \"C:\\\\path\\\\to\\\\my_program.exe\"\n    add_to_startup(program_path)\n    \n    # 檢查是否成功加入啟動項目\n    startup_key = \"HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\"\n    startup_output = subprocess.check_output(['reg', 'query', startup_key])\n    assert program_path in startup_output.decode()"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1617,
+    "completion_tokens":668,
+    "total_tokens":2285
+  },
+  "system_fingerprint":null
+}

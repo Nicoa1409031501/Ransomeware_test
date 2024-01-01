@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPg6x8DHbZrccXf2YBlgbaRoB1vE",
+  "object":"chat.completion",
+  "created":1702259238,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1095 - Non-Application Layer Protocol]\n\n[方案一]\n[分數]：8\n使用套件：socket\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9\n優缺點：\n優點：\n1. 使用內建的socket模組，不需要額外安裝套件。\n2. 可以透過ICMP協議進行通信。\n3. 簡單易懂，程式碼較短小。\n\n缺點：\n1. 需要手動設定目標IP地址。\n\n[方案二]\n[分數]：6\n使用套件：scapy\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：8\n優缺點：\n優點：\n1. 使用scapy套件，功能強大，支援多種協議。\n2. 可以透過UDP協議進行通信。\n\n缺點：\n1. 需要安裝額外的套件。\n\n[方案三]\n[分數]：9\n使用套件：smtplib\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9\n優缺點：\n優點：\n1. 使用內建的smtplib模組，不需要額外安裝套件。\n2. 可以透過SMTP協議進行通信，具有一定的隱蔽性。\n\n缺點：\n1. 需要設定SMTP伺服器的地址和連接埠。\n2. 需要提供郵件帳號和密碼。\n\n根據評分，方案一得分較高，為8分，接下來對方案一進行功能測試。\n\n[TTPs Name]\n[T1095 - Non-Application Layer Protocol]\n\n[方案一單元測試]\n1. 測試使用socket套件進行ICMP通信的功能。\n\n```python\n# 功能測試\ndef test_send_icmp():\n    send_icmp()\n    # 預期結果：應該能成功發送ICMP封包\n\ntest_send_icmp()\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1770,
+    "completion_tokens":643,
+    "total_tokens":2413
+  },
+  "system_fingerprint":null
+}

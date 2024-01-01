@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wby4ImywXNFfFB4RD7bkvuM96ef0",
+  "object":"chat.completion",
+  "created":1702783136,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[T1612 - Build Image on Host]\n\n[方案一總結]\n優點：\n- 使用Docker SDK的`build_from_remote()`方法可以透過遠端建置自訂映像。\n- 提供的功能可以靈活地建置映像並獲取建置結果。\n\n缺點：\n- 需要安裝Docker SDK套件。\n\n[方案二總結]\n優點：\n- 使用Docker SDK的`build()`方法可以透過本地建置自訂映像。\n- 提供的功能可以靈活地建置映像並獲取建置結果。\n\n缺點：\n- 需要安裝Docker SDK套件。\n\n[方案三總結]\n優點：\n- 使用subprocess套件直接使用Docker命令進行本地建置自訂映像。\n- 不需要額外安裝套件。\n\n缺點：\n- 使用subprocess模塊執行命令可能不夠直觀，且更容易出現錯誤。\n\n以下是已經生成完畢的方案一、方案二和方案三的功能測試內容與TTPs程式碼：\n\n```python\n# 方案一 功能測試\ndef test_build_image_from_remote():\n    build_result = build_image_from_remote('/path/to/dockerfile')\n    assert build_result is not None\n\ntest_build_image_from_remote()\n\n# 方案一 TTPs程式碼\nimport docker\n\ndef build_image_from_remote(dockerfile_path):\n    client = docker.from_env()\n    build_result = client.images.build(path=dockerfile_path)\n    return build_result\n\n# 方案二 功能測試\ndef test_build_image_from_local():\n    build_result = build_image_from_local('/path/to/dockerfile')\n    assert build_result is not None\n\ntest_build_image_from_local()\n\n# 方案二 TTPs程式碼\nimport docker\n\ndef build_image_from_local(dockerfile_path):\n    client = docker.from_env()\n    with open(dockerfile_path, 'r') as dockerfile:\n        build_result = client.images.build(fileobj=dockerfile)\n    return build_result\n\n# 方案三 功能測試\ndef test_build_image_from_local_command():\n    build_image_from_local_command('/path/to/dockerfile')\n    # Add assertions to test if the image is successfully built and tagged\n\ntest_build_image_from_local_command()\n\n# 方案三 TTPs程式碼\nimport subprocess\n\ndef build_image_from_local_command(dockerfile_path):\n    command = f'docker build -t custom_image -f {dockerfile_path} .'\n    subprocess.run(command, shell=True)\n```\n\n請注意，在方案三的功能測試中，您可以根據需要添加斷言來測試映像是否成功建置和標記。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1435,
+    "completion_tokens":701,
+    "total_tokens":2136
+  },
+  "system_fingerprint":null
+}

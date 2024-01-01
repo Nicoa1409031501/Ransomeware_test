@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdGenJc0osMPbf8tlcjwo8RBFMad",
+  "object":"chat.completion",
+  "created":1700881508,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Mitre&Attack Technique - T1053 - Scheduled Task/Job\n方案數量：3\n\n[方案一]\n優點：\n- 使用`at`工具或`cron`工具可以輕鬆實現對於Scheduled Task/Job的操作。\n- 使用`subprocess`套件可以方便地與命令列進行互動。\n\n缺點：\n- 需要依賴系統上的`at`或`cron`工具，跨平台相容性可能有限。\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用`cron`工具的方式可以實現Scheduled Task/Job，並且使用方便。\n- 使用`subprocess`套件可以方便地與命令列進行互動。\n\n缺點：\n- 需要依賴系統上的`cron`工具，跨平台相容性可能有限。\n- 直接執行`echo`語句的方式可能存在安全風險，需要進一步驗證和過濾輸入。\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用`Windows Task Scheduler`可以在Windows系統上實現Scheduled Task/Job。\n- 使用`subprocess`套件可以方便地與命令列進行互動。\n\n缺點：\n- 只適用於Windows系統，無法在其他平台上使用。\n\n[方案三評分]: 80\n\n綜合評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1650,
+    "completion_tokens":425,
+    "total_tokens":2075
+  }
+}

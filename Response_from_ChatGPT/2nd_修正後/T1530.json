@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPz9QUobeDTFrzDUaIZxppi4U2QA",
+  "object":"chat.completion",
+  "created":1702260419,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：google-cloud-storage\n優缺點：\n1. 透過 Google Cloud Storage API 可以輕鬆地從 Google Cloud Storage 取得資料。\n2. 套件提供了許多其他功能，如上傳、刪除、列出檔案等，方便使用者進行文件儲存和管理。\n\n[方案二]\n[分數]：6\n使用套件：boto3\n優缺點：\n1. 透過 AWS SDK for Python 可以方便地從 AWS S3 取得資料。\n2. 需要先設定 AWS 的認證憑證，稍微複雜一些。\n3. 套件提供了豐富的功能，可以進行許多操作，不僅是資料存取。\n\n[方案三]\n[分數]：8\n使用套件：azure-storage-blob\n優缺點：\n1. 透過 Microsoft Azure Storage SDK 可以輕鬆地從 Azure Storage 取得資料。\n2. 若要使用該套件，需要先設定 Azure Storage 的連接字串，稍微麻煩一些。\n3. 套件提供了其他功能，如上傳、刪除、列出 Blob Container 的檔案等。\n\n由於方案一和方案三的分數都超過8分，我們將針對這兩個方案進行單元測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[TTPs Name]\n[方案三單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1729,
+    "completion_tokens":465,
+    "total_tokens":2194
+  },
+  "system_fingerprint":null
+}

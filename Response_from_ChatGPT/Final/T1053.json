@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbjXVHHMbzQTT1iwzppvnEV6PEcT",
+  "object":"chat.completion",
+  "created":1702782235,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1053 - Scheduling](https: // attack.mitre.org/techniques/T1053/)\n\n[可實現]\n[T1053 - Scheduling](https: // attack.mitre.org/techniques/T1053/)\n\n[方案一總結]\n使用套件subprocess可以實現T1053的功能，並模擬Adversaries濫用工作排程功能執行惡意程式碼。此方案使用at工具在指定的日期和時間執行進程。優點是可以設定具體的執行時間和日期，缺點是需要使用者具有足夠的權限才能使用at指令，在輸入時間和日期時需要設定正確的格式。\n\n[方案二總結]\n使用套件subprocess可以實現T1053的功能，並模擬Adversaries濫用工作排程功能執行惡意程式碼。此方案使用cron工具設定定期執行的進程。優點是可以使用CRON表達式來設定進程的執行時間，缺點是需要使用者具有足夠的權限才能設定cron進程。\n\n[方案三總結]\n使用套件subprocess可以實現T1053的功能，並模擬Adversaries濫用工作排程功能執行惡意程式碼。此方案使用Windows Task Scheduler工具在Windows作業系統中設定進程的定期執行。優點是適用於Windows作業系統，簡單易用，缺點是不適用於其他作業系統。\n\n[方案一 - 功能測試]\n```python\ndef test_run_malicious_code_at():\n    run_malicious_code_at('2022-01-01', '08:00', 'echo \"Hello World\"')\n    # Add assertions here\n\ntest_run_malicious_code_at()\n```\n\n[方案二 - 功能測試]\n```python\ndef test_schedule_malicious_code_cron():\n    schedule_malicious_code_cron('0 8 * * *', 'echo \"Hello World\"')\n    # Add assertions here\n\ntest_schedule_malicious_code_cron()\n```\n\n[方案三 - 功能測試]\n```python\ndef test_schedule_malicious_code_task_scheduler():\n    schedule_malicious_code_task_scheduler('malicious_task', 'echo \"Hello World\"')\n    # Add assertions here\n\ntest_schedule_malicious_code_task_scheduler()\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1512,
+    "completion_tokens":654,
+    "total_tokens":2166
+  },
+  "system_fingerprint":null
+}

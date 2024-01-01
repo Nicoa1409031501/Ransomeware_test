@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdWpnNZ5Scc4i0Tzn5ccWq35DW9v",
+  "object":"chat.completion",
+  "created":1700882511,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：資料集中\n方案數量：2\n\n[方案一]\n優點：\n- 使用os套件，程式碼簡短且易於理解\n- 提供本地系統和集中系統的兩種資料集中方式\n\n缺點：\n- 缺乏錯誤處理機制和日誌功能\n\n方案一評分：80\n\n[方案二]\n優點：\n- 使用os套件，程式碼簡短且易於理解\n- 提供本地系統和集中系統的兩種資料集中方式\n\n缺點：\n- 缺乏錯誤處理機制和日誌功能\n\n方案二評分：80\n\n總評分：80"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1758,
+    "completion_tokens":230,
+    "total_tokens":1988
+  }
+}

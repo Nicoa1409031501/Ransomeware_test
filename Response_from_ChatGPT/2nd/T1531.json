@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyO2397Ch3t0AkZBph0pLQC0VIbb",
+  "object":"chat.completion",
+  "created":1702392658,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1531] [方法一]\n[分數]：9\n使用套件：os、getpass\n優缺點：\n優點：\n1. 簡單易懂，使用os套件執行命令，方便實現。\n2. 使用getpass套件可以隱藏使用者輸入的帳號名稱，提高安全性。\n\n缺點：\n1. 依賴於操作系統的命令，可能在不同的系統上有所差異。\n2. 不具有錯誤處理功能。\n\n[T1531] [方法二]\n[分數]：8\n使用套件：subprocess\n優缺點：\n優點：\n1. 使用subprocess套件執行命令，比起方法一更加安全穩定。\n2. 可以在程式中處理錯誤或異常。\n\n缺點：\n1. 依賴於操作系統的命令，可能在不同的系統上有所差異。\n2. 帳號名稱輸入不會被隱藏，可能會降低一些安全性。\n\n[T1531] [方法三]\n[分數]：9\n使用套件：ctypes\n優缺點：\n優點：\n1. 使用ctypes套件調用Windows系統的API，可以實現更多細節操作。\n2. 可以在程式中處理錯誤或異常。\n\n缺點：\n1. 只能在Windows系統上使用，不具有跨平台性。\n2. 使用ctypes需要熟悉底層API的使用方式和參數設定。 \n\n在分數最高的方法一（分數為9）上進行功能測試。建立一個單元測試的function：\n\n```python\ndef test_remove_account_access():\n    # 輸入測試帳號名稱\n    input_string = \"test_account\"\n    inp = io.StringIO(input_string)\n    sys.stdin = inp\n\n    # 執行功能測試\n    remove_account_access()\n\n    output = sys.stdout.getvalue().strip()\n    assert \"已成功鎖定帳號：test_account\" in output\n\n    sys.stdin = sys.__stdin__  # 還原sys.stdin\n```\n\n將功能測試的function和方法一的程式碼整合在一起：\n\n```python\nimport os\nimport getpass\nimport io\nimport sys\n\ndef remove_account_access():\n    username = getpass.getuser()\n    target_account = input(\"請輸入要刪除或鎖定的帳號名稱：\")\n    \n    os.system(f\"net user {target_account} /active:no\")\n    print(f\"已成功鎖定帳號：{target_account}\")\n    \n    os.system(\"shutdown /l\")\n\ndef test_remove_account_access():\n    # 輸入測試帳號名稱\n    input_string = \"test_account\"\n    inp = io.StringIO(input_string)\n    sys.stdin = inp\n\n    # 執行功能測試\n    remove_account_access()\n\n    output = sys.stdout.getvalue().strip()\n    assert \"已成功鎖定帳號：test_account\" in output\n\n    sys.stdin = sys.__stdin__  # 還原sys.stdin\n\ntest_remove_account_access()\n```\n\n這樣可以在單元測試中模擬使用者輸入，並驗證輸出結果是否符合預期。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1924,
+    "completion_tokens":914,
+    "total_tokens":2838
+  },
+  "system_fingerprint":null
+}

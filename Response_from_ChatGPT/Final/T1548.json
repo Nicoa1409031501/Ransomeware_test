@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wbv4jC5soME3yUq5rJWMSBjoDhQH",
+  "object":"chat.completion",
+  "created":1702782950,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]\n\n[方案一總結]\n- 使用subprocess.call(['sudo', 'command_to_execute'])的方式可以呼叫子進程以提升權限。\n\n[方案二總結]\n- 使用os.system('sudo command_to_execute')的方式可以直接執行命令以提升權限。\n\n[方案三總結]\n- 使用ctypes.windll.shell32.ShellExecuteW(None, \"runas\", \"command_to_execute\", None, None, 1)的方式可以達到提升權限的效果。\n\n[方案四總結]\n- 使用win32com.shell.shell.ShellExecuteEx(lpVerb='runas', lpFile=sys.executable, lpParameters=params)的方式可以達到提升權限的效果。\n\n[方案五總結]\n- 使用boto3.client('sts')的assume_role()方法可以達到提升AWS IAM角色權限的效果。\n\n[方案六總結]\n- 使用boto3.client('sts')的get_session_token()方法可以達到提升AWS IAM使用者權限的效果。\n\n```python\n[方案一及功能測試]\n\nimport subprocess\n\ndef abuse_elevation_control1():\n    subprocess.call(['sudo', 'command_to_execute'])\n\nabuse_elevation_control1()\n\n# 功能測試\n# 檢查是否執行指定的命令並成功提升權限\n```\n\n```python\n[方案二及功能測試]\n\nimport os\n\ndef abuse_elevation_control2():\n    os.system('sudo command_to_execute')\n\nabuse_elevation_control2()\n\n# 功能測試\n# 檢查是否執行指定的命令並成功提升權限\n```\n\n```python\n[方案三及功能測試]\n\nimport ctypes\n\ndef abuse_elevation_control3():\n    ctypes.windll.shell32.ShellExecuteW(None, \"runas\", \"command_to_execute\", None, None, 1)\n\nabuse_elevation_control3()\n\n# 功能測試\n# 檢查是否執行指定的命令並成功提升權限\n```\n\n```python\n[方案四及功能測試]\n\nimport sys\nimport os\nimport win32con\nimport win32com.shell.shell as shell\n\ndef abuse_elevation_control4():\n    ASADMIN = 'asadmin'\n    if sys.argv[-1] != ASADMIN:\n        script = os.path.abspath(sys.argv[0])\n        params = ' '.join([script] + sys.argv[1:] + [ASADMIN])\n        shell.ShellExecuteEx(lpVerb='runas', lpFile=sys.executable, lpParameters=params)\n        sys.exit(0)\n\nabuse_elevation_control4()\n\n# 功能測試\n# 檢查是否執行指定的命令並成功提升權限\n```\n\n```python\n[方案五及功能測試]\n\nimport boto3\n\ndef abuse_elevation_control5():\n    sts_client = boto3.client('sts')\n    response = sts_client.assume_role(\n        RoleArn='arn:aws:iam::123456789012:role/MyRole',\n        RoleSessionName='MySession'\n    )\n    print(response['Credentials'])\n\nabuse_elevation_control5()\n\n# 功能測試\n# 檢查是否成功提升AWS IAM角色的權限並輸出臨時安全憑證\n```\n\n```python\n[方案六及功能測試]\n\nimport boto3\n\ndef abuse_elevation_control6():\n    sts_client = boto3.client('sts')\n    response = sts_client.get_session_token()\n    print(response['Credentials'])\n\nabuse_elevation_control6()\n\n# 功能測試\n# 檢查是否成功提升AWS IAM使用者的權限並輸出臨時安全憑證\n```\n\n以上是各個方案的總結，並附上功能測試的範例。請依需求選擇適合的方案與功能測試進行實作。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2251,
+    "completion_tokens":992,
+    "total_tokens":3243
+  },
+  "system_fingerprint":null
+}

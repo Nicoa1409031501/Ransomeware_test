@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UUbmsYUIi4grZR7WZnQnwZNgRGAF",
+  "object":"chat.completion",
+  "created":1702278190,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1654 - Log Enumeration]\n\n[方案一]\n[分數]：9\n使用套件：os\n優缺點：\n1. 使用Python內建的文件操作函數，不需要額外安裝套件。\n2. 可以直接讀取並輸出日誌文件的內容。\n3. 可以自由選擇要處理的日誌文件。\n\n[方案二]\n[分數]：8\n使用套件：logging\n優缺點：\n1. 使用logging模組可以更方便地處理日誌文件。\n2. 可以使用不同的處理器，如FileHandler來實現日誌的記錄和讀取。\n3. 需要對每個日誌文件配置一個logger對象，需要稍微複雜一些。\n\n[方案三]\n[分數]：7\n使用套件：pylogbeat\n優缺點：\n1. 使用第三方套件pylogbeat可以方便地將日誌數據傳送到logstash進行解析和存儲。\n2. 需要安裝額外的pylogbeat套件。\n3. 需要設定logstash主機的地址和端口。\n\n根據評分，方案一的分數最高，是9分，因此進行該方案的功能測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2177,
+    "completion_tokens":409,
+    "total_tokens":2586
+  },
+  "system_fingerprint":null
+}

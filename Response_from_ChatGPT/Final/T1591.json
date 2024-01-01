@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbRCiz3tEOck4y8BLyyKWgxzEreP",
+  "object":"chat.completion",
+  "created":1702781098,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]：網路資訊搜集\n\n[方案一總結]\n使用urllib套件進行網路資訊搜集，優點是簡單易懂，無需額外安裝任何套件；缺點是在處理較大型網頁時可能會有效能問題。\n\n[方案二總結]\n使用requests和BeautifulSoup套件進行網路資訊搜集，優點是使用requests套件能夠方便地發送HTTP請求，使用BeautifulSoup套件能夠方便地解析HTML；缺點是需要額外安裝requests和BeautifulSoup套件。\n\n[方案三總結]\n使用selenium套件模擬瀏覽器行為進行網路資訊搜集，優點是能夠模擬瀏覽器行為，解決JavaScript動態生成內容或網站驗證的問題；缺點是需要額外安裝selenium套件，並且需要指定瀏覽器驅動程式。\n\n下面將將之前的TTPs程式碼與功能測試撰寫在一起：\n\n[可實現]\n[TTPs Name]：網路資訊搜集\n\n[方案一總結]\n使用套件：urllib\n優缺點：\n1. 優點：簡單易懂，無需額外安裝任何套件。\n2. 缺點：在處理較大型網頁時可能會有效能問題。\n\n方案一功能測試：\n```python\nimport urllib.request\n\ndef web_scraping(url):\n    try:\n        response = urllib.request.urlopen(url)\n        html = response.read().decode()\n\n        start_tag = \"<h1>\"\n        end_tag = \"</h1>\"\n        start_index = html.find(start_tag) + len(start_tag)\n        end_index = html.find(end_tag)\n        organization_name = html[start_index:end_index]\n\n        return organization_name\n    except:\n        return None\n\n# 測試範例\ntarget_url = \"https://www.example.com\"\nresult = web_scraping(target_url)\nprint(result)\n```\n\n[方案二總結]\n使用套件：requests, BeautifulSoup\n優缺點：\n1. 優點：使用requests套件能夠方便地發送HTTP請求，使用BeautifulSoup套件能夠方便地解析HTML。\n2. 缺點：需要額外安裝requests和BeautifulSoup套件。\n\n方案二功能測試：\n```python\nimport requests\nfrom bs4 import BeautifulSoup\n\ndef web_scraping(url):\n    try:\n        response = requests.get(url)\n        html = response.text\n\n        soup = BeautifulSoup(html, \"html.parser\")\n\n        organization_name = soup.find(\"h1\").text\n\n        return organization_name\n    except:\n        return None\n\n# 測試範例\ntarget_url = \"https://www.example.com\"\nresult = web_scraping(target_url)\nprint(result)\n```\n\n[方案三總結]\n使用套件：selenium\n優缺點：\n1. 優點：能夠模擬瀏覽器行為，解決JavaScript動態生成內容或網站驗證的問題。\n2. 缺點：需要額外安裝selenium套件，並且需要指定瀏覽器驅動程式。\n\n方案三功能測試：\n```python\nfrom selenium import webdriver\n\ndef web_scraping(url):\n    try:\n        driver = webdriver.Chrome()\n        driver.get(url)\n\n        organization_name = driver.find_element_by_tag_name(\"h1\").text\n\n        driver.quit()\n\n        return organization_name\n    except:\n        return None\n\n# 測試範例\ntarget_url = \"https://www.example.com\"\nresult = web_scraping(target_url)\nprint(result)\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1805,
+    "completion_tokens":1052,
+    "total_tokens":2857
+  },
+  "system_fingerprint":null
+}

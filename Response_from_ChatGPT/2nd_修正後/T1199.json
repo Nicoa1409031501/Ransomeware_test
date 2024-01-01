@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPpWaakyphTMKTbR7UJl0YlCdMu9",
+  "object":"chat.completion",
+  "created":1702259822,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：requests\n優缺點：\n1. 使用requests套件可以方便地進行HTTP請求，功能簡單明瞭。\n2. 可以輕鬆處理各種HTTP請求方法，例如GET、POST等。\n3. 可以設定header、cookies等進一步控制請求。\n\n[方案二]\n[分數]：7\n使用套件：urllib\n優缺點：\n1. 使用urllib套件可以進行HTTP請求，支援GET、POST等多種方法。\n2. 功能經典且穩定，適合較簡單的HTTP請求場景。\n3. 較低階的套件，需要自行進行各種請求參數的設定。\n\n[方案三]\n[分數]：6\n使用套件：socket\n優缺點：\n1. 使用socket套件可以進行TCP連線，非常靈活且可客製化。\n2. 可以處理複雜的網路請求和回應，包括低階細節控制。\n3. 較為複雜且需要手動處理各種網路層細節，不適合簡單的HTTP請求場景。\n\n[方案一單元測試]\n以下是方案一的功能測試程式碼：\n\n```python\nimport requests\n\ndef trusted_relationship(url):\n    response = requests.get(url)\n    data = response.text\n    return data\n\ndef test_trusted_relationship():\n    url = \"https://www.example.com\"\n    expected_result = \"<html><head><title>Example Domain</title></head><body><h1>Example Domain</h1></body></html>\"\n    \n    result = trusted_relationship(url)\n    \n    assert result == expected_result, \"Test case failed\"\n    print(\"Test case passed\")\n\n# 呼叫測試函式\ntest_trusted_relationship()\n```\n\n[方案二單元測試]\n以下是方案二的功能測試程式碼：\n\n```python\nfrom urllib.request import urlopen\n\ndef trusted_relationship(url):\n    response = urlopen(url)\n    data = response.read().decode()\n    return data\n\ndef test_trusted_relationship():\n    url = \"https://www.example.com\"\n    expected_result = \"<html><head><title>Example Domain</title></head><body><h1>Example Domain</h1></body></html>\"\n    \n    result = trusted_relationship(url)\n    \n    assert result == expected_result, \"Test case failed\"\n    print(\"Test case passed\")\n\n# 呼叫測試函式\ntest_trusted_relationship()\n```\n\n以上是方案一和方案二的功能測試程式碼，可以對這兩個方案進行測試驗證。單元測試涵蓋了正常的網頁回應情況，檢查是否回傳正確的HTML資料。如果運行測試案例並且未出現AssertionError，則代表測試通過。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1554,
+    "completion_tokens":843,
+    "total_tokens":2397
+  },
+  "system_fingerprint":null
+}

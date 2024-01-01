@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Ri02ll5pq8XaIkH7BpxEPRw520Wi",
+  "object":"chat.completion",
+  "created":1701614682,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"2. **T1652-Software Discovery**\n\nMethod 1:\nPackages used: os, subprocess\nFunctionality used: os.listdir(), subprocess.run()\n\n```python\nimport os\nimport subprocess\n\ndef software_discovery_1():\n    software_list = []\n    \n    # Get the list of files and folders in the Program Files directory\n    try:\n        program_files_dir = os.getenv(\"ProgramFiles\")\n        files = os.listdir(program_files_dir)\n        software_list.extend(files)\n    except Exception as e:\n        print(f\"Error accessing Program Files directory: {str(e)}\")\n\n    # Get the list of files and folders in the Program Files (x86) directory\n    try:\n        program_files_x86_dir = os.getenv(\"ProgramFiles(x86)\")\n        files_x86 = os.listdir(program_files_x86_dir)\n        software_list.extend(files_x86)\n    except Exception as e:\n        print(f\"Error accessing Program Files (x86) directory: {str(e)}\")\n\n    # Get the list of installed software using WMIC command\n    try:\n        result = subprocess.run([\"wmic\", \"product\", \"get\", \"name\"], capture_output=True, text=True)\n        output = result.stdout.strip()\n        software_list.extend(output.split(\"\\n\")[1:])\n    except Exception as e:\n        print(f\"Error executing WMIC command: {str(e)}\")\n\n    # Remove duplicates and sort the software list\n    software_list = list(set(software_list))\n    software_list.sort()\n    \n    return software_list\n\nsoftware_list = software_discovery_1()\nprint(software_list)\n```\n\nMethod 2:\nPackages used: wmi\nFunctionality used: wmi.WMI()\n\n```python\nimport wmi\n\ndef software_discovery_2():\n    software_list = []\n\n    try:\n        wmi_obj = wmi.WMI()\n\n        for product in wmi_obj.Win32_Product():\n            software_list.append(product.Name)\n    except Exception as e:\n        print(f\"Error accessing WMI: {str(e)}\")\n\n    software_list.sort()\n\n    return software_list\n\nsoftware_list = software_discovery_2()\nprint(software_list)\n```\n\nNote: Method 1 uses a combination of accessing directory contents and running the `wmic` command to retrieve the list of installed software. Method 2 uses the `wmi` package to access WMI and retrieve the software list. Choose the method that best suits your requirements.\n\nLet me know if you need any further assistance."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":880,
+    "completion_tokens":510,
+    "total_tokens":1390
+  },
+  "system_fingerprint":null
+}

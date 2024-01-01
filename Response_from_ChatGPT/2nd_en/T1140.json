@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHBrTs87lMPU9GP1g6vrjVLIxSRl",
+  "object":"chat.completion",
+  "created":1702464939,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Solution 1]\n[Score]: 10\n\nUsed packages: None\n\nAdvantages and Disadvantages:\n1. Simple and straightforward solution using Python's built-in base64 decoding functionality.\n2. No external packages required.\n3. Code is syntactically and logically correct.\n\n[Solution 2]\n[Score]: 8\n\nUsed packages: quopri\n\nAdvantages and Disadvantages:\n1. Provides a solution specifically for decoding quoted-printable encoded strings.\n2. May require installation of the `quopri` package if not already included in Python's standard library.\n3. Code is syntactically and logically correct.\n\n[Solution 3]\n[Score]: 9\n\nUsed packages: binascii\n\nAdvantages and Disadvantages:\n1. Provides a solution specifically for decoding hexadecimal encoded strings.\n2. May require installation of the `binascii` package if not already included in Python's standard library.\n3. Code is syntactically and logically correct.\n\nSince Solution 1 has the highest score, let's proceed to writing functional and unit tests for Solution 1.\n\n[Functional Test]\n\n# This test case assumes we have an encoded string \"SGVsbG8gV29ybGQh\" which decodes to \"Hello World!\".\nencoded_string = \"SGVsbG8gV29ybGQh\"\nexpected_output = \"Hello World!\"\n\ndef test_decode_base64():\n    decoded_string = decode_base64(encoded_string)\n    assert decoded_string == expected_output, \"Functional test failed!\"\n    print(\"Functional test passed.\")\n\ntest_decode_base64()\n\n[Unit Test]\n\n# This test case verifies that the decode_base64 function correctly decodes an encoded string.\ndef test_decode_base64():\n    encoded_string = \"SGVsbG8gV29ybGQh\"\n    expected_output = \"Hello World!\"\n    decoded_string = decode_base64(encoded_string)\n    assert decoded_string == expected_output, \"Unit test failed!\"\n    print(\"Unit test passed.\")\n\ntest_decode_base64()"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":977,
+    "completion_tokens":412,
+    "total_tokens":1389
+  },
+  "system_fingerprint":null
+}

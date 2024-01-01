@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3rR3bAfMGbTghRuQcf79PmuZ16D",
+  "object":"chat.completion",
+  "created":1701460389,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1040-Network Sniffing\n\nMethod 1:\nPackages used: scapy, dpkt\n\n```python\nimport scapy.all as scapy\nimport dpkt\n\ndef network_sniffing():\n    def packet_handler(pkt):\n        if pkt.haslayer(dpkt.ethernet.Ethernet):\n            eth = pkt.getlayer(dpkt.ethernet.Ethernet)\n            if eth.type == dpkt.ethernet.ETH_TYPE_IP:\n                ip = eth.data\n                # add your desired code to process IP packets here\n\n    scapy.sniff(prn=packet_handler)\n    \nnetwork_sniffing()\n```\n\nMethod 2:\nPackages used: pyshark\n\n```python\nimport pyshark\n\ndef network_sniffing():\n    capture = pyshark.LiveCapture(interface='<interface_name>')\n    for packet in capture.sniff_continuously():\n        # add your desired code to process captured packets here\n\nnetwork_sniffing()\n```\n\nMethod 3:\nPackages used: scapy, pcapy\n\n```python\nimport scapy.all as scapy\nimport pcapy\n\ndef network_sniffing():\n    cap = pcapy.open_live('<interface_name>', 65536, True, 100)  # adjust buffer size and timeout as per your requirements\n    while True:\n        (header, packet) = cap.next()\n        scapy_packet = scapy.IP(packet)  # convert raw packet data to scapy packet\n        # add your desired code to process scapy packet here\n\nnetwork_sniffing()\n```\n\nNote:\n- Replace `<interface_name>` with the name of the network interface you want to capture on (e.g., \"eth0\" or \"wlan0\").\n- Make sure you have the necessary permissions to capture network traffic.\n\n[Feasible]"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":391,
+    "completion_tokens":372,
+    "total_tokens":763
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R44e2iiGfksEzHjeTRHiKsjTdTsQ",
+  "object":"chat.completion",
+  "created":1701461208,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Cannot be Implemented in the Current Environment]\n\nT1210-Exploitation of Remote Services is a technique that involves exploiting remote services to gain unauthorized access to internal systems. This technique requires the ability to run arbitrary code on the target system, which is not feasible in this current environment.\n\nPlease let me know if there is anything else I can assist you with."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":393,
+    "completion_tokens":73,
+    "total_tokens":466
+  },
+  "system_fingerprint":null
+}

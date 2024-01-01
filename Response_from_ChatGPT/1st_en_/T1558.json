@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3dx9bAJOHmmUqUUKZKAzG2FI0Hn",
+  "object":"chat.completion",
+  "created":1701459553,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Cannot be Implemented]"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":630,
+    "completion_tokens":5,
+    "total_tokens":635
+  },
+  "system_fingerprint":null
+}

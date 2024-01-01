@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbyTmeSAMfGxM4lVB8GvagONrfYv",
+  "object":"chat.completion",
+  "created":1702783161,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] [檢查Debugger]\n[TTPs Name(此處填寫TTPs的英文名稱)]\n\n[方案一總結]\n方案一使用了os模組和sys模組來檢查是否有Debugger存在。使用sys.gettrace()方法可以獲取當前進程是否正在被Debugger追蹤，如果返回值不為None，則認為有Debugger存在。方案一的實現簡單，不需安裝額外套件。\n\n[方案二總結]\n方案二使用了platform模組來檢查是否有Debugger存在。通過檢查系統是Windows且編譯器版本符合特定模式（即以\"MSC v.\"開頭），來確定是否有Debugger存在。方案二的實現相對方案一複雜一些，但可以檢查到更多特定的執行環境和編譯器。\n\n[方案三總結]\n方案三使用了ptrace模組來檢查是否有Debugger附加到子進程。通過調用ptrace.debugger.child().has_debugger_attached()方法來檢查是否有Debugger附加到子進程。方案三的實現需要另外安裝ptrace套件，且僅能在特定環境中使用。\n\n以下是根據之前撰寫的TTPs程式碼，與功能測試程式碼的整合：\n\n```python\nimport os\nimport sys\nimport platform\nimport unittest\n\ndef check_debugger_1():\n    try:\n        # 檢查是否為Debugger\n        if sys.gettrace() is not None:\n            return True\n        else:\n            return False\n    except Exception as e:\n        return False\n\ndef check_debugger_2():\n    try:\n        # 檢查是否為Debugger\n        if platform.system() == 'Windows' and platform.python_compiler().startswith('MSC v.'):\n            return True\n        else:\n            return False\n    except Exception as e:\n        return False\n\nclass TestCheckDebugger(unittest.TestCase):\n    def test_with_debugger_1(self):\n        # 使用Debugger運行測試\n        result = check_debugger_1()\n        self.assertTrue(result)\n    \n    def test_without_debugger_1(self):\n        # 不使用Debugger運行測試\n        result = check_debugger_1()\n        self.assertFalse(result)\n    \n    def test_with_debugger_2(self):\n        # 使用Debugger運行測試\n        result = check_debugger_2()\n        self.assertTrue(result)\n    \n    def test_without_debugger_2(self):\n        # 不使用Debugger運行測試\n        result = check_debugger_2()\n        self.assertFalse(result)\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\n上述程式碼將方案一和方案二的TTPs程式碼和功能測試程式碼整合在一起。其中，check_debugger_1()是方案一的TTPs程式碼，check_debugger_2()是方案二的TTPs程式碼。使用unittest模組來進行功能測試，分別模擬有和無Debugger的情況。測試用例中的test_with_debugger_1()和test_without_debugger_1()函式是對方案一的功能進行測試，test_with_debugger_2()和test_without_debugger_2()函式是對方案二的功能進行測試。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1874,
+    "completion_tokens":906,
+    "total_tokens":2780
+  },
+  "system_fingerprint":null
+}

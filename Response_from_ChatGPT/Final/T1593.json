@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbTKVP3edTdPBO4Zc0pkcCR33M91",
+  "object":"chat.completion",
+  "created":1702781230,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n1. [方案一總結]\n   - 使用requests套件和正則表達式擷取目標資訊。\n   - 簡單直接，只需使用requests和re套件即可實現。\n   - 可能無法處理較複雜的HTML結構或JavaScript生成的內容。\n\n2. [方案二總結]\n   - 使用BeautifulSoup套件解析HTML，並使用CSS選擇器擷取目標資訊。\n   - 可以輕鬆解析HTML，使用CSS選擇器更方便地擷取目標資訊。\n   - 對於某些特殊的HTML結構，可能需要更複雜的選擇器來獲取目標資訊。\n\n3. [方案三總結]\n   - 使用selenium套件模擬瀏覽器行為，對目標網頁進行搜索。\n   - 可以模擬真實瀏覽器行為，處理包含JavaScript生成的內容。\n   - 需要安裝瀏覽器驅動程序並配置相應環境，較為複雜。\n\n現在將要撰寫方案二的功能測試程式碼：\n\n```python\nfrom bs4 import BeautifulSoup\nimport requests\n\ndef test_search_websites():\n    url = \"https://www.example.com\"\n    titles = search_websites(url)\n    assert titles == [\"Example Domain\"]\n    \n    url = \"https://www.google.com\"\n    titles = search_websites(url)\n    assert titles == [\"Google\"]\n    \n    url = \"https://www.yahoo.com\"\n    titles = search_websites(url)\n    assert titles == [\"Yahoo\"]\n```\n\n將先前的方案二程式碼與功能測試程式碼撰寫在一起：\n\n```python\nfrom bs4 import BeautifulSoup\nimport requests\n\ndef search_websites(url):\n    response = requests.get(url)\n    if response.ok:\n        soup = BeautifulSoup(response.text, 'html.parser')\n        title_tags = soup.find_all('title')\n        titles = [tag.get_text() for tag in title_tags]\n        return titles\n    else:\n        return None\n\ndef test_search_websites():\n    url = \"https://www.example.com\"\n    titles = search_websites(url)\n    assert titles == [\"Example Domain\"]\n    \n    url = \"https://www.google.com\"\n    titles = search_websites(url)\n    assert titles == [\"Google\"]\n    \n    url = \"https://www.yahoo.com\"\n    titles = search_websites(url)\n    assert titles == [\"Yahoo\"]\n```\n\n請檢視以上程式碼，並確保已經包含了方案二的TTPs程式碼和相應的功能測試程式碼。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1622,
+    "completion_tokens":742,
+    "total_tokens":2364
+  },
+  "system_fingerprint":null
+}

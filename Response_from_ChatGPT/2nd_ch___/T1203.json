@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Oe6uAZ0QmzqHEcfxVVSAAq2qTIpX",
+  "object":"chat.completion",
+  "created":1700884748,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：漏洞檢測\n方案數量：1\n\n[方案一]\n優點：\n- 使用Python實現，易於閱讀和維護\n- 使用pyyaml套件解析YAML檔案，提供了方便的方式讀取漏洞資訊\n- 可以檢測指定目錄下的所有客戶端應用程式，並列出所有潛在的可利用漏洞\n\n缺點：\n- 僅檢測以`.yaml`為副檔名的檔案，如果漏洞資訊以其他格式儲存，則無法檢測到該漏洞\n\n方案一評分: 90分"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1800,
+    "completion_tokens":222,
+    "total_tokens":2022
+  }
+}

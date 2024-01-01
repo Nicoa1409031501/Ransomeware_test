@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R40hhvBbP7BACLpgrda60L7Ukqar",
+  "object":"chat.completion",
+  "created":1701460963,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1049-System Network Connections Discovery\n\nTo implement the functionality of T1049, System Network Connections Discovery, I will be using Python. \n\n1. Method 1:\n   - Packages used: psutil\n   - Functionality used: psutil.net_connections()\n\n```python\nimport psutil\n\ndef network_connections_discovery():\n    connections = psutil.net_connections(kind='tcp')\n    for conn in connections:\n        print(f\"Local Address: {conn.laddr}, Remote Address: {conn.raddr}, Status: {conn.status}\")\n\nnetwork_connections_discovery()\n```\n\n2. Method 2:\n   - Packages used: subprocess\n   - Functionality used: subprocess.Popen()\n\n```python\nimport subprocess\n\ndef network_connections_discovery():\n    process = subprocess.Popen(['netstat', '-ano'], stdout=subprocess.PIPE)\n    output, _ = process.communicate()\n    output = output.decode()  # Convert bytes to string\n    lines = output.splitlines()\n    for line in lines[4:]:  # Skip header\n        cols = line.split()\n        local_address = cols[1]\n        remote_address = cols[2]\n        status = cols[3]\n        print(f\"Local Address: {local_address}, Remote Address: {remote_address}, Status: {status}\")\n\nnetwork_connections_discovery()\n```\n\n3. Method 3:\n   - Packages used: socket\n   - Functionality used: socket.getsockname(), socket.getpeername()\n\n```python\nimport socket\n\ndef network_connections_discovery():\n    connections = []\n    for port in range(0, 65536):\n        try:\n            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n            s.bind(('0.0.0.0', 0))\n            s.connect(('127.0.0.1', port))\n            local_address = s.getsockname()\n            remote_address = s.getpeername()\n            connections.append((local_address, remote_address))\n            s.close()\n        except socket.error:\n            pass\n    for conn in connections:\n        print(f\"Local Address: {conn[0]}, Remote Address: {conn[1]}\")\n\nnetwork_connections_discovery()\n```\n\nNote: These implementations will print out the network connections. You can modify the code to write the information to a file if needed."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":344,
+    "completion_tokens":477,
+    "total_tokens":821
+  },
+  "system_fingerprint":null
+}

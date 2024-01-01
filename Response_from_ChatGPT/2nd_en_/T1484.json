@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RgwMPt7wwcE4siWmSOoZz9QJHOyo",
+  "object":"chat.completion",
+  "created":1701610610,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"2. T1445-Create/Modify System Process: \n\nMethod 1:\nPackages used: psutil, subprocess\nFunctionality used: psutil.Process(), subprocess.call()\n\n```python\nimport psutil\nimport subprocess\n\ndef create_system_process(command):\n    try:\n        # 1. Create a system process using subprocess\n        return_code = subprocess.call(command, shell=True)\n        if return_code == 0:\n            return True\n        else:\n            return False\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Example usage:\ncommand = \"C:\\\\windows\\\\system32\\\\notepad.exe\"\ncreate_system_process(command)\n```\n\nMethod 2:\nPackages used: wmi\nFunctionality used: wmi.WMI().Win32_Process.Create()\n\n```python\nimport wmi\n\ndef create_system_process(command):\n    try:\n        # 1. Create a system process using WMI\n        c = wmi.WMI()\n        c.Win32_Process.Create(CommandLine=command)\n\n        return True\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Example usage:\ncommand = \"C:\\\\windows\\\\system32\\\\notepad.exe\"\ncreate_system_process(command)\n```\n\nMethod 3:\nPackages used: ctypes, win32process\nFunctionality used: ctypes.windll.kernel32.CreateProcessW()\n\n```python\nimport ctypes\nimport win32process\n\ndef create_system_process(command):\n    try:\n        # 1. Create a system process using ctypes and win32process\n        startup_info = win32process.STARTUPINFO()\n        process_info = win32process.PROCESS_INFORMATION()\n\n        create_process_flags = win32process.CREATE_NEW_CONSOLE | win32process.CREATE_NEW_PROCESS_GROUP\n        creation_flags = win32process.DETACHED_PROCESS\n        ctypes.windll.kernel32.CreateProcessW(None, command, None, None, False, create_process_flags, None, None, ctypes.byref(startup_info), ctypes.byref(process_info))\n\n        return True\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Example usage:\ncommand = \"C:\\\\windows\\\\system32\\\\notepad.exe\"\ncreate_system_process(command)\n```\n\nNote: The command parameter should be a valid executable path or command that can be executed as a system process."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1079,
+    "completion_tokens":475,
+    "total_tokens":1554
+  },
+  "system_fingerprint":null
+}

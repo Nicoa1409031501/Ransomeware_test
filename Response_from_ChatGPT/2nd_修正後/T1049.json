@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPaF0WzFrXPBPs1K0PSLRuWV73Z4",
+  "object":"chat.completion",
+  "created":1702258875,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[System Network Connections Discovery]\n\n[方案一]\n使用Python的socket模塊來實現System Network Connections Discovery。\n\n 使用套件：socket\n\n優點：\n1. 簡單易懂，使用內建的socket模塊即可實現。\n2. 可以自定義發送指令、接收回應，根據需要進行資訊解析。\n\n缺點：\n1. 需要手動解析回應，處理較複雜的資訊可能需要額外的程式碼。\n\n分數：8\n\n\n[方案二]\n使用Python的subprocess模塊和netstat命令來實現System Network Connections Discovery。\n\n 使用套件：subprocess\n\n優點：\n1. 使用subprocess可以直接執行系統命令，獲取系統資訊。\n2. netstat命令提供了詳細的網絡連接資訊，能夠直接獲取到需要的資訊。\n\n缺點：\n1. 需要依賴系統的netstat命令，可能在不同的作業系統上有差異。\n\n分數：9\n\n\n[方案三]\n使用Python的psutil模塊來實現System Network Connections Discovery。\n\n 使用套件：psutil\n\n優點：\n1. psutil模塊提供了簡單易用的API，方便獲取系統資訊。\n2. 可以直接獲取到各個程序的網絡連接資訊和使用情況。\n\n缺點：\n1. 需要安裝第三方模塊psutil。\n\n分數：10"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1781,
+    "completion_tokens":469,
+    "total_tokens":2250
+  },
+  "system_fingerprint":null
+}

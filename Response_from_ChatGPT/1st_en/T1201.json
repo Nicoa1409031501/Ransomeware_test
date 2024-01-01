@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDYbhwkQDct2u1M6II4kA08b78Ht",
+  "object":"chat.completion",
+  "created":1702212645,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1201-Password Policy Discovery\n\nMethod 1:\nPackages used: subprocess, re\n\nCode:\n```\nimport subprocess\nimport re\n\ndef password_policy_discovery():\n    result = subprocess.check_output('net accounts', shell=True).decode()\n    min_length = re.search(r\"Minimum password length\\s+:(\\s+)(\\d+)\", result).group(2)\n    lockout_count = re.search(r\"Lockout threshold\\s+:(\\s+)(\\d+)\", result).group(2)\n    complexity_enabled = re.search(r\"Complexity\\s+enabled(\\s+)\\:(\\s+)(\\w+)\", result).group(3)\n    \n    policy_info = {\n        \"Minimum Password Length\": min_length,\n        \"Lockout Threshold\": lockout_count,\n        \"Complexity Enabled\": complexity_enabled\n    }\n    \n    return policy_info\n\npassword_policy_discovery()\n```\n\nMethod 2:\nPackages used: subprocess, parse\n\nCode:\n```\nimport subprocess\nimport parse\n\ndef password_policy_discovery():\n    result = subprocess.check_output('net accounts', shell=True).decode()\n    template = \"Minimum password length{:W}{:d}\\n\"\n    template += \"Lockout threshold{:W}{:d}\\n\"\n    template += \"Complexity enabled{:W}{:w}\"\n    \n    policy_info = parse.parse(template, result)\n    \n    return policy_info.named\n\npassword_policy_discovery()\n```\n\nMethod 3:\nPackages used: wmi\n\nCode:\n```\nimport wmi\n\ndef password_policy_discovery():\n    c = wmi.WMI()\n    policy = c.WmiMonitorBasicDisplayParams()\n    \n    policy_info = {\n        \"Minimum Password Length\": policy.MinimumPasswordLength,\n        \"Lockout Threshold\": policy.LockoutThreshold,\n        \"Complexity Enabled\": policy.ComplexPasswordRules\n    }\n    \n    return policy_info\n\npassword_policy_discovery()\n```\n\nNote: Method 1 and Method 2 use the `net accounts` command to retrieve the password policy information, while Method 3 uses the `wmi` package to access the WMI class `WmiMonitorBasicDisplayParams` which contains the password policy information."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":431,
+    "completion_tokens":455,
+    "total_tokens":886
+  },
+  "system_fingerprint":null
+}

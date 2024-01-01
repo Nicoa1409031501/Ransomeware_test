@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wbt9tcco0YvbrV6JgWH4foTymyAh",
+  "object":"chat.completion",
+  "created":1702782831,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1653 Power Settings]\n\n[方案一總結]\n方案一使用os模組的system函數來執行命令，將電腦的hibernate選項關閉。優點是使用的套件簡單且容易理解，可以直接使用系統命令。缺點是相對於其他方案的subprocess模組和win32api套件，不夠靈活。\n\n[方案二總結]\n方案二使用subprocess模組的run函數來執行命令，將電腦的reboot選項關閉。優點是使用的套件比方案一更加靠近系統命令，更靈活。缺點是需要手動指定命令參數，相對於os模組的system函數較為繁瑣。\n\n[方案三總結]\n方案三使用win32api套件調用Windows API來對電腦進行操作，將電腦的shut down選項關閉。優點是通過API直接操作，具有更多的控制權限。缺點是需要使用特定的win32api套件，只能在Windows環境下使用。\n\n以下是T1653 Power Settings的功能測試與程式碼：\n\n```python\nimport win32api\n\ndef disable_shutdown():\n    win32api.SetSuspendState(0, 0, 0)\n    win32api.SetSystemPowerState(False, False)\n\ndef test_disable_shutdown():\n    # 測試關閉關機選項\n    disable_shutdown()\n    # 檢查系統是否不允許關機\n    assert is_shutdown_disabled() == True\n\ndef is_shutdown_disabled():\n    # 檢查系統是否不允許關機\n    return win32api.GetSystemPowerStatus()[\"ACLineStatus\"] == 1\n\ntest_disable_shutdown()\n```\n\n這些測試程式碼可以作為一個功能測試的程式碼，用於驗證關閉電腦關機選項的功能。在測試中，我們呼叫了`disable_shutdown`函數來禁用關機選項，並使用`is_shutdown_disabled`函數來檢查系統是否禁用了關機。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1778,
+    "completion_tokens":670,
+    "total_tokens":2448
+  },
+  "system_fingerprint":null
+}

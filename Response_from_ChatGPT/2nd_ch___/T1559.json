@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Og1LL286SzgLKifpbUiPHLsUjrMC",
+  "object":"chat.completion",
+  "created":1700892091,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：T1559 - Inter-Process Communication\n方案數量：4\n\n[方案一]\n優點：\n- 使用subprocess模塊執行命令簡單且容易理解。\n- 可以在不同的作業系統上使用。\n\n缺點：\n- subprocess模塊無法直接以非阻塞的方式執行命令，可能會導致程式在等待命令執行完成時暫停。\n\n[方案一評分]: 80\n\n[方案二]\n優點：\n- 使用pywin32套件可以與COM進行互動，支援Windows系統下的程式執行。\n- 可以以非阻塞方式執行命令。\n\n缺點：\n- pywin32套件只支援Windows系統，無法在其他作業系統上使用。\n\n[方案二評分]: 90\n\n[方案三]\n優點：\n- 使用win32ui套件可以建立DDE連接並執行命令，對於使用DDE執行命令的情境有很好的支援。\n- 可以以非阻塞方式執行命令。\n\n缺點：\n- win32ui套件只支援Windows系統，無法在其他作業系統上使用。\n\n[方案三評分]: 90\n\n[方案四]\n優點：\n- 使用macpy套件可以與macOS的XPC服務進行互動，支援macOS系統下的程式執行。\n- 可以以非阻塞方式執行命令。\n\n缺點：\n- macpy套件只支援macOS系統，無法在其他作業系統上使用。\n\n[方案四評分]: 85\n\n總評分: 88.75"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1889,
+    "completion_tokens":504,
+    "total_tokens":2393
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPqFGExSLClk2GPHQvpwrKgRiiLq",
+  "object":"chat.completion",
+  "created":1702259867,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：requests\n優缺點：\n1. 透過發送POST請求獲取密碼政策相關資訊非常直接和簡單。\n2. 可以經過進一步解析回應內容，提取更詳細的密碼政策信息。\n\n[方案二]\n[分數]：6\n使用套件：selenium\n優缺點：\n1. 可以模擬真實的使用者行為，瀏覽網頁並解析HTML，提取密碼政策資訊。\n2. 需要事先下載對應瀏覽器的驅動程式，並且運行相對較慢。\n\n[方案三]\n[分數]：8\n使用套件：paramiko\n優缺點：\n1. 可以通過SSH連接到目標主機，執行命令並解析命令輸出，獲取密碼政策相關資訊。\n2. 需要目標主機支援SSH協議，並有適當的登入資訊。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1760,
+    "completion_tokens":411,
+    "total_tokens":2171
+  },
+  "system_fingerprint":null
+}

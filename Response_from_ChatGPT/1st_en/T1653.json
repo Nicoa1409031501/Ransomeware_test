@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UAr6uzQsswIiScapfXuLoOfUTZSZ",
+  "object":"chat.completion",
+  "created":1702202260,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1653-Power Settings\n1. Using Python built-in functions and modules\n2. Using the ctypes module\n3. Using the PowerShell module\n\n1. Using Python built-in functions and modules:\n   - Packages used: None\n\n```python\nimport os\n\ndef disable_power_settings():\n    os.system(\"powercfg /hibernate off\")\n    os.system(\"powercfg /change /hibernate-timeout-ac 0\")\n    os.system(\"powercfg /change /hibernate-timeout-dc 0\")\n    os.system(\"powercfg /change /monitor-timeout-ac 0\")\n    os.system(\"powercfg /change /monitor-timeout-dc 0\")\n    os.system(\"powercfg /change /disk-timeout-ac 0\")\n    os.system(\"powercfg /change /disk-timeout-dc 0\")\n```\n\n2. Using the ctypes module:\n   - Packages used: ctypes\n\n```python\nimport ctypes\n\ndef disable_power_settings():\n    # Disable hibernation\n    ctypes.windll.PowrProf.SetSuspendState(False, False, False)  # False, False, False to disable hibernation\n\n    # Disable power timeouts for AC\n    power_settings = {\n        \"GUID_DISK_SUBGROUP\": \"{0012ee47-9041-4b5d-9b77-535fba8b1442}\",\n        \"GUID_SYSTEM_BUTTON_SUBGROUP\": \"{4f971e89-eebd-4455-a8de-9e59040e7347}\",\n        \"GUID_PROCESSOR_SETTINGS_SUBGROUP\": \"{54533251-82be-4824-96c1-47b60b740d00}\",\n        \"GUID_VIDEO_SUBGROUP\": \"{7516b95f-f776-4464-8c53-06167f40cc99}\"\n    }\n\n    for setting in power_settings.values():\n        ctypes.windll.PowrProf.PowerWriteACValueIndex(None, ctypes.byref(ctypes.c_ulong(setting)), None, ctypes.byref(ctypes.c_ulong(0)))\n\n    # Disable power timeouts for DC\n    power_settings_dc = {\n        \"GUID_DISK_SUBGROUP\": \"{0012ee47-9041-4b5d-9b77-535fba8b1442}\",\n        \"GUID_SYSTEM_BUTTON_SUBGROUP\": \"{4f971e89-eebd-4455-a8de-9e59040e7347}\",\n        \"GUID_PROCESSOR_SETTINGS_SUBGROUP\": \"{54533251-82be-4824-96c1-47b60b740d00}\",\n        \"GUID_VIDEO_SUBGROUP\": \"{7516b95f-f776-4464-8c53-06167f40cc99}\",\n        \"GUID_POWER_SAVING_STATUS\":\"{e00958c0-c213-4ace-ac77-fe"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":359,
+    "completion_tokens":593,
+    "total_tokens":952
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wbj82qP8C4mLDqnsKvfGMmrwX02D",
+  "object":"chat.completion",
+  "created":1702782210,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n[方案一總結]\n使用ctypes套件來調用Windows的Native API，可以直接調用Windows特定的函數，功能更強大。需要了解函數的原型，有一定的學習門檻。只適用於Windows環境。\n\n[方案二總結]\n使用ctypes套件來調用Windows的Native API，可以直接調用Windows特定的函數，功能更強大。需要了解函數的原型，有一定的學習門檻。只適用於Windows環境。\n\n[方案三總結]\n使用ctypes套件來調用Windows的Native API，可以直接調用Windows特定的函數，功能更強大。需要了解函數的原型，有一定的學習門檻。只適用於Windows環境。\n\n接下來將TTPs程式碼與功能測試撰寫在一起：\n\n[方案一總結]\n使用ctypes套件來調用Windows的Native API中的MessageBoxA函數，彈出對話框。\n\n```python\nimport ctypes\n\nuser32 = ctypes.WinDLL('user32')\n\ndef test_message_box():\n    # 使用Native API中的MessageBoxA函數顯示彈出對話框\n    user32.MessageBoxA(None, 'Hello, World!', 'Message', 0)\n\ntest_message_box()\n```\n\n[方案二總結]\n使用ctypes套件來調用Windows的Native API中的NtDeleteFile函數，刪除指定文件。\n\n```python\nimport ctypes\n\nntdll = ctypes.WinDLL('ntdll')\n\ndef test_delete_file():\n    # 使用Native API中的NtDeleteFile函數刪除指定文件\n    ntdll.NtDeleteFile(ctypes.c_wchar_p('C:\\\\path\\\\to\\\\file.txt'))\n\ntest_delete_file()\n```\n\n[方案三總結]\n使用ctypes套件來調用Windows的Native API中的GetTickCount函數，獲取系統運行時間。\n\n```python\nimport ctypes\n\nkernel32 = ctypes.WinDLL('kernel32')\n\ndef test_get_tick_count():\n    # 使用Native API中的GetTickCount函數獲取系統運行時間\n    tick_count = kernel32.GetTickCount()\n    print(f'System has been running for {tick_count} milliseconds')\n\ntest_get_tick_count()\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1564,
+    "completion_tokens":645,
+    "total_tokens":2209
+  },
+  "system_fingerprint":null
+}

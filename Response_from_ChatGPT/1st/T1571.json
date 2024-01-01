@@ -1,21 +1,21 @@
 {
-  "id":"chatcmpl-8NUgm0KaTWaxUvvqa2C4us9zGacDl",
+  "id":"chatcmpl-8O82OQ4Ua06rZZrIGEht9sABBFjyz",
   "object":"chat.completion",
-  "created":1700610204,
+  "created":1700761460,
   "model":"gpt-3.5-turbo-0613",
   "choices":[
     {
       "index":0,
       "message":{
         "role":"assistant",
-        "content":"1. 偵測非標準通訊埠：監聽網路流量，偵測是否有使用非標準通訊埠的通訊。"
+        "content":"[可實現]\n使用Python來實現T1571 - Non-Standard Port的功能，可以有以下三種寫法：\n\n寫法一：\n1. 使用socket套件來建立一個TCP連線。\n2. 透過socket.connect()方法連結到指定的主機和非標準埠口。\n3. 如果連線成功，表示Non-Standard Port是開啟的。\n4. 如果連線失敗，表示Non-Standard Port是關閉或不可用的。\n\n程式碼如下：\n```python\nimport socket\n\ndef check_non_standard_port(hostname, port):\n    try:\n        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        result = sock.connect_ex((hostname, port))\n        if result == 0:\n            print(\"Non-Standard Port\", port, \"is open\")\n        else:\n            print(\"Non-Standard Port\", port, \"is closed\")\n        sock.close()\n    except socket.error as err:\n        print(\"Exception:\", err)\n\n# 使用範例\ncheck_non_standard_port(\"example.com\", 8088)\n```\n\n寫法二：\n1. 使用requests套件來發送HTTP請求。\n2. 透過指定非標準埠口發送請求，並判斷回應狀態碼。\n3. 如果回應狀態碼為成功碼(2xx)，表示Non-Standard Port是開啟的。\n4. 如果回應狀態碼為錯誤碼，表示Non-Standard Port是關閉或不可用的。\n\n程式碼如下：\n```python\nimport requests\n\ndef check_non_standard_port(hostname, port):\n    try:\n        url = f\"http://{hostname}:{port}/\"\n        response = requests.get(url)\n        if response.status_code >= 200 and response.status_code < 300:\n            print(\"Non-Standard Port\", port, \"is open\")\n        else:\n            print(\"Non-Standard Port\", port, \"is closed\")\n    except requests.exceptions.RequestException as err:\n        print(\"Exception:\", err)\n\n# 使用範例\ncheck_non_standard_port(\"example.com\", 8088)\n```\n\n寫法三：\n1. 使用nmap套件來掃描目標主機的埠口。\n2. 使用nmap.PortScanner()建立一個埠口掃描器。\n3. 透過scanner.scan()方法掃描目標主機的非標準埠口。\n4. 根據埠口的狀態判斷Non-Standard Port是否開啟。\n\n程式碼如下：\n```python\nimport nmap\n\ndef check_non_standard_port(hostname, port):\n    try:\n        scanner = nmap.PortScanner()\n        result = scanner.scan(hostname, str(port))\n        state = result['scan'][hostname]['tcp'][port]['state']\n        if state == 'open':\n            print(\"Non-Standard Port\", port, \"is open\")\n        else:\n            print(\"Non-Standard Port\", port, \"is closed\")\n    except nmap.PortScannerError as err:\n        print(\"Exception:\", err)\n\n# 使用範例\ncheck_non_standard_port(\"example.com\", 8088)\n```\n\n這三種寫法都可以用來檢查非標準埠口是否開啟或可連線到指定主機。請根據需求選擇適合的寫法。"
       },
       "finish_reason":"stop"
     }
   ],
   "usage":{
-    "prompt_tokens":605,
-    "completion_tokens":53,
-    "total_tokens":658
+    "prompt_tokens":614,
+    "completion_tokens":856,
+    "total_tokens":1470
   }
 }

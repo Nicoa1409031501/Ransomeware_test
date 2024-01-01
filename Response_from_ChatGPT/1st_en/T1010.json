@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UB99ttdA5KtmVN0BKxViUJWp3dvy",
+  "object":"chat.completion",
+  "created":1702203379,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1010-Application Window Discovery\n\nMethod 1:\nPackages used: pygetwindow, pyautogui\nFunctionality:\n1. Get a list of open application windows by using pygetwindow.\n2. Print the window titles.\n\n```python\nimport pygetwindow\n\ndef get_open_windows():\n    windows = pygetwindow.getAllTitles()\n    for window in windows:\n        print(window)\n\nget_open_windows()\n```\n\nMethod 2:\nPackages used: ctypes\nFunctionality:\n1. Use ctypes to access the Windows API.\n2. Enumerate the top-level windows using EnumWindows() function.\n3. Print the window titles.\n\n```python\nimport ctypes\n\ndef get_open_windows():\n    USER32 = ctypes.windll.user32\n    ENUMWINDOWS_PROC = ctypes.WINFUNCTYPE(ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int))\n\n    def enum_windows_proc(hwnd, lparam):\n        buf = ctypes.create_unicode_buffer(255)\n        USER32.GetWindowTextW(hwnd, buf, ctypes.sizeof(buf))\n        print(buf.value)\n        return True\n\n    USER32.EnumWindows(ENUMWINDOWS_PROC(enum_windows_proc), 0)\n\nget_open_windows()\n```\n\nMethod 3:\nPackages used: psutil, win32gui\nFunctionality:\n1. Use psutil to get the process IDs of running applications.\n2. Use win32gui to get the window titles using the process IDs.\n3. Print the window titles.\n\n```python\nimport psutil\nimport win32gui\n\ndef get_open_windows():\n    pids = psutil.pids()\n    windows = []\n    for pid in pids:\n        try:\n            hwnd = win32gui.GetForegroundWindow()\n            if hwnd != 0:\n                title = win32gui.GetWindowText(hwnd)\n                windows.append(title)\n        except:\n            pass\n    \n    for window in windows:\n        print(window)\n\nget_open_windows()\n```\n\nThese methods use different approaches to retrieve the window titles of open applications. Method 1 uses the pygetwindow library, Method 2 uses the ctypes library to access the Windows API, and Method 3 uses the psutil and win32gui libraries to retrieve the window titles."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":365,
+    "completion_tokens":456,
+    "total_tokens":821
+  },
+  "system_fingerprint":null
+}

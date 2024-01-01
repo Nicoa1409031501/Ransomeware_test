@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OdEFroimgjVACoVibHjmRAMmVpPh",
+  "object":"chat.completion",
+  "created":1700881359,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Exfiltration Over Alternative Protocol\n方案數量：3\n\n[方案一]\n優點：\n- 使用簡單，只需使用requests套件即可\n- 可以支援多種協議（例如HTTP、HTTPS等）\n\n缺點：\n- 需要目標伺服器能夠接受POST請求，並在指定網址上接收資料\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用sockets套件實現，更靠近原生套接字API，更靈活\n- 可以自定義目標伺服器和端口\n\n缺點：\n- 需要目標伺服器能夠接受TCP連接，並在指定端口上接收資料\n\n[方案二評分]: 95\n\n[方案三]\n優點：\n- 支援SSH連接，安全性較高\n- 可以透過SFTP協議上傳資料\n\n缺點：\n- 需要目標伺服器開啟SSH服務，並有SFTP帳號和密碼\n\n[方案三評分]: 85\n\n綜合評分為：90.33"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1814,
+    "completion_tokens":361,
+    "total_tokens":2175
+  }
+}

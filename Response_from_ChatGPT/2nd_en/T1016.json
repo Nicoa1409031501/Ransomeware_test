@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VGVQhpJz3wS8dwZrHhRHKDWNUw5x",
+  "object":"chat.completion",
+  "created":1702462308,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1053- Scheduled Task/Job\n\nSolution 1:\nPackages Used:\n- subprocess (built-in)\n\nFunctionality:\n- Use the subprocess module to create a new scheduled task/job by executing the `schtasks` command with the appropriate parameters.\n\nCode:\n```python\nimport subprocess\n\ndef create_scheduled_task(task_name, command, schedule):\n    try:\n        # Use schtasks command to create a new scheduled task\n        subprocess.run(['schtasks', '/create', '/tn', task_name, '/tr', command, '/sc', schedule], check=True)\n\n    except subprocess.CalledProcessError as e:\n        print(f\"Error creating scheduled task: {e}\")\n\n# Call the function with desired task name, command, and schedule\ncreate_scheduled_task('MyTask', 'C:\\my_script.bat', 'DAILY')\n\n```\n\nSolution 2:\nPackages Used:\n- pypiwin32\n\nFunctionality:\n- Use the `win32com.client` module from the pypiwin32 library to interact with the Windows Task Scheduler API and create a new scheduled task.\n\nInstallation:\n```\npip install pypiwin32\n```\n\nCode:\n```python\nimport win32com.client\n\ndef create_scheduled_task(task_name, command, schedule):\n    try:\n        # Create a Task Scheduler object\n        scheduler = win32com.client.Dispatch('Schedule.Service')\n        scheduler.Connect()\n\n        # Get the root folder of the Task Scheduler tree\n        root_folder = scheduler.GetFolder('\\\\')\n\n        # Create a new task\n        task_definition = scheduler.NewTask(0)\n        task_definition.RegistrationInfo.Description = 'My Task'\n\n        # Set the task parameters and command\n        task_definition.Settings.Enabled = True\n        task_definition.Settings.AllowDemandStart = True\n        task_definition.Settings.ExecutionTimeLimit = 'PT1H'  # 1 hour\n        task_definition.Actions.Create(win32com.client.Dispatch('WScript.Shell').Run(command))\n\n        # Register the task in the root folder\n        root_folder.RegisterTaskDefinition(task_name, task_definition)\n\n    except Exception as e:\n        print(f\"Error creating scheduled task: {e}\")\n        \n# Call the function with desired task name, command, and schedule\ncreate_scheduled_task('MyTask', 'C:\\my_script.bat', 'DAILY')\n```\n\nSolution 3:\nPackages Used:\n- croniter\n- crontab\n\nFunctionality:\n- Use the `croniter` and `crontab` libraries to create a new cron job.\n\nInstallation:\n```\npip install croniter crontab\n```\n\nCode:\n```python\nfrom croniter import croniter\nfrom crontab import CronTab\n\ndef create_cron_job(command, schedule):\n    try:\n        # Create a new cron job\n        cron = CronTab(user='current')\n\n        # Add the command and schedule to the cron job\n        job = cron.new(command=command)\n        job.setall(schedule)\n\n        # Write the cron job to the crontab\n        cron.write()\n\n    except Exception as e:\n        print(f\"Error creating cron job: {e}\")\n\n# Call the function with desired command and schedule\ncreate_cron_job('python /path/to/my_script.py', '0 0 * * *')  # Run daily at midnight\n```\n\nPlease note that the above methods are just examples, and you may need to adapt them based on your specific needs and environment."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1370,
+    "completion_tokens":710,
+    "total_tokens":2080
+  },
+  "system_fingerprint":null
+}

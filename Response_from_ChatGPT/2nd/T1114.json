@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Uxv8rXtHGq0DPhEH09HYDohj4wNZ",
+  "object":"chat.completion",
+  "created":1702390866,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n[分數]：8\n使用套件：imaplib、email、getpass\n\n優缺點：\n優點：\n1. 使用IMAP協定，可以在伺服器上保留郵件的複本。\n2. 使用email模組，可以方便地解析郵件的各個部分（例如寄件者、主旨、內容等）。\n3. 使用getpass模組，可以安全地輸入密碼。\n\n缺點：\n1. 在伺服器上下載和處理大量郵件時可能較慢。\n2. 需要確保郵件伺服器支援IMAP協定。\n\n[方案二]\n[分數]：9\n使用套件：poplib、email、getpass\n\n優缺點：\n優點：\n1. 使用POP3協定，可以下載郵件並從伺服器上刪除郵件，節省伺服器空間。\n2. 使用email模組，可以方便地解析郵件的各個部分（例如寄件者、主旨、內容等）。\n3. 使用getpass模組，可以安全地輸入密碼。\n\n缺點：\n1. POP3協定只能下載郵件，無法在伺服器上保留複本。\n2. 需要確保郵件伺服器支援POP3協定。\n\n[方案三]\n[分數]：7\n使用套件：smtplib、email、getpass\n\n優缺點：\n優點：\n1. 使用SMTP發送郵件，可以自由控制郵件的內容和收件者。\n2. 使用email模組，可以方便地產生郵件的各個部分（例如寄件者、主旨、內容等）。\n3. 使用getpass模組，可以安全地輸入密碼。\n\n缺點：\n1. 不能直接從伺服器上下載郵件，需要自行從收件者的收件匣中回收郵件。\n2. 需要確保郵件伺服器支援SMTP發送郵件。\n\n[方案一單元測試]\n[分數]：8\n使用套件：unittest、mock\n\n測試步驟：\n1. 模擬郵件伺服器，使用mock模組替代真實的郵件伺服器。\n2. 測試連接郵件伺服器是否成功。\n3. 測試下載郵件的功能。\n\n[方案二單元測試]\n[分數]：7\n使用套件：unittest、mock\n\n測試步驟：\n1. 模擬郵件伺服器，使用mock模組替代真實的郵件伺服器。\n2. 測試連接郵件伺服器是否成功。\n3. 測試下載郵件的功能。\n\n[方案三單元測試]\n暫無單元測試程式碼。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2469,
+    "completion_tokens":843,
+    "total_tokens":3312
+  },
+  "system_fingerprint":null
+}

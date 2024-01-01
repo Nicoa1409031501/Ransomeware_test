@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPxeDMq0ZQCeLknuu4TA2YGZc4Vp",
+  "object":"chat.completion",
+  "created":1702260326,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n\n使用套件：os\n\n優缺點：\n1. 優點：使用Python的os套件操作系統指令非常簡單，只需一行程式碼即可執行指令。\n2. 優點：程式碼簡單，易於理解和維護。\n\n[方案二]\n[分數]：9\n\n使用套件：subprocess\n\n優缺點：\n1. 優點：subprocess套件提供了更多控制指令執行的選項，例如將指令指向特定的stdout或stderr等。\n2. 優點：subprocess.Popen()函式可以非同步執行指令，並且可以取得指令執行的返回值。\n\n[方案三]\n[分數]：6\n\n使用套件：fabric\n\n優缺點：\n1. 優點：fabric套件提供了更多遠端執行指令的功能，例如通過ssh連接到遠端主機執行指令。\n2. 缺點：相較於os和subprocess，fabric套件可能需要額外的設置和配置，在一些環境中使用的場景比較有限。\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n\n[方案二單元測試]\n內容...\n\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1792,
+    "completion_tokens":409,
+    "total_tokens":2201
+  },
+  "system_fingerprint":null
+}

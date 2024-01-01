@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Odhb3llqaFfjzpl12GOnQHwOzEjM",
+  "object":"chat.completion",
+  "created":1700883179,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Brute Force攻擊\n方案數量：3\n\n[方案一]\n優點：\n- 使用Python的itertools模組可以輕鬆生成所有可能的密碼組合。\n- 使用requests套件可以模擬與服務互動並檢查密碼的有效性。\n- 實現簡單，易於擴展和修改。\n\n缺點：\n- 效率可能不夠高，因為需要嘗試多個可能的密碼組合。\n- 沒有加入日誌功能或其他錯誤處理機制，缺乏穩健性。\n\n[方案一評分]: 80\n\n[方案二]\n優點：\n- 使用Hashcat工具可以利用GPU加速破解密碼，提高效率。\n- 支援不同的哈希類型和攻擊模式，具有彈性。\n- 可以選擇遞增字串模式或字典模式，進一步加快速度或提高破解成功率。\n\n缺點：\n- 需要下載並安裝Hashcat，可能有一些配置、相容性的問題。\n- 需要GPU支援，可能無法在所有系統上執行。\n\n[方案二評分]: 90\n\n[方案三]\n優點：\n- 使用Python的hashlib模組可以自定義哈希函數，具有彈性。\n- 實現簡單，易於擴展和修改。\n\n缺點：\n- 效率可能不夠高，因為需要遍歷可能的密碼組合。\n- 限於單線程處理，可能無法有效利用多核處理器。\n\n[方案三評分]: 85\n\n綜合評分：88 (方案一: 80, 方案二: 90, 方案三: 85)"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2066,
+    "completion_tokens":543,
+    "total_tokens":2609
+  }
+}

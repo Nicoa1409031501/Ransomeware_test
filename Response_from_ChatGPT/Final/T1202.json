@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wc433LD5ckgSygDBoXj0fhci2riH",
+  "object":"chat.completion",
+  "created":1702783507,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]\n\n[方案一總結]\n方法一使用subprocess套件來執行命令，程式碼簡潔而且方便，只需要一行就可以達到目的。缺點是可能需要另外安裝套件。\n\n```python\nimport subprocess\n\ndef run_command(command):\n    subprocess.call(command, shell=True)\n\nrun_command(\"notepad.exe\")\n```\n\n[方案二總結]\n方法二使用os套件來執行命令，不需要額外安裝套件。程式碼簡單明了，不過需要使用shell=True參數才能執行一些特殊的命令。\n\n```python\nimport os\n\ndef run_command(command):\n    os.system(command)\n\nrun_command(\"notepad.exe\")\n```\n\n[方案三總結]\n方法三使用ctypes套件來執行Windows API函式，不需要額外安裝套件。需要特定的系統函式庫和較多的程式碼，相較於前兩種方法較為複雜。\n\n```python\nimport ctypes\n\ndef run_command(command):\n    ctypes.windll.shell32.ShellExecuteW(None, \"open\", \"cmd.exe\", \"/c \" + command, None, 1)\n\nrun_command(\"notepad.exe\")\n```\n\n[方案一總結]\n```python\nimport subprocess\n\ndef test_run_command():\n    command = \"notepad.exe\"\n    subprocess.call(command, shell=True)\n\ntest_run_command()\n```\n\n[方案二整合]\n```python\nimport os\n\ndef test_run_command():\n    command = \"notepad.exe\"\n    os.system(command)\n\ntest_run_command()\n```\n\n[方案三整合]\n```python\nimport ctypes\n\ndef test_run_command():\n    command = \"notepad.exe\"\n    ctypes.windll.shell32.ShellExecuteW(None, \"open\", \"cmd.exe\", \"/c \" + command, None, 1)\n\ntest_run_command()\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1341,
+    "completion_tokens":493,
+    "total_tokens":1834
+  },
+  "system_fingerprint":null
+}

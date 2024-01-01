@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDYuayZ224cKiTtmGC1PD5Vibcop",
+  "object":"chat.completion",
+  "created":1702212664,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1120 - Peripheral Device Discovery\n\nMethod 1:\nPackage used: subprocess\nFunctionality used: subprocess.check_output()\n\nCode:\n\n```python\nimport subprocess\n\ndef peripheral_device_discovery():\n    devices = subprocess.check_output(\"wmic path win32_pnpentity get caption\", shell=True)\n    return devices\n```\n\nMethod 2:\nPackage used: pywin32\nFunctionality used: win32com.client\n\nCode:\n\n```python\nimport win32com.client\n\ndef peripheral_device_discovery():\n    wmi = win32com.client.GetObject('winmgmts:')\n    devices = wmi.ExecQuery(\"SELECT * FROM Win32_PnPEntity\")\n    return devices\n```\n\nMethod 3:\nPackage used: psutil\nFunctionality used: psutil.disk_partitions()\n\nCode:\n\n```python\nimport psutil\n\ndef peripheral_device_discovery():\n    devices = psutil.disk_partitions()\n    return devices\n```\n\nEach of the above methods will return a list of connected peripheral devices."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":380,
+    "completion_tokens":208,
+    "total_tokens":588
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPYrdpy0wUwEbqIlmv3aRQdbbUnk",
+  "object":"chat.completion",
+  "created":1702258789,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：os\n優缺點：\n1. 使用os模塊提供的功能，可以輕鬆遍歷網絡共享目錄並找到指定擴展名的文件。\n2. 輸入簡單，只需要提供網絡共享目錄的路徑和感興趣的文件擴展名。\n\n[方案二]\n[分數]：9\n使用套件：glob\n優缺點：\n1. 使用glob模塊可以更直觀地使用遞迴搜索(*)模式進行文件搜索，代碼更簡潔。\n2. 輸入簡單，只需要提供網絡共享目錄的路徑和感興趣的文件擴展名。\n\n[方案三]\n[分數]：7\n使用套件：shutil\n優缺點：\n1. 使用shutil模塊的copytree方法可以方便地將網絡共享目錄下的文件拷貝到本地目錄。\n2. 由於需要進行文件拷貝，可能需要額外的時間和空間。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1756,
+    "completion_tokens":379,
+    "total_tokens":2135
+  },
+  "system_fingerprint":null
+}

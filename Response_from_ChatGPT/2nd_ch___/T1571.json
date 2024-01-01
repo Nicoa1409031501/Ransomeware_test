@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OgFTLsIqveyrUemB9OYWL5eUvVzM",
+  "object":"chat.completion",
+  "created":1700892967,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Non-Standard Port\n方案數量：3\n\n[方案一]\n優點：\n- 使用socket套件可以直接建立TCP連線，簡單方便。\n- 可以進行細緻控制，例如可以自訂連線超時時間等。\n\n缺點：\n- 需要自行處理例外情況，例如網路連線異常。\n\n改善報告：\n- 可以加入日誌功能，將執行過程中的錯誤記錄下來，方便追蹤和排查問題。\n- 可以加入超時機制，當連線時間超過預設時間時，自動中斷連線。\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用requests套件可以直接發送HTTP請求，簡便易用。\n- 可以利用requests套件的功能進行更多進階操作，例如加入header等。\n\n缺點：\n- 需要額外安裝requests套件。\n\n改善報告：\n- 可以加入例外處理機制，例如處理網路連線異常時的錯誤。\n- 可以加入多個非標準埠口連線的功能，同時判斷多個埠口的狀態。\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用nmap套件可以進行更全面的埠口掃描，提供更多資訊。\n- 可以透過nmap套件的功能進行更多進階操作，例如指定不同的掃描模式等。\n\n缺點：\n- 需要額外安裝nmap套件。\n- 執行速度相對較慢。\n\n改善報告：\n- 可以加入進度條功能，顯示掃描進度，提高用戶體驗。\n- 可以進一步優化掃描速度，減少掃描時間。\n\n[方案三評分]: 80\n\n根據以上評估，方案一的評分最高，達到90分。方案二和方案三分別為85分和80分。建議選擇方案一來實現Non-Standard Port的功能。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2101,
+    "completion_tokens":689,
+    "total_tokens":2790
+  }
+}

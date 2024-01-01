@@ -1,8 +1,22 @@
 {
-  "error":{
-    "code":502,
-    "message":"Bad gateway.",
-    "param":null,
-    "type":"cf_bad_gateway"
-  }
+  "id":"chatcmpl-8UxWmoA2mqAJc3HDocLxoC8CGW6Jh",
+  "object":"chat.completion",
+  "created":1702389356,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n[分數]：9\n\n使用套件：os\n\n優缺點：\n優點：\n1. 使用os模組提供的功能可以方便地遍歷指定路徑下的檔案和目錄。\n2. 可以處理複雜的目錄結構並找到指定的檔案。\n3. 可以應對不同作業系統的路徑格式。\n\n缺點：\n1. 需要使用者自行指定要搜尋的檔案格式，可能會漏掉某些符合條件但沒有被指定的檔案。\n\n[方案二]\n[分數]：8\n\n使用套件：glob\n\n優缺點：\n優點：\n1. 使用glob模組提供的功能可以方便地搜尋指定路徑下的檔案。\n2. 可以使用相對路徑或絕對路徑指定搜尋路徑。\n\n缺點：\n1. 需要使用者自行指定要搜尋的檔案格式，可能會漏掉某些符合條件但沒有被指定的檔案。\n\n[方案三]\n[分數]：7\n\n使用套件：fnmatch\n\n優缺點：\n優點：\n1. 使用fnmatch模組提供的功能可以方便地搜尋指定路徑下的檔案。\n2. 可以使用通配符來指定搜尋的檔案格式。\n\n缺點：\n1. 需要對每個檔案都進行一次通配符的匹配，效能可能較差。\n2. 需要使用者自行指定要搜尋的檔案格式，可能會漏掉某些符合條件但沒有被指定的檔案。\n\n[Feasible]\n[TTPs Name(Search Files)]\n\n[方案一單元測試]\n內容...\n\n[方案二單元測試]\n內容...\n\n[方案三]\n內容...\n\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1665,
+    "completion_tokens":584,
+    "total_tokens":2249
+  },
+  "system_fingerprint":null
 }

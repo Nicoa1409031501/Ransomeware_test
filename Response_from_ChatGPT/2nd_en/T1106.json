@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VH3GZ8YkFJTIX2O1l5rwdyHm33OU",
+  "object":"chat.completion",
+  "created":1702464406,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Cannot be Implemented in the Current Environment]\nT1652-Device Driver Discovery\n\nDevice driver discovery involves accessing low-level system information, which may not be feasible or allowed in certain environments. Since I don't have access to your specific environment, it is not possible to implement this TTP.\n\nPlease let me know if there is any other TTP you would like me to assist with."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1250,
+    "completion_tokens":78,
+    "total_tokens":1328
+  },
+  "system_fingerprint":null
+}

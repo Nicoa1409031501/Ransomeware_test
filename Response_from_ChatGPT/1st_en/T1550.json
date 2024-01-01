@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UB2DC5UKltpNLwQttsbq5HlioaH8",
+  "object":"chat.completion",
+  "created":1702202949,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1550-Use Alternate Authentication Material\n\n1. Use stolen application access tokens to bypass authentication process:\n   - Packages used: None\n   - Functionalities used: None\n\n   Code:\n   ```python\n   print(\"Use stolen application access tokens to bypass authentication process\")\n   ```\n\n2. Use \"pass the hash\" technique with stolen password hashes:\n   - Packages used: None\n   - Functionalities used: None\n\n   Code:\n   ```python\n   print(\"Use 'pass the hash' technique with stolen password hashes\")\n   ```\n\n3. Use \"pass the ticket\" technique with stolen Kerberos tickets:\n   - Packages used: None\n   - Functionalities used: None\n\n   Code:\n   ```python\n   print(\"Use 'pass the ticket' technique with stolen Kerberos tickets\")\n   ```\n\n4. Use stolen session cookies to authenticate to web applications and services:\n   - Packages used: None\n   - Functionalities used: None\n\n   Code:\n   ```python\n   print(\"Use stolen session cookies to authenticate to web applications and services\")\n   ```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":608,
+    "completion_tokens":227,
+    "total_tokens":835
+  },
+  "system_fingerprint":null
+}

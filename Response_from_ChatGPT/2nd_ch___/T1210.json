@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfQilqNGyCtGXI9Jz0OdwwihjN22",
+  "object":"chat.completion",
+  "created":1700889820,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：網路服務掃描\n方案數量：1\n\n[方案一]\n改善報告：\n優點：\n- 使用socket模組提供的函數能夠方便地建立TCP連線\n- 使用try-except塊處理連接失敗的情況，增加了程式的穩定性\n\n缺點：\n- 僅能檢查單個遠程服務器的指定端口，無法同時檢查多個遠程服務器\n- 無法檢測遠程服務器上的具體漏洞，僅僅檢查遠程服務器是否可連接\n\n評分：80\n\n優點：4分\n缺點：6分\n程式碼品質：8分\n總分：80"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1610,
+    "completion_tokens":246,
+    "total_tokens":1856
+  }
+}

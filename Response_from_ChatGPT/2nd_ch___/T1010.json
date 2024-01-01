@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ocxk7HWoiNYmU4pvjZGfw4uKUPUv",
+  "object":"chat.completion",
+  "created":1700880336,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：獲取開啟的應用程式視窗列表\n方案數量：3\n\n[方案一]\n優點：\n- 使用pygetwindow套件簡單易用，無需使用Win32 API。\n- 程式碼清晰易懂。\n\n缺點：\n- 只能獲取視窗的標題，不能獲取更多詳細資訊。\n\n[方案一評分]: 80\n\n[方案二]\n優點：\n- 使用Win32 API獲取視窗資訊，可以獲得更詳細的資訊。\n- 可以處理隱藏的視窗。\n\n缺點：\n- 需要使用ctypes調用Win32 API，較為複雜。\n- 無法獲取程式的詳細資訊，只能獲取視窗標題。\n\n[方案二評分]: 90\n\n[方案三]\n優點：\n- 使用psutil套件，可以透過進程信息獲取應用程式的詳細資訊。\n- 作用於不同平台，不僅限於Windows。\n\n缺點：\n- 只能獲取explorer.exe的視窗，可能無法獲取其他應用程式的視窗。\n\n[方案三評分]: 85\n\n綜合評分：88"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1771,
+    "completion_tokens":410,
+    "total_tokens":2181
+  }
+}

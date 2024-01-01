@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPXhdZeq5cBzI4PNFqycwPiJZ5qD",
+  "object":"chat.completion",
+  "created":1702258717,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n \n[方案一]\n[分數]：7\n使用套件：datetime\n優缺點：\n1. 透過使用datetime模組的time()函式，可以簡單地獲取到當前的時間。\n2. 需要手動設定指定的時間，無法自動化。\n\n[方案二]\n[分數]：8\n使用套件：time\n優缺點：\n1. 使用time模組的time()函式來獲取當前的時間，可以非常精確地計算時間間隔。\n2. 可以自由設定時間間隔，靈活度高。\n\n[方案三]\n[分數]：9\n使用套件：schedule, time\n優缺點：\n1. 使用schedule模組可以很方便地安排定時任務，自動執行指定的函式。\n2. 需要額外使用time模組的sleep函式，來設定主循環的間隔時間，可能會佔用系統資源。\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[TTPs Name]\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1639,
+    "completion_tokens":338,
+    "total_tokens":1977
+  },
+  "system_fingerprint":null
+}

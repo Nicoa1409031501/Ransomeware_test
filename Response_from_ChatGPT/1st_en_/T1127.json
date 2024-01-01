@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R3RDHmTi4YELwc981AEKHeASPU1B",
+  "object":"chat.completion",
+  "created":1701458763,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1127-Trusted Developer Utilities Proxy Execution\n\nMethod 1:\nPackages used: subprocess\nFunctionality used: subprocess.run()\n\n```python\nimport subprocess\n\ndef execute_payload(payload):\n    try:\n        subprocess.run(payload, check=True, shell=True)\n    except subprocess.CalledProcessError as e:\n        print(f\"Error executing payload: {e}\")\n```\n\nMethod 2:\nPackages used: os\nFunctionality used: os.system()\n\n```python\nimport os\n\ndef execute_payload(payload):\n    os.system(payload)\n```\n\nMethod 3:\nPackages used: ctypes\nFunctionality used: ctypes.windll.kernel32.CreateProcessW()\n\n```python\nimport ctypes\n\ndef execute_payload(payload):\n    kernel32 = ctypes.WinDLL('kernel32')\n    lpCommandLine = ctypes.c_wchar_p(payload)\n    startupinfo = ctypes.Structure(\"STARTUPINFOW\")\n    startupinfo.cb = ctypes.sizeof(startupinfo)\n    procinfo = ctypes.Structure(\"PROCESS_INFORMATION\")\n    \n    kernel32.CreateProcessW(None, lpCommandLine, None, None, False, 0, None, None,\n                           ctypes.byref(startupinfo), ctypes.byref(procinfo))\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":452,
+    "completion_tokens":244,
+    "total_tokens":696
+  },
+  "system_fingerprint":null
+}

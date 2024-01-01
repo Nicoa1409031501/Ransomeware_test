@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OgU7hFp5RMq8ednT9Q0DLlWxADXL",
+  "object":"chat.completion",
+  "created":1700893875,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：T1595 - Active Scanning\n方案數量：3\n\n[方案一]\n優點：使用套接字進行IP掃描，這是一種基本且常見的方法，可以快速判斷目標IP是否開放80端口。\n缺點：僅掃描80端口，並未對其他端口進行掃描。\n評分：85\n\n[方案二]\n優點：使用nmap進行漏洞掃描，可以掃描目標主機的所有端口，更全面地發現開放的漏洞端口。\n缺點：需要安裝nmap套件。\n評分：90\n\n[方案三]\n優點：使用requests和BeautifulSoup進行線上資源的探測和解析，可以獲得目標頁面中的所有連結。\n缺點：只能探測目標頁面中的連結，並無法對其他資源進行探測。\n評分：80\n\n總評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1970,
+    "completion_tokens":318,
+    "total_tokens":2288
+  }
+}

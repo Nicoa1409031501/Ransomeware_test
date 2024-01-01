@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbniM13aUeRzgXOEFLA1nbrvhsKN",
+  "object":"chat.completion",
+  "created":1702782494,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name: Boot or Logon Autostart Execution]\n\n[方案一總結]\n優點：使用簡單直接的 os 模組實現程式加入到啟動時執行，不需要額外的模組。\n缺點：只能在 Windows 系統中使用。\n\n[方案二總結]\n優點：使用 winreg 模組可以存取 Windows 系統註冊表，實現程式加入到啟動時執行。\n缺點：需要使用 winreg 模組，可能需要額外的安裝步驟。\n\n[方案三總結]\n優點：使用 subprocess 模組直接呼叫 reg 命令實現程式加入到啟動時執行。\n缺點：只能在 Windows 系統中使用，需要通過呼叫外部指令的方式實現。\n\n[加入功能測試]\n\n'''\n# TTPs程式碼\n\nimport os\nimport winreg\nimport subprocess\n\ndef add_to_startup_program1(program_path):\n    startup_path = os.path.join(os.getenv(\"APPDATA\"), \"Microsoft\", \"Windows\", \"Start Menu\", \"Programs\", \"Startup\")\n    os.makedirs(startup_path, exist_ok=True)\n    os.symlink(program_path, os.path.join(startup_path, os.path.basename(program_path)))\n\ndef add_to_startup_program2(program_path):\n    startup_key = winreg.HKEY_CURRENT_USER\n    with winreg.OpenKey(startup_key, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\", 0, winreg.KEY_ALL_ACCESS) as key:\n        winreg.SetValueEx(key, \"MyProgram\", 0, winreg.REG_SZ, program_path)\n\ndef add_to_startup_program3(program_path):\n    subprocess.run(['reg', 'add', 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run', '/v', 'MyProgram', '/t', 'REG_SZ', '/d', f'\"{program_path}\"', '/f'])\n\n# 功能測試\ndef test_add_to_startup_program1():\n    test_program_path = \"C:\\\\path\\\\to\\\\test_program.exe\"\n    add_to_startup_program1(test_program_path)\n    assert os.path.exists(os.path.join(os.getenv(\"APPDATA\"), \"Microsoft\", \"Windows\", \"Start Menu\", \"Programs\", \"Startup\", \"test_program.exe\"))\n\ndef test_add_to_startup_program2():\n    test_program_path = \"C:\\\\path\\\\to\\\\test_program.exe\"\n    winreg_key = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)\n    startup_key = winreg.OpenKey(winreg_key, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run\")\n    value, _ = winreg.QueryValueEx(startup_key, \"MyProgram\")\n    assert value == test_program_path\n\ndef test_add_to_startup_program3():\n    test_program_path = \"C:\\\\path\\\\to\\\\test_program.exe\"\n    result = subprocess.run(['reg', 'query', 'HKCU\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Run', '/v', 'MyProgram'], capture_output=True, text=True)\n    assert test_program_path in result.stdout\n\n# 呼叫功能測試\ntest_add_to_startup_program1()\ntest_add_to_startup_program2()\ntest_add_to_startup_program3()\n'''"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1569,
+    "completion_tokens":774,
+    "total_tokens":2343
+  },
+  "system_fingerprint":null
+}

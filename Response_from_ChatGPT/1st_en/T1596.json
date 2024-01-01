@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UAcoL6Ao2yOhHkGfDEQKq6IC5PeA",
+  "object":"chat.completion",
+  "created":1702201374,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1596-Search Open Technical Databases\n\nMethod 1:\nPackages used: requests, pandas\n\n```python\nimport requests\nimport pandas as pd\n\ndef search_dns_data(domain):\n    dns_url = f\"https://api.dnsdb.info/lookup/rrset/name/{domain}.\"\n    response = requests.get(dns_url)\n    if response.status_code == 200:\n        dns_data = response.json()\n        dns_df = pd.DataFrame(dns_data)\n        return dns_df\n    else:\n        return None\n```\n\nMethod 2:\nPackages used: dns.resolver\n\n```python\nimport dns.resolver\n\ndef search_whois_data(domain):\n    resolver = dns.resolver.Resolver()\n    resolver.nameservers = ['8.8.8.8']\n    answers = resolver.query(domain, 'TXT')\n    for rdata in answers:\n        print(rdata.to_text())\n```\n\nMethod 3:\nPackages used: certifi, requests\n\n```python\nimport certifi\nimport requests\n\ndef search_certificate_data(domain):\n    cert_url = f\"https://crt.sh/?q={domain}&output=json\"\n    response = requests.get(cert_url, verify=certifi.where())\n    if response.status_code == 200:\n        cert_data = response.json()\n        for item in cert_data:\n            print(item['issuer_name'], item['subject_cn'])\n    else:\n        return None\n```\n\nMethod 4:\nPackages used: requests\n\n```python\nimport requests\n\ndef search_cdn_data(domain):\n    cdn_url = f\"https://api.cdnjs.com/libraries?search={domain}\"\n    response = requests.get(cdn_url)\n    if response.status_code == 200:\n        cdn_data = response.json()\n        for item in cdn_data['results']:\n            print(item['name'])\n    else:\n        return None\n```\n\nMethod 5:\nPackages used: requests\n\n```python\nimport requests\n\ndef search_scan_databases(ip_address):\n    scan_url = f\"https://www.shodan.io/host/{ip_address}\"\n    response = requests.get(scan_url)\n    if response.status_code == 200:\n        # Parse the HTML response or extract relevant information\n        # Example: Parse the open ports and banners\n        print(\"Open ports and banners:\")\n        # ...\n    else:\n        return None\n```\n\nPlease note that the code snippets provided above are just examples of how to implement the functionality described. Depending on the specific requirements and constraints of your environment, you may need to modify the code accordingly."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":706,
+    "completion_tokens":525,
+    "total_tokens":1231
+  },
+  "system_fingerprint":null
+}

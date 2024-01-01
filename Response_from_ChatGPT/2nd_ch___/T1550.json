@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfvdH5nl8SfBNJUSdoovICjvrmGU",
+  "object":"chat.completion",
+  "created":1700891737,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Technique名稱：Boot or Logon Initialization Scripts\n方案數量：4\n\n[方案一]\n優點：\n- 使用Python標準套件hashlib，不需要額外安裝套件。\n- 計算密碼雜湊值的過程簡單直觀。\n\n缺點：\n- 無法在處理大量密碼時進行效能優化。\n\n改善方案：\n- 考慮使用非同步或平行處理方法來改善效能。\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用Python標準套件passlib，可進一步提升密碼雜湊值的安全性。\n- 提供更多雜湊函數和選項。\n\n缺點：\n- 需要安裝額外的套件。\n\n改善方案：\n- 確保passlib套件的版本與Python環境相容。\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用Python標準套件hmac，可進行更多雜湊函數的選擇和運算。\n\n缺點：\n- 使用hmac需要提供一個密鑰。\n\n改善方案：\n- 確保密鑰的安全保護和管理。\n\n[方案三評分]: 80\n\n[方案四]\n優點：\n- 使用requests套件，方便模擬網頁請求和處理session cookies。\n\n缺點：\n- 需要對網頁的登入流程進行分析和定制化。\n\n改善方案：\n- 檢查網頁請求和回應的處理，確保正確性和穩定性。\n\n[方案四評分]: 90\n\n綜合評價：87.5（總分滿分100）"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1824,
+    "completion_tokens":549,
+    "total_tokens":2373
+  }
+}

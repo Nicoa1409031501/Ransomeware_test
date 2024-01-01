@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfmL2EtZn660h0nrFg3ilDAJ1gcp",
+  "object":"chat.completion",
+  "created":1700891161,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Steal Application Access Token (T1528)\n方案數量：3\n\n[方案一]\n優點：\n- 使用Python的requests套件，簡單易懂，提供了高層級的API來處理HTTP請求。\n- 可以方便地透過加入headers等參數來進一步定制請求。\n\n缺點：\n- 使用第三方套件requests，需要先安裝才能使用。\n\n[方案一評分]: 95\n\n[方案二]\n優點：\n- 使用Python內建的http.client套件，無需額外安裝。\n- 與Python標準庫更緊密結合，更能發揮Python特性。\n\n缺點：\n- 較複雜的程式碼，需要手動處理headers等細節。\n\n[方案二評分]: 88\n\n[方案三]\n優點：\n- 使用Python內建的urllib套件，無需額外安裝。\n- 與Python標準庫更緊密結合，更能發揮Python特性。\n\n缺點：\n- 較複雜的程式碼，需要手動處理headers等細節。\n\n[方案三評分]: 88\n\n總評分: 90"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1909,
+    "completion_tokens":375,
+    "total_tokens":2284
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyOqwewp8vLVTMa9NfJmjGNMiOaz",
+  "object":"chat.completion",
+  "created":1702392708,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"可實現\n[TTPs：內部偽造郵件]\n\n[方案一]\n分數：8\n使用套件：smtplib\n優點：\n1. 簡潔明確，程式碼清晰易懂\n2. 使用標準的SMTP協議，可與任何電子郵件伺服器整合\n缺點：\n1. 需要提供正確的SMTP伺服器資訊和驗證資訊\n2. 發送郵件需連接到SMTP伺服器，可能會有一定的網絡延遲\n\n[方案二]\n分數：6\n使用套件：pywin32\n優點：\n1. 使用標準的Windows COM物件模型，直接操作Outlook應用程式\n2. 可以方便地使用Outlook的功能和設定\n缺點：\n1. 只能在Windows系統上運行，可能無法跨平台使用\n2. 需要安裝pywin32套件，增加了依賴性\n\n[方案三]\n分數：7\n使用套件：selenium\n優點：\n1. 可以模擬使用者操作，使用起來更像是真實的用戶操作\n2. 可以支援各種瀏覽器，如Chrome、Firefox等\n缺點：\n1. 需要使用瀏覽器驅動程式，增加了依賴性\n2. 需要瀏覽器運行，可能會對系統資源和性能造成一定負擔\n\n請注意，以上方案僅供參考，具體使用時請遵守相關法律法規並確保合法性和道德性。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2053,
+    "completion_tokens":503,
+    "total_tokens":2556
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPUjZxUmI3MSHe2ujqaKAfS33Rr8",
+  "object":"chat.completion",
+  "created":1702258533,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：\n- pygetwindow\n- 使用pygetwindow.getAllTitles()獲取開啟的應用程式視窗列表\n優點：\n1. 使用簡單，只需引入套件並呼叫函式即可獲取開啟的視窗列表\n2. 不需使用低階API，降低了出錯的機會\n缺點：\n1. 只能在Windows環境下使用\n\n[方案二]\n[分數]：8\n使用套件：\n- ctypes\n- 使用Win32 API獲取開啟的應用程式視窗列表\n優點：\n1. 可以在Windows環境下使用\n2. 使用Win32 API獲取視窗列表，可以更詳細地控制視窗的篩選和操作\n缺點：\n1. 使用比較複雜，需要使用ctypes和Win32 API進行操作\n\n[方案三]\n[分數]：7\n使用套件：\n- psutil\n- 使用psutil.Process和psutil.pids()獲取開啟的應用程式視窗列表\n優點：\n1. 可以在多個作業系統上使用，包括Windows、Linux和macOS等\n2. 可以使用psutil.Process來獲取更多進程的詳細資訊\n缺點：\n1. 無法精確獲取開啟的視窗列表，需要透過一些條件來篩選，例如透過進程名稱\n2. 需要引入第三方套件，增加了程式的依賴性和複雜度\n\n在這三種方案中，方案一使用pygetwindow套件是最簡單且直接的方法，可以快速獲取開啟的應用程式視窗列表。方案二使用低階API可能會稍微複雜一些，但可以更詳細地控制視窗的篩選和操作。方案三使用psutil套件可以跨平台使用，但無法精確獲取視窗列表，需要透過進程名稱等條件來篩選。\n\n建議選擇方案一，因為它簡單易用且具有較高的正確性和可靠性，同時在大多數情況下也能滿足需求。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1751,
+    "completion_tokens":719,
+    "total_tokens":2470
+  },
+  "system_fingerprint":null
+}

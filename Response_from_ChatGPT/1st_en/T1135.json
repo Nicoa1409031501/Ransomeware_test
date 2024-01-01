@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UDYOuas1iPSyrYJvO53Pj8dST5wm",
+  "object":"chat.completion",
+  "created":1702212632,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1135-Network Share Discovery:\n\nMethod 1:\nPackages used: None\n\n```python\nimport subprocess\n\ndef network_share_discovery():\n    try:\n        # Use 'net view' command to retrieve a list of shared network resources\n        output = subprocess.check_output('net view', shell=True)\n        print(output.decode())  # Print the output\n    except Exception as e:\n        print(f\"Error: {str(e)}\")\n\nnetwork_share_discovery()\n```\n\nMethod 2:\nPackages used: None\n\n```python\nimport os\n\ndef network_share_discovery():\n    try:\n        # Use os.popen command to execute 'net view' and retrieve a list of shared network resources\n        stream = os.popen('net view')\n        output = stream.read()\n        print(output)  # Print the output\n    except Exception as e:\n        print(f\"Error: {str(e)}\")\n\nnetwork_share_discovery()\n```\n\nMethod 3:\nPackages used: wmi\n\n```python\nimport wmi\n\ndef network_share_discovery():\n    try:\n        # Use wmi module to query shared network resources\n        c = wmi.WMI()\n        for share in c.Win32_Share():\n            print(share.Name)  # Print the share name\n    except Exception as e:\n        print(f\"Error: {str(e)}\")\n\nnetwork_share_discovery()\n```\n\nNote: The above code snippets retrieve and print the list of shared network resources on the local system."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":372,
+    "completion_tokens":311,
+    "total_tokens":683
+  },
+  "system_fingerprint":null
+}

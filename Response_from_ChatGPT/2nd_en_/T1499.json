@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rgzla7gX8BaVgOMSelbbhOC2itJi",
+  "object":"chat.completion",
+  "created":1701610821,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1496-System Shutdown/Reboot\n\nMethod 1:\nPackages used:\n- os\n\nFunctionality:\n- Use the os module to execute the system shutdown command\n\nCode:\n1. import os\n\ndef system_shutdown():\n    os.system(\"shutdown /s /t 0\")\n\n2. system_shutdown()\n\nMethod 2:\nPackages used:\n- subprocess\n\nFunctionality:\n- Use the subprocess module to execute the system shutdown command\n\nCode:\n1. import subprocess\n\ndef system_shutdown():\n    subprocess.run([\"shutdown\", \"/s\", \"/t\", \"0\"])\n\n2. system_shutdown()\n\nMethod 3:\nPackages used:\n- ctypes\n- win32api (Windows only)\n\nFunctionality:\n- Use the win32api module along with ctypes to execute the system shutdown command\n\nCode:\n1. import ctypes\nimport win32api\n\ndef system_shutdown():\n    # Constants for the shutdown API\n    EWX_SHUTDOWN = 0x00000001\n    EWX_FORCE = 0x00000004\n\n    # Call the ExitWindowsEx API with the shutdown parameters\n    ctypes.windll.user32.ExitWindowsEx(EWX_SHUTDOWN | EWX_FORCE, 0)\n\n2. system_shutdown()\n\nNote: The system shutdown functionality may require elevated privileges, and it should be used responsibly and only for legitimate purposes."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":931,
+    "completion_tokens":273,
+    "total_tokens":1204
+  },
+  "system_fingerprint":null
+}

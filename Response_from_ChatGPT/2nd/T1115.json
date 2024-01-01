@@ -1,8 +1,22 @@
 {
-  "error":{
-    "code":502,
-    "message":"Bad gateway.",
-    "param":null,
-    "type":"cf_bad_gateway"
-  }
+  "id":"chatcmpl-8UxvrI9RZHQn6qbdtmm4ridmQWU0U",
+  "object":"chat.completion",
+  "created":1702390911,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[方案一]\n[分數]：8\n使用套件：pyperclip\n優缺點：\n優點：\n1. 簡單易用，只需使用一個函數即可獲取剪貼簿的內容。\n2. 跨平台，支持多個操作系統。\n缺點：\n1. 需要安裝pyperclip套件。\n\n[方案二]\n[分數]：7\n使用套件：ctypes\n優缺點：\n優點：\n1. 使用Windows API直接獲取剪貼簿的內容，效能較好。\n缺點：\n1. 僅支持Windows環境。\n2. 需要額外的程式碼來操作Windows API。\n\n[方案三]\n[分數]：6\n使用套件：subprocess\n優缺點：\n優點：\n1. 支持Linux環境下的xclip命令，可以獲取剪貼簿的內容。\n缺點：\n1. 僅支持Linux環境。\n2. 需要額外的程式碼以及外部命令來執行。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1584,
+    "completion_tokens":333,
+    "total_tokens":1917
+  },
+  "system_fingerprint":null
 }

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UxfZOOkHNyMkRuBVO9y4uRBN9uu9",
+  "object":"chat.completion",
+  "created":1702389901,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]: Network Traffic Sniffing\n\n方案一:\n[分數]: 8\n使用套件: scapy\n輸入檔案: 無\n輸出檔案: 無\n\n優點:\n1. 使用scapy套件簡單方便\n2. 可以擷取網路封包的摘要資訊\n\n缺點:\n1. 未能解析封包內容\n2. 需要已安裝並導入scapy套件\n\n方案二:\n[分數]: 6\n使用套件: pyshark\n輸入檔案: 無\n輸出檔案: 無\n\n優點:\n1. 使用pyshark套件可以擷取網路封包的詳細資訊\n\n缺點:\n1. 需要已安裝並導入pyshark套件\n2. 需要提供網路介面名稱作為輸入參數\n\n方案三:\n[分數]: 7\n使用套件: socket\n輸入檔案: 無\n輸出檔案: 無\n\n優點:\n1. 使用socket模組，內建於Python，不需額外安裝套件\n2. 可以擷取網路封包的原始資料\n\n缺點:\n1. 需要自行解析封包內容\n2. 需要使用raw socket，需要使用sudo權限執行程式碼\n\n[可實現]\n[TTPs Name]: Network Traffic Sniffing\n\n方案一單元測試:\n```python\nimport scapy.all as scapy\n\ndef test_sniff_network_traffic():\n    sniff_network_traffic(\"eth0\")\n    # 寫入測試程式碼來驗證功能是否正常\n\n# 執行\ntest_sniff_network_traffic()\n```\n\n方案二單元測試:\n```python\nimport pyshark\n\ndef test_sniff_network_traffic():\n    sniff_network_traffic(\"eth0\")\n    # 寫入測試程式碼來驗證功能是否正常\n\n# 執行\ntest_sniff_network_traffic()\n```\n\n方案三單元測試:\n```python\nimport socket\n\ndef test_sniff_network_traffic():\n    sniff_network_traffic()\n    # 寫入測試程式碼來驗證功能是否正常\n\n# 執行\ntest_sniff_network_traffic()\n```\n\n注意事項:\n- 單元測試程式碼需要在之前的程式碼基礎上進行修改，請參考之前的程式碼進行編寫。\n- 單元測試程式碼可以使用assert語句檢查預期結果是否正確。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1868,
+    "completion_tokens":764,
+    "total_tokens":2632
+  },
+  "system_fingerprint":null
+}

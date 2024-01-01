@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPzNoVCf0OFQdcBPZ1PNphEgMqJN",
+  "object":"chat.completion",
+  "created":1702260433,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1531]\n\n[方案一]\n[分數]：8\n使用套件：os, getpass\n優缺點：\n1. 優點：簡單易懂，直接使用os套件執行系統命令\n2. 缺點：無法自動判斷要刪除或鎖定帳號，需要使用者手動輸入\n3. 缺點：無法處理特殊字元的帳號名稱\n\n[方案二]\n[分數]：8\n使用套件：subprocess\n優缺點：\n1. 優點：具有彈性和可擴展性，使用subprocess套件可以更靈活地執行系統命令\n2. 缺點：無法自動判斷要刪除或鎖定帳號，需要使用者手動輸入\n3. 缺點：無法處理特殊字元的帳號名稱\n\n[方案三]\n[分數]：9\n使用套件：ctypes\n優缺點：\n1. 優點：可以直接調用Windows API，執行效能相對較佳\n2. 優點：能夠處理特殊字元的帳號名稱\n3. 缺點：無法自動判斷要刪除或鎖定帳號，需要使用者手動輸入\n\n根據評分，方案一和方案二得分相同，但方案三具有更強的彈性和可擴展性，且能夠處理特殊字元的帳號名稱，因此總評分較高。接下來會對方案三進行功能測試和單元測試的程式碼撰寫。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1852,
+    "completion_tokens":518,
+    "total_tokens":2370
+  },
+  "system_fingerprint":null
+}

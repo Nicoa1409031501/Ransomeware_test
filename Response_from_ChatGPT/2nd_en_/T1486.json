@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8Rgx1T6nVl4TyD9n3VlUy6QVjZXAp",
+  "object":"chat.completion",
+  "created":1701610651,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"```python\nfrom typing import Any\n\ndef test_program(program: Any) -> None:\n    # Test cases for different scenarios\n    test_cases = [\n        # Test case 1: Normal input\n        {\n            'input': 10,\n            'expected_output': 100\n        },\n        # Test case 2: Edge case\n        {\n            'input': 0,\n            'expected_output': 0\n        },\n        # Test case 3: Exceptional situation\n        {\n            'input': -5,\n            'expected_output': -25\n        }\n    ]\n    \n    for i, test_case in enumerate(test_cases):\n        input_data = test_case['input']\n        expected_output = test_case['expected_output']\n        \n        # Run the program with the input data\n        output = program(input_data)\n        \n        # Compare the output with the expected output\n        if output == expected_output:\n            print(f\"Test case {i+1} passed\")\n        else:\n            print(f\"Test case {i+1} failed. Expected: {expected_output}, Actual: {output}\")\n```\n\nTo use this testing function, you can define your program as a callable function and pass it to the `test_program` function. The `test_program` function will execute the program with different test cases and compare the output with the expected output."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1110,
+    "completion_tokens":279,
+    "total_tokens":1389
+  },
+  "system_fingerprint":null
+}

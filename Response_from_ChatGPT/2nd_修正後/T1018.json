@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPWIRsN08ETkiUrCvz3h5wMUhheN",
+  "object":"chat.completion",
+  "created":1702258630,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：7\n使用套件：socket\n輸入檔案：無\n輸出檔案：result.txt\n語法及邏輯正確性：9分\n優缺點：\n1. 透過socket模組建立TCP連線來進行掃描，速度較快\n2. 可以透過修改target_ip來指定不同的目標IP\n3. 可以成功掃描出存活的遠端系統\n4. 依賴於網路連通性，可能受到網絡防火牆的限制影響\n\n[方案二]\n[分數]：8\n使用套件：os\n輸入檔案：無\n輸出檔案：result.txt\n語法及邏輯正確性：8分\n優缺點：\n1. 透過os模組執行ping命令來判斷是否能夠與目標建立連線\n2. 相對於方案一較簡單，使用ping命令的方式速度較慢\n3. 可以成功掃描出存活的遠端系統\n4. 受到操作系統命令的限制，可能在某些情況下無法執行ping命令\n\n[方案三]\n[分數]：8\n使用套件：subprocess\n輸入檔案：無\n輸出檔案：result.txt\n語法及邏輯正確性：8分\n優缺點：\n1. 透過subprocess模組執行ping命令來判斷是否能夠與目標建立連線\n2. 相對於方案一較簡單，使用ping命令的方式速度較慢\n3. 可以成功掃描出存活的遠端系統\n4. 受到操作系統命令的限制，可能在某些情況下無法執行ping命令\n\n[TTPs Name]\n[方案一單元測試]\n內容...\n[方案二單元測試]\n內容...\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1906,
+    "completion_tokens":644,
+    "total_tokens":2550
+  },
+  "system_fingerprint":null
+}

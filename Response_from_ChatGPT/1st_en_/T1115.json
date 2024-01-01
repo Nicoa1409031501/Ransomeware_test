@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R4EjPAcp3e6WcAt7KmiWXzNiyw0G",
+  "object":"chat.completion",
+  "created":1701461833,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\n\nT1115-Clipboard Data\n\nMethod 1:\n```python\nimport clipboard\n\ndef collect_clipboard_data():\n    data = clipboard.paste()\n    if data:\n        with open(\"clipboard_data.txt\", \"w\") as f:\n            f.write(data)\n\ncollect_clipboard_data()\n```\nPackage used: clipboard\nFunctionality used: clipboard.paste() to get the data from the clipboard and write it to a file.\n\nMethod 2:\n```python\nimport pyperclip\n\ndef collect_clipboard_data():\n    data = pyperclip.paste()\n    if data:\n        with open(\"clipboard_data.txt\", \"w\") as f:\n            f.write(data)\n\ncollect_clipboard_data()\n```\nPackage used: pyperclip\nFunctionality used: pyperclip.paste() to get the data from the clipboard and write it to a file.\n\nMethod 3:\n```python\nimport win32clipboard\n\ndef collect_clipboard_data():\n    win32clipboard.OpenClipboard()\n    data = win32clipboard.GetClipboardData()\n    win32clipboard.CloseClipboard()\n    if data:\n        with open(\"clipboard_data.txt\", \"w\") as f:\n            f.write(data)\n\ncollect_clipboard_data()\n```\nPackage used: win32clipboard (pywin32)\nFunctionality used: win32clipboard.GetClipboardData() to get the data from the clipboard and write it to a file.\n\nNote: The above methods are for Windows. If you are using a different operating system, you may need to adjust the code accordingly.\n\n"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":327,
+    "completion_tokens":315,
+    "total_tokens":642
+  },
+  "system_fingerprint":null
+}

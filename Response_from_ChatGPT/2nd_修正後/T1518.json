@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPxrMnYDfKSUtKb6zUi0t47fJMMu",
+  "object":"chat.completion",
+  "created":1702260339,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：subprocess\n優缺點：\n優點：\n1. 使用簡單，只需使用一行命令即可獲取已安裝軟體列表。\n缺點：\n1. 無法獲取到軟體的版本號。\n\n[方案二]\n[分數]：7\n使用套件：psutil\n優缺點：\n優點：\n1. 可以獲取到已安裝軟體的列表。\n2. 無需使用系統命令，直接使用Python套件即可。\n缺點：\n1. 無法獲取到軟體的版本號。\n\n[方案三]\n[分數]：10\n使用套件：pywin32\n優缺點：\n優點：\n1. 可以獲取到已安裝軟體的列表。\n2. 可以獲取到軟體的版本號。\n缺點：\n1. 需要安裝pywin32套件，可能需要額外的安裝步驟。\n\n由於方案三可以獲取到軟體的版本號，因此需要進行功能測試和單元測試。\n\n[TTPs Name]\n[方案三單元測試]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1754,
+    "completion_tokens":389,
+    "total_tokens":2143
+  },
+  "system_fingerprint":null
+}

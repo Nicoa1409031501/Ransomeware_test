@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8Wc85l3HGMAOffHFuNoQh6tRxAcSo",
+  "object":"chat.completion",
+  "created":1702783757,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[TTPs Name]\n\n[方案一總結]\n使用plistlib模塊可以方便地讀取和修改plist文件，語法簡單易懂，不需要額外安裝第三方套件。\n\n[方案二總結]\n使用xml.etree.ElementTree模塊可以解析和修改plist文件，需要遍歷元素來找到要修改的值，不需要額外安裝第三方套件。\n\n[方案三總結]\n使用plistlib和plist模塊可以解析和修改plist文件，需要將文件轉為二進制數據進行處理，需要安裝第三方套件plist。\n\n[TTPs Name]\n\n[方案一總結]\n內容...\n\n```python\n# TTPs程式碼\nimport plistlib\n\nplist = plistlib.readPlist(\"path/to/plist_file.plist\")\nplist[\"key\"] = \"new_value\"\nplistlib.writePlist(plist, \"path/to/plist_file.plist\")\n\n# 功能測試程式碼\nplist = plistlib.readPlist(\"path/to/plist_file.plist\")\nassert plist[\"key\"] == \"new_value\", \"Failed to modify plist value\"\n```\n\n[方案二總結]\n內容...\n\n```python\n# TTPs程式碼\nimport xml.etree.ElementTree as ET\n\ntree = ET.parse(\"path/to/plist_file.plist\")\nroot = tree.getroot()\n\nfor elem in root.iter(\"key\"):\n    if elem.text == \"key_to_modify\":\n        elem.next_sibling.text = \"new_value\"\n\ntree.write(\"path/to/plist_file.plist\")\n\n# 功能測試程式碼\ntree = ET.parse(\"path/to/plist_file.plist\")\nroot = tree.getroot()\n\nfor elem in root.iter(\"key\"):\n    if elem.text == \"key_to_modify\":\n        assert elem.next_sibling.text == \"new_value\", \"Failed to modify plist value\"\n```\n\n[方案三總結]\n內容...\n\n```python\n# TTPs程式碼\nimport plistlib\nimport plist\n\nwith open(\"path/to/plist_file.plist\", \"rb\") as fp:\n    plist_data = fp.read()\n\nplist_root = plistlib.loads(plist_data)\nplist_root[\"key\"] = \"new_value\"\n\nwith open(\"path/to/plist_file.plist\", \"wb\") as fp:\n    fp.write(plistlib.dumps(plist_root))\n\n# 功能測試程式碼\nwith open(\"path/to/plist_file.plist\", \"rb\") as fp:\n    plist_data = fp.read()\n\nplist_root = plistlib.loads(plist_data)\nassert plist_root[\"key\"] == \"new_value\", \"Failed to modify plist value\"\n```"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1395,
+    "completion_tokens":637,
+    "total_tokens":2032
+  },
+  "system_fingerprint":null
+}

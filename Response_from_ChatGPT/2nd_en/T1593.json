@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8VHtZe2WusAkpxtP3bHbkxfeflEEd",
+  "object":"chat.completion",
+  "created":1702467649,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Solution 1]\n[Score]: 7\n\nUsed packages: requests, BeautifulSoup\n\nAdvantages and Disadvantages:\n1. The advantage of using Requests and BeautifulSoup is that it is a lightweight solution that does not require a web driver.\n2. The disadvantage is that it relies on the structure of the Google search results page, which might change in the future, leading to possible errors.\n\n[Solution 2]\n[Score]: 8\n\nUsed packages: selenium\n\nAdvantages and Disadvantages:\n1. The advantage of using Selenium is that it can handle dynamic websites that rely on JavaScript.\n2. The disadvantage is that it requires a web driver to be installed and configured.\n\n[Solution 3]\n[Score]: 7\n\nUsed packages: requests\n\nAdvantages and Disadvantages:\n1. The advantage of using the Google Custom Search API is that it provides more reliable and structured search results.\n2. The disadvantage is that it requires an API key and a search engine ID, which may involve additional setup.\n\nSince Solution 2 has the highest score of 8, I will proceed to write functional test and unit test code for that solution.\n\n[Feasible]\nT1593-Search Open Websites/Domains\n\n[Solution 2 Unit Test]\nFunctional Test Code:\n```python\nsearch_websites_domains(\"example query\")\n```\n\nUnit Test Code:\n```python\nimport unittest\nfrom unittest.mock import patch\nfrom io import StringIO\n\nfrom selenium import webdriver\n\nclass TestSearchWebsitesDomains(unittest.TestCase):\n    @patch('sys.stdout', new_callable=StringIO)\n    @patch('selenium.webdriver.Chrome')\n    def test_search_websites_domains(self, mock_chrome, mock_stdout):\n        driver = mock_chrome.return_value\n\n        result_html = '''\n            <div class=\"rc\">\n                <h3>Title 1</h3>\n                <a href=\"https://example.com/link1\">Link 1</a>\n            </div>\n            <div class=\"rc\">\n                <h3>Title 2</h3>\n                <a href=\"https://example.com/link2\">Link 2</a>\n            </div>\n        '''\n\n        mock_driver_find_elements = driver.find_elements_by_class_name\n        mock_driver_find_elements.return_value = [mock_driver_find_elements.return_value, mock_driver_find_elements.return_value]\n        mock_driver_find_element = driver.find_element_by_tag_name\n        mock_driver_find_element.return_value = mock_driver_find_element.return_value\n        mock_driver_find_element.text = \"Title\"\n        mock_driver_get_attribute = mock_driver_find_element.get_attribute\n        mock_driver_get_attribute.return_value = \"https://example.com/link\"\n\n        expected_output = \"Title 1 https://example.com/link1\\nTitle 2 https://example.com/link2\\n\"\n\n        search_websites_domains(\"example query\")\n\n        self.assertEqual(mock_stdout.getvalue(), expected_output)\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\nIn this unit test, I'm using the `unittest` module to create a test case for the `search_websites_domains` function. I'm mocking the `selenium.webdriver.Chrome` class and its methods to simulate the behavior of the web driver. I'm also patching the `sys.stdout` object to capture the output printed by the function. The test case asserts that the expected output matches the actual output.\n\nYou can run the unit test by executing the script or using a test runner such as `python -m unittest test_search_open_websites_domains.py`."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1415,
+    "completion_tokens":717,
+    "total_tokens":2132
+  },
+  "system_fingerprint":null
+}

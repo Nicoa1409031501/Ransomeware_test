@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8RrycKvpODb7PLdP3LScQwBzdgOsD",
+  "object":"chat.completion",
+  "created":1701653034,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n\n以下是三種實現 T1052 的 Python 程式碼：\n\n方法一：\n```python\nimport shutil\n\ndef exfiltrate_data(source_path, destination_path):\n    shutil.copytree(source_path, destination_path)\n```\n\n方法二：\n```python\nimport os\n\ndef exfiltrate_data(source_path, destination_path):\n    os.system(f\"cp -R {source_path} {destination_path}\")\n```\n\n方法三：\n```python\nimport subprocess\n\ndef exfiltrate_data(source_path, destination_path):\n    subprocess.call([\"cp\", \"-R\", source_path, destination_path])\n```\n\n這三種方法都使用了內建的套件來執行檔案複製的動作。使用者可以呼叫 `exfiltrate_data` 函式，並傳入源路徑和目的地路徑作為參數，程式會將源路徑的檔案或資料夾複製到目的地路徑中。\n\n輸出檔案：無\n讀取檔案：無"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":720,
+    "completion_tokens":267,
+    "total_tokens":987
+  },
+  "system_fingerprint":null
+}

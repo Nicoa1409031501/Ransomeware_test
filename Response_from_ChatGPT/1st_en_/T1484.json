@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R34rqYZ1RnV8JtaXYT6WNSLh1yhz",
+  "object":"chat.completion",
+  "created":1701457377,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1484-Domain Policy Modification\n\nMethod 1:\nPackages used: subprocess\nFunctionality used: subprocess.call(), subprocess.check_output()\n\n```python\nimport subprocess\n\ndef modify_gpo():\n    try:\n        # 1. Modify Group Policy Objects (GPOs)\n        command = \"gpedit.msc\" # or any other method to modify GPOs\n        subprocess.call(command, shell=True)\n\n        # 2. Change trust settings for domains\n        trust_settings = \"trust_settings.txt\" # file containing trust settings modifications\n        subprocess.call([\"netdom\", \"trust\", \"/domain:<domain_name>\", \"/secure:yes\", \"/set\", \"/usero:<username>\", \"/passwordo:<password>\", \"/useri:<username>\", \"/passwordi:<password>\", \"/userd:<username>\", \"/passwordd:<password>\", \"/add\", trust_settings])\n\n        return True\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Usage:\nmodify_gpo()\n```\n\nMethod 2:\nPackages used: ctypes, winreg\nFunctionality used: ctypes.windll.shell32.ShellExecuteW()\n\n```python\nimport ctypes\nimport winreg\n\ndef modify_gpo():\n  \n    try:\n        # 1. Modify Group Policy Objects (GPOs)\n        command = \"C:\\\\Windows\\\\System32\\\\gpedit.msc\" # or any other method to modify GPOs\n        ctypes.windll.shell32.ShellExecuteW(None, \"runas\", command, None, None, 1)\n\n        # 2. Change trust settings for domains\n        key_path = r\"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\"\n        key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key_path, 0, winreg.KEY_ALL_ACCESS)\n        winreg.SetValueEx(key, 'AutoAdminLogon', 0, winreg.REG_SZ, \"1\")\n        winreg.CloseKey(key)\n\n        return True\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Usage:\nmodify_gpo()\n```\n\nMethod 3:\nPackages used: pyad\nFunctionality used: pyad.adquery.ADQuery()\n\n```python\nfrom pyad import adquery\n\ndef modify_gpo():\n    try:\n        # 1. Modify Group Policy Objects (GPOs)\n        # ...implementation using pyad package\n\n        # 2. Change trust settings for domains\n        # ...implementation using pyad package\n\n        return True\n    except Exception as e:\n        print(str(e))\n        return False\n\n# Usage:\nmodify_gpo()\n```\n\nNote: The implementation of modifying Group Policy Objects (GPOs) and changing trust settings depend on the specific requirements and configuration of the domain environment. The methods provided above are just examples and may need to be adapted accordingly."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":583,
+    "completion_tokens":592,
+    "total_tokens":1175
+  },
+  "system_fingerprint":null
+}

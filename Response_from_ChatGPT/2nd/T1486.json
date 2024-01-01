@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UyH81qtxIW940B8ZTxFXQb7QvPFj",
+  "object":"chat.completion",
+  "created":1702392230,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[T1486] 資料加密方案評分：\n\n[方案一]\n[分數]：9\n使用套件：cryptography\n優點：\n   1. 使用了現成的加密算法，功能完整且易於使用。\n   2. 加密金鑰可以自動生成，方便管理。\n\n[方案二]\n[分數]：8\n使用套件：pycryptodome\n優點：\n   1. 使用了AES加密算法，安全性較高。\n   2. 可以自訂填充函數，提高資料安全性。\n\n[方案三]\n[分數]：7\n使用套件：cryptography\n優點：\n   1. 使用了加密金鑰進行加密，加強資料安全性。\n缺點：\n   1. 使用了字串編碼和解碼，可能會影響效能。\n\n根據評分結果，方案一的分數最高，可以考慮使用該方案來實現資料加密功能。"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2110,
+    "completion_tokens":296,
+    "total_tokens":2406
+  },
+  "system_fingerprint":null
+}

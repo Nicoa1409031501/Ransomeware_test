@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Ocwox8NGJck5koBblA8keoxrCeoV",
+  "object":"chat.completion",
+  "created":1700880278,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：T1008 Fallback Channels\n方案數量：3\n\n[方案一]\n優點：\n- 使用TCP或UDP作為傳輸通道，可靠性高\n- 可以透過自訂的Command and Control伺服器來控制目標系統\n\n缺點：\n- 需要手動執行程式碼\n\n改善建議：\n- 可以加入錯誤處理機制，例如輸入錯誤的IP地址或埠號時，在程式中提示用戶重新輸入\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用HTTP作為傳輸通道，可通過防火牆和代理伺服器\n- 可以透過自訂的Command and Control伺服器來控制目標系統\n\n缺點：\n- 需要手動執行程式碼\n- 可能受到網絡連接限制的影響\n\n改善建議：\n- 可以加入日誌記錄功能，以便排查潛在問題\n- 進一步提高安全性，可以使用HTTPS進行加密傳輸\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用SSH作為傳輸通道和Command and Control伺服器\n- 支持執行遠端命令，可控制遠端系統\n\n缺點：\n- 需要手動執行程式碼\n- 需要提供正確的認證信息\n\n改善建議：\n- 可以加入錯誤處理機制，例如處理連接失敗或認證失敗的情況\n- 可以使用金鑰認證方式提高安全性\n\n[方案三評分]: 95\n\n綜合評分：90"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2163,
+    "completion_tokens":556,
+    "total_tokens":2719
+  }
+}

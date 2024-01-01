@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8R2ZJxGVIMZbvpgAhDcBNAws7qWmO",
+  "object":"chat.completion",
+  "created":1701455421,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[Feasible]\nT1136-Create Account\n\nMethod 1:\nPackages used: subprocess\nFunctionality used: subprocess.call()\n\n```python\nimport subprocess\n\ndef create_local_account(username, password):\n    command = f'net user {username} {password} /add'\n    subprocess.call(command, shell=True)\n\ncreate_local_account('testuser', 'P@ssw0rd')\n```\n\nMethod 2:\nPackages used: ctypes, pywin32\nFunctionality used: ctypes.windll, win32net.NetUserAdd()\n\n```python\nimport ctypes\nimport win32net\n\ndef create_local_account(username, password):\n    user_info = {\n        'name': username,\n        'password': password,\n        'priv': win32net.USER_PRIV_USER,\n        'flags': win32net.UF_NORMAL_ACCOUNT | win32net.UF_SCRIPT,\n    }\n    try:\n        win32net.NetUserAdd('', 1, user_info)\n    except Exception as e:\n        print(f'Error creating local account: {e}')\n\ncreate_local_account('testuser', 'P@ssw0rd')\n```\n\nMethod 3:\nPackages used: subprocess\nFunctionality used: subprocess.check_output()\n\n```python\nimport subprocess\n\ndef create_local_account(username, password):\n    command = f'net user {username} {password} /add'\n    output = subprocess.check_output(command, shell=True)\n    print(output.decode())\n\ncreate_local_account('testuser', 'P@ssw0rd')\n```\n\nNotes:\n- Method 1 and Method 3 use the subprocess module to execute the \"net user\" command to create a local account.\n- Method 2 uses the ctypes and pywin32 modules to call the NetUserAdd() function to create a local account.\n- All methods require administrative privileges to create a local account on the system.\n- The username and password can be modified as needed."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":543,
+    "completion_tokens":391,
+    "total_tokens":934
+  },
+  "system_fingerprint":null
+}

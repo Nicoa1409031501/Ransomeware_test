@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Og0VTZQsFU8cG2ZfiRZcEqB9yKUm",
+  "object":"chat.completion",
+  "created":1700892039,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Boot or Logon Initialization Scripts\n方案數量：1\n\n[方案一]\n優點：\n- 使用python-krb5套件，提供了對Kerberos協議的完整支援，方便進行相關操作。\n- 透過破解KRBTGT帳戶密碼雜湊並生成Golden Ticket，可以欺騙Kerberos認證系統，獲取高權限訪問權限。\n- 透過破解目標服務帳戶的密碼雜湊並生成Silver Ticket，可以模仿目標服務帳戶進行攻擊。\n- 可以通過破解票據或窺視網路流量獲取TGS票據，進一步擴大攻擊範圍。\n- 可以暴露禁用Kerberos預認證的帳戶的憑據，用於進一步的攻擊。\n\n缺點：\n- 破解KRBTGT帳戶密碼雜湊和目標服務帳戶的密碼雜湊需要較長的破解時間，且需要大量的運算資源。\n- 在一些情況下，Golden Ticket、Silver Ticket和TGS票據的使用可能會引起警覺。\n- 依賴python-krb5套件，如果套件本身存在錯誤或安全漏洞，可能會影響到程式的正常運行。\n\n[方案一評分]: 85\n\n總評分：85"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2645,
+    "completion_tokens":475,
+    "total_tokens":3120
+  }
+}

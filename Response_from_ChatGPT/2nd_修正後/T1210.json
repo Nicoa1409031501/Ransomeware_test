@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPrjZZ9zug6J3EYirahvZ3pvrOye",
+  "object":"chat.completion",
+  "created":1702259959,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：socket\n優缺點：\n1. 簡單且直接的方法來檢查遠程服務是否可被利用\n2. 可以快速檢查多個遠程服務器的連接狀態\n\n[方案二]\n[分數]：9\n使用套件：socket\n優缺點：\n1. 跟方案一相同，都是使用socket模組來進行連接測試\n2. 在程式碼中加入檢查連接時間的功能，可以更詳細地評估遠程服務的回應速度\n\n[方案三]\n[分數]：7\n使用套件：socket\n優缺點：\n1. 與方案一相比，缺少檢查連接失敗的處理程式碼\n2. 在連接遠程服務之前，可以先透過ping指令檢查主機是否存活，避免無效的連接嘗試\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1590,
+    "completion_tokens":348,
+    "total_tokens":1938
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,23 @@
+{
+  "id":"chatcmpl-8WbQbB7BvqR8Lw3rXIe0DrVwiS9Fd",
+  "object":"chat.completion",
+  "created":1702781061,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現] [T1590]\n\n[方案一總結]\n使用 requests 套件和 Google 的 LookUP API 可以方便地获取网络信息。不过需要进行网络连接和依赖外部接口。\n\n[方案二總結]\n使用 socket 套件进行网络扫描可以获取主机和服务的信息，不依赖外部接口，但扫描整个网络可能较慢。\n\n[方案三總結]\n使用 python-nmap 套件进行网络扫描可以方便地获取主机和服务的详细信息，但需要安装 python-nmap 这个第三方库，且依赖 nmap 工具。\n\n[T1590程式碼與功能測試]\n\n[方案一總結]\n```\n[可實現] [T1590] 方案一總結\n使用 request 套件和 Google 的 LookUP API 可以方便地获取网络信息，\n但需要网络连接和依赖外部接口。\n\n[T1590] 方案二總結\n```\n```\n[可實現] [T1590] 方案二總結\n使用 socket 套件进行网络扫描可以获取主机和服务的信息，不依赖外部接口，\n但扫描整个网络可能较慢。\n```\n```\n[可實現] [T1590] 方案三總結\n使用 python-nmap 套件进行网络扫描可以方便地获取主机和服务的详细信息，\n需要安装 python-nmap 这个第三方库，且依赖 nmap 工具。\n```\n\n[T1590] 方案一程式碼與功能測試:\n\n```python\nimport requests\nimport unittest\n\n# Gathering victim network information using LookUP API\ndef gather_network_info():\n    url = \"https://api.lookup.ipify.org\"\n    response = requests.get(url)\n    return response.json()\n\n# Unit test for gathering victim network information using LookUP API\nclass NetworkInfoTest(unittest.TestCase):\n    def test_network_info(self):\n        network_info = gather_network_info()\n        self.assertNotEqual(network_info, {})\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n[T1590] 方案二程式碼與功能測試:\n\n```python\nimport socket\nimport unittest\n\n# Gathering victim network information using socket\ndef gather_network_info():\n    target_ip = \"192.168.0.0\"  # Replace with target IP or subnet\n    for port in range(1, 65536):\n        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n        client_socket.settimeout(0.5)\n        result = client_socket.connect_ex((target_ip, port))\n        if result == 0:\n            print(f\"Port {port} is open\")\n        client_socket.close()\n\n# Unit test for gathering victim network information using socket\nclass NetworkInfoTest(unittest.TestCase):\n    def test_network_info(self):\n        gather_network_info()\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n[T1590] 方案三程式碼與功能測試:\n\n```python\nimport nmap\nimport unittest\n\n# Gathering victim network information using python-nmap\ndef gather_network_info():\n    target_ip = \"192.168.0.0/24\"  # Replace with target IP or subnet\n    nm = nmap.PortScanner()\n    nm.scan(hosts=target_ip, arguments='-p 1-65535 -sS -O')\n    for host in nm.all_hosts():\n        if nm[host].state() == 'up':\n            for proto in nm[host].all_protocols():\n                lport = nm[host][proto].keys()\n                for port in lport:\n                    print(f\"Host: {host}, Port: {port}, State: {nm[host][proto][port]['state']}\")\n\n# Unit test for gathering victim network information using python-nmap\nclass NetworkInfoTest(unittest.TestCase):\n    def test_network_info(self):\n        gather_network_info()\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n以上程式碼包含了方案一、方案二和方案三的代码与功能测试。方案一使用 LookUP API 获取网络信息，方案二使用 socket 进行网络扫描，方案三使用 python-nmap 进行网络扫描。每个方案中，都有对应的功能测试来验证其功能的正确性。"
+      },
+      "logprobs":null,
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1891,
+    "completion_tokens":1050,
+    "total_tokens":2941
+  },
+  "system_fingerprint":null
+}

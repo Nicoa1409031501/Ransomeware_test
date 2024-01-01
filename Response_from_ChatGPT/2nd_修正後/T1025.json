@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPXEVznORVQGQb2iRgxv98CYubNA",
+  "object":"chat.completion",
+  "created":1702258688,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：os\n優缺點：\n1. 使用os模組提供的功能來進行檔案搜尋，簡單易懂。\n2. 可以遞迴搜索指定路徑下的所有子目錄，尋找指定檔案。\n\n[方案二]\n[分數]：7\n使用套件：glob\n優缺點：\n1. 使用glob模組的功能，可以使用更簡潔的語法進行檔案搜尋。\n2. 只能進行單層搜尋，無法遞迴搜索子目錄。\n\n[方案三]\n[分數]：8\n使用套件：os、fnmatch\n優缺點：\n1. 使用os和fnmatch模組的功能，可以根據指定的檔案格式進行搜尋。\n2. 可以遞迴搜索指定路徑下的所有子目錄，尋找指定檔案。\n\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2048,
+    "completion_tokens":338,
+    "total_tokens":2386
+  },
+  "system_fingerprint":null
+}

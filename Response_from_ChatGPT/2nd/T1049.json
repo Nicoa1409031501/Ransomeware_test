@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UxhpYUrIAz3hMD9WrRyKMxlYzRfD",
+  "object":"chat.completion",
+  "created":1702390041,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[可實現]\n[System Network Connections Discovery]\n\n方案一：\n使用Python的psutil套件來實現System Network Connections Discovery。\n\n程式碼示例：\n\n```python\nimport psutil\n\ndef system_network_connections_discovery():\n    # 獲取所有網絡連接\n    connections = psutil.net_connections()\n\n    # 輸出連接資訊\n    for conn in connections:\n        print(conn)\n\n# 測試程式碼\nsystem_network_connections_discovery()\n```\n\n使用套件：psutil\n\n優點：\n1. 簡潔易懂，可以快速獲取網絡連接資訊。\n\n缺點：\n1. 依賴第三方套件psutil。\n\n[方案一分數]：8\n\n方案二：\n使用Python的subprocess套件來實現System Network Connections Discovery。\n\n程式碼示例：\n\n```python\nimport subprocess\n\ndef system_network_connections_discovery():\n    # 執行netstat命令\n    result = subprocess.run(['netstat', '-ano'], capture_output=True, text=True)\n\n    # 輸出執行結果\n    print(result.stdout)\n\n# 測試程式碼\nsystem_network_connections_discovery()\n```\n\n使用套件：subprocess\n\n優點：\n1. 可以使用系統內建的netstat命令獲取網絡連接資訊。\n\n缺點：\n1. 執行結果需要進行解析，可能較為複雜。\n\n[方案二分數]：6\n\n方案三：\n使用Python的socket套件來實現System Network Connections Discovery。\n\n程式碼示例：\n\n```python\nimport socket\n\ndef system_network_connections_discovery(host, port=80):\n    # 使用socket建立TCP連接\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.connect((host, port))\n\n    # 獲取連接資訊\n    connections = s.getsockname()\n\n    # 輸出連接資訊\n    print(connections)\n\n    # 關閉socket連接\n    s.close()\n\n# 測試程式碼\nsystem_network_connections_discovery('www.google.com', 80)\n```\n\n使用套件：socket\n\n優點：\n1. 使用Python內建的socket套件來進行網絡連接。\n2. 可以自定義需要查詢的目標主機和端口。\n\n缺點：\n1. 只能獲取單個連接的資訊，需要使用迴圈來獲取多個連接。\n\n[方案三分數]：7"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1853,
+    "completion_tokens":676,
+    "total_tokens":2529
+  },
+  "system_fingerprint":null
+}

@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8Odo06F7jDPAY8e8MN2hPzZ9LSaIl",
+  "object":"chat.completion",
+  "created":1700883576,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：Capture Audio Function\n方案數量：3\n\n[方案1]\n優點：\n- 使用pyaudio套件，可以實現對音訊輸入設備的錄音功能\n- 支援多種音訊格式\n- 程式碼簡潔、易懂\n\n缺點：\n- 需要先安裝pyaudio套件\n- 需要使用者同意錄音權限\n\n改善方案：\n- 加入錄音權限的提示及錯誤處理機制\n\n[方案1評分]: 90\n\n[方案2]\n優點：\n- 使用sounddevice套件，可以實現對音訊輸入設備的錄音功能\n- 不需要安裝其他套件\n- 程式碼相對簡潔\n\n缺點：\n- 需要使用者同意錄音權限\n\n改善方案：\n- 加入錄音權限的提示及錯誤處理機制\n\n[方案2評分]: 85\n\n[方案3]\n優點：\n- 使用pyaudio套件，實現無聲錄音功能\n- 可以保存音訊數據，方便後續處理\n- 程式碼簡潔、易懂\n\n缺點：\n- 需要先安裝pyaudio套件\n- 需要使用者同意錄音權限\n\n改善方案：\n- 加入錄音權限的提示及錯誤處理機制\n\n[方案3評分]: 88\n\n總評分：87"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2184,
+    "completion_tokens":467,
+    "total_tokens":2651
+  }
+}

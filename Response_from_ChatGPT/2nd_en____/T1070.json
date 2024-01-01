@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8SE3VpSl4LD6Yl0I4E3TQfRFxxIHV",
+  "object":"chat.completion",
+  "created":1701737905,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"Unit Test Proposal:\n\nMethod: clear_windows_event_logs()\n\nUnit Test 1:\n\n```python\nimport unittest\nimport os\n\nclass TestClearWindowsEventLogs(unittest.TestCase):\n    \n    def test_clear_windows_event_logs(self):\n        clear_windows_event_logs()\n        \n        # Assert that event logs are cleared\n        self.assertFalse(os.path.exists('System.evtx'))\n        self.assertFalse(os.path.exists('Application.evtx'))\n        self.assertFalse(os.path.exists('Security.evtx'))\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nReviewed Code:\n\n```python\nimport os\n\ndef clear_windows_event_logs():\n    os.system('wevtutil cl System')\n    os.system('wevtutil cl Application')\n    os.system('wevtutil cl Security')\n```\n\nUnit Test 2:\n\n```python\nimport unittest\nimport subprocess\n\nclass TestClearWindowsEventLogs(unittest.TestCase):\n    \n    def test_clear_windows_event_logs(self):\n        clear_windows_event_logs()\n        \n        # Assert that event logs are cleared\n        event_logs = subprocess.check_output('wevtutil el', shell=True)\n        event_logs = event_logs.decode().splitlines()\n        \n        self.assertNotIn('System', event_logs)\n        self.assertNotIn('Application', event_logs)\n        self.assertNotIn('Security', event_logs)\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\nReviewed Code:\n\n```python\nimport subprocess\n\ndef clear_windows_event_logs():\n    subprocess.run(['wevtutil', 'cl', 'System'])\n    subprocess.run(['wevtutil', 'cl', 'Application'])\n    subprocess.run(['wevtutil', 'cl', 'Security'])\n```"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":864,
+    "completion_tokens":333,
+    "total_tokens":1197
+  },
+  "system_fingerprint":null
+}

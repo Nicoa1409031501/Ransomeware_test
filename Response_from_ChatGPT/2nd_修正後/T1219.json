@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPtHM2L4rWtYWxIEMGZ2BmGVri6a",
+  "object":"chat.completion",
+  "created":1702260055,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n使用套件：socket\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9\n優缺點：\n1. 優點：使用Python的socket模組能夠建立簡單的遠端命令控制程式。\n2. 缺點：無法在遠端控制機器上執行複雜的命令。\n[分數]：8\n\n[方案二]\n使用套件：subprocess\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：10\n優缺點：\n1. 優點：使用Python的subprocess模組能夠遠端執行命令，並在本地輸出結果。\n2. 缺點：需要手動輸入命令，無法以程式控制。\n[分數]：9\n\n[方案三]\n使用套件：paramiko\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：10\n優缺點：\n1. 優點：使用Python的paramiko模組可以建立SSH遠端控制程式，具有更好的安全性。\n2. 缺點：需要手動輸入目標主機的IP地址、用戶名和密碼。\n[分數]：9"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1899,
+    "completion_tokens":418,
+    "total_tokens":2317
+  },
+  "system_fingerprint":null
+}

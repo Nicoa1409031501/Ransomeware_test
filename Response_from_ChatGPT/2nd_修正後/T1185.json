@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPo2kRA6ThgqfPsZzyiKQy7qiwUE",
+  "object":"chat.completion",
+  "created":1702259730,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：9\n使用套件：selenium\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：9分\n優缺點：\n1. 優點：使用selenium套件可以模擬真實的瀏覽器操作，並且能夠篡改瀏覽器的session。\n2. 缺點：需要安裝特定的瀏覽器驅動程式，並且對於某些網站可能無法正常工作。\n\n[方案二]\n[分數]：8\n使用套件：requests\n輸入檔案：無\n輸出檔案：無\n語法及邏輯正確性：8分\n優缺點：\n1. 優點：使用requests套件可以發送HTTP請求，並且能夠修改session cookie的值。\n2. 缺點：需要手動取得原始的session cookie的值，並且在每次發送請求時都需要修改session cookie的值。\n\n[方案三]\n[分數]：7\n使用套件：mitmproxy\n輸入檔案：flows.txt (包含攔截的網路流量)\n輸出檔案：無\n語法及邏輯正確性：7分\n優缺點：\n1. 優點：使用mitmproxy套件可以攔截網路流量，並且能夠修改session cookie的值。\n2. 缺點：需要安裝mitmproxy套件，並且需要先取得攔截的網路流量。使用較複雜，不適用於所有情境。\n\n------------------\n\n[TTPs Name]\n[方案一單元測試]\n內容....\n\n[方案二單元測試]\n內容....\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2006,
+    "completion_tokens":549,
+    "total_tokens":2555
+  },
+  "system_fingerprint":null
+}

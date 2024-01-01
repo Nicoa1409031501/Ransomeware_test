@@ -1,0 +1,21 @@
+{
+  "id":"chatcmpl-8OfSu4HxuXDEtk82Tya0YeYtHOCSA",
+  "object":"chat.completion",
+  "created":1700889956,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"【評分報告】\n名稱：資訊擷取方法\n方案數量：3\n\n[方案一]\n優點：\n- 使用requests和BeautifulSoup套件，可以方便地從Confluence網頁中擷取資訊\n- 程式碼簡潔易懂，易於改寫和維護\n\n缺點：\n- 依賴第三方套件，需要確保已經安裝相應的套件\n\n[方案一評分]: 90\n\n[方案二]\n優點：\n- 使用requests和pandas套件，可以直接從SharePoint網站中下載和解析文件\n- 使用pandas來處理資料，方便進行數據操作和分析\n\n缺點：\n- 依賴第三方套件，需要確保已經安裝相應的套件\n- 只支援特定的文件格式，需要根據實際情況進行更改\n\n[方案二評分]: 85\n\n[方案三]\n優點：\n- 使用GitPython套件，可以從程式碼存儲庫中下載程式碼\n- 可以根據實際需求使用不同的方法來解析程式碼\n\n缺點：\n- 依賴第三方套件，需要確保已經安裝相應的套件\n- 需要對程式碼進行進一步的解析和處理，具有一定的複雜度\n\n[方案三評分]: 80\n\n總結：以上三個方案都可行且有效，但每個方案都有其優缺點。根據不同的使用場景和需求，可以選擇適合的方案。根據總結給予的評分如下：\n方案一評分：90\n方案二評分：85\n方案三評分：80\n總分：88.33（四捨五入為88分）"
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2042,
+    "completion_tokens":595,
+    "total_tokens":2637
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPjTNqqWgYKXwnyr3AgjrJqUZc3r",
+  "object":"chat.completion",
+  "created":1702259447,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[方案一]\n[分數]：8\n使用套件：pyperclip\n優缺點：\n1. 優點：使用簡單，只需使用一行程式碼即可獲取剪貼簿的內容。\n2. 缺點：僅限於支援pyperclip套件的環境。\n\n[方案二]\n[分數]：8\n使用套件：ctypes\n優缺點：\n1. 優點：利用Windows API的調用來獲取剪貼簿的內容，可跨平台使用。\n2. 缺點：需要調用Windows API，較複雜一些。\n\n[方案三]\n[分數]：6\n使用套件：subprocess\n優缺點：\n1. 優點：支援Linux環境下使用xclip命令獲取剪貼簿的內容。\n2. 缺點：僅限於Linux環境，且需要安裝xclip。\n\n由於方案一和方案二均獲得8分，超過8分的門檻，因此接下來進行功能測試。\n\n[TTPs Name]\n[方案一單元測試]\n內容....（功能測試的程式碼）\n\n[TTPs Name]\n[方案二單元測試]\n內容....（功能測試的程式碼）\n\n[方案三]\n內容...."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":1512,
+    "completion_tokens":418,
+    "total_tokens":1930
+  },
+  "system_fingerprint":null
+}

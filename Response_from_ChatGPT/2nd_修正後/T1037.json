@@ -1,0 +1,22 @@
+{
+  "id":"chatcmpl-8UPYRicc9fhym4MlSsRDyuYs1XSXl",
+  "object":"chat.completion",
+  "created":1702258763,
+  "model":"gpt-3.5-turbo-0613",
+  "choices":[
+    {
+      "index":0,
+      "message":{
+        "role":"assistant",
+        "content":"[TTPs Name]\n[T1037 Boot or Logon Initialization Scripts]\n\n[方案一]\n[分數]：9\n使用套件：winreg\n輸入檔案：無\n輸出檔案：無\n評分：語法和邏輯正確性：9分\n優點：\n1. 透過Python檔案操作來修改Registry key，可以有效地修改用戶的登錄腳本。\n缺點：\n1. 需要在修改Registry key時具有系統管理員權限。\n\n[方案二]\n[分數]：8\n使用套件：subprocess\n輸入檔案：無\n輸出檔案：無\n評分：語法和邏輯正確性：8分\n優點：\n1. 使用subprocess模組運行腳本，可以簡單方便地執行默認登錄腳本。\n缺點：\n1. 需要在執行過程中處理錯誤和例外情況。\n\n[方案三]\n[分數]：8\n使用套件：plistlib\n輸入檔案：plist檔案\n輸出檔案：無\n評分：語法和邏輯正確性：8分\n優點：\n1. 使用plistlib來操作plist檔案，可以修改Mac系統的登陸鉤子。\n缺點：\n1. 需要確保腳本在正確的位置。\n\n[方案四]\n[分數]：7\n使用套件：無\n輸入檔案：RC script\n輸出檔案：修改後的RC script\n評分：語法和邏輯正確性：7分\n優點：\n1. 透過修改RC script來執行腳本，可以在系統啟動時自動執行腳本。\n缺點：\n1. 需要確保有足夠的權限修改RC script。\n\n[方案五]\n[分數]：6\n使用套件：plistlib\n輸入檔案：plist檔案\n輸出檔案：修改後的plist檔案\n評分：語法和邏輯正確性：6分\n優點：\n1. 使用plistlib來操作plist檔案，可以修改Mac系統的啟動項目。\n缺點：\n1. 需要確保腳本在正確的位置。\n\n由於方案一的評分最高，達到了9分，因此需要進一步進行功能測試和單元測試。\n\n[TTPs Name]\n[T1037 Boot or Logon Initialization Scripts]\n\n[方案一單元測試]\n內容... \n\n[方案二]\n內容...\n\n[方案三]\n內容..."
+      },
+      "finish_reason":"stop"
+    }
+  ],
+  "usage":{
+    "prompt_tokens":2166,
+    "completion_tokens":788,
+    "total_tokens":2954
+  },
+  "system_fingerprint":null
+}
